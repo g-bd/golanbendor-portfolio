@@ -83,7 +83,9 @@ export const metadata: Metadata = {
     images: ['/profile1.jpg'],
   },
   icons: {
-    icon: '/icon.png',
+    icon: '/chrome tab logo.png?v=2',
+    shortcut: '/chrome tab logo.png?v=2',
+    apple: '/chrome tab logo.png?v=2',
   },
 };
 
