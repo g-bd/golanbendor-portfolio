@@ -482,10 +482,10 @@ export default function Home() {
                   <span className="highlight-name" style={{ fontSize: '0.4rem', fontWeight: 700, color: 'white', padding: '4px 36px', border: '2px solid transparent', transition: 'all 0.3s', display: 'inline-block', textShadow: '0 2px 4px black' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>&quot;The Algorithm Taming Tel Aviv&quot;</h3>
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>&quot;Study: Jerusalem congestion charge cut traffic by a quarter.&quot;</h3>
                   <p style={{ fontSize: '0.8rem', color: '#ccc' }}>Calcalist Feature</p>
                 </div>
-                <a href="#" style={{ position: 'absolute', bottom: '25px', right: '25px', color: 'white' }}><ExternalLink size={20} /></a>
+                <a href="https://www.calcalist.co.il/local_news/article/ry11iv5cz0" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', bottom: '25px', right: '25px', color: 'white' }}><ExternalLink size={20} /></a>
               </div>
             </div>
 
