@@ -8,9 +8,10 @@ interface VideoCardProps {
     children: React.ReactNode;
     className?: string;
     style?: React.CSSProperties;
+    enableSoundOnHover?: boolean;
 }
 
-export default function VideoCard({ src, poster, children, className = '', style }: VideoCardProps) {
+export default function VideoCard({ src, poster, children, className = '', style, enableSoundOnHover = true }: VideoCardProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
     const cardRef = useRef<HTMLDivElement>(null);
 
@@ -45,12 +46,16 @@ export default function VideoCard({ src, poster, children, className = '', style
             if (video.paused) {
                 video.play().catch(e => console.log("Play on hover prevented:", e));
             }
-            video.muted = false;
-            video.volume = 0.5;
+            if (enableSoundOnHover) {
+                video.muted = false;
+                video.volume = 0.5;
+            }
         };
 
         const handleMouseLeave = () => {
-            video.muted = true;
+            if (enableSoundOnHover) {
+                video.muted = true;
+            }
         };
 
         // Mobile: Toggle sound on tap
@@ -83,7 +88,7 @@ export default function VideoCard({ src, poster, children, className = '', style
     }, []);
 
     return (
-        <div ref={cardRef} className={`bento-card ${className}`} style={{ padding: 0, border: 'none', cursor: 'pointer', ...style }}>
+        <div ref={cardRef} className={`bento-card ${className}`} style={{ padding: 0, cursor: 'pointer', ...style }}>
             <video
                 ref={videoRef}
                 className="video-bg hover-sound"

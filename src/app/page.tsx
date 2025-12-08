@@ -405,15 +405,29 @@ export default function Home() {
             </div>
 
             {/* Item 2 */}
-            <div className="work-card">
-              <span className="status-badge">COMPLETED</span>
-              <div className="work-icon"><Building2 strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">Jerusalem Master Plan</h3>
-              <p className="work-desc">
-                Secured $400k budget to develop a city-wide Agent-Based Model simulating future shared transport and automated vehicle scenarios.
-              </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>View Simulation →</a>
-            </div>
+            <VideoCard
+              src="/sim video.mp4"
+              className="work-card group hover:!border-[var(--pop-pink)] hover:!shadow-[0_10px_40px_-10px_rgba(255,0,85,0.3),inset_0_0_20px_rgba(255,0,85,0.1)]"
+              style={{ padding: 0 }}
+              enableSoundOnHover={false}
+            >
+              <div className="transition-colors duration-500 bg-gradient-to-b from-black/30 via-black/60 to-black/90 group-hover:from-black/60 group-hover:via-black/80 group-hover:to-black/95" style={{
+                padding: '30px',
+                height: '100%',
+                display: 'flex',
+                flexDirection: 'column',
+                position: 'relative',
+                zIndex: 2
+              }}>
+                <span className="status-badge" style={{ right: '20px', top: '20px', zIndex: 10 }}>COMPLETED</span>
+                <div className="work-icon"><Building2 strokeWidth={1} size={32} /></div>
+                <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Jerusalem Master Plan</h3>
+                <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                  Evaluated &quot;Carrot and Stick&quot; strategies for Jerusalem. Findings showed how congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.
+                </p>
+                <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>View Simulation →</a>
+              </div>
+            </VideoCard>
 
             {/* Item 3 */}
             <div className="work-card">
