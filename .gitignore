@@ -43,10 +43,9 @@ next-env.d.ts
 # claude code
 .claude/
 
-# markdown files (except README.md and CLAUDE.md)
+# markdown files (except README.md)
 *.md
 !README.md
-!CLAUDE.md
 
 # old folder
 old/
