@@ -474,8 +474,8 @@ export default function Home() {
             </VideoCard>
 
             {/* Newspaper (Full Width Below) */}
-            <div className="bento-card bento-full color-card calcalist-card" style={{ padding: 0, border: 'none', gridRow: 'span 2' }}>
-              <Image src="/article news.jpg" alt="Dr. Golan Ben-Dor featured in Calcalist - The Algorithm Taming Tel Aviv traffic simulation article" className="video-bg" fill style={{ objectFit: 'cover' }} />
+            <a href="https://www.calcalist.co.il/local_news/article/ry11iv5cz0" target="_blank" rel="noopener noreferrer" className="bento-card bento-full color-card calcalist-card" style={{ padding: 0, border: 'none', gridRow: 'span 2', display: 'block', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
+              <Image src="/article news.jpg" alt="Dr. Golan Ben-Dor featured in Calcalist - Jerusalem congestion charge study" className="video-bg" fill style={{ objectFit: 'cover' }} />
               <div style={{ padding: '35px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', position: 'relative', zIndex: 2 }}>
                 <span className="media-tag">PRESS</span>
                 <div style={{ position: 'absolute', top: '60%', left: '53.9%', transform: 'translate(-50%, -50%)' }}>
@@ -485,9 +485,9 @@ export default function Home() {
                   <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>&quot;Study: Jerusalem congestion charge cut traffic by a quarter.&quot;</h3>
                   <p style={{ fontSize: '0.8rem', color: '#ccc' }}>Calcalist Feature</p>
                 </div>
-                <a href="https://www.calcalist.co.il/local_news/article/ry11iv5cz0" target="_blank" rel="noopener noreferrer" style={{ position: 'absolute', bottom: '25px', right: '25px', color: 'white' }}><ExternalLink size={20} /></a>
+                <div style={{ position: 'absolute', bottom: '25px', right: '25px', color: 'white' }}><ExternalLink size={20} /></div>
               </div>
-            </div>
+            </a>
 
             {/* Scientific Papers (Full Width) */}
             <div id="publications" className="bento-card bento-full publications-card">
