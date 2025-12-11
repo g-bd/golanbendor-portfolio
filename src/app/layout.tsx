@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit, Space_Grotesk, Rajdhani, Fira_Code } from "next/font/google";
 import "./globals.css";
 
@@ -27,9 +27,13 @@ const firaCode = Fira_Code({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://golanbendor.com'),
-  title: "Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert",
+  metadataBase: new URL('https://drbendor.com'),
+  title: {
+    default: "Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert",
+    template: "%s | Dr. Golan Ben-Dor"
+  },
   description: "Dr. Golan Ben-Dor specializes in urban mobility simulation, agent-based modeling (MATSim), and robust transport policy evaluation. PhD from Tel Aviv University. Strategic partner for Ministry of Transport, Netivei Israel, Netivei Ayalon, and CBS.",
+  applicationName: "Dr. Golan Ben-Dor Portfolio",
   keywords: [
     "Golan Ben-Dor",
     "Dr. Golan Ben-Dor",
@@ -70,7 +74,13 @@ export const metadata: Metadata = {
   category: 'Technology',
   classification: 'Transportation Research, Urban Planning, Data Science',
   alternates: {
-    canonical: 'https://golanbendor.com',
+    canonical: 'https://drbendor.com',
+  },
+  other: {
+    'geo.region': 'IL',
+    'geo.placename': 'Tel Aviv',
+    'geo.position': '32.0853;34.7818',
+    'ICBM': '32.0853, 34.7818',
   },
   robots: {
     index: true,
@@ -87,7 +97,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     alternateLocale: ['he_IL'],
-    url: 'https://golanbendor.com',
+    url: 'https://drbendor.com',
     siteName: 'Dr. Golan Ben-Dor - Urban Mobility Scientist',
     title: 'Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert',
     description: 'Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy evaluation. PhD from Tel Aviv University. Working with Ministry of Transport Israel, Google, and leading infrastructure companies on AI-driven traffic solutions.',
@@ -114,6 +124,17 @@ export const metadata: Metadata = {
   verification: {
     google: 'Z6AZVOsWQ7fIhWpRkn9RHMN67YhfR1d66zy7ozjWoUw',
   },
+};
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: [
+    { media: '(prefers-color-scheme: dark)', color: '#0a0a12' },
+    { media: '(prefers-color-scheme: light)', color: '#0a0a12' },
+  ],
+  colorScheme: 'dark',
 };
 
 export default function RootLayout({

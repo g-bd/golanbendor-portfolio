@@ -1,40 +1,50 @@
 import { MetadataRoute } from 'next'
 
-export const dynamic = 'force-static'
-
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://golanbendor.com'
+  const baseUrl = 'https://drbendor.com'
 
   return [
     {
       url: baseUrl,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 1,
+      priority: 1.0,
     },
     {
-      url: `${baseUrl}/#about`,
+      url: `${baseUrl}#about`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#work`,
+      url: `${baseUrl}#skills`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.7,
     },
     {
-      url: `${baseUrl}/#publications`,
+      url: `${baseUrl}#work`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#contact`,
+      url: `${baseUrl}#knowledge`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}#publications`,
       lastModified: new Date(),
       changeFrequency: 'yearly',
-      priority: 0.7,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}#contact`,
+      lastModified: new Date(),
+      changeFrequency: 'yearly',
+      priority: 0.6,
     },
   ]
 }

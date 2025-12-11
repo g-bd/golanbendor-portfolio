@@ -35,8 +35,8 @@ export default function Home() {
             "honorificPrefix": "Dr.",
             "jobTitle": "Urban Mobility Simulation Scientist",
             "description": "Urban mobility scientist specializing in agent-based modeling, MATSim, and transport policy evaluation",
-            "url": "https://golanbendor.com",
-            "image": "https://golanbendor.com/profile1.jpg",
+            "url": "https://drbendor.com",
+            "image": "https://drbendor.com/profile1.jpg",
             "email": "golanbendor@gmail.com",
             "alumniOf": {
               "@type": "Organization",
@@ -171,9 +171,9 @@ export default function Home() {
               "@type": "VideoObject",
               "name": "Dr. Golan Ben-Dor TV Interview on Smart Cities",
               "description": "Interview discussing urban mobility simulation and data-driven urbanism for smart city planning",
-              "thumbnailUrl": "https://golanbendor.com/profile1.jpg",
+              "thumbnailUrl": "https://drbendor.com/profile1.jpg",
               "uploadDate": "2024-01-01",
-              "contentUrl": "https://golanbendor.com/article%20tv.mp4",
+              "contentUrl": "https://drbendor.com/article%20tv.mp4",
               "author": {
                 "@type": "Person",
                 "name": "Dr. Golan Ben-Dor"
@@ -185,9 +185,9 @@ export default function Home() {
               "@type": "VideoObject",
               "name": "Dr. Golan Ben-Dor Podcast Episode on Transport Innovation",
               "description": "Podcast discussion on the future of transport simulation and agent-based modeling for urban planning",
-              "thumbnailUrl": "https://golanbendor.com/profile1.jpg",
+              "thumbnailUrl": "https://drbendor.com/profile1.jpg",
               "uploadDate": "2024-01-01",
-              "contentUrl": "https://golanbendor.com/podcast%20video.mp4",
+              "contentUrl": "https://drbendor.com/podcast%20video.mp4",
               "author": {
                 "@type": "Person",
                 "name": "Dr. Golan Ben-Dor"
@@ -263,25 +263,25 @@ export default function Home() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": "Home",
-                "item": "https://golanbendor.com"
+                "item": "https://drbendor.com"
               },
               {
                 "@type": "ListItem",
                 "position": 2,
                 "name": "About",
-                "item": "https://golanbendor.com#about"
+                "item": "https://drbendor.com#about"
               },
               {
                 "@type": "ListItem",
                 "position": 3,
                 "name": "Work",
-                "item": "https://golanbendor.com#work"
+                "item": "https://drbendor.com#work"
               },
               {
                 "@type": "ListItem",
                 "position": 4,
                 "name": "Publications",
-                "item": "https://golanbendor.com#publications"
+                "item": "https://drbendor.com#publications"
               }
             ]
           })
@@ -314,7 +314,7 @@ export default function Home() {
               "Policy Evaluation",
               "Data Analytics"
             ],
-            "url": "https://golanbendor.com",
+            "url": "https://drbendor.com",
             "email": "golanbendor@gmail.com"
           })
         }}
