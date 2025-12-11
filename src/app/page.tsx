@@ -79,7 +79,15 @@ export default function Home() {
               "Urban Planning",
               "Transportation Research",
               "Smart Cities",
-              "Data-Driven Urbanism"
+              "Data-Driven Urbanism",
+              "Artificial Intelligence",
+              "Machine Learning",
+              "Google Maps Analytics",
+              "Traffic Monitoring Systems",
+              "Spatial Analytics",
+              "GIS",
+              "Big Data",
+              "Cloud Computing"
             ],
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
@@ -243,6 +251,75 @@ export default function Home() {
         }}
       />
 
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://golanbendor.com"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "About",
+                "item": "https://golanbendor.com#about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Work",
+                "item": "https://golanbendor.com#work"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Publications",
+                "item": "https://golanbendor.com#publications"
+              }
+            ]
+          })
+        }}
+      />
+
+      {/* ProfessionalService Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfessionalService",
+            "name": "Dr. Golan Ben-Dor - Urban Mobility Consulting",
+            "description": "Expert consulting on national and metropolitan transport models, mobility analytics, AI-driven traffic solutions, and research collaborations",
+            "priceRange": "Contact for pricing",
+            "areaServed": {
+              "@type": "Country",
+              "name": "Israel"
+            },
+            "provider": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor"
+            },
+            "serviceType": [
+              "Transport Simulation",
+              "Urban Mobility Consulting",
+              "Traffic Analysis",
+              "AI Traffic Solutions",
+              "Policy Evaluation",
+              "Data Analytics"
+            ],
+            "url": "https://golanbendor.com",
+            "email": "golanbendor@gmail.com"
+          })
+        }}
+      />
+
       <PDFModal
         isOpen={isPdfOpen}
         onClose={() => setIsPdfOpen(false)}
@@ -370,6 +447,7 @@ export default function Home() {
                 <span className="skill-tag">QGIS</span>
                 <span className="skill-tag">Big Data Analytics</span>
                 <span className="skill-tag">Agent-Based Modeling</span>
+                <span className="skill-tag">AI</span>
                 <span className="skill-tag">Version Control (Git)</span>
               </div>
 

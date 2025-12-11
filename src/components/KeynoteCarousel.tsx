@@ -4,6 +4,12 @@ import { useEffect, useState } from "react";
 
 const slides = [
     {
+        image: "/key note 5.jpg",
+        tag: "STRATEGIC MEETING",
+        title: "Google-Ministry Partnership",
+        desc: 'Presenting National Traffic Monitoring Platform',
+    },
+    {
         image: "/key note 1.jpg",
         tag: "KEYNOTE",
         title: "Smart Cities Summit 2024",
