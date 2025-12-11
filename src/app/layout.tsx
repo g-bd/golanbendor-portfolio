@@ -122,7 +122,7 @@ export const metadata: Metadata = {
     apple: '/chrome tab logo.png?v=2',
   },
   verification: {
-    google: 'Z6AZVOsWQ7fIhWpRkn9RHMN67YhfR1d66zy7ozjWoUw',
+    google: 'ULtcbnw-SGW4pnuz9fj7nQ7Lr3tJhsjTuMmt0MMyfpk',
   },
 };
 
