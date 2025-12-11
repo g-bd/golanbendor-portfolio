@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next'
 
+// Static sitemap for SEO
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
