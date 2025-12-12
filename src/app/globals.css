@@ -728,6 +728,86 @@ nav {
   border: none;
 }
 
+/* --- MOBILE MENU --- */
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 8px;
+  z-index: 1001;
+  transition: color 0.3s;
+}
+
+.mobile-menu-btn:hover {
+  color: var(--pop-cyan);
+}
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(10, 10, 18, 0.98);
+  backdrop-filter: blur(20px);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.3s;
+  padding: 10px 20px;
+}
+
+.mobile-menu a:hover {
+  color: var(--pop-cyan);
+  text-shadow: 0 0 15px var(--pop-cyan);
+}
+
+.mobile-lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: transparent;
+  border: 2px solid var(--pop-cyan);
+  border-radius: 50px;
+  color: var(--pop-cyan);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.mobile-lang-btn:hover {
+  background: var(--pop-cyan);
+  color: var(--bg-color);
+  box-shadow: 0 0 20px var(--pop-cyan);
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .hero {
@@ -750,6 +830,14 @@ nav {
 
   .nav-links {
     display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .mobile-menu {
+    display: flex;
   }
 
   .bento-large,
@@ -819,6 +907,8 @@ nav {
 
 .font-hebrew .hero-sub,
 .font-hebrew .nav-links a,
+.font-hebrew .mobile-menu a,
+.font-hebrew .mobile-lang-btn,
 .font-hebrew .btn,
 .font-hebrew .trusted-logo span,
 .font-hebrew .media-tag,

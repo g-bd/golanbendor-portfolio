@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe } from 'lucide-react';
+import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe, Menu, X } from 'lucide-react';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
@@ -13,6 +13,7 @@ import { useLanguage } from '@/context/LanguageContext';
 export default function Home() {
   const [isPdfOpen, setIsPdfOpen] = useState(false);
   const [currentPdf, setCurrentPdf] = useState({ url: '', title: '' });
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { langData, toggleLanguage, language, direction } = useLanguage();
 
   const openPdf = (url: string, title: string) => {
@@ -423,7 +424,35 @@ export default function Home() {
               </span>
             </button>
           </div>
+
+          {/* Mobile Hamburger Button */}
+          <button
+            className="mobile-menu-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle mobile menu"
+          >
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </nav>
+
+        {/* Mobile Menu Overlay */}
+        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+          <a href="#about" onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</a>
+          <a href="#skills" onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</a>
+          <a href="#work" onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</a>
+          <a href="#knowledge" onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</a>
+          <a href="#publications" onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</a>
+          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</a>
+
+          <button
+            onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
+            className="mobile-lang-btn"
+            aria-label="Toggle Language"
+          >
+            <Globe size={20} />
+            <span>{language === 'en' ? 'עברית' : 'English'}</span>
+          </button>
+        </div>
 
         {/* Hero */}
         <header className="hero">
