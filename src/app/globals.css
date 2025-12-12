@@ -180,7 +180,7 @@ nav {
   content: attr(data-text);
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   width: 0;
   height: 100%;
   color: var(--pop-cyan);
@@ -797,7 +797,8 @@ nav {
 
 /* --- HEBREW LOCALIZATION overrides --- */
 .font-hebrew {
-  font-family: var(--font-rubik), system-ui, sans-serif !important;
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+  line-height: 1.6;
 }
 
 .font-hebrew h1,
@@ -811,7 +812,9 @@ nav {
 .font-hebrew .work-title,
 .font-hebrew .section-title,
 .font-hebrew .paper-item h4 {
-  font-family: var(--font-rubik), system-ui, sans-serif !important;
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+  font-weight: 700 !important;
 }
 
 .font-hebrew .hero-sub,
@@ -820,7 +823,8 @@ nav {
 .font-hebrew .trusted-logo span,
 .font-hebrew .media-tag,
 .font-hebrew .paper-item .paper-meta {
-  font-family: var(--font-rubik), system-ui, sans-serif !important;
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
 }
 
 .font-hebrew .scramble-text,
@@ -832,5 +836,9 @@ nav {
 .font-hebrew button,
 .font-hebrew .skill-tag,
 .font-hebrew .status-badge {
-  font-family: var(--font-rubik), system-ui, sans-serif !important;
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+}
+
+.font-hebrew .hero-title {
+  line-height: 1.1 !important;
 }

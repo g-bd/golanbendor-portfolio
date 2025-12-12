@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Space_Grotesk, Rajdhani, Fira_Code, Rubik } from "next/font/google";
+import { Outfit, Space_Grotesk, Rajdhani, Fira_Code, Rubik, Heebo } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -32,13 +32,19 @@ const rubik = Rubik({
   weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
+const heebo = Heebo({
+  variable: "--font-heebo",
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://drbendor.com'),
   title: {
     default: "Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert",
     template: "%s | Dr. Golan Ben-Dor"
   },
-  description: "Dr. Golan Ben-Dor specializes in urban mobility simulation, agent-based modeling (MATSim), and robust transport policy evaluation. PhD from Tel Aviv University. Strategic partner for Ministry of Transport, Netivei Israel, Netivei Ayalon, and CBS.",
+  description: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור - Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy. מדען ניידות עירונית, סימולציה תחבורתית, משרד התחבורה, נתיבי ישראל. PhD Tel Aviv University.",
   applicationName: "Dr. Golan Ben-Dor Portfolio",
   keywords: [
     "Golan Ben-Dor",
@@ -111,9 +117,9 @@ export const metadata: Metadata = {
     "transportation engineering",
     "urban analytics"
   ],
-  authors: [{ name: "Dr. Golan Ben-Dor" }],
-  creator: "Dr. Golan Ben-Dor",
-  publisher: "Dr. Golan Ben-Dor",
+  authors: [{ name: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור" }],
+  creator: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
+  publisher: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
   category: 'Technology',
   classification: 'Transportation Research, Urban Planning, Data Science',
   alternates: {
@@ -141,22 +147,22 @@ export const metadata: Metadata = {
     locale: 'en_US',
     alternateLocale: ['he_IL'],
     url: 'https://drbendor.com',
-    siteName: 'Dr. Golan Ben-Dor - Urban Mobility Scientist',
-    title: 'Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert',
-    description: 'Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy evaluation. PhD from Tel Aviv University. Working with Ministry of Transport Israel, Google, and leading infrastructure companies on AI-driven traffic solutions.',
+    siteName: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור',
+    title: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור | Urban Mobility Scientist',
+    description: 'Urban mobility simulation scientist | מדען ניידות עירונית - MATSim, agent-based modeling, transport policy. PhD Tel Aviv University. משרד התחבורה, נתיבי ישראל, נתיבי איילון.',
     images: [
       {
         url: '/profile1.jpg',
         width: 1200,
         height: 630,
-        alt: 'Dr. Golan Ben-Dor - Urban Mobility Scientist',
+        alt: 'Dr. Golan Ben-Dor - Urban Mobility Scientist | ד״ר גולן בן-דור - מדען ניידות עירונית',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dr. Golan Ben-Dor | Urban Mobility Scientist',
-    description: 'Urban mobility simulation scientist specializing in MATSim and transport policy evaluation',
+    title: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור',
+    description: 'Urban mobility simulation scientist | מדען ניידות עירונית - MATSim, transport policy, סימולציה תחבורתית',
     images: ['/profile1.jpg'],
   },
   icons: {
@@ -190,7 +196,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable} ${rubik.variable}`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable} ${rubik.variable} ${heebo.variable}`}
         style={{ fontFamily: "'Outfit', sans-serif" }}
         suppressHydrationWarning
       >
