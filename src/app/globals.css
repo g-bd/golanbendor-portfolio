@@ -828,6 +828,15 @@ nav {
     font-size: 3rem;
   }
 
+  .section-title {
+    font-size: 2rem;
+    gap: 12px;
+  }
+
+  .section-title::before {
+    margin-inline-end: 8px;
+  }
+
   .nav-links {
     display: none;
   }
@@ -931,4 +940,13 @@ nav {
 
 .font-hebrew .hero-title {
   line-height: 1.1 !important;
+}
+
+/* Hebrew section title - increase gap for RTL */
+.font-hebrew .section-title {
+  gap: 15px;
+}
+
+.font-hebrew .section-title::before {
+  margin-inline-end: 10px;
 }
