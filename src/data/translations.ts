@@ -35,14 +35,14 @@ export const translations = {
             role_desc: "With a PhD from Tel Aviv University, I bridge the gap between theoretical algorithms and concrete urban reality. My work focuses on Robust Policy Evaluation—ensuring that billion-dollar decisions handle uncertainty.",
             current_label: "Current",
             current_role: "Private Consultant",
-            current_org: "Netivei Ayalon & Ministry of Transportation",
+            current_org: "Netivei Ayalon & Ministry of Transport",
             past_label: "2016 - Present",
             past_role: "Transport Simulation Scientist",
             past_org: "Geosimulation Lab, TAU",
             skills_title: "Technical Arsenal",
             skills_desc: "Core technologies used for simulation & analysis:",
             phd_title: "PhD Research",
-            phd_desc: "\"Combatting Congestion: Robust Transportation Policy Evaluation\""
+            phd_desc: "\"Combating Congestion: Robust Transportation Policy Evaluation\""
         },
         work: {
             title: "Selected Work",
@@ -95,7 +95,7 @@ export const translations = {
             title: "LET'S CONNECT",
             desc: "Open to consulting on national and metropolitan models, data infrastructure for mobility analytics, and research collaborations.",
             resume: "Resume",
-            footer: "© 2025 Golan Ben-Dor. System ID: GBD-V13-REFINED."
+            footer: "© 2025 Golan Ben-Dor."
         },
         carousel: [
             {
@@ -223,7 +223,7 @@ export const translations = {
             title: "בואו נדבר",
             desc: "פתוח לייעוץ בנושאי מודלים לאומיים ומטרופוליניים, תשתיות נתונים לאנליטיקת ניידות ושיתופי פעולה מחקריים.",
             resume: "קורות חיים",
-            footer: "© 2025 גולן בן-דור. מזהה מערכת: GBD-V13-REFINED."
+            footer: "© 2025 גולן בן-דור."
         },
         carousel: [
             {

@@ -529,7 +529,7 @@ export default function Home() {
 
               {/* PhD Button */}
               <div
-                onClick={() => openPdf('PhD_Final_new.pdf', 'PhD Research: Combatting Congestion')}
+                onClick={() => openPdf('PhD_Final_new.pdf', 'PhD Research: Combating Congestion')}
                 className="cursor-pointer transition-all duration-300 bg-[rgba(204,255,0,0.05)] border border-[var(--pop-lime)] rounded-[8px] hover:bg-[rgba(204,255,0,0.1)] hover:border-[var(--pop-lime)] hover:shadow-[0_0_15px_rgba(204,255,0,0.1)]"
                 style={{ marginTop: '40px', padding: '20px' }}
               >
