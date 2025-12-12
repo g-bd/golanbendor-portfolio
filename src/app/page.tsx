@@ -172,7 +172,7 @@ export default function Home() {
               "name": "Dr. Golan Ben-Dor TV Interview on Smart Cities",
               "description": "Interview discussing urban mobility simulation and data-driven urbanism for smart city planning",
               "thumbnailUrl": "https://drbendor.com/profile1.jpg",
-              "uploadDate": "2024-01-01",
+              "uploadDate": "2024-01-01T00:00:00+02:00",
               "contentUrl": "https://drbendor.com/article%20tv.mp4",
               "author": {
                 "@type": "Person",
@@ -186,7 +186,7 @@ export default function Home() {
               "name": "Dr. Golan Ben-Dor Podcast Episode on Transport Innovation",
               "description": "Podcast discussion on the future of transport simulation and agent-based modeling for urban planning",
               "thumbnailUrl": "https://drbendor.com/profile1.jpg",
-              "uploadDate": "2024-01-01",
+              "uploadDate": "2024-01-01T00:00:00+02:00",
               "contentUrl": "https://drbendor.com/podcast%20video.mp4",
               "author": {
                 "@type": "Person",
