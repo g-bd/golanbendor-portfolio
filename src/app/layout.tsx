@@ -165,11 +165,7 @@ export const metadata: Metadata = {
     description: 'Urban mobility simulation scientist | מדען ניידות עירונית - MATSim, transport policy, סימולציה תחבורתית',
     images: ['/profile1.jpg'],
   },
-  icons: {
-    icon: '/chrome tab logo.png?v=2',
-    shortcut: '/chrome tab logo.png?v=2',
-    apple: '/chrome tab logo.png?v=2',
-  },
+  // Icons handled by src/app/icon.png (Next.js App Router convention)
   verification: {
     google: 'ULtcbnw-SGW4pnuz9fj7nQ7Lr3tJhsjTuMmt0MMyfpk',
   },
