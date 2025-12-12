@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Space_Grotesk, Rajdhani, Fira_Code } from "next/font/google";
+import { Outfit, Space_Grotesk, Rajdhani, Fira_Code, Rubik } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -26,6 +26,12 @@ const firaCode = Fira_Code({
   weight: ["400"],
 });
 
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["hebrew", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://drbendor.com'),
   title: {
@@ -37,6 +43,43 @@ export const metadata: Metadata = {
   keywords: [
     "Golan Ben-Dor",
     "Dr. Golan Ben-Dor",
+    "Golan Ben Dor",
+    "Dr Ben-Dor",
+    "Dr Ben Dor",
+    "Doctor Golan Ben-Dor",
+    "Golan Ben-Dor PhD",
+    // Hebrew name variations
+    "גולן בן דור",
+    "גולן בן-דור",
+    "ד\"ר גולן בן דור",
+    "ד\"ר גולן בן-דור",
+    "דוקטור גולן בן דור",
+    "דוקטור גולן בן-דור",
+    "דר' גולן בן דור",
+    // Hebrew keywords
+    "סימולציה תחבורתית",
+    "מודל סוכנים",
+    "ניידות עירונית",
+    "מדעי התחבורה",
+    "תכנון תחבורתי",
+    "סימולציית תנועה",
+    "מודלים תחבורתיים",
+    "מדען ניידות עירונית",
+    "אוניברסיטת תל אביב",
+    "משרד התחבורה",
+    "נתיבי ישראל",
+    "נתיבי איילון",
+    "תכנית אב לתחבורה ירושלים",
+    "תמחור עומס",
+    "תחבורה חכמה",
+    "עיר חכמה",
+    "ניתוח נתוני תחבורה",
+    "תכנון עירוני",
+    "מחקר תחבורה",
+    "בינה מלאכותית בתחבורה",
+    "מערכות ניטור תנועה",
+    "אנליטיקה מרחבית",
+    // English keywords
     "urban mobility",
     "transport simulation",
     "MATSim",
@@ -137,6 +180,8 @@ export const viewport: Viewport = {
   colorScheme: 'dark',
 };
 
+import ClientProviders from "@/components/ClientProviders";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -145,11 +190,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable}`}
+        className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable} ${rubik.variable}`}
         style={{ fontFamily: "'Outfit', sans-serif" }}
         suppressHydrationWarning
       >
-        {children}
+        <ClientProviders>
+          {children}
+        </ClientProviders>
       </body>
     </html>
   );

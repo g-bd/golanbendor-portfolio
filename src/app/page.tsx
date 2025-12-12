@@ -2,21 +2,25 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink } from 'lucide-react';
+import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe } from 'lucide-react';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
 import KeynoteCarousel from '@/components/KeynoteCarousel';
 import PDFModal from '@/components/PDFModal';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
   const [isPdfOpen, setIsPdfOpen] = useState(false);
   const [currentPdf, setCurrentPdf] = useState({ url: '', title: '' });
+  const { langData, toggleLanguage, language, direction } = useLanguage();
 
   const openPdf = (url: string, title: string) => {
     setCurrentPdf({ url, title });
     setIsPdfOpen(true);
   };
+
+  const t = langData;
 
   return (
     <>
@@ -30,11 +34,27 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "Person",
             "name": "Dr. Golan Ben-Dor",
+            "alternateName": [
+              "Golan Ben-Dor",
+              "Golan Ben Dor",
+              "Dr. Golan Ben Dor",
+              "Dr Ben-Dor",
+              "Dr Ben Dor",
+              "Doctor Golan Ben-Dor",
+              "Golan Ben-Dor PhD",
+              "גולן בן דור",
+              "גולן בן-דור",
+              "ד\"ר גולן בן דור",
+              "ד\"ר גולן בן-דור",
+              "דוקטור גולן בן דור",
+              "דוקטור גולן בן-דור",
+              "דר' גולן בן דור"
+            ],
             "givenName": "Golan",
             "familyName": "Ben-Dor",
             "honorificPrefix": "Dr.",
             "jobTitle": "Urban Mobility Simulation Scientist",
-            "description": "Urban mobility scientist specializing in agent-based modeling, MATSim, and transport policy evaluation",
+            "description": "Urban mobility scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. מדען ניידות עירונית המתמחה במודלים מבוססי סוכנים, סימולציה תחבורתית והערכת מדיניות תחבורה",
             "url": "https://drbendor.com",
             "image": "https://drbendor.com/profile1.jpg",
             "email": "golanbendor@gmail.com",
@@ -87,7 +107,21 @@ export default function Home() {
               "Spatial Analytics",
               "GIS",
               "Big Data",
-              "Cloud Computing"
+              "Cloud Computing",
+              "סימולציה תחבורתית",
+              "מודלים מבוססי סוכנים",
+              "ניידות עירונית",
+              "מדיניות תחבורה",
+              "סימולציית תנועה",
+              "תמחור עומס",
+              "תכנון עירוני",
+              "מחקר תחבורה",
+              "ערים חכמות",
+              "בינה מלאכותית",
+              "למידת מכונה",
+              "מערכות ניטור תנועה",
+              "אנליטיקה מרחבית",
+              "ניתוח נתוני תחבורה"
             ],
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
@@ -245,6 +279,38 @@ export default function Home() {
                   "@type": "Answer",
                   "text": "In Israel, transport simulation is used by the Ministry of Transport, Netivei Israel (National Transport Infrastructure Company), Netivei Ayalon, and municipal planning teams like the Jerusalem Transportation Master Plan Team to evaluate major infrastructure and policy decisions."
                 }
+              },
+              {
+                "@type": "Question",
+                "name": "מהי סימולציה תחבורתית מבוססת סוכנים?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "סימולציה תחבורתית מבוססת סוכנים היא שיטה למידול תנועה שבה כל נוסע מיוצג כסוכן עצמאי המקבל החלטות לגבי מסלולים, אמצעי תחבורה וזמני יציאה. כלים כמו MATSim מאפשרים לחוקרים להעריך כיצד מיליוני בחירות אישיות יוצרות דפוסי תנועה ברמת הרשת ולבחון התערבויות מדיניות."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "מי משתמש בסימולציית תחבורה בישראל?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "בישראל, סימולציית תחבורה משמשת את משרד התחבורה, נתיבי ישראל, נתיבי איילון וצוותי תכנון עירוניים כמו צוות תכנית האב לתחבורה בירושלים להערכת החלטות תשתית ומדיניות מרכזיות."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "מהו תמחור עומס ואיך זה עובד?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "תמחור עומס הוא מדיניות שבה נהגים משלמים דמי כניסה לאזורי תנועה צפופים בשעות שיא. סימולציות מבוססות סוכנים יכולות לחזות כיצד נוסעים יגיבו - חלקם יחליפו מסלולים, אמצעי תחבורה או זמנים - ולהעריך את השפעת המדיניות על תנועה, פליטות ושוויון לפני היישום."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "מי הוא ד\"ר גולן בן דור?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "ד\"ר גולן בן דור הוא מדען ניידות עירונית המתמחה בסימולציית תחבורה, מודלים מבוססי סוכנים ו-MATSim. הוא בעל דוקטורט מאוניברסיטת תל אביב ועובד כיועץ אסטרטגי עם משרד התחבורה, נתיבי ישראל, נתיבי איילון והלמ\"ס. מחקריו מתמקדים בהערכת מדיניות תחבורה חזקה תחת אי-ודאות."
+                }
               }
             ]
           })
@@ -331,38 +397,49 @@ export default function Home() {
       <div className="grid-overlay" />
       <TrafficCanvas />
 
-      <div className="container">
+      <div className="container" dir={direction}>
         {/* Navbar */}
         <nav>
           <a href="#" className="brand">
             <Image src="/logo_recolored.png" alt="Dr. Golan Ben-Dor Logo - Urban Mobility Scientist" width={100} height={100} />
-            <span className="brand-text">Golan Ben-Dor</span>
+            <span className="brand-text">{t.nav.brand_name}</span>
           </a>
           <div className="nav-links">
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#work">Work</a>
-            <a href="#knowledge">Knowledge Hub</a>
-            <a href="#publications">Publications</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">{t.nav.about}</a>
+            <a href="#skills">{t.nav.skills}</a>
+            <a href="#work">{t.nav.work}</a>
+            <a href="#knowledge">{t.nav.knowledge}</a>
+            <a href="#publications">{t.nav.publications}</a>
+            <a href="#contact">{t.nav.contact}</a>
+
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 hover:bg-white/10 hover:border-[var(--pop-cyan)] transition-all group"
+              aria-label="Toggle Language"
+            >
+              <Globe size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]" />
+              <span className="text-[0.9rem] font-bold text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]">
+                {language === 'en' ? 'HE' : 'EN'}
+              </span>
+            </button>
           </div>
         </nav>
 
         {/* Hero */}
         <header className="hero">
           <div className="hero-text">
-            <h2 className="hero-name">DR. GOLAN BEN-DOR</h2>
-            <p className="hero-sub" data-text="URBAN MOBILITY SCIENTIST">URBAN MOBILITY SCIENTIST</p>
+            <h2 className="hero-name">{t.hero.name}</h2>
+            <p className="hero-sub" data-text={t.hero.title}>{t.hero.title}</p>
             <h1 className="hero-title">
-              SIMULATING<br />
-              <ScrambleText text="THE FUTURE" />
+              {t.hero.headline_prefix}<br />
+              <ScrambleText text={t.hero.headline_suffix} />
             </h1>
             <p className="hero-desc">
-              I work with transport agencies to evaluate major projects under uncertainty, using real-world data, agent-based models, AI and scenario analysis.
+              {t.hero.description}
               <br /><br />
-              Current collaborations include the Ministry of Transport&apos;s Strategic Planning and Innovation Division, Netivei Ayalon, Netivei Israel, the Jerusalem Master Transportation Team, and the Central Bureau of Statistics (CBS).
+              {t.hero.description_collaboration}
             </p>
-            <a href="#work" className="btn">Explore Models</a>
+            <a href="#work" className="btn">{t.hero.cta}</a>
           </div>
           <div className="hero-visual">
             <div className="profile-hex">
@@ -374,71 +451,70 @@ export default function Home() {
         {/* Trusted By */}
         <section className="trusted-by">
           <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: 'var(--pop-cyan)', marginBottom: '20px' }}>
-            TRUSTED BY AND COLLABORATING WITH INDUSTRY LEADERS
+            {t.trusted_by}
           </p>
           <div className="trusted-logos">
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/mot.png" alt="Israel Ministry of Transport - Transport Simulation Partner" fill className="object-contain" />
               </div>
-              <span>Ministry of Transport</span>
+              <span>{t.trusted_companies.mot}</span>
             </div>
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/netivei_israel.jpg" alt="Netivei Israel - National Transport Infrastructure Company Collaboration" fill className="object-contain" />
               </div>
-              <span>Netivei Israel</span>
+              <span>{t.trusted_companies.netivei_israel}</span>
             </div>
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/ayalon.svg" alt="Netivei Ayalon - MATSim Transport Simulation Partner" fill className="object-contain" />
               </div>
-              <span>Netivei Ayalon</span>
+              <span>{t.trusted_companies.netivei_ayalon}</span>
             </div>
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/jtmt.jpg" alt="Jerusalem Transportation Master Plan Team - Urban Mobility Planning Collaboration" fill className="object-contain" />
               </div>
-              <span>Jerusalem Transportation Team</span>
+              <span>{t.trusted_companies.jerusalem_team}</span>
             </div>
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/cbs.jpg" alt="Central Bureau of Statistics Israel - Transport Data Analysis Partner" fill className="object-contain" />
               </div>
-              <span>CBS</span>
+              <span>{t.trusted_companies.cbs}</span>
             </div>
           </div>
         </section>
 
         {/* About & Skills */}
         <section id="about">
-          <h2 className="section-title">About Me</h2>
+          <h2 className="section-title">{t.about.title}</h2>
           <div className="about-container">
             <div className="glass-card">
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>The Architect of Flow</h3>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{t.about.role_title}</h3>
               <p style={{ color: 'var(--text-secondary)', marginBottom: '20px' }}>
-                With a PhD from Tel Aviv University, I bridge the gap between theoretical algorithms and concrete urban reality.
-                My work focuses on <strong>Robust Policy Evaluation</strong>—ensuring that billion-dollar decisions handle uncertainty.
+                {t.about.role_desc}
               </p>
               <div className="exp-item">
                 <div>
-                  <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>Current</div>
-                  <div style={{ fontSize: '1.2rem' }}>Private Consultant</div>
-                  <div style={{ color: '#888' }}>Netivei Ayalon & Ministry of Transportation</div>
+                  <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>{t.about.current_label}</div>
+                  <div style={{ fontSize: '1.2rem' }}>{t.about.current_role}</div>
+                  <div style={{ color: '#888' }}>{t.about.current_org}</div>
                 </div>
               </div>
               <div className="exp-item">
                 <div>
-                  <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>2016 - Present</div>
-                  <div style={{ fontSize: '1.2rem' }}>Transport Simulation Scientist</div>
-                  <div style={{ color: '#888' }}>Geosimulation Lab, TAU</div>
+                  <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>{t.about.past_label}</div>
+                  <div style={{ fontSize: '1.2rem' }}>{t.about.past_role}</div>
+                  <div style={{ color: '#888' }}>{t.about.past_org}</div>
                 </div>
               </div>
             </div>
 
             <div className="glass-card" id="skills">
-              <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>Technical Arsenal</h3>
-              <p style={{ marginBottom: '20px', color: '#888' }}>Core technologies used for simulation & analysis:</p>
+              <h3 style={{ fontSize: '1.8rem', marginBottom: '20px' }}>{t.about.skills_title}</h3>
+              <p style={{ marginBottom: '20px', color: '#888' }}>{t.about.skills_desc}</p>
               <div>
                 <span className="skill-tag">MATSim (Java)</span>
                 <span className="skill-tag">Python / Pandas</span>
@@ -457,8 +533,8 @@ export default function Home() {
                 className="cursor-pointer transition-all duration-300 bg-[rgba(204,255,0,0.05)] border border-[var(--pop-lime)] rounded-[8px] hover:bg-[rgba(204,255,0,0.1)] hover:border-[var(--pop-lime)] hover:shadow-[0_0_15px_rgba(204,255,0,0.1)]"
                 style={{ marginTop: '40px', padding: '20px' }}
               >
-                <h4 style={{ color: 'var(--pop-lime)', marginBottom: '5px' }}>PhD Research</h4>
-                <p style={{ fontSize: '0.9rem' }}>&quot;Combatting Congestion: Robust Transportation Policy Evaluation&quot;</p>
+                <h4 style={{ color: 'var(--pop-lime)', marginBottom: '5px' }}>{t.about.phd_title}</h4>
+                <p style={{ fontSize: '0.9rem' }}>{t.about.phd_desc}</p>
               </div>
             </div>
           </div>
@@ -466,20 +542,20 @@ export default function Home() {
 
         {/* Work */}
         <section id="work">
-          <h2 className="section-title">Selected Work</h2>
+          <h2 className="section-title">{t.work.title}</h2>
           <div className="work-grid">
             {/* Item 1 */}
             <div className="work-card">
-              <span className="status-badge">LIVE</span>
+              <span className="status-badge">{t.work.status_live}</span>
               <div className="work-icon"><MapPin strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">Google Maps Analytics</h3>
+              <h3 className="work-title">{t.work.google_title}</h3>
               <p className="work-desc">
-                Strategic planning for the Ministry of Transport. Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution.
+                {t.work.google_desc}
                 <br /><br />
-                <strong>Role:</strong> Method Lead, Technical Advisor, Co-PI<br />
-                <strong>Budget Responsibility:</strong> Lead project up to 15 million (Google Project).
+                <strong>{t.work.google_role}</strong><br />
+                <strong>{t.work.google_budget}</strong>
               </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>View Analysis →</a>
+              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.google_link}</a>
             </div>
 
             {/* Item 2 */}
@@ -497,56 +573,56 @@ export default function Home() {
                 position: 'relative',
                 zIndex: 2
               }}>
-                <span className="status-badge" style={{ right: '20px', top: '20px', zIndex: 10 }}>COMPLETED</span>
+                <span className="status-badge" style={{ insetInlineEnd: '20px', top: '20px', zIndex: 10 }}>{t.work.status_completed}</span>
                 <div className="work-icon"><Building2 strokeWidth={1} size={32} /></div>
-                <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>Jerusalem Master Plan</h3>
+                <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{t.work.jerusalem_title}</h3>
                 <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
-                  Evaluated &quot;Carrot and Stick&quot; strategies for Jerusalem. Findings showed how congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.
+                  {t.work.jerusalem_desc}
                 </p>
-                <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>View Simulation →</a>
+                <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.jerusalem_link}</a>
               </div>
             </VideoCard>
 
             {/* Item 3 */}
             <div className="work-card">
-              <span className="status-badge">VALIDATION</span>
+              <span className="status-badge">{t.work.status_validation}</span>
               <div className="work-icon"><Eye strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">Blind Control Reconstruction</h3>
+              <h3 className="work-title">{t.work.blind_title}</h3>
               <p className="work-desc">
-                Rigorous &quot;blind&quot; reconstruction of the Beer Sheva traffic model results to validate the integrity and accuracy of the simulation for government approval.
+                {t.work.blind_desc}
               </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>View Methodology →</a>
+              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.blind_link}</a>
             </div>
 
             {/* Item 4 - AI Integration */}
             <div className="work-card">
-              <span className="status-badge">ONGOING</span>
+              <span className="status-badge">{t.work.status_ongoing}</span>
               <div className="work-icon"><BrainCircuit strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">AI-Enhanced Workflows</h3>
+              <h3 className="work-title">{t.work.ai_title}</h3>
               <p className="work-desc">
-                Pioneering <strong>AI-Native Development</strong> using <strong>Claude, Gemini, and Codex</strong> to accelerate simulation pipelines and automate complex spatial SQL queries.
+                {t.work.ai_desc}
               </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>Learn More →</a>
+              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.ai_link}</a>
             </div>
           </div>
         </section>
 
         {/* Knowledge Hub */}
         <section id="knowledge">
-          <h2 className="section-title">Knowledge Hub</h2>
+          <h2 className="section-title">{t.knowledge.title}</h2>
           <div className="bento-grid">
             {/* TV Interview (Large Video) */}
             <VideoCard src="/article tv.mp4" className="bento-large">
               <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', pointerEvents: 'none' }}>
-                <span className="media-tag" style={{ color: 'var(--pop-pink)', borderColor: 'var(--pop-pink)' }}>TV INTERVIEW</span>
+                <span className="media-tag" style={{ color: 'var(--pop-pink)', borderColor: 'var(--pop-pink)' }}>{t.knowledge.tv_tag}</span>
                 <div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '15px', marginBottom: '10px' }}>
                     <div style={{ width: '50px', height: '50px', background: 'rgba(255, 0, 85, 0.2)', border: '1px solid var(--pop-pink)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', backdropFilter: 'blur(5px)' }}>
                       <Play style={{ fill: 'var(--pop-pink)', stroke: 'none' }} size={20} />
                     </div>
-                    <h3 style={{ fontSize: '1.5rem', textShadow: '0 2px 4px black' }}>AI in Urban Transport</h3>
+                    <h3 style={{ fontSize: '1.5rem', textShadow: '0 2px 4px black' }}>{t.knowledge.tv_title}</h3>
                   </div>
-                  <p style={{ color: '#ddd', textShadow: '0 1px 2px black' }}>Featured on National News discussing the future of autonomous traffic flow.</p>
+                  <p style={{ color: '#ddd', textShadow: '0 1px 2px black' }}>{t.knowledge.tv_desc}</p>
                 </div>
               </div>
             </VideoCard>
@@ -554,12 +630,12 @@ export default function Home() {
             {/* Podcast (Tall) */}
             <VideoCard src="/podcast video.mp4" className="" style={{ gridRow: 'span 2' }}>
               <div style={{ padding: '25px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', pointerEvents: 'none' }}>
-                <span className="media-tag" style={{ color: 'var(--pop-cyan)', borderColor: 'var(--pop-cyan)' }}>VIDEO PODCAST</span>
+                <span className="media-tag" style={{ color: 'var(--pop-cyan)', borderColor: 'var(--pop-cyan)' }}>{t.knowledge.podcast_tag}</span>
                 <div>
-                  <h4 style={{ lineHeight: 1.2, textShadow: '0 2px 4px black' }}>The Mobility Future</h4>
-                  <p style={{ fontSize: '0.8rem', color: '#ccc', marginBottom: '10px' }}>Ep. 42: Simulating Chaos</p>
+                  <h4 style={{ lineHeight: 1.2, textShadow: '0 2px 4px black' }}>{t.knowledge.podcast_title}</h4>
+                  <p style={{ fontSize: '0.8rem', color: '#ccc', marginBottom: '10px' }}>{t.knowledge.podcast_ep}</p>
                   <a href="#" style={{ color: 'var(--pop-cyan)', fontSize: '0.9rem', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '5px', textShadow: '0 0 10px rgba(0, 229, 255, 0.5)', pointerEvents: 'auto' }}>
-                    <PlayCircle size={16} /> Watch Episode
+                    <PlayCircle size={16} /> {t.knowledge.podcast_link}
                   </a>
                 </div>
               </div>
@@ -569,21 +645,21 @@ export default function Home() {
             <a href="https://www.calcalist.co.il/local_news/article/ry11iv5cz0" target="_blank" rel="noopener noreferrer" className="bento-card bento-full color-card calcalist-card" style={{ padding: 0, border: 'none', gridRow: 'span 2', display: 'block', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
               <Image src="/article news.jpg" alt="Dr. Golan Ben-Dor featured in Calcalist - Jerusalem congestion charge study" className="video-bg" fill style={{ objectFit: 'cover' }} />
               <div style={{ padding: '35px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', position: 'relative', zIndex: 2 }}>
-                <span className="media-tag">PRESS</span>
+                <span className="media-tag">{t.knowledge.press_tag}</span>
                 <div style={{ position: 'absolute', top: '60%', left: '53.9%', transform: 'translate(-50%, -50%)' }}>
                   <span className="highlight-name" style={{ fontSize: '0.4rem', fontWeight: 700, color: 'white', padding: '4px 36px', border: '2px solid transparent', transition: 'all 0.3s', display: 'inline-block', textShadow: '0 2px 4px black' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
                 </div>
                 <div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>&quot;Study: Jerusalem congestion charge cut traffic by a quarter.&quot;</h3>
-                  <p style={{ fontSize: '0.8rem', color: '#ccc' }}>Calcalist Feature</p>
+                  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>{t.knowledge.press_title}</h3>
+                  <p style={{ fontSize: '0.8rem', color: '#ccc' }}>{t.knowledge.press_source}</p>
                 </div>
-                <div style={{ position: 'absolute', bottom: '25px', right: '25px', color: 'white' }}><ExternalLink size={20} /></div>
+                <div style={{ position: 'absolute', bottom: '25px', insetInlineEnd: '25px', color: 'white' }}><ExternalLink size={20} /></div>
               </div>
             </a>
 
             {/* Scientific Papers (Full Width) */}
             <div id="publications" className="bento-card bento-full publications-card">
-              <span className="media-tag" style={{ color: 'var(--pop-lime)', borderColor: 'var(--pop-lime)' }}>PUBLICATIONS</span>
+              <span className="media-tag" style={{ color: 'var(--pop-lime)', borderColor: 'var(--pop-lime)' }}>{t.knowledge.publications_tag}</span>
 
               <div className="papers-grid">
                 {/* Paper 1 */}
@@ -592,9 +668,9 @@ export default function Home() {
                     <Image src="/paper 1.png" alt="Robust Policy Evaluation - Transportation Research Part A 2024 - Congestion Pricing Jerusalem MATSim Study" width={200} height={150} />
                   </div>
                   <div className="paper-info">
-                    <h4>Robust Policy Evaluation</h4>
-                    <p>Agent-based evaluation of congestion charges and parking prices in central Jerusalem. MATSim scenarios show how fees reduce congestion and emissions and encourage travelers to switch from private cars.</p>
-                    <p className="paper-meta">Transportation Research Part A • 2024</p>
+                    <h4>{t.knowledge.papers.robust_title}</h4>
+                    <p>{t.knowledge.papers.robust_desc}</p>
+                    <p className="paper-meta">{t.knowledge.papers.robust_meta}</p>
                   </div>
                 </a>
                 {/* Paper 2 */}
@@ -603,9 +679,9 @@ export default function Home() {
                     <Image src="/paper 2.png" alt="Agent-Based Modeling at Scale - Parallel MATSim Framework for Large-Scale Traffic Simulation" width={200} height={150} />
                   </div>
                   <div className="paper-info">
-                    <h4>Agent-Based Modeling at Scale</h4>
-                    <p>Parallel framework for large-scale urban traffic simulation in MATSim. Automatically clusters traffic to partition the network, balance cores, and reduce synchronization, delivering faster simulations on real road networks.</p>
-                    <p className="paper-meta">Simulation Modelling Practice and Theory • 2023</p>
+                    <h4>{t.knowledge.papers.scale_title}</h4>
+                    <p>{t.knowledge.papers.scale_desc}</p>
+                    <p className="paper-meta">{t.knowledge.papers.scale_meta}</p>
                   </div>
                 </a>
                 {/* Paper 3 */}
@@ -614,14 +690,14 @@ export default function Home() {
                     <Image src="/paper 3.png" alt="Population Downscaling in MATSim - Traffic Simulation Model Calibration and Accuracy Analysis" width={200} height={150} />
                   </div>
                   <div className="paper-info">
-                    <h4>Population Downscaling in MATSim</h4>
-                    <p>Studies MATSim downscaling by comparing full and sampled populations in Sioux Falls. Shows which reduced agent shares preserve key traffic statistics and where further scaling distorts network dynamics.</p>
-                    <p className="paper-meta">Simulation Modelling Practice and Theory • 2021</p>
+                    <h4>{t.knowledge.papers.downscaling_title}</h4>
+                    <p>{t.knowledge.papers.downscaling_desc}</p>
+                    <p className="paper-meta">{t.knowledge.papers.downscaling_meta}</p>
                   </div>
                 </a>
               </div>
 
-              <a href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl=iw&oi=sra" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--pop-lime)', fontSize: '0.9rem', textDecoration: 'none', marginTop: 'auto', display: 'inline-block', alignSelf: 'flex-start' }}>View All Publications →</a>
+              <a href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl=iw&oi=sra" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--pop-lime)', fontSize: '0.9rem', textDecoration: 'none', marginTop: 'auto', display: 'inline-block', alignSelf: 'flex-start' }}>{t.knowledge.view_all_publications}</a>
             </div>
 
             {/* Conference Photo (Carousel) */}
@@ -634,9 +710,9 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" className="contact-box">
-          <h2 style={{ fontSize: '4rem', marginBottom: '20px' }}>LET&apos;S CONNECT</h2>
+          <h2 style={{ fontSize: '4rem', marginBottom: '20px' }}>{t.contact.title}</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '40px' }}>
-            Open to consulting on national and metropolitan models, data infrastructure for mobility analytics, and research collaborations.
+            {t.contact.desc}
           </p>
           <a href="mailto:golanbendor@gmail.com" className="btn">golanbendor@gmail.com</a>
 
@@ -652,14 +728,14 @@ export default function Home() {
               className="text-[var(--text-secondary)] text-[1.2rem] hover:text-white transition-colors"
               style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
             >
-              Resume
+              {t.contact.resume}
             </button>
           </div>
         </section>
 
         <footer>
           <p style={{ textAlign: 'center', paddingBottom: '20px', fontSize: '0.8rem', opacity: 0.5 }}>
-            © 2025 Golan Ben-Dor. System ID: GBD-V13-REFINED.
+            {t.contact.footer}
           </p>
         </footer>
       </div>

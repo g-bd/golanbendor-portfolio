@@ -1,43 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
-
-const slides = [
-    {
-        image: "/key note 5.jpg",
-        tag: "STRATEGIC MEETING",
-        title: "Google-Ministry Partnership",
-        desc: 'Presenting National Traffic Monitoring Platform',
-    },
-    {
-        image: "/key note 1.jpg",
-        tag: "KEYNOTE",
-        title: "Smart Cities Summit 2024",
-        desc: 'Keynote Speaker: "Data-Driven Urbanism"',
-    },
-    {
-        image: "/key note 4.jpg",
-        tag: "CONFERENCE",
-        title: "MATSim User Meeting",
-        desc: 'Presenting Research: "Robust Policy Evaluation in Jerusalem"',
-    },
-    {
-        image: "/key note 2.jpg",
-        tag: "PANEL",
-        title: "Transport Innovation Hub",
-        desc: 'Expert Panel: "The Future of Simulation"',
-    },
-    {
-        image: "/key note 3.jpg",
-        tag: "WORKSHOP",
-        title: "Urban Future Conference",
-        desc: 'Leading Workshop: "Agents of Change"',
-    },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function KeynoteCarousel() {
+    const { langData, direction } = useLanguage();
     const [current, setCurrent] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const slides = langData.carousel;
 
     useEffect(() => {
         if (isPaused) return;
@@ -45,22 +15,27 @@ export default function KeynoteCarousel() {
             setCurrent((prev) => (prev + 1) % slides.length);
         }, 3500);
         return () => clearInterval(interval);
-    }, [isPaused]);
+    }, [isPaused, slides.length]);
 
     return (
         <div
             className="keynote-carousel relative w-full h-full overflow-hidden rounded-[15px] min-h-[350px]"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            dir={direction}
         >
-            {slides.map((slide, index) => (
+            {slides.map((slide: any, index: number) => (
                 <div
                     key={index}
-                    className={`carousel-slide absolute top-0 left-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out ${index === current ? "opacity-100" : "opacity-0"
+                    className={`carousel-slide absolute top-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out ${index === current ? "opacity-100" : "opacity-0"
                         }`}
-                    style={{ backgroundImage: `url('${slide.image}')` }}
+                    style={{
+                        backgroundImage: `url('${slide.image}')`,
+                        insetInlineStart: 0
+                    }}
                 >
-                    <div className="carousel-content absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/95 via-black/70 to-transparent z-[2]" style={{ paddingTop: '40px', paddingBottom: '40px', paddingLeft: '50px', paddingRight: '40px' }}>
+
+                    <div className="carousel-content absolute bottom-0 w-full bg-gradient-to-t from-black/95 via-black/70 to-transparent z-[2]" style={{ paddingTop: '40px', paddingBottom: '40px', paddingInlineStart: '50px', paddingInlineEnd: '40px', insetInlineStart: 0 }}>
                         <span className="media-tag inline-block mb-2 px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
                             {slide.tag}
                         </span>
