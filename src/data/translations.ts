@@ -174,7 +174,8 @@ export const translations = {
                 title: "Urban Future Conference",
                 desc: 'Leading Workshop: "Agents of Change"',
                 image: "/key note 3.jpg",
-                bgPosition: 'top right'
+                bgPosition: 'center',
+                mobileBgPosition: 'top right'
             },
             {
                 tag: "PRESENTATION",
@@ -356,7 +357,8 @@ export const translations = {
                 title: "כנס עתיד עירוני",
                 desc: 'הובלת סדנה: "סוכנים של שינוי"',
                 image: "/key note 3.jpg",
-                bgPosition: 'top right'
+                bgPosition: 'center',
+                mobileBgPosition: 'top right'
             },
             {
                 tag: "הצגה",

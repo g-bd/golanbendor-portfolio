@@ -8,8 +8,17 @@ export default function KeynoteCarousel() {
     const { langData, direction } = useLanguage();
     const [current, setCurrent] = useState(0);
     const [isPaused, setIsPaused] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const iframeRef = useRef<HTMLIFrameElement>(null);
     const slides = langData.carousel;
+
+    // Detect mobile screen
+    useEffect(() => {
+        const checkMobile = () => setIsMobile(window.innerWidth < 900);
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
 
     useEffect(() => {
         if (isPaused) return;
@@ -55,7 +64,7 @@ export default function KeynoteCarousel() {
                         }`}
                     style={{
                         backgroundImage: !slide.youtubeId ? `url('${slide.image}')` : 'none',
-                        backgroundPosition: slide.bgPosition || 'center',
+                        backgroundPosition: isMobile && slide.mobileBgPosition ? slide.mobileBgPosition : (slide.bgPosition || 'center'),
                         insetInlineStart: 0,
                         backgroundColor: '#000'
                     }}
