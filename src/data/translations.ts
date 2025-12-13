@@ -111,6 +111,14 @@ export const translations = {
                 image: "/key note 1.jpg"
             },
             {
+                tag: "VIDEO",
+                title: "ISTRC 2021 Conference",
+                desc: 'Talk: "Robust Policy Evaluation"',
+                image: "/key note 4.jpg", // Fallback image if needed, though video will cover it
+                youtubeId: "3inUnuxH_W0",
+                startTime: 23
+            },
+            {
                 tag: "CONFERENCE",
                 title: "MATSim User Meeting",
                 desc: 'Presenting Research: "Robust Policy Evaluation in Jerusalem"',
@@ -243,6 +251,14 @@ export const translations = {
                 title: "פסגת ערים חכמות 2024",
                 desc: 'דובר מרכזי: "עירוניות מונעת נתונים"',
                 image: "/key note 1.jpg"
+            },
+            {
+                tag: "וידאו",
+                title: "ISTRC 2021",
+                desc: 'הרצאה: "הערכת מדיניות חסינה"',
+                image: "/key note 4.jpg",
+                youtubeId: "3inUnuxH_W0",
+                startTime: 23
             },
             {
                 tag: "כנס",
