@@ -74,20 +74,57 @@ export const translations = {
             podcast_title: "The Mobility Future",
             podcast_ep: "Ep. 42: Simulating Chaos",
             podcast_link: "Watch Episode",
-            press_tag: "PRESS",
-            press_title: "\"Study: Jerusalem congestion charge cut traffic by a quarter.\"",
-            press_source: "Calcalist Feature",
+            news: [
+                {
+                    tag: "PRESS",
+                    title: "\"Study: Jerusalem congestion charge cut traffic by a quarter.\"",
+                    source: "Calcalist Feature",
+                    image: "/article news.jpg",
+                    link: "https://www.calcalist.co.il/local_news/article/ry11iv5cz0",
+                    isLong: true,
+                    scrollDepth: '-20%',
+                    duration: 15000,
+                    disableMobileScroll: true,
+                    mobileTitle: "Study: Congestion charge cuts traffic by 25%.",
+                    mobileImageClassName: "h-full object-cover object-right-top md:h-auto md:object-center",
+                },
+                {
+                    tag: "PRESS",
+                    title: "Like a bus, but empty and motionless: The study exposing the inefficiency of smart transportation",
+                    source: "TheMarker Feature",
+                    image: "/article news 2.png",
+                    link: "https://www.themarker.com/dynamo/cars/2020-02-19/ty-article/.premium/0000017f-e0f6-d38f-a57f-e6f6deb60000",
+                    isLong: true,
+                    scrollDepth: '-55%',
+                    duration: 10000,
+                    scrollDuration: 8000, // Scroll in 8s, pause 2s before next slide
+                    disableMobileScroll: true,
+                    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)', // Lighter gradient
+                    mobileTitle: "Smart Transport Inefficiency?",
+                },
+                {
+                    tag: "PRESS",
+                    title: "Right Around the Corner: The Bus Will Arrive Exactly When You Need It",
+                    source: "Mako Feature",
+                    image: "/article news 3.png",
+                    link: "https://www.mako.co.il/nexter-internet/developments/Article-e34ae227f71af51006.htm",
+                    isLong: true,
+                    scrollDepth: '-80%',
+                    duration: 60000,
+                    mobileTitle: "The Bus Arrives On Time.",
+                }
+            ],
             publications_tag: "PUBLICATIONS",
             view_all_publications: "View All Publications →",
             papers: {
                 robust_title: "Robust Policy Evaluation",
-                robust_desc: "Agent-based evaluation of congestion charges and parking prices in central Jerusalem. MATSim scenarios show how fees reduce congestion and emissions and encourage travelers to switch from private cars.",
+                robust_desc: "Agent-based evaluation of congestion charges and parking prices in central Jerusalem. MATsim scenarios show how fees reduce congestion and emissions and encourage travelers to switch from private cars.",
                 robust_meta: "Transportation Research Part A • 2024",
                 scale_title: "Agent-Based Modeling at Scale",
-                scale_desc: "Parallel framework for large-scale urban traffic simulation in MATSim. Automatically clusters traffic to partition the network, balance cores, and reduce synchronization, delivering faster simulations on real road networks.",
+                scale_desc: "Parallel framework for large-scale urban traffic simulation in MATsim. Automatically clusters traffic to partition the network, balance cores, and reduce synchronization, delivering faster simulations on real road networks.",
                 scale_meta: "Simulation Modelling Practice and Theory • 2023",
-                downscaling_title: "Population Downscaling in MATSim",
-                downscaling_desc: "Studies MATSim downscaling by comparing full and sampled populations in Sioux Falls. Shows which reduced agent shares preserve key traffic statistics and where further scaling distorts network dynamics.",
+                downscaling_title: "Population Downscaling in MATsim",
+                downscaling_desc: "Studies MATsim downscaling by comparing full and sampled populations in Sioux Falls. Shows which reduced agent shares preserve key traffic statistics and where further scaling distorts network dynamics.",
                 downscaling_meta: "Simulation Modelling Practice and Theory • 2021"
             }
         },
@@ -108,7 +145,8 @@ export const translations = {
                 tag: "KEYNOTE",
                 title: "Smart Cities Summit 2024",
                 desc: 'Keynote Speaker: "Data-Driven Urbanism"',
-                image: "/key note 1.jpg"
+                image: "/key note 1.jpg",
+                bgPosition: '25% top'
             },
             {
                 tag: "VIDEO",
@@ -128,13 +166,15 @@ export const translations = {
                 tag: "PANEL",
                 title: "Transport Innovation Hub",
                 desc: 'Expert Panel: "The Future of Simulation"',
-                image: "/key note 2.jpg"
+                image: "/key note 2.jpg",
+                bgPosition: '25% top'
             },
             {
                 tag: "WORKSHOP",
                 title: "Urban Future Conference",
                 desc: 'Leading Workshop: "Agents of Change"',
-                image: "/key note 3.jpg"
+                image: "/key note 3.jpg",
+                bgPosition: 'top right'
             },
             {
                 tag: "PRESENTATION",
@@ -216,9 +256,46 @@ export const translations = {
             podcast_title: "עתיד הניידות",
             podcast_ep: "פרק 42: סימולציה של כאוס",
             podcast_link: "צפה בפרק",
-            press_tag: "עיתונות",
-            press_title: "\"מחקר: אגרת הגודש בירושלים חתכה את הפקקים ברבע.\"",
-            press_source: "כתבה בכלכליסט",
+            news: [
+                {
+                    tag: "עיתונות",
+                    title: "\"מחקר: אגרת הגודש בירושלים חתכה את הפקקים ברבע.\"",
+                    source: "כתבה בכלכליסט",
+                    image: "/article news.jpg",
+                    link: "https://www.calcalist.co.il/local_news/article/ry11iv5cz0",
+                    isLong: true,
+                    scrollDepth: '-20%',
+                    duration: 15000,
+                    disableMobileScroll: true,
+                    mobileTitle: "מחקר: אגרת הגודש חתכה את הפקקים ברבע.",
+                    mobileImageClassName: "h-full object-cover object-right-top md:h-auto md:object-center",
+                },
+                {
+                    tag: "עיתונות",
+                    title: "כמו אוטובוס, רק ריק ולא זז: המחקר שחושף את חוסר היעילות של התחבורה החכמה",
+                    source: "כתבה ב-TheMarker",
+                    image: "/article news 2.png",
+                    link: "https://www.themarker.com/dynamo/cars/2020-02-19/ty-article/.premium/0000017f-e0f6-d38f-a57f-e6f6deb60000",
+                    isLong: true,
+                    scrollDepth: '-55%',
+                    duration: 10000,
+                    scrollDuration: 8000, // Scroll in 8s, pause 2s before next slide
+                    disableMobileScroll: true,
+                    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)', // Lighter gradient
+                    mobileTitle: "חוסר יעילות בתחבורה חכמה",
+                },
+                {
+                    tag: "עיתונות",
+                    title: "ממש מעבר לפינה: האוטובוס יגיע בדיוק מתי שאתם צריכים",
+                    source: "כתבה ב-Mako",
+                    image: "/article news 3.png",
+                    link: "https://www.mako.co.il/nexter-internet/developments/Article-e34ae227f71af51006.htm",
+                    isLong: true,
+                    scrollDepth: '-80%',
+                    duration: 60000,
+                    mobileTitle: "האוטובוס יגיע בדיוק בזמן",
+                }
+            ],
             publications_tag: "פרסומים מדעיים",
             view_all_publications: "לכל הפרסומים ←",
             papers: {
@@ -250,7 +327,8 @@ export const translations = {
                 tag: "נאום מרכזי",
                 title: "פסגת ערים חכמות 2024",
                 desc: 'דובר מרכזי: "עירוניות מונעת נתונים"',
-                image: "/key note 1.jpg"
+                image: "/key note 1.jpg",
+                bgPosition: '25% top'
             },
             {
                 tag: "וידאו",
@@ -270,13 +348,15 @@ export const translations = {
                 tag: "פאנל",
                 title: "מרכז חדשנות בתחבורה",
                 desc: 'פאנל מומחים: "עתיד הסימולציה"',
-                image: "/key note 2.jpg"
+                image: "/key note 2.jpg",
+                bgPosition: '25% top'
             },
             {
                 tag: "סדנה",
                 title: "כנס עתיד עירוני",
                 desc: 'הובלת סדנה: "סוכנים של שינוי"',
-                image: "/key note 3.jpg"
+                image: "/key note 3.jpg",
+                bgPosition: 'top right'
             },
             {
                 tag: "הצגה",

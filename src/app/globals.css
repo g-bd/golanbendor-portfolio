@@ -951,3 +951,41 @@ nav {
 .font-hebrew .section-title::before {
   margin-inline-end: 10px;
 }
+
+/* News Carousel Auto Scroll */
+@keyframes scroll-long {
+  0% {
+    transform: translateY(0);
+  }
+
+  5% {
+    transform: translateY(0);
+  }
+
+  /* Pause at top */
+  95% {
+    transform: translateY(var(--scroll-target, -50%));
+  }
+
+  /* Scroll down to variable target */
+  100% {
+    transform: translateY(var(--scroll-target, -50%));
+  }
+
+  /* Hold at bottom */
+}
+
+.animate-scroll-long {
+  animation-name: scroll-long;
+  animation-timing-function: ease-in-out;
+  /* Duration, fill-mode, etc are set inline via JS */
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .animate-scroll-long-desktop {
+    animation-name: scroll-long;
+    animation-timing-function: ease-in-out;
+    will-change: transform;
+  }
+}

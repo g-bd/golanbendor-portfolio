@@ -7,6 +7,7 @@ import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
 import KeynoteCarousel from '@/components/KeynoteCarousel';
+import NewsCarousel from '@/components/NewsCarousel';
 import PDFModal from '@/components/PDFModal';
 import { useLanguage } from '@/context/LanguageContext';
 
@@ -671,20 +672,11 @@ export default function Home() {
             </VideoCard>
 
             {/* Newspaper (Full Width Below) */}
-            <a href="https://www.calcalist.co.il/local_news/article/ry11iv5cz0" target="_blank" rel="noopener noreferrer" className="bento-card bento-full color-card calcalist-card" style={{ padding: 0, border: 'none', gridRow: 'span 2', display: 'block', textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
-              <Image src="/article news.jpg" alt="Dr. Golan Ben-Dor featured in Calcalist - Jerusalem congestion charge study" className="video-bg" fill style={{ objectFit: 'cover' }} />
-              <div style={{ padding: '35px', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)', position: 'relative', zIndex: 2 }}>
-                <span className="media-tag">{t.knowledge.press_tag}</span>
-                <div style={{ position: 'absolute', top: '60%', left: '53.9%', transform: 'translate(-50%, -50%)' }}>
-                  <span className="highlight-name" style={{ fontSize: '0.4rem', fontWeight: 700, color: 'white', padding: '4px 36px', border: '2px solid transparent', transition: 'all 0.3s', display: 'inline-block', textShadow: '0 2px 4px black' }}>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                </div>
-                <div>
-                  <h3 style={{ fontSize: '1.1rem', marginBottom: '5px', textShadow: '0 2px 4px black' }}>{t.knowledge.press_title}</h3>
-                  <p style={{ fontSize: '0.8rem', color: '#ccc' }}>{t.knowledge.press_source}</p>
-                </div>
-                <div style={{ position: 'absolute', bottom: '25px', insetInlineEnd: '25px', color: 'white' }}><ExternalLink size={20} /></div>
-              </div>
-            </a>
+            {/* News Carousel (Full Width Below) */}
+            <NewsCarousel
+              className="bento-card bento-full color-card calcalist-card"
+              style={{ padding: 0, border: 'none', gridRow: 'span 2' }}
+            />
 
             {/* Scientific Papers (Full Width) */}
             <div id="publications" className="bento-card bento-full publications-card">

@@ -55,6 +55,7 @@ export default function KeynoteCarousel() {
                         }`}
                     style={{
                         backgroundImage: !slide.youtubeId ? `url('${slide.image}')` : 'none',
+                        backgroundPosition: slide.bgPosition || 'center',
                         insetInlineStart: 0,
                         backgroundColor: '#000'
                     }}
@@ -69,7 +70,7 @@ export default function KeynoteCarousel() {
                                 title={slide.title}
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowFullScreen
-                                className="absolute top-1/2 left-1/2 w-[150%] h-[150%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none"
+                                className="absolute top-1/2 left-1/2 w-full h-full md:w-[150%] md:h-[150%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none"
                                 style={{ border: 'none' }}
                             />
                         </div>
@@ -105,7 +106,7 @@ export default function KeynoteCarousel() {
             {/* Navigation Arrows */}
             <button
                 onClick={(e) => { e.stopPropagation(); prevSlide(); }}
-                className="absolute top-1/2 -translate-y-1/2 z-30 p-2 bg-black/30 hover:bg-black/60 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute top-1/2 -translate-y-1/2 z-30 p-2 bg-black/30 hover:bg-black/60 rounded-full text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                 aria-label="Previous Slide"
                 style={{ insetInlineStart: '10px' }}
             >
@@ -113,7 +114,7 @@ export default function KeynoteCarousel() {
             </button>
             <button
                 onClick={(e) => { e.stopPropagation(); nextSlide(); }}
-                className="absolute top-1/2 -translate-y-1/2 z-30 p-2 bg-black/30 hover:bg-black/60 rounded-full text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                className="absolute top-1/2 -translate-y-1/2 z-30 p-2 bg-black/30 hover:bg-black/60 rounded-full text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity"
                 aria-label="Next Slide"
                 style={{ insetInlineEnd: '10px' }}
             >
