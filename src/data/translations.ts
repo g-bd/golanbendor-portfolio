@@ -127,6 +127,12 @@ export const translations = {
                 title: "Urban Future Conference",
                 desc: 'Leading Workshop: "Agents of Change"',
                 image: "/key note 3.jpg"
+            },
+            {
+                tag: "PRESENTATION",
+                title: "National Transport Strategy",
+                desc: 'Presenting Advanced Modeling Frameworks',
+                image: "/key note 6.jpg"
             }
         ]
     },
@@ -255,6 +261,12 @@ export const translations = {
                 title: "כנס עתיד עירוני",
                 desc: 'הובלת סדנה: "סוכנים של שינוי"',
                 image: "/key note 3.jpg"
+            },
+            {
+                tag: "הצגה",
+                title: "אסטרטגיה תחבורתית לאומית",
+                desc: 'הצגת מסגרות מידול מתקדמות',
+                image: "/key note 6.jpg"
             }
         ]
     }
