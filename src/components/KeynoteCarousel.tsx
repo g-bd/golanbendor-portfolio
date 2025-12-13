@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { useLanguage } from "@/context/LanguageContext";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Play } from "lucide-react";
 
 export default function KeynoteCarousel() {
     const { langData, direction } = useLanguage();
@@ -60,31 +60,40 @@ export default function KeynoteCarousel() {
                     }}
                 >
                     {slide.youtubeId && index === current ? (
-                        <iframe
-                            ref={iframeRef}
-                            width="100%"
-                            height="100%"
-                            src={`https://www.youtube.com/embed/${slide.youtubeId}?start=${slide.startTime || 0}&autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&enablejsapi=1&playlist=${slide.youtubeId}&loop=1`}
-                            title={slide.title}
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                            className="absolute inset-0 w-full h-full object-cover pointer-events-none"
-                            style={{ border: 'none' }}
-                        />
+                        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+                            <iframe
+                                ref={iframeRef}
+                                width="100%"
+                                height="100%"
+                                src={`https://www.youtube.com/embed/${slide.youtubeId}?start=${slide.startTime || 0}&autoplay=1&mute=1&controls=0&rel=0&modestbranding=1&enablejsapi=1&playlist=${slide.youtubeId}&loop=1`}
+                                title={slide.title}
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                                className="absolute top-1/2 left-1/2 w-[150%] h-[150%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none"
+                                style={{ border: 'none' }}
+                            />
+                        </div>
                     ) : null}
 
                     {/* Content Overlay */}
                     <div className="carousel-content absolute bottom-0 w-full bg-gradient-to-t from-black/95 via-black/70 to-transparent z-[20] transition-opacity duration-300 pointer-events-none"
                         style={{
-                            paddingTop: '40px',
+                            paddingTop: '60px',
                             paddingBottom: '40px',
                             paddingInlineStart: '50px',
                             paddingInlineEnd: '40px',
                             insetInlineStart: 0
                         }}>
-                        <span className="media-tag inline-block mb-2 px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
-                            {slide.tag}
-                        </span>
+                        <div className="flex items-center gap-4 mb-2">
+                            {slide.youtubeId && (
+                                <div className={`w-[50px] h-[50px] bg-[rgba(255,0,85,0.2)] border border-[var(--pop-pink)] rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 ${isPaused && index === current ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
+                                    <Play style={{ fill: 'var(--pop-pink)', stroke: 'none' }} size={20} />
+                                </div>
+                            )}
+                            <span className="media-tag inline-block px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
+                                {slide.tag}
+                            </span>
+                        </div>
                         <h3 className="text-2xl font-bold text-white drop-shadow-md mb-1">
                             {slide.title}
                         </h3>
