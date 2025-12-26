@@ -1,0 +1,35 @@
+{
+  "name": "Dr. Golan Ben-Dor | Urban Mobility Scientist",
+  "short_name": "Dr. Ben-Dor",
+  "description": "Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy evaluation.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a12",
+  "theme_color": "#0a0a12",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/chrome tab logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "business"],
+  "lang": "en",
+  "dir": "auto"
+}
