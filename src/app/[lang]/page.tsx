@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe, Menu, X } from 'lucide-react';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
+import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
 import KeynoteCarousel from '@/components/KeynoteCarousel';
@@ -386,6 +387,7 @@ export default function Home() {
       {/* Background */}
       <div className="grid-overlay" />
       <TrafficCanvas />
+      <ScrollTransitSystem />
 
       <div className="container" dir={direction}>
         {/* Navbar */}
