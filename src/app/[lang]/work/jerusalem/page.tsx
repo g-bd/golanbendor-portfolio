@@ -315,9 +315,11 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                     </div>
                                 </div>
 
-                                <p className="text-lg md:text-2xl text-white/90 leading-[1.9] relative z-10 text-center max-w-3xl mx-auto font-light">
-                                    {content.study_finding}
-                                </p>
+                                <div className="flex justify-center relative z-10">
+                                    <p className="text-lg md:text-2xl text-white/90 leading-[1.9] max-w-3xl font-light" style={{ textAlign: 'center' }}>
+                                        {content.study_finding}
+                                    </p>
+                                </div>
                             </div>
                         </motion.section>
 
@@ -377,8 +379,17 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                     src="/sim video high res.mp4"
                                 />
                                 {/* Video Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-12 md:p-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                                <div
+                                    className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                                >
+                                    <div
+                                        className="absolute bottom-6 md:bottom-10 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100 max-w-xl"
+                                        style={{
+                                            right: direction === 'rtl' ? '2rem' : 'auto',
+                                            left: direction === 'rtl' ? 'auto' : '2rem',
+                                            textAlign: direction === 'rtl' ? 'right' : 'left'
+                                        }}
+                                    >
                                         <h4 className="text-white font-bold text-2xl mb-2">{content.blog_section.video_title}</h4>
                                         <p className="text-white/80 text-lg">{content.blog_section.video_desc}</p>
                                     </div>
@@ -430,10 +441,10 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 href={content.cta_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-3 text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
+                                className="inline-flex items-center gap-5 px-14 md:px-20 py-6 md:py-7 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
                             >
-                                <span>{content.cta_button}</span>
-                                <ExternalLink className="w-4 h-4" />
+                                <span className="text-sm md:text-base whitespace-nowrap">{content.cta_button}</span>
+                                <ExternalLink className="w-5 h-5" />
                             </a>
 
                             {/* Back to Portfolio Link */}
