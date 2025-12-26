@@ -32,7 +32,7 @@ export const translations = {
         about: {
             title: "About Me",
             role_title: "The Architect of Flow",
-            role_desc: "With a PhD from Tel Aviv University, I bridge the gap between theoretical algorithms and concrete urban reality. My work focuses on Robust Policy Evaluation—ensuring that billion-dollar decisions handle uncertainty.",
+            role_desc: "With a PhD from Tel Aviv University, I bridge the gap between theoretical algorithms and concrete urban reality. My work focuses on Robust Policy Evaluation—ensuring that billion-dollar decisions handle uncertainty. I also lecture to companies on AI-native workflows, showing teams how to leverage cutting-edge AI tools to transform complex challenges into elegant solutions.",
             current_label: "Current",
             current_role: "Private Consultant",
             current_org: "Netivei Ayalon & Ministry of Transport",
@@ -218,7 +218,7 @@ export const translations = {
         about: {
             title: "אודותיי",
             role_title: "אדריכל הזרימה",
-            role_desc: "עם דוקטורט מאוניברסיטת תל אביב, אני מגשר על הפער בין אלגוריתמים תיאורטיים למציאות עירונית. עבודתי מתמקדת בהערכת מדיניות חסינה—הבטחה שהחלטות של מיליארדים יעמדו במבחן אי-הוודאות.",
+            role_desc: "עם דוקטורט מאוניברסיטת תל אביב, אני מגשר על הפער בין אלגוריתמים תיאורטיים למציאות עירונית. עבודתי מתמקדת בהערכת מדיניות חסינה—הבטחה שהחלטות של מיליארדים יעמדו במבחן אי-הוודאות. בנוסף, אני מרצה לחברות על תהליכי עבודה מבוססי AI, ומלמד צוותים כיצד למנף כלי בינה מלאכותית מתקדמים להפוך אתגרים מורכבים לפתרונות אלגנטיים.",
             current_label: "כיום",
             current_role: "יועץ פרטי",
             current_org: "נתיבי איילון ומשרד התחבורה",
