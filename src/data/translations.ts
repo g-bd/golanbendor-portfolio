@@ -42,6 +42,9 @@ export const translations = {
             past_label: "2016 - 2023",
             past_role: "Transport Simulation Scientist",
             past_org: "Geosimulation Lab, TAU",
+            past_label2: "2023",
+            past_role2: "Academic Lecturer (GIS)",
+            past_org2: "Tel Aviv University",
             skills_title: "Technical Arsenal",
             skills_desc: "Core technologies used for simulation & analysis:",
             phd_title: "PhD Research",
@@ -77,8 +80,8 @@ export const translations = {
             tv_desc: "Interview on Channel 13 News discussing the future of public transportation and urban mobility.",
             tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
             podcast_tag: "VIDEO PODCAST",
-            podcast_title: "The Mobility Future",
-            podcast_ep: "Ep. 42: Simulating Chaos",
+            podcast_title: "AI-Native Workflows",
+            podcast_ep: "Leveraging AI Tools for Complex Problem Solving",
             podcast_link: "Watch Episode",
             news: [
                 {
@@ -231,6 +234,9 @@ export const translations = {
             past_label: "2016 - 2023",
             past_role: "חוקר סימולציה תחבורתית",
             past_org: "המעבדה לגיאו-סימולציה, אונ' ת\"א",
+            past_label2: "2023",
+            past_role2: "מרצה אקדמי (GIS)",
+            past_org2: "אוניברסיטת תל אביב",
             skills_title: "ארסנל טכני",
             skills_desc: "טכנולוגיות ליבה לסימולציה וניתוח:",
             phd_title: "מחקר דוקטורט",
@@ -266,8 +272,8 @@ export const translations = {
             tv_desc: "ראיון בחדשות ערוץ 13 על עתיד התחבורה הציבורית והניידות העירונית.",
             tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
             podcast_tag: "פודקאסט וידאו",
-            podcast_title: "עתיד הניידות",
-            podcast_ep: "פרק 42: סימולציה של כאוס",
+            podcast_title: "תהליכי עבודה מבוססי AI",
+            podcast_ep: "מינוף כלי בינה מלאכותית לפתרון בעיות מורכבות",
             podcast_link: "צפה בפרק",
             news: [
                 {
