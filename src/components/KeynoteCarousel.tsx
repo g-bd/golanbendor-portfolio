@@ -158,7 +158,7 @@ export default function KeynoteCarousel() {
                             paddingInlineEnd: '40px',
                             insetInlineStart: 0
                         }}>
-                        <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-end justify-between mb-4">
                             <span className="media-tag inline-block px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
                                 {slide.tag}
                             </span>
