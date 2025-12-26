@@ -799,7 +799,7 @@ export default function Home() {
               <span className="text-[0.6rem] text-[var(--pop-lime)] font-mono tracking-[0.15em] opacity-80 uppercase whitespace-nowrap">{t.contact.phone_label}</span>
             </div>
             {/* Phone Number */}
-            <div className="text-[1.8rem] text-white group-hover:text-[var(--pop-lime)] transition-colors tracking-wider font-bold" dir="ltr" style={{ fontFamily: "'Fira Code', monospace" }}>
+            <div className="text-[1.8rem] text-white group-hover:text-[var(--pop-lime)] transition-colors font-bold" dir="ltr" style={{ fontFamily: "'Fira Code', monospace" }}>
               {t.contact.phone}
             </div>
           </div>
