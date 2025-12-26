@@ -228,7 +228,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
-                        className="glass-card p-10 md:p-14 mb-56 md:mb-80 relative overflow-hidden group"
+                        className="glass-card p-10 md:p-14 mb-40 relative overflow-hidden group"
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
@@ -251,7 +251,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                     </motion.div>
 
                     {/* Blog Content */}
-                    <div className="space-y-56 md:space-y-80">
+                    <div className="space-y-[10rem] md:space-y-[14rem]">
 
                         {/* Fresh Insights Section */}
                         <motion.section
