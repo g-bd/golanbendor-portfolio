@@ -141,7 +141,7 @@ export default function NewsCarousel({ className, style }: NewsCarouselProps) {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="absolute bottom-2 end-2 md:bottom-[25px] md:end-[25px] text-white cursor-pointer z-50 transition-all duration-300 hover-glow-pink"
-                                style={{ pointerEvents: 'auto' }}
+                                style={{ pointerEvents: isActive ? 'auto' : 'none' }}
                                 onClick={(e) => e.stopPropagation()}
                             >
                                 <ExternalLink size={20} style={{ transition: 'all 0.3s' }} />
