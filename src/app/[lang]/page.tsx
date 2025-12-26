@@ -525,6 +525,13 @@ export default function Home() {
               </div>
               <div className="exp-item">
                 <div>
+                  <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>{t.about.current_label2}</div>
+                  <div style={{ fontSize: '1.2rem' }}>{t.about.current_role2}</div>
+                  <div style={{ color: '#888' }}>{t.about.current_org2}</div>
+                </div>
+              </div>
+              <div className="exp-item">
+                <div>
                   <div style={{ color: 'var(--pop-cyan)', fontWeight: 'bold' }}>{t.about.past_label}</div>
                   <div style={{ fontSize: '1.2rem' }}>{t.about.past_role}</div>
                   <div style={{ color: '#888' }}>{t.about.past_org}</div>
