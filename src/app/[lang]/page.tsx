@@ -788,15 +788,15 @@ export default function Home() {
 
           {/* Secure Phone Line */}
           <div
-            className="flex items-center gap-4 mb-10 justify-center group cursor-pointer"
-            onClick={() => window.open(`tel:${t.contact.phone.replace(/-/g, '')}`)}
+            className="flex items-center gap-1 md:gap-2 rtl:gap-4 mb-10 justify-center group cursor-pointer"
+            onClick={() => window.open('https://wa.me/972522937463', '_blank')}
           >
             {/* Icon + Label together */}
             <div className="flex flex-col items-center gap-1">
               <div className="w-12 h-12 rounded-[12px] border border-[var(--pop-lime)] flex items-center justify-center bg-[rgba(204,255,0,0.05)] group-hover:bg-[var(--pop-lime)] group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(204,255,0,0.1)] group-hover:shadow-[0_0_25px_rgba(204,255,0,0.4)]">
                 <Phone size={24} className="text-[var(--pop-lime)] group-hover:text-black transition-colors" />
               </div>
-              <span className="text-[0.6rem] text-[var(--pop-lime)] font-mono tracking-[0.15em] opacity-80 uppercase whitespace-nowrap">{t.contact.phone_label}</span>
+              <span className="text-[0.6rem] text-[var(--pop-lime)] font-mono tracking-widest rtl:tracking-[0.15em] opacity-80 uppercase whitespace-nowrap">{t.contact.phone_label}</span>
             </div>
             {/* Phone Number */}
             <div className="text-[1.8rem] text-white group-hover:text-[var(--pop-lime)] transition-colors font-bold" dir="ltr" style={{ fontFamily: "'Fira Code', monospace" }}>
