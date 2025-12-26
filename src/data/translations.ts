@@ -17,7 +17,7 @@ export const translations = {
             title: "URBAN MOBILITY SCIENTIST",
             headline_prefix: "SIMULATING",
             headline_suffix: "THE FUTURE",
-            description: "I work with transport agencies to evaluate major projects under uncertainty, using real-world data, agent-based models, AI and scenario analysis.",
+            description: "I work with transport agencies to evaluate major projects under uncertainty, using real-world data, agent-based models, AI and scenario analysis. I also lecture to companies on leveraging AI tools to transform complex challenges into streamlined workflows.",
             description_collaboration: "Current collaborations include the Ministry of Transport's Strategic Planning and Innovation Division, Netivei Ayalon, Netivei Israel, the Jerusalem Master Transportation Team, and the Central Bureau of Statistics (CBS).",
             cta: "Explore Models"
         },
@@ -211,7 +211,7 @@ export const translations = {
             title: "חוקר תחבורה, נתונים ו-AI",
             headline_prefix: "מדע שמניע",
             headline_suffix: "ערים קדימה",
-            description: "אני עובד עם רשויות תחבורה להערכת פרויקטים גדולים בתנאי אי-ודאות, באמצעות נתוני אמת, מודלים מבוססי סוכנים (MATSim) ובינה מלאכותית.",
+            description: "אני עובד עם רשויות תחבורה להערכת פרויקטים גדולים בתנאי אי-ודאות, באמצעות נתוני אמת, מודלים מבוססי סוכנים (MATSim) ובינה מלאכותית. בנוסף, אני מרצה לחברות על מינוף כלי AI להפיכת אתגרים מורכבים לתהליכי עבודה יעילים.",
             description_collaboration: "שיתופי פעולה נוכחיים כוללים את אגף אסטרטגיה במשרד התחבורה, נתיבי איילון, נתיבי ישראל, צוות תכנית אב לתחבורה ירושלים והלמ\"ס.",
             cta: "פרויקטים נבחרים"
         },
