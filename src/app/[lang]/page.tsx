@@ -556,6 +556,16 @@ export default function Home() {
                 <h4 style={{ color: 'var(--pop-lime)', marginBottom: '5px' }}>{t.about.phd_title}</h4>
                 <p style={{ fontSize: '0.9rem' }}>{t.about.phd_desc}</p>
               </div>
+
+              {/* Master's Thesis Button */}
+              <div
+                onClick={() => openPdf('Thesis_Golan_Final- after fixes.pdf', "Master's Thesis: Dedicated Bus Lanes")}
+                className="cursor-pointer transition-all duration-300 bg-[rgba(0,229,255,0.05)] border border-[var(--pop-cyan)] rounded-[8px] hover:bg-[rgba(0,229,255,0.1)] hover:border-[var(--pop-cyan)] hover:shadow-[0_0_15px_rgba(0,229,255,0.1)]"
+                style={{ marginTop: '20px', padding: '20px' }}
+              >
+                <h4 style={{ color: 'var(--pop-cyan)', marginBottom: '5px' }}>{t.about.msc_title}</h4>
+                <p style={{ fontSize: '0.9rem' }}>{t.about.msc_desc}</p>
+              </div>
             </div>
           </div>
         </section>
@@ -648,10 +658,10 @@ export default function Home() {
                   href={t.knowledge.tv_link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="absolute bottom-6 end-6 text-white hover:text-pink-400 transition-colors cursor-pointer z-50"
+                  className="absolute bottom-6 end-6 text-white cursor-pointer z-50 transition-all duration-300 hover-glow-pink"
                   style={{ pointerEvents: 'auto' }}
                 >
-                  <ExternalLink size={24} />
+                  <ExternalLink size={24} style={{ transition: 'all 0.3s' }} />
                 </a>
               </div>
             </VideoCard>

@@ -42,7 +42,9 @@ export const translations = {
             skills_title: "Technical Arsenal",
             skills_desc: "Core technologies used for simulation & analysis:",
             phd_title: "PhD Research",
-            phd_desc: "\"Combating Congestion: Robust Transportation Policy Evaluation\""
+            phd_desc: "\"Combating Congestion: Robust Transportation Policy Evaluation\"",
+            msc_title: "Master's Thesis",
+            msc_desc: "\"Evaluating the Impacts of Dedicated Bus Lanes on Urban Traffic with an Agent-Based Model\""
         },
         work: {
             title: "Selected Work",
@@ -226,7 +228,9 @@ export const translations = {
             skills_title: "ארסנל טכני",
             skills_desc: "טכנולוגיות ליבה לסימולציה וניתוח:",
             phd_title: "מחקר דוקטורט",
-            phd_desc: "\"נלחמים בגודש: הערכת מדיניות תחבורתית רובסטית במודל סימולציה רב-אמצעי מבוסס סוכנים\""
+            phd_desc: "\"נלחמים בגודש: הערכת מדיניות תחבורתית רובסטית במודל סימולציה רב-אמצעי מבוסס סוכנים\"",
+            msc_title: "עבודת מוסמך",
+            msc_desc: "\"הערכת ההשפעה של נתיבי תחבורה ציבורית על מצב התנועה העירוני באמצעות מודל מבוסס סוכנים\""
         },
         work: {
             title: "פרויקטים נבחרים",
