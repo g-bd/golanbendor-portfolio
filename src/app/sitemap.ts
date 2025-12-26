@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
 
-// Static sitemap for SEO - Bilingual site (English/Hebrew)
-// Note: Single-page site with client-side language toggle
-// Anchor fragments removed as they're not canonical URLs
+// Static sitemap for SEO - Bilingual site with separate URLs
+// /en - English version
+// /he - Hebrew version
 export const dynamic = 'force-static'
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -10,12 +10,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
   return [
-    // Main page - bilingual portfolio (English/Hebrew with client-side toggle)
+    // English version
     {
-      url: baseUrl,
+      url: `${baseUrl}/en`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en`,
+          he: `${baseUrl}/he`,
+        },
+      },
+    },
+    // Hebrew version
+    {
+      url: `${baseUrl}/he`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 1.0,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en`,
+          he: `${baseUrl}/he`,
+        },
+      },
     },
   ]
 }

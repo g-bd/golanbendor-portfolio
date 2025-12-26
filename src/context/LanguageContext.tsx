@@ -1,6 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { translations, Language, Direction } from '../data/translations';
 
 interface LanguageContextType {
@@ -14,19 +15,32 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-    const [language, setLanguage] = useState<Language>('en');
-    const [direction, setDirection] = useState<Direction>('ltr');
+interface LanguageProviderProps {
+    children: ReactNode;
+    initialLang?: Language;
+}
 
+export const LanguageProvider = ({ children, initialLang }: LanguageProviderProps) => {
+    const router = useRouter();
+    const pathname = usePathname();
+
+    // Determine language from URL path or prop
+    const getLangFromPath = (): Language => {
+        if (initialLang) return initialLang;
+        if (pathname?.startsWith('/he')) return 'he';
+        return 'en';
+    };
+
+    const [language, setLanguageState] = useState<Language>(getLangFromPath());
+    const [direction, setDirection] = useState<Direction>(language === 'he' ? 'rtl' : 'ltr');
+
+    // Sync language with URL on mount and path changes
     useEffect(() => {
-        // Auto-detect language
-        if (typeof window !== "undefined" && navigator.language) {
-            const browserLang = navigator.language.split('-')[0];
-            if (browserLang === 'he') {
-                setLanguage('he');
-            }
+        const langFromPath = getLangFromPath();
+        if (langFromPath !== language) {
+            setLanguageState(langFromPath);
         }
-    }, []);
+    }, [pathname, initialLang]);
 
     useEffect(() => {
         // Update direction when language changes
@@ -43,8 +57,15 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         }
     }, [language]);
 
+    const setLanguage = (lang: Language) => {
+        // Navigate to the new language route
+        const newPath = `/${lang}`;
+        router.push(newPath);
+    };
+
     const toggleLanguage = () => {
-        setLanguage(prev => prev === 'en' ? 'he' : 'en');
+        const newLang = language === 'en' ? 'he' : 'en';
+        setLanguage(newLang);
     };
 
     const getNestedValue = (obj: any, path: string) => {

@@ -38,98 +38,28 @@ const heebo = Heebo({
   weight: ["300", "400", "500", "700", "800", "900"],
 });
 
+// Base metadata - language-specific metadata is in [lang]/layout.tsx
 export const metadata: Metadata = {
   metadataBase: new URL('https://drbendor.com'),
-  title: {
-    default: "Dr. Golan Ben-Dor | Urban Mobility Scientist & Transport Simulation Expert",
-    template: "%s | Dr. Golan Ben-Dor"
-  },
-  description: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור - Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy. מדען ניידות עירונית, סימולציה תחבורתית, משרד התחבורה, נתיבי ישראל. PhD Tel Aviv University.",
   applicationName: "Dr. Golan Ben-Dor Portfolio",
   keywords: [
-    "Golan Ben-Dor",
-    "Dr. Golan Ben-Dor",
-    "Golan Ben Dor",
-    "Dr Ben-Dor",
-    "Dr Ben Dor",
-    "Doctor Golan Ben-Dor",
-    "Golan Ben-Dor PhD",
-    // Hebrew name variations
-    "גולן בן דור",
-    "גולן בן-דור",
-    "ד\"ר גולן בן דור",
-    "ד\"ר גולן בן-דור",
-    "דוקטור גולן בן דור",
-    "דוקטור גולן בן-דור",
-    "דר' גולן בן דור",
-    // Hebrew keywords
-    "סימולציה תחבורתית",
-    "מודל סוכנים",
-    "ניידות עירונית",
-    "מדעי התחבורה",
-    "תכנון תחבורתי",
-    "סימולציית תנועה",
-    "מודלים תחבורתיים",
-    "מדען ניידות עירונית",
-    "אוניברסיטת תל אביב",
-    "משרד התחבורה",
-    "נתיבי ישראל",
-    "נתיבי איילון",
-    "תכנית אב לתחבורה ירושלים",
-    "תמחור עומס",
-    "תחבורה חכמה",
-    "עיר חכמה",
-    "ניתוח נתוני תחבורה",
-    "תכנון עירוני",
-    "מחקר תחבורה",
-    "בינה מלאכותית בתחבורה",
-    "מערכות ניטור תנועה",
-    "אנליטיקה מרחבית",
-    // English keywords
-    "urban mobility",
-    "transport simulation",
-    "MATSim",
-    "agent-based modeling",
-    "traffic simulation",
-    "Tel Aviv University",
-    "transport policy",
-    "congestion pricing",
-    "Ministry of Transport Israel",
-    "Netivei Israel",
-    "Netivei Ayalon",
-    "Jerusalem Transportation Master Plan",
-    "urban planning",
-    "simulation scientist",
-    "transportation research",
-    "smart cities",
-    "data-driven urbanism",
-    "AI transport planning",
-    "artificial intelligence",
-    "Google Maps analytics",
-    "traffic monitoring system",
-    "Israel transport infrastructure",
-    "spatial analytics",
-    "GIS",
-    "big data",
-    "mobility analytics",
-    "autonomous vehicles",
-    "shared mobility",
-    "transportation engineering",
-    "urban analytics"
+    // Name variations (both languages)
+    "Golan Ben-Dor", "Dr. Golan Ben-Dor", "Golan Ben Dor",
+    "גולן בן דור", "גולן בן-דור", "ד\"ר גולן בן דור", "ד\"ר גולן בן-דור",
+    // Core expertise (both languages)
+    "urban mobility", "transport simulation", "MATSim", "agent-based modeling",
+    "סימולציה תחבורתית", "ניידות עירונית", "מדען ניידות עירונית",
+    // Organizations
+    "Ministry of Transport Israel", "משרד התחבורה", "Netivei Israel", "נתיבי ישראל",
   ],
-  authors: [{ name: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור" }],
-  creator: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
-  publisher: "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
+  authors: [{ name: "Dr. Golan Ben-Dor" }],
+  creator: "Dr. Golan Ben-Dor",
+  publisher: "Dr. Golan Ben-Dor",
   category: 'Technology',
-  classification: 'Transportation Research, Urban Planning, Data Science',
-  alternates: {
-    canonical: 'https://drbendor.com',
-  },
   other: {
     'geo.region': 'IL',
     'geo.placename': 'Tel Aviv',
     'geo.position': '32.0853;34.7818',
-    'ICBM': '32.0853, 34.7818',
   },
   robots: {
     index: true,
@@ -142,30 +72,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    alternateLocale: ['he_IL'],
-    url: 'https://drbendor.com',
-    siteName: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור',
-    title: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור | Urban Mobility Scientist',
-    description: 'Urban mobility simulation scientist | מדען ניידות עירונית - MATSim, agent-based modeling, transport policy. PhD Tel Aviv University. משרד התחבורה, נתיבי ישראל, נתיבי איילון.',
-    images: [
-      {
-        url: '/profile1.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Dr. Golan Ben-Dor - Urban Mobility Scientist | ד״ר גולן בן-דור - מדען ניידות עירונית',
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'Dr. Golan Ben-Dor | ד״ר גולן בן-דור',
-    description: 'Urban mobility simulation scientist | מדען ניידות עירונית - MATSim, transport policy, סימולציה תחבורתית',
-    images: ['/profile1.jpg'],
-  },
-  // Icons handled by src/app/icon.png (Next.js App Router convention)
   verification: {
     google: 'ULtcbnw-SGW4pnuz9fj7nQ7Lr3tJhsjTuMmt0MMyfpk',
   },
@@ -190,7 +96,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" dir="ltr" suppressHydrationWarning>
+      <head>
+        {/* Inline script to set lang/dir before React hydration for SEO */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var path = window.location.pathname;
+                var isHebrew = path.startsWith('/he');
+                document.documentElement.lang = isHebrew ? 'he' : 'en';
+                document.documentElement.dir = isHebrew ? 'rtl' : 'ltr';
+                if (isHebrew) document.body?.classList.add('font-hebrew');
+              })();
+            `,
+          }}
+        />
+      </head>
       <body
         className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable} ${rubik.variable} ${heebo.variable}`}
         style={{ fontFamily: "'Outfit', sans-serif" }}
