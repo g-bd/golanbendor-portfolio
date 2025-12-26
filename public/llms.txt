@@ -27,10 +27,14 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
    - Scope: Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution for the Ministry of Transport.
    - Budget Responsibility: Lead project up to 15 million NIS.
 
-2. **Jerusalem Transportation Master Plan**
-   - Focus: Evaluated "Carrot and Stick" strategies.
-   - Key Finding: Congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.
-   - Methods: Large-scale MATSim simulation.
+2. **Jerusalem Transportation Master Plan** (Featured Article: drbendor.com/en/work/jerusalem)
+   - Focus: Evaluated "Carrot and Stick" strategies for urban mobility.
+   - Co-Authors: Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia, Prof. Itzhak Benenson
+   - Collaboration: JTMT (Jerusalem Transportation Master Plan Team / צוות תכנית אב לתחבורה ירושלים)
+   - Key Finding: A daily congestion charge of approximately €10 could reduce car arrivals by 25%.
+   - Key Finding: Shared Automated Cars alone may shift users away from public transport, but congestion pricing creates balance.
+   - Methods: Large-scale MATSim agent-based simulation with multimodal transport modeling.
+   - Publication: Transportation Research Part A (2024)
 
 3. **Blind Control Reconstruction (Beer Sheva)**
    - Focus: Rigorous "blind" reconstruction of the Beer Sheva traffic model.
@@ -64,7 +68,10 @@ Q: What is robust policy evaluation?
 A: It tests transport policies under uncertainty by simulating thousands of future scenarios rather than relying on a single forecast. This helps decision-makers choose strategies that work well across different possible futures.
 
 Q: Who does Dr. Ben-Dor work with?
-A: Major collaborations include the Ministry of Transport Israel, Netivei Israel, Netivei Ayalon, the Jerusalem Transportation Master Plan Team, and the Central Bureau of Statistics.
+A: Major collaborations include the Ministry of Transport Israel, Netivei Israel, Netivei Ayalon, the JTMT (Jerusalem Transportation Master Plan Team / צוות תכנית אב לתחבורה ירושלים), and the Central Bureau of Statistics.
+
+Q: What did Dr. Ben-Dor discover about congestion pricing in Jerusalem?
+A: His research showed that a daily charge of approximately €10 could reduce car arrivals by 25%. When combined with parking pricing, these measures could deter intra-city trips, further reducing congestion and emissions. However, introducing Shared Automated Cars without pricing policies may shift users away from public transport.
 
 # Contact
 Email: golanbendor@gmail.com

@@ -36,5 +36,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    // Jerusalem Article - English
+    {
+      url: `${baseUrl}/en/work/jerusalem`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/work/jerusalem`,
+          he: `${baseUrl}/he/work/jerusalem`,
+        },
+      },
+    },
+    // Jerusalem Article - Hebrew
+    {
+      url: `${baseUrl}/he/work/jerusalem`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/work/jerusalem`,
+          he: `${baseUrl}/he/work/jerusalem`,
+        },
+      },
+    },
   ]
 }

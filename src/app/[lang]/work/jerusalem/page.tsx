@@ -377,7 +377,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                     src="/sim video high res.mp4"
                                 />
                                 {/* Video Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-10 md:p-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-12 md:p-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                                     <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
                                         <h4 className="text-white font-bold text-2xl mb-2">{content.blog_section.video_title}</h4>
                                         <p className="text-white/80 text-lg">{content.blog_section.video_desc}</p>
@@ -430,10 +430,10 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 href={content.cta_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-4 text-lg md:text-xl px-10 md:px-14 py-5 md:py-6 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
+                                className="inline-flex items-center gap-3 text-base md:text-lg px-8 md:px-10 py-4 md:py-5 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
                             >
                                 <span>{content.cta_button}</span>
-                                <ExternalLink className="w-5 h-5" />
+                                <ExternalLink className="w-4 h-4" />
                             </a>
 
                             {/* Back to Portfolio Link */}
