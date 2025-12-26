@@ -441,10 +441,11 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 href={content.cta_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-5 px-14 md:px-20 py-6 md:py-7 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
+                                className="inline-flex items-center gap-5 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
+                                style={{ padding: '1rem 2.5rem' }}
                             >
                                 <span className="text-sm md:text-base whitespace-nowrap">{content.cta_button}</span>
-                                <ExternalLink className="w-5 h-5" />
+                                <ExternalLink className="w-4 h-4 md:w-5 md:h-5" />
                             </a>
 
                             {/* Back to Portfolio Link */}
