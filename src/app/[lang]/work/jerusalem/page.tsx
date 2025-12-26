@@ -97,9 +97,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             <TrafficCanvas />
             <ScrollTransitSystem />
 
-            {/* Navigation Container - Must be above all content */}
-            <div className="container relative z-[1002]" dir={direction}>
-                {/* Navbar - Same as Home Page */}
+            {/* Navigation - Sticky at top */}
+            <div className="container sticky top-0 z-50 bg-[var(--bg-color)]/90 backdrop-blur-md" dir={direction}>
                 <nav>
                     <Link href={`/${language}`} className="brand">
                         <Image src="/logo_recolored.png" alt="Dr. Golan Ben-Dor Logo" width={100} height={100} />
@@ -125,38 +124,34 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         </button>
                     </div>
 
-                    {/* Mobile Hamburger Button - Higher z-index than menu overlay */}
+                    {/* Mobile Hamburger Button */}
                     <button
                         className="mobile-menu-btn"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle mobile menu"
-                        style={{ position: 'relative', zIndex: 10000 }}
                     >
                         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </nav>
-            </div>
 
-            {/* Mobile Menu Overlay - OUTSIDE container for proper z-index */}
-            <div
-                className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}
-                style={{ zIndex: 9999 }}
-            >
-                <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
-                <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
-                <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
-                <Link href={`/${language}#knowledge`} onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</Link>
-                <Link href={`/${language}#publications`} onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</Link>
-                <Link href={`/${language}#contact`} onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</Link>
+                {/* Mobile Menu Overlay */}
+                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                    <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
+                    <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
+                    <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
+                    <Link href={`/${language}#knowledge`} onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</Link>
+                    <Link href={`/${language}#publications`} onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</Link>
+                    <Link href={`/${language}#contact`} onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</Link>
 
-                <button
-                    onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
-                    className="mobile-lang-btn"
-                    aria-label="Toggle Language"
-                >
-                    <Globe size={20} />
-                    <span>{language === 'en' ? 'עברית' : 'English'}</span>
-                </button>
+                    <button
+                        onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
+                        className="mobile-lang-btn"
+                        aria-label="Toggle Language"
+                    >
+                        <Globe size={20} />
+                        <span>{language === 'en' ? 'עברית' : 'English'}</span>
+                    </button>
+                </div>
             </div>
 
             {/* Hero Section with High-Res Video Background */}
