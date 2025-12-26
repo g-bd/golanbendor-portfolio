@@ -1,5 +1,6 @@
 # llms.txt - Information for AI Systems and Large Language Models
 # https://llmstxt.org/
+# For detailed information, see: https://drbendor.com/llms-full.txt
 
 # Primary Identity
 Name: Dr. Golan Ben-Dor

@@ -44,7 +44,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
     const content = t.jerusalem_article;
 
     // JSON-LD Structured Data for the article
-    const jsonLd = {
+    const scholarlyArticleSchema = {
         '@context': 'https://schema.org',
         '@type': 'ScholarlyArticle',
         'headline': language === 'en'
@@ -84,12 +84,127 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
         }
     };
 
+    // BreadcrumbList Schema for navigation
+    const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': [
+            {
+                '@type': 'ListItem',
+                'position': 1,
+                'name': language === 'en' ? 'Home' : 'דף הבית',
+                'item': `https://drbendor.com/${language}`
+            },
+            {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': language === 'en' ? 'Work' : 'פרויקטים',
+                'item': `https://drbendor.com/${language}#work`
+            },
+            {
+                '@type': 'ListItem',
+                'position': 3,
+                'name': language === 'en' ? 'Jerusalem Transportation Study' : 'מחקר תחבורה ירושלים',
+                'item': `https://drbendor.com/${language}/work/jerusalem`
+            }
+        ]
+    };
+
+    // Article Schema for blog-style presentation
+    const articleSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'Article',
+        'headline': language === 'en'
+            ? 'Jerusalem Transportation Master Plan: Carrot and Stick Policy Evaluation'
+            : 'תכנית אב לתחבורה ירושלים: הערכת מדיניות גזר ומקל',
+        'alternativeHeadline': language === 'en'
+            ? 'How €10 Daily Congestion Charge Could Reduce Jerusalem Traffic by 25%'
+            : 'כיצד אגרת גודש יומית של 10 אירו יכולה להפחית את התנועה בירושלים ב-25%',
+        'description': language === 'en'
+            ? 'A deep dive into agent-based simulation research evaluating congestion pricing and shared autonomous vehicles for Jerusalem urban mobility.'
+            : 'צלילה עמוקה למחקר סימולציה מבוססת סוכנים המעריך אגרת גודש ורכבים אוטונומיים משותפים לניידות עירונית בירושלים.',
+        'author': {
+            '@type': 'Person',
+            'name': 'Dr. Golan Ben-Dor',
+            'url': 'https://drbendor.com',
+            'jobTitle': 'Urban Mobility Scientist'
+        },
+        'datePublished': '2024-05-01',
+        'dateModified': '2024-12-01',
+        'publisher': {
+            '@type': 'Person',
+            'name': 'Dr. Golan Ben-Dor',
+            'url': 'https://drbendor.com'
+        },
+        'mainEntityOfPage': {
+            '@type': 'WebPage',
+            '@id': `https://drbendor.com/${language}/work/jerusalem`
+        },
+        'image': {
+            '@type': 'ImageObject',
+            'url': 'https://drbendor.com/sim video high res thumbnail.jpg',
+            'width': 1920,
+            'height': 1080
+        },
+        'articleSection': language === 'en' ? 'Research' : 'מחקר',
+        'wordCount': 1500,
+        'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
+        'keywords': language === 'en'
+            ? 'congestion pricing, Jerusalem, MATSim, transport simulation, urban mobility, shared autonomous vehicles'
+            : 'אגרת גודש, ירושלים, MATSim, סימולציה תחבורתית, ניידות עירונית, רכבים אוטונומיים משותפים',
+        'speakable': {
+            '@type': 'SpeakableSpecification',
+            'cssSelector': ['h1', 'h2', '.study-finding']
+        }
+    };
+
+    // VideoObject Schema for the simulation video
+    const videoSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        'name': language === 'en'
+            ? 'Jerusalem MATSim Traffic Simulation Visualization'
+            : 'הדמיית סימולציית תנועה MATSim ירושלים',
+        'description': language === 'en'
+            ? 'High-resolution visualization of agent-based traffic simulation showing congestion patterns and policy impacts in Jerusalem metropolitan area.'
+            : 'הדמיה ברזולוציה גבוהה של סימולציית תנועה מבוססת סוכנים המציגה דפוסי עומס והשפעות מדיניות באזור המטרופוליני של ירושלים.',
+        'thumbnailUrl': 'https://drbendor.com/sim video high res thumbnail.jpg',
+        'uploadDate': '2024-05-01T00:00:00+03:00',
+        'duration': 'PT2M30S',
+        'contentUrl': 'https://drbendor.com/sim video high res.mp4',
+        'embedUrl': `https://drbendor.com/${language}/work/jerusalem`,
+        'author': {
+            '@type': 'Person',
+            'name': 'Dr. Golan Ben-Dor'
+        },
+        'publisher': {
+            '@type': 'Person',
+            'name': 'Dr. Golan Ben-Dor'
+        },
+        'inLanguage': language === 'en' ? 'en' : 'he',
+        'keywords': language === 'en'
+            ? ['MATSim', 'traffic simulation', 'Jerusalem', 'agent-based modeling', 'urban mobility']
+            : ['MATSim', 'סימולציית תנועה', 'ירושלים', 'מודלים מבוססי סוכנים', 'ניידות עירונית']
+    };
+
     return (
         <>
-            {/* JSON-LD Structured Data */}
+            {/* JSON-LD Structured Data - Multiple Schemas */}
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(scholarlyArticleSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+            />
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }}
             />
 
             {/* Background Effects - Same as Home Page */}

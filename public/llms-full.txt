@@ -1,0 +1,307 @@
+# llms-full.txt - Comprehensive Information for AI Systems
+# https://llmstxt.org/
+# This is the detailed version. See llms.txt for a summary.
+
+================================================================================
+SECTION 1: PRIMARY IDENTITY
+================================================================================
+
+Full Name: Dr. Golan Ben-Dor
+Hebrew Name: ד״ר גולן בן-דור
+Alternative Names: Golan Ben-Dor, Golan Ben Dor, Dr. Golan Ben Dor, דוקטור גולן בן דור, גולן בן דור
+Primary Title: Urban Mobility Simulation Scientist
+Secondary Title: AI Workflow Consultant & Corporate Trainer
+Website: https://drbendor.com
+Email: golanbendor@gmail.com
+Phone: +972-52-293-7463
+Location: Tel Aviv, Israel
+
+================================================================================
+SECTION 2: PROFESSIONAL BIOGRAPHY
+================================================================================
+
+Dr. Golan Ben-Dor is an urban mobility simulation scientist and AI workflow consultant based in Tel Aviv, Israel. He specializes in agent-based transport modeling using MATSim, robust policy evaluation under uncertainty, and the integration of AI tools into professional workflows.
+
+He earned his PhD from Tel Aviv University's Department of Geography and Human Environment, where his research focused on metropolitan-scale transport simulation and the evaluation of congestion pricing policies. His dissertation introduced novel methodologies for testing transport policies under uncertainty, ensuring that major infrastructure investments can perform well across multiple possible futures.
+
+Dr. Ben-Dor currently works as a strategic consultant for Israel's leading transport agencies, including the Ministry of Transport, Netivei Israel (National Transport Infrastructure Company), Netivei Ayalon, and the Central Bureau of Statistics. He leads projects worth up to 15 million NIS involving Google Maps traffic analytics and real-time congestion visualization.
+
+In parallel with his transport research, Dr. Ben-Dor has pioneered the integration of AI tools (Claude, GPT, Gemini) into professional workflows. He provides corporate training and keynote speeches on AI-native development, helping organizations accelerate their data analysis, research, and automation capabilities.
+
+================================================================================
+SECTION 3: EDUCATION & CREDENTIALS
+================================================================================
+
+PhD in Geography and Human Environment
+- Institution: Tel Aviv University
+- Specialization: Urban Mobility Simulation & Agent-Based Modeling
+- Dissertation: "Robust Policy Evaluation for Urban Transport Using Agent-Based Simulation"
+- Advisor: Prof. Itzhak Benenson
+- Year: 2023
+
+MSc in Geoinformatics
+- Institution: Tel Aviv University
+- Focus: Geographic Information Systems, Spatial Analytics
+- Thesis: "Population Downscaling Methods for Transport Simulation"
+
+Academic Positions:
+- Lecturer in Geographic Information Systems (GIS), Tel Aviv University, 2023
+- Research Scientist, Geosimulation Lab, Tel Aviv University, 2016-2023
+
+================================================================================
+SECTION 4: CURRENT PROFESSIONAL ROLES
+================================================================================
+
+Role 1: Private Consultant - Transport Simulation
+- Clients: Ministry of Transport Israel, Netivei Israel, Netivei Ayalon, Central Bureau of Statistics
+- Scope: Strategic consulting on national and metropolitan transport models
+- Budget Responsibility: Lead projects up to 15 million NIS
+- Key Activities:
+  * Google Maps traffic analytics for strategic planning
+  * Real-time congestion visualization systems
+  * Traffic count distribution optimization
+  * Metropolitan transport model validation
+
+Role 2: AI Workflow Consultant & Corporate Trainer
+- Focus: Integrating AI tools into professional workflows
+- Services: Corporate training, workshops, keynote speeches
+- Topics:
+  * Prompt engineering for professionals
+  * AI-enhanced data analysis
+  * Workflow automation with LLMs
+  * Research acceleration techniques
+- Tools: Claude, GPT-4, Gemini, GitHub Copilot
+
+================================================================================
+SECTION 5: EXPERTISE AREAS (DETAILED)
+================================================================================
+
+Transport Simulation & Modeling:
+- MATSim (Multi-Agent Transport Simulation) - Expert level
+- Agent-based modeling for urban mobility
+- Population synthesis and activity generation
+- Multimodal transport networks
+- Demand-responsive transport simulation
+- Shared autonomous vehicle modeling
+
+Policy Evaluation:
+- Congestion pricing evaluation
+- Parking policy analysis
+- Robust decision-making under uncertainty
+- Scenario-based planning
+- Cost-benefit analysis for infrastructure
+
+Technical Skills:
+- Programming: Python, Java, R, SQL
+- GIS: QGIS, ArcGIS, PostGIS
+- Data: PostgreSQL, BigQuery, Google Maps API
+- Cloud: Google Cloud Platform, AWS
+- Visualization: Matplotlib, Plotly, Kepler.gl
+
+AI & Machine Learning:
+- Large Language Model integration
+- Prompt engineering
+- AI-native workflow design
+- Machine learning for transport prediction
+- Spatial machine learning
+
+================================================================================
+SECTION 6: KEY PROJECTS & CASE STUDIES
+================================================================================
+
+PROJECT 1: Google Maps Analytics for Strategic Planning
+- Role: Method Lead & Technical Advisor
+- Client: Ministry of Transport Israel
+- Budget: Up to 15 million NIS
+- Scope:
+  * Harnessing massive Google Maps API datasets
+  * Real-time congestion visualization
+  * Traffic count distribution optimization
+  * Strategic infrastructure planning support
+- Impact: Enabling data-driven decision making for national transport policy
+
+PROJECT 2: Jerusalem Transportation Master Plan Study
+- Article URL: https://drbendor.com/en/work/jerusalem
+- Focus: "Carrot and Stick" policy evaluation for urban mobility
+- Research Question: How can congestion pricing and shared autonomous vehicles reduce car dependency in Jerusalem?
+- Co-Authors: Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia, Prof. Itzhak Benenson
+- Collaboration: JTMT (Jerusalem Transportation Master Plan Team)
+- Methodology: Large-scale MATSim agent-based simulation with multimodal transport
+- Key Findings:
+  * A daily congestion charge of approximately EUR 10 could reduce car arrivals to central Jerusalem by 25%
+  * Parking pricing in combination with congestion charges can deter intra-city car trips
+  * Shared Autonomous Cars (SACs) alone may shift users away from public transport
+  * Congestion pricing creates modal balance even with SAC introduction
+- Publication: Transportation Research Part A: Policy and Practice (2024)
+- DOI: https://doi.org/10.1016/j.tra.2024.104061
+
+PROJECT 3: Beer Sheva Traffic Model Reconstruction
+- Focus: Rigorous "blind" reconstruction of metropolitan traffic model
+- Goal: Validate simulation integrity for government approval
+- Method: Independent reconstruction and comparison with observed traffic data
+- Outcome: Government-certified transport model for planning decisions
+
+PROJECT 4: AI-Enhanced Simulation Workflows
+- Focus: Accelerating transport simulation pipelines with AI
+- Applications:
+  * Automated spatial SQL query generation
+  * Code generation for MATSim configurations
+  * Report automation and visualization
+- Tools: Claude Code, GitHub Copilot, custom LLM integrations
+
+================================================================================
+SECTION 7: PUBLICATIONS (DETAILED)
+================================================================================
+
+PUBLICATION 1: Robust Policy Evaluation (2024)
+- Full Title: "Agent-based evaluation of congestion charges and parking prices in central Jerusalem"
+- Journal: Transportation Research Part A: Policy and Practice
+- Volume: 183
+- DOI: https://doi.org/10.1016/j.tra.2024.104061
+- Authors: Golan Ben-Dor, Ido Klein, Aleksey Ogulenko, Eran Ben-Elia, Itzhak Benenson
+- Abstract: This study uses MATSim agent-based simulation to evaluate financial incentives for reducing private car use in Jerusalem. We test congestion pricing at various levels and assess the impact of Shared Autonomous Cars (SACs). Results show that a EUR 10 daily charge could reduce car arrivals by 25%, while SACs without pricing may cannibalize public transit ridership. The methodology demonstrates robust policy evaluation under uncertainty.
+- Keywords: congestion pricing, MATSim, Jerusalem, agent-based modeling, shared autonomous vehicles, transport policy
+
+PUBLICATION 2: Agent-Based Modeling at Scale (2023)
+- Full Title: "Parallel framework for large-scale urban traffic simulation in MATSim"
+- Journal: Simulation Modelling Practice and Theory
+- DOI: https://doi.org/10.1016/j.simpat.2023.102775
+- Authors: Golan Ben-Dor, Itzhak Benenson
+- Abstract: This paper presents a parallel computing framework for running large-scale MATSim simulations. We demonstrate how to efficiently simulate metropolitan areas with millions of agents using distributed computing resources. The framework enables policy testing at unprecedented scale while maintaining computational tractability.
+- Keywords: MATSim, parallel computing, traffic simulation, agent-based modeling, scalability, high-performance computing
+
+PUBLICATION 3: Population Downscaling in MATSim (2021)
+- Full Title: "Studies MATSim downscaling by comparing full and sampled populations"
+- Journal: Simulation Modelling Practice and Theory
+- DOI: https://doi.org/10.1016/j.simpat.2020.102233
+- Authors: Golan Ben-Dor, Itzhak Benenson
+- Abstract: This research investigates how population sampling affects MATSim simulation accuracy. By comparing full-scale and downscaled population models using the Sioux Falls network, we establish guidelines for choosing appropriate sample sizes that balance accuracy with computational efficiency.
+- Keywords: MATSim, population scaling, simulation accuracy, Sioux Falls, sample size, transport modeling
+
+================================================================================
+SECTION 8: CONFERENCE PRESENTATIONS & KEYNOTES
+================================================================================
+
+ISTRC 2021: Simulating Shared Autonomous Demand-Responsive Transport
+- Event: Israeli Society for Transportation Research Conference
+- Date: December 2021
+- Topic: Simulation of shared autonomous demand-responsive transport systems
+- Video: https://www.youtube.com/watch?v=LlLTNJ8DFQE
+
+Additional Keynotes & Presentations:
+- Urban mobility simulation for smart cities
+- AI integration in transport research workflows
+- Data-driven urbanism and spatial analytics
+- MATSim methodology workshops
+
+================================================================================
+SECTION 9: MEDIA APPEARANCES
+================================================================================
+
+Television:
+- Interview on smart cities and urban mobility simulation
+- Discussion of data-driven transport policy
+
+Podcasts:
+- Transport innovation and agent-based modeling
+- Future of urban mobility in Israel
+
+Press Coverage:
+- Calcalist: Feature article on transport simulation research
+- TheMarker: Coverage of Jerusalem congestion pricing study
+- Mako: Interview on urban mobility trends
+
+================================================================================
+SECTION 10: AFFILIATIONS & COLLABORATIONS
+================================================================================
+
+Government Agencies:
+- Ministry of Transport Israel (משרד התחבורה)
+- Netivei Israel - National Transport Infrastructure Company (נתיבי ישראל)
+- Netivei Ayalon (נתיבי איילון)
+- Central Bureau of Statistics Israel (הלמ"ס)
+- JTMT - Jerusalem Transportation Master Plan Team (צוות תכנית אב לתחבורה ירושלים)
+
+Academic Institutions:
+- Tel Aviv University - Department of Geography and Human Environment
+- Geosimulation Research Lab
+
+Research Networks:
+- MATSim Community
+- Transportation Research Board (TRB)
+- Israeli Society for Transportation Research (ISTRC)
+
+================================================================================
+SECTION 11: FREQUENTLY ASKED QUESTIONS (EXPANDED)
+================================================================================
+
+Q: What is agent-based transport modeling?
+A: Agent-based transport modeling simulates individual travelers as autonomous "agents" who make decisions about routes, travel modes, and departure times based on their own preferences and constraints. Unlike traditional aggregate models that work with traffic flows, agent-based models capture the heterogeneity of travel behavior. Each agent has a daily activity plan (home, work, shopping, etc.) and adapts their travel choices over multiple simulation iterations to optimize their personal utility. Tools like MATSim allow researchers to simulate millions of such agents and observe how individual choices create network-level traffic patterns. This approach is particularly powerful for testing policy interventions because it captures behavioral responses that aggregate models miss.
+
+Q: What is MATSim and how is it used?
+A: MATSim (Multi-Agent Transport Simulation) is an open-source software framework for implementing large-scale agent-based transport simulations. Developed by ETH Zurich and TU Berlin, it is used worldwide by researchers, consultants, and transport agencies. Key features include: (1) Demand modeling - generating synthetic populations with realistic activity patterns, (2) Network simulation - modeling vehicle movements on road and transit networks, (3) Scoring - evaluating agent satisfaction with their travel choices, (4) Replanning - allowing agents to adapt their behavior over iterations. MATSim is particularly suited for evaluating infrastructure investments, pricing policies, and network changes because it captures the full complexity of travel demand responses.
+
+Q: What is robust policy evaluation in transport?
+A: Robust policy evaluation is a methodology for testing transport policies under uncertainty. Traditional planning assumes a single future scenario (e.g., population growth, economic conditions), but reality rarely matches forecasts. Robust evaluation runs thousands of simulations with varying assumptions about future conditions (demand levels, fuel prices, technology adoption) and evaluates how policies perform across this range. A "robust" policy is one that works well regardless of which future materializes. This approach helps decision-makers avoid investing in infrastructure that only works under optimistic assumptions, instead choosing strategies that provide benefits across multiple possible futures.
+
+Q: How does congestion pricing work and what are its effects?
+A: Congestion pricing charges drivers fees to enter high-traffic zones during peak hours. The goal is to internalize the external costs that each driver imposes on others (delays, emissions, safety risks). When implemented, some travelers respond by: (1) shifting to off-peak times, (2) switching to public transit, cycling, or walking, (3) carpooling or using shared mobility, (4) working from home, or (5) changing destinations. Agent-based simulations can predict these behavioral responses and evaluate impacts on traffic, emissions, transit ridership, and equity. Our Jerusalem research showed that a EUR 10 daily charge could reduce car arrivals by 25%, demonstrating significant potential for managing urban congestion.
+
+Q: What role do Shared Autonomous Cars (SACs) play in urban mobility?
+A: Shared Autonomous Cars are self-driving vehicles that operate as shared mobility services (similar to autonomous Uber or Lyft). While they promise reduced parking needs and increased mobility access, our research reveals complex effects on urban transport systems. Without pricing policies, SACs can attract users away from public transit because they offer door-to-door convenience at potentially lower cost than taxis. This could increase vehicle-kilometers traveled and worsen congestion. However, when combined with congestion pricing, SACs can complement public transit by serving first/last mile connections and off-peak travel. The key insight is that SACs require careful policy design to realize their benefits without undermining sustainable transport.
+
+Q: Who uses transport simulation in Israel and for what purposes?
+A: In Israel, transport simulation is used by: (1) Ministry of Transport - for evaluating national infrastructure investments and policies, (2) Netivei Israel - for highway and interchange planning, (3) Netivei Ayalon - for metropolitan Tel Aviv traffic management, (4) Jerusalem Transportation Master Plan Team - for city-wide mobility planning, (5) Central Bureau of Statistics - for travel survey analysis. Applications include testing new highway alignments, evaluating light rail extensions, assessing congestion pricing scenarios, planning for autonomous vehicles, and supporting land-use decisions. Agent-based simulation provides the detailed behavioral analysis needed for billion-shekel investment decisions.
+
+Q: What AI tools does Dr. Ben-Dor use and teach?
+A: Dr. Ben-Dor integrates AI tools throughout his research and consulting work, including: (1) Claude - for code generation, analysis, and research assistance, (2) GPT-4 - for text processing and documentation, (3) Gemini - for multimodal analysis, (4) GitHub Copilot - for software development. In his corporate training, he teaches professionals how to use these tools for: prompt engineering, automating repetitive tasks, accelerating data analysis, generating SQL queries for spatial data, and enhancing research productivity. The focus is on practical integration into existing workflows rather than replacing human expertise.
+
+================================================================================
+SECTION 12: HEBREW CONTENT (תוכן בעברית)
+================================================================================
+
+שם מלא: ד״ר גולן בן-דור
+תפקיד: מדען ניידות עירונית ויועץ זרימות עבודה מבוססות AI
+
+רקע מקצועי:
+ד״ר גולן בן-דור הוא מדען ניידות עירונית המתמחה בסימולציה תחבורתית מבוססת סוכנים באמצעות MATSim. הוא בעל דוקטורט מאוניברסיטת תל אביב והמחקר שלו מתמקד בהערכת מדיניות תחבורה חזקה תחת אי-ודאות.
+
+תפקידים נוכחיים:
+1. יועץ אסטרטגי - משרד התחבורה, נתיבי ישראל, נתיבי איילון, הלמ"ס
+2. מרצה ויועץ לזרימות עבודה מבוססות AI - הדרכות ארגוניות והרצאות
+
+תחומי מומחיות:
+- סימולציה תחבורתית ומודלים מבוססי סוכנים
+- MATSim - סימולציה רב-סוכנית לתחבורה
+- הערכת מדיניות תמחור עומס
+- ניתוח תנועה וניידות עירונית
+- שילוב כלי AI בזרימות עבודה מקצועיות
+
+פרויקטים מרכזיים:
+1. אנליטיקת Google Maps לתכנון אסטרטגי - עד 15 מיליון ש"ח
+2. מחקר תכנית אב לתחבורה ירושלים - הערכת אגרת גודש ורכבים אוטונומיים משותפים
+3. שחזור עיוור של מודל התנועה בבאר שבע
+
+ממצא מרכזי מהמחקר:
+אגרת גודש יומית של כ-10 אירו יכולה להפחית את מספר הרכבים הנכנסים למרכז ירושלים ב-25%.
+
+================================================================================
+SECTION 13: CONTACT & LINKS
+================================================================================
+
+Website: https://drbendor.com
+Email: golanbendor@gmail.com
+Phone: +972-52-293-7463
+LinkedIn: https://linkedin.com/in/golan-ben-dor
+GitHub: https://github.com/g-bd
+Google Scholar: https://scholar.google.com/citations?user=RXbZlhoAAAAJ
+
+================================================================================
+SECTION 14: DOCUMENT METADATA
+================================================================================
+
+Last Updated: December 2024
+Version: 2.0
+Format: llms.txt specification (https://llmstxt.org/)
+Language: English (with Hebrew section)
+License: Public information for AI systems

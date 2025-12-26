@@ -160,7 +160,7 @@ export default function Home() {
         }}
       />
 
-      {/* Publications Schema */}
+      {/* Publications Schema - Enhanced with co-authors and abstracts */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -170,17 +170,28 @@ export default function Home() {
               "@type": "ScholarlyArticle",
               "headline": "Robust Policy Evaluation",
               "alternativeHeadline": "Agent-based evaluation of congestion charges and parking prices in central Jerusalem",
-              "author": {
-                "@type": "Person",
-                "name": "Dr. Golan Ben-Dor"
-              },
-              "datePublished": "2024",
+              "abstract": "This study uses MATSim agent-based simulation to evaluate financial incentives including congestion pricing and parking fees for reducing private car use in Jerusalem. Results show a €10 daily charge could reduce car arrivals by 25%.",
+              "author": [
+                { "@type": "Person", "name": "Golan Ben-Dor", "url": "https://drbendor.com" },
+                { "@type": "Person", "name": "Ido Klein" },
+                { "@type": "Person", "name": "Aleksey Ogulenko" },
+                { "@type": "Person", "name": "Eran Ben-Elia" },
+                { "@type": "Person", "name": "Itzhak Benenson" }
+              ],
+              "datePublished": "2024-05-01",
               "publisher": {
                 "@type": "Organization",
-                "name": "Transportation Research Part A"
+                "name": "Transportation Research Part A: Policy and Practice",
+                "url": "https://www.sciencedirect.com/journal/transportation-research-part-a-policy-and-practice"
               },
               "url": "https://doi.org/10.1016/j.tra.2024.104061",
-              "keywords": ["congestion pricing", "MATSim", "Jerusalem", "transport policy", "agent-based modeling"],
+              "sameAs": "https://doi.org/10.1016/j.tra.2024.104061",
+              "isPartOf": {
+                "@type": "PublicationVolume",
+                "name": "Transportation Research Part A",
+                "volumeNumber": "183"
+              },
+              "keywords": ["congestion pricing", "MATSim", "Jerusalem", "transport policy", "agent-based modeling", "shared autonomous vehicles"],
               "about": ["Transport Policy", "Congestion Pricing", "Urban Mobility"]
             },
             {
@@ -188,17 +199,20 @@ export default function Home() {
               "@type": "ScholarlyArticle",
               "headline": "Agent-Based Modeling at Scale",
               "alternativeHeadline": "Parallel framework for large-scale urban traffic simulation in MATSim",
-              "author": {
-                "@type": "Person",
-                "name": "Dr. Golan Ben-Dor"
-              },
-              "datePublished": "2023",
+              "abstract": "This paper presents a parallel computing framework for running large-scale MATSim simulations, enabling metropolitan-scale agent-based transport modeling with millions of agents.",
+              "author": [
+                { "@type": "Person", "name": "Golan Ben-Dor", "url": "https://drbendor.com" },
+                { "@type": "Person", "name": "Itzhak Benenson" }
+              ],
+              "datePublished": "2023-06-01",
               "publisher": {
                 "@type": "Organization",
-                "name": "Simulation Modelling Practice and Theory"
+                "name": "Simulation Modelling Practice and Theory",
+                "url": "https://www.sciencedirect.com/journal/simulation-modelling-practice-and-theory"
               },
               "url": "https://doi.org/10.1016/j.simpat.2023.102775",
-              "keywords": ["MATSim", "parallel computing", "traffic simulation", "agent-based modeling", "scalability"],
+              "sameAs": "https://doi.org/10.1016/j.simpat.2023.102775",
+              "keywords": ["MATSim", "parallel computing", "traffic simulation", "agent-based modeling", "scalability", "high-performance computing"],
               "about": ["Traffic Simulation", "Parallel Computing", "MATSim"]
             },
             {
@@ -206,24 +220,27 @@ export default function Home() {
               "@type": "ScholarlyArticle",
               "headline": "Population Downscaling in MATSim",
               "alternativeHeadline": "Studies MATSim downscaling by comparing full and sampled populations",
-              "author": {
-                "@type": "Person",
-                "name": "Dr. Golan Ben-Dor"
-              },
-              "datePublished": "2021",
+              "abstract": "This research investigates how population sampling affects MATSim simulation accuracy by comparing full-scale and downscaled population models using the Sioux Falls network.",
+              "author": [
+                { "@type": "Person", "name": "Golan Ben-Dor", "url": "https://drbendor.com" },
+                { "@type": "Person", "name": "Itzhak Benenson" }
+              ],
+              "datePublished": "2021-01-01",
               "publisher": {
                 "@type": "Organization",
-                "name": "Simulation Modelling Practice and Theory"
+                "name": "Simulation Modelling Practice and Theory",
+                "url": "https://www.sciencedirect.com/journal/simulation-modelling-practice-and-theory"
               },
               "url": "https://doi.org/10.1016/j.simpat.2020.102233",
-              "keywords": ["MATSim", "population scaling", "simulation accuracy", "Sioux Falls"],
+              "sameAs": "https://doi.org/10.1016/j.simpat.2020.102233",
+              "keywords": ["MATSim", "population scaling", "simulation accuracy", "Sioux Falls", "sample size"],
               "about": ["Traffic Simulation", "Model Scaling", "MATSim"]
             }
           ])
         }}
       />
 
-      {/* Video Schema */}
+      {/* Video Schema - Enhanced with duration, embedUrl, publisher */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -232,29 +249,69 @@ export default function Home() {
               "@context": "https://schema.org",
               "@type": "VideoObject",
               "name": "Dr. Golan Ben-Dor TV Interview on Smart Cities",
-              "description": "Interview discussing urban mobility simulation and data-driven urbanism for smart city planning",
-              "thumbnailUrl": "https://drbendor.com/profile1.jpg",
+              "description": "Interview discussing urban mobility simulation and data-driven urbanism for smart city planning in Israel. Dr. Ben-Dor explains how agent-based models help planners evaluate transport policies.",
+              "thumbnailUrl": "https://drbendor.com/article-tv-thumbnail.jpg",
               "uploadDate": "2024-01-01T00:00:00+02:00",
+              "duration": "PT5M30S",
               "contentUrl": "https://drbendor.com/article%20tv.mp4",
+              "embedUrl": "https://drbendor.com/en#media",
               "author": {
                 "@type": "Person",
-                "name": "Dr. Golan Ben-Dor"
+                "name": "Dr. Golan Ben-Dor",
+                "url": "https://drbendor.com"
               },
-              "keywords": ["smart cities", "urban mobility", "transport simulation", "MATSim"]
+              "publisher": {
+                "@type": "Person",
+                "name": "Dr. Golan Ben-Dor",
+                "url": "https://drbendor.com"
+              },
+              "inLanguage": "he",
+              "keywords": ["smart cities", "urban mobility", "transport simulation", "MATSim", "Israel transportation"]
             },
             {
               "@context": "https://schema.org",
               "@type": "VideoObject",
               "name": "Dr. Golan Ben-Dor Podcast Episode on Transport Innovation",
-              "description": "Podcast discussion on the future of transport simulation and agent-based modeling for urban planning",
-              "thumbnailUrl": "https://drbendor.com/profile1.jpg",
+              "description": "Podcast discussion on the future of transport simulation and agent-based modeling for urban planning. Topics include MATSim, congestion pricing, and AI-enhanced workflows.",
+              "thumbnailUrl": "https://drbendor.com/podcast-thumbnail.jpg",
               "uploadDate": "2024-01-01T00:00:00+02:00",
+              "duration": "PT45M00S",
               "contentUrl": "https://drbendor.com/podcast%20video.mp4",
+              "embedUrl": "https://drbendor.com/en#media",
               "author": {
                 "@type": "Person",
-                "name": "Dr. Golan Ben-Dor"
+                "name": "Dr. Golan Ben-Dor",
+                "url": "https://drbendor.com"
               },
-              "keywords": ["transport innovation", "MATSim", "agent-based modeling", "podcast"]
+              "publisher": {
+                "@type": "Person",
+                "name": "Dr. Golan Ben-Dor",
+                "url": "https://drbendor.com"
+              },
+              "inLanguage": "he",
+              "keywords": ["transport innovation", "MATSim", "agent-based modeling", "podcast", "urban planning"]
+            },
+            {
+              "@context": "https://schema.org",
+              "@type": "VideoObject",
+              "name": "ISTRC 2021: Simulating Shared Autonomous Demand-Responsive Transport",
+              "description": "Conference presentation at ISTRC 2021 demonstrating simulation of shared autonomous demand-responsive transport systems for urban mobility optimization.",
+              "thumbnailUrl": "https://drbendor.com/key%20note%206.jpg",
+              "uploadDate": "2021-12-01T00:00:00+02:00",
+              "duration": "PT20M00S",
+              "contentUrl": "https://www.youtube.com/watch?v=LlLTNJ8DFQE",
+              "embedUrl": "https://www.youtube.com/embed/LlLTNJ8DFQE",
+              "author": {
+                "@type": "Person",
+                "name": "Dr. Golan Ben-Dor",
+                "url": "https://drbendor.com"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "ISTRC - Israeli Society for Transportation Research"
+              },
+              "inLanguage": "en",
+              "keywords": ["ISTRC", "autonomous vehicles", "demand-responsive transport", "MATSim", "shared mobility"]
             }
           ])
         }}
@@ -374,6 +431,195 @@ export default function Home() {
             ],
             "url": "https://drbendor.com",
             "email": "golanbendor@gmail.com"
+          })
+        }}
+      />
+
+      {/* Course Schema for AI Training Services */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Course",
+            "name": "AI-Native Workflows for Professionals",
+            "alternateName": "זרימות עבודה מבוססות AI לאנשי מקצוע",
+            "description": "Corporate training on integrating AI tools (Claude, GPT, Gemini) into professional workflows. Learn prompt engineering, automation, and AI-enhanced productivity for data analysis, research, and business processes.",
+            "provider": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor",
+              "url": "https://drbendor.com"
+            },
+            "instructor": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor",
+              "jobTitle": "AI Workflow Consultant & Lecturer"
+            },
+            "courseCode": "AI-WORKFLOW-101",
+            "educationalLevel": "Professional",
+            "audience": {
+              "@type": "Audience",
+              "audienceType": "Business Professionals, Researchers, Data Analysts"
+            },
+            "teaches": [
+              "Prompt Engineering",
+              "AI Tool Integration",
+              "Workflow Automation",
+              "Data Analysis with AI",
+              "Research Acceleration with LLMs"
+            ],
+            "availableLanguage": ["en", "he"],
+            "deliveryMethod": "Corporate Training, Workshops, Keynotes",
+            "url": "https://drbendor.com#consulting"
+          })
+        }}
+      />
+
+      {/* HowTo Schema for Methodology */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "HowTo",
+            "name": "How to Evaluate Transport Policy with Agent-Based Simulation",
+            "description": "A methodology for using MATSim agent-based modeling to evaluate transport policies like congestion pricing before implementation.",
+            "totalTime": "P3M",
+            "tool": [
+              { "@type": "HowToTool", "name": "MATSim" },
+              { "@type": "HowToTool", "name": "QGIS" },
+              { "@type": "HowToTool", "name": "Python" }
+            ],
+            "step": [
+              {
+                "@type": "HowToStep",
+                "position": 1,
+                "name": "Data Collection",
+                "text": "Gather travel survey data, road network topology, and demographic information for the study area."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 2,
+                "name": "Population Synthesis",
+                "text": "Generate a synthetic population of agents with realistic activity patterns and travel behavior."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 3,
+                "name": "Network Modeling",
+                "text": "Build the transport network including roads, public transit, and multimodal connections in MATSim format."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 4,
+                "name": "Baseline Simulation",
+                "text": "Run the MATSim simulation to establish baseline traffic patterns and validate against observed data."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 5,
+                "name": "Policy Scenario Testing",
+                "text": "Implement policy scenarios (e.g., congestion pricing, parking fees) and simulate agent responses."
+              },
+              {
+                "@type": "HowToStep",
+                "position": 6,
+                "name": "Robust Evaluation",
+                "text": "Run multiple scenarios with varying assumptions to evaluate policy performance under uncertainty."
+              }
+            ],
+            "author": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor",
+              "url": "https://drbendor.com"
+            }
+          })
+        }}
+      />
+
+      {/* LocalBusiness Schema for Consulting Practice */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "name": "Dr. Golan Ben-Dor - Transport Simulation Consulting",
+            "alternateName": "ד״ר גולן בן-דור - ייעוץ סימולציה תחבורתית",
+            "description": "Strategic consulting for transport simulation, urban mobility analytics, and AI-enhanced traffic solutions. Serving government agencies and private sector across Israel.",
+            "image": "https://drbendor.com/profile1.jpg",
+            "url": "https://drbendor.com",
+            "email": "golanbendor@gmail.com",
+            "telephone": "+972-52-293-7463",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Tel Aviv",
+              "addressRegion": "Tel Aviv District",
+              "addressCountry": "IL"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 32.0853,
+              "longitude": 34.7818
+            },
+            "areaServed": {
+              "@type": "Country",
+              "name": "Israel"
+            },
+            "priceRange": "$$$$",
+            "knowsLanguage": ["en", "he"],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Consulting Services",
+              "itemListElement": [
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Transport Simulation",
+                    "description": "MATSim-based agent simulation for metropolitan transport planning"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "Policy Evaluation",
+                    "description": "Robust evaluation of congestion pricing and transport policies"
+                  }
+                },
+                {
+                  "@type": "Offer",
+                  "itemOffered": {
+                    "@type": "Service",
+                    "name": "AI Workflow Training",
+                    "description": "Corporate training on AI-native productivity tools"
+                  }
+                }
+              ]
+            },
+            "sameAs": [
+              "https://linkedin.com/in/golan-ben-dor",
+              "https://github.com/g-bd",
+              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ"
+            ]
+          })
+        }}
+      />
+
+      {/* Speakable Schema for Voice Search */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "Dr. Golan Ben-Dor - Urban Mobility Scientist",
+            "speakable": {
+              "@type": "SpeakableSpecification",
+              "cssSelector": [".hero-name", ".hero-sub", ".hero-desc", ".section-title", "h1", "h2"]
+            },
+            "url": "https://drbendor.com"
           })
         }}
       />

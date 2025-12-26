@@ -48,6 +48,41 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'PerplexityBot',
         allow: '/',
       },
+      // Google AI (Gemini training)
+      {
+        userAgent: 'Google-Extended',
+        allow: '/',
+      },
+      // Cohere AI
+      {
+        userAgent: 'cohere-ai',
+        allow: '/',
+      },
+      // Common Crawl (used by many AI systems)
+      {
+        userAgent: 'CCBot',
+        allow: '/',
+      },
+      // Apple Intelligence
+      {
+        userAgent: 'Applebot-Extended',
+        allow: '/',
+      },
+      // Meta AI
+      {
+        userAgent: 'meta-externalagent',
+        allow: '/',
+      },
+      // Bytedance/TikTok AI
+      {
+        userAgent: 'Bytespider',
+        allow: '/',
+      },
+      // Amazon Alexa
+      {
+        userAgent: 'Amazonbot',
+        allow: '/',
+      },
     ],
     sitemap: 'https://drbendor.com/sitemap.xml',
   }
