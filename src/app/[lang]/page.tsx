@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe, Menu, X, Phone } from 'lucide-react';
+import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone } from 'lucide-react';
 import Link from 'next/link';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
@@ -11,13 +11,13 @@ import VideoCard from '@/components/VideoCard';
 import KeynoteCarousel from '@/components/KeynoteCarousel';
 import NewsCarousel from '@/components/NewsCarousel';
 import PDFModal from '@/components/PDFModal';
+import Navbar from '@/components/Navbar';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
   const [isPdfOpen, setIsPdfOpen] = useState(false);
   const [currentPdf, setCurrentPdf] = useState({ url: '', title: '' });
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { langData, toggleLanguage, language, direction } = useLanguage();
+  const { langData, language, direction } = useLanguage();
 
   const openPdf = (url: string, title: string) => {
     setCurrentPdf({ url, title });
@@ -390,62 +390,10 @@ export default function Home() {
       <TrafficCanvas />
       <ScrollTransitSystem />
 
+      {/* Navbar - shared component */}
+      <Navbar />
+
       <div className="container" dir={direction}>
-        {/* Navbar */}
-        <nav>
-          <a href="#" className="brand">
-            <Image src="/logo_recolored.png" alt="Dr. Golan Ben-Dor Logo - Urban Mobility Scientist" width={100} height={100} />
-            <span className="brand-text">{t.nav.brand_name}</span>
-          </a>
-          <div className="nav-links">
-            <a href="#about">{t.nav.about}</a>
-            <a href="#skills">{t.nav.skills}</a>
-            <a href="#work">{t.nav.work}</a>
-            <a href="#knowledge">{t.nav.knowledge}</a>
-            <a href="#publications">{t.nav.publications}</a>
-            <a href="#contact">{t.nav.contact}</a>
-
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 hover:bg-white/10 hover:border-[var(--pop-cyan)] transition-all group"
-              aria-label="Toggle Language"
-            >
-              <Globe size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]" />
-              <span className="text-[0.9rem] font-bold text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]">
-                {language === 'en' ? 'HE' : 'EN'}
-              </span>
-            </button>
-          </div>
-
-          {/* Mobile Hamburger Button */}
-          <button
-            className="mobile-menu-btn"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-          >
-            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
-        </nav>
-
-        {/* Mobile Menu Overlay */}
-        <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-          <a href="#about" onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</a>
-          <a href="#skills" onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</a>
-          <a href="#work" onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</a>
-          <a href="#knowledge" onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</a>
-          <a href="#publications" onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</a>
-          <a href="#contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</a>
-
-          <button
-            onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
-            className="mobile-lang-btn"
-            aria-label="Toggle Language"
-          >
-            <Globe size={20} />
-            <span>{language === 'en' ? 'עברית' : 'English'}</span>
-          </button>
-        </div>
-
         {/* Hero */}
         <header className="hero">
           <div className="hero-text">

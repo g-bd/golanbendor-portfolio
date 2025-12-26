@@ -4,18 +4,18 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Award, Users, Lightbulb, Map, Globe, Menu, X, FileText } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Award, Users, Lightbulb, Map, FileText } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { notFound } from 'next/navigation';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
+import Navbar from '@/components/Navbar';
 
 export default function JerusalemPage({ params }: { params: { lang: string } }) {
-    const { langData: t, language, direction, toggleLanguage } = useLanguage();
+    const { langData: t, language, direction } = useLanguage();
     const videoRef = useRef<HTMLVideoElement>(null);
     const { scrollY } = useScroll();
     const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-    const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
     // Ensure video shows after mount with fallback
     useEffect(() => {
@@ -97,62 +97,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             <TrafficCanvas />
             <ScrollTransitSystem />
 
-            {/* Navigation - Same structure as main page (nav is sticky via CSS) */}
-            <div className="container" dir={direction}>
-                <nav>
-                    <Link href={`/${language}`} className="brand">
-                        <Image src="/logo_recolored.png" alt="Dr. Golan Ben-Dor Logo" width={100} height={100} />
-                        <span className="brand-text">{t.nav.brand_name}</span>
-                    </Link>
-                    <div className="nav-links">
-                        <Link href={`/${language}#about`}>{t.nav.about}</Link>
-                        <Link href={`/${language}#skills`}>{t.nav.skills}</Link>
-                        <Link href={`/${language}#work`}>{t.nav.work}</Link>
-                        <Link href={`/${language}#knowledge`}>{t.nav.knowledge}</Link>
-                        <Link href={`/${language}#publications`}>{t.nav.publications}</Link>
-                        <Link href={`/${language}#contact`}>{t.nav.contact}</Link>
-
-                        <button
-                            onClick={toggleLanguage}
-                            className="flex items-center gap-2 px-3 py-1 rounded-full border border-white/20 hover:bg-white/10 hover:border-[var(--pop-cyan)] transition-all group"
-                            aria-label="Toggle Language"
-                        >
-                            <Globe size={16} className="text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]" />
-                            <span className="text-[0.9rem] font-bold text-[var(--text-secondary)] group-hover:text-[var(--pop-cyan)]">
-                                {language === 'en' ? 'HE' : 'EN'}
-                            </span>
-                        </button>
-                    </div>
-
-                    {/* Mobile Hamburger Button */}
-                    <button
-                        className="mobile-menu-btn"
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                        aria-label="Toggle mobile menu"
-                    >
-                        {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
-                </nav>
-
-                {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
-                    <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
-                    <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
-                    <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
-                    <Link href={`/${language}#knowledge`} onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</Link>
-                    <Link href={`/${language}#publications`} onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</Link>
-                    <Link href={`/${language}#contact`} onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</Link>
-
-                    <button
-                        onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
-                        className="mobile-lang-btn"
-                        aria-label="Toggle Language"
-                    >
-                        <Globe size={20} />
-                        <span>{language === 'en' ? 'עברית' : 'English'}</span>
-                    </button>
-                </div>
-            </div>
+            {/* Navbar - shared component, isSubpage for full path links */}
+            <Navbar isSubpage />
 
             {/* Hero Section with High-Res Video Background */}
             <section className="relative min-h-[70vh] md:min-h-screen w-full overflow-hidden flex items-center justify-center py-20 md:py-32">
