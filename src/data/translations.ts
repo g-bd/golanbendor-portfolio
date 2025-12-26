@@ -160,6 +160,12 @@ export const translations = {
                 bgPosition: '25% top'
             },
             {
+                tag: "COURSE VIDEO",
+                title: "Advanced MATSim Modeling Course",
+                desc: 'Teaching session: Transport Simulation Fundamentals',
+                videoFile: "/Golan%20Course%201.mp4"
+            },
+            {
                 tag: "VIDEO",
                 title: "ISTRC 2021 Conference",
                 desc: 'Talk: "Robust Policy Evaluation"',
@@ -187,6 +193,13 @@ export const translations = {
                 image: "/key note 3.jpg",
                 bgPosition: 'center',
                 mobileBgPosition: 'top right'
+            },
+            {
+                tag: "COURSE VIDEO",
+                title: "GIS Course at Tel Aviv University",
+                desc: 'Academic Lecture: Geographic Information Systems',
+                videoFile: "/Golan%20Course%202.mp4",
+                videoPosition: "center 30%"
             },
             {
                 tag: "PRESENTATION",
@@ -229,6 +242,46 @@ export const translations = {
 
             cta_button: "Read Full Article",
             cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
+        },
+        work_index: {
+            title: "Case Studies & Projects",
+            subtitle: "Research and consulting work in urban mobility simulation",
+            description: "Explore detailed case studies from my work with Israel's leading transport agencies. Each project demonstrates how agent-based simulation and data analytics inform better policy decisions.",
+            back_home: "Back to Home",
+            featured: "FEATURED",
+            view_project: "View Project",
+            categories: {
+                simulation: "Simulation",
+                analytics: "Analytics",
+                policy: "Policy",
+                ai: "AI"
+            },
+            projects: {
+                jerusalem: {
+                    title: "Jerusalem Transportation Master Plan",
+                    desc: "Agent-based evaluation of congestion pricing and shared autonomous vehicles impact on urban mobility using MATSim simulation.",
+                    tags: ["MATSim", "Policy Evaluation", "Congestion Pricing"],
+                    status: "Published 2024"
+                },
+                google: {
+                    title: "Google Maps Traffic Analytics",
+                    desc: "Strategic planning platform for the Ministry of Transport, harnessing massive API datasets for real-time congestion visualization.",
+                    tags: ["Big Data", "Real-time Analytics", "Strategic Planning"],
+                    status: "Live Project"
+                },
+                beersheva: {
+                    title: "Beer Sheva Model Validation",
+                    desc: "Rigorous blind reconstruction of metropolitan traffic model to validate simulation integrity for government approval.",
+                    tags: ["Model Validation", "Quality Assurance", "Government"],
+                    status: "Completed"
+                },
+                ai_workflows: {
+                    title: "AI-Enhanced Simulation Workflows",
+                    desc: "Pioneering AI-Native development using Claude, Gemini and Codex to accelerate simulation pipelines and automate spatial SQL.",
+                    tags: ["AI", "Automation", "Workflow Optimization"],
+                    status: "Ongoing"
+                }
+            }
         }
     },
     he: {
@@ -389,6 +442,12 @@ export const translations = {
                 bgPosition: '25% top'
             },
             {
+                tag: "וידאו קורס",
+                title: "קורס מידול MATSim מתקדם",
+                desc: 'מפגש לימודי: יסודות סימולציית תחבורה',
+                videoFile: "/Golan%20Course%201.mp4"
+            },
+            {
                 tag: "וידאו",
                 title: "ISTRC 2021",
                 desc: 'הרצאה: "הערכת מדיניות חסינה"',
@@ -416,6 +475,13 @@ export const translations = {
                 image: "/key note 3.jpg",
                 bgPosition: 'center',
                 mobileBgPosition: 'top right'
+            },
+            {
+                tag: "וידאו קורס",
+                title: "קורס GIS באוניברסיטת תל אביב",
+                desc: 'הרצאה אקדמית: מערכות מידע גאוגרפיות',
+                videoFile: "/Golan%20Course%202.mp4",
+                videoPosition: "center 30%"
             },
             {
                 tag: "הצגה",
@@ -458,6 +524,46 @@ export const translations = {
 
             cta_button: "לקריאת המאמר המלא",
             cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
+        },
+        work_index: {
+            title: "מקרי בוחן ופרויקטים",
+            subtitle: "מחקר וייעוץ בסימולציית ניידות עירונית",
+            description: "גלו מקרי בוחן מפורטים מעבודתי עם סוכנויות התחבורה המובילות בישראל. כל פרויקט מדגים כיצד סימולציה מבוססת סוכנים ואנליטיקת נתונים מסייעות בקבלת החלטות מדיניות טובות יותר.",
+            back_home: "חזרה לדף הבית",
+            featured: "מומלץ",
+            view_project: "לצפייה בפרויקט",
+            categories: {
+                simulation: "סימולציה",
+                analytics: "אנליטיקה",
+                policy: "מדיניות",
+                ai: "בינה מלאכותית"
+            },
+            projects: {
+                jerusalem: {
+                    title: "תוכנית אב לתחבורה ירושלים",
+                    desc: "הערכה מבוססת סוכנים של אגרות גודש ורכבים אוטונומיים שיתופיים והשפעתם על ניידות עירונית באמצעות סימולציית MATSim.",
+                    tags: ["MATSim", "הערכת מדיניות", "אגרת גודש"],
+                    status: "פורסם 2024"
+                },
+                google: {
+                    title: "אנליטיקת תנועה Google Maps",
+                    desc: "פלטפורמת תכנון אסטרטגי למשרד התחבורה, מינוף מאגרי API עצומים להמחשת גודש בזמן אמת.",
+                    tags: ["Big Data", "אנליטיקה בזמן אמת", "תכנון אסטרטגי"],
+                    status: "פרויקט פעיל"
+                },
+                beersheva: {
+                    title: "אימות מודל באר שבע",
+                    desc: "שחזור עיוור ריגורוזי של מודל תנועה מטרופוליני לאימות שלמות הסימולציה לאישור ממשלתי.",
+                    tags: ["אימות מודל", "בקרת איכות", "ממשלה"],
+                    status: "הושלם"
+                },
+                ai_workflows: {
+                    title: "תהליכי סימולציה מועצמי AI",
+                    desc: "פיתוח מבוסס בינה מלאכותית באמצעות Claude, Gemini ו-Codex להאצת תהליכי סימולציה ואוטומציה של SQL מרחבי.",
+                    tags: ["AI", "אוטומציה", "אופטימיזציית תהליכים"],
+                    status: "פעיל"
+                }
+            }
         }
     },
 };

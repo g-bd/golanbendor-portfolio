@@ -10,6 +10,7 @@ export default function KeynoteCarousel() {
     const [isPaused, setIsPaused] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const iframeRef = useRef<HTMLIFrameElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
     const slides = langData.carousel;
 
     // Detect mobile screen
@@ -31,7 +32,7 @@ export default function KeynoteCarousel() {
     const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
     const prevSlide = () => setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
 
-    // Handle Mute/Unmute on Pause/Hover
+    // Handle Mute/Unmute on Pause/Hover for YouTube videos
     useEffect(() => {
         if (iframeRef.current && slides[current].youtubeId) {
             // Check if backend contentWindow exists
@@ -50,6 +51,34 @@ export default function KeynoteCarousel() {
         }
     }, [isPaused, current, slides]);
 
+    // Handle Mute/Unmute on Pause/Hover for local MP4 videos
+    useEffect(() => {
+        if (videoRef.current && slides[current].videoFile) {
+            const video = videoRef.current;
+            if (isPaused) {
+                // Hovering -> Unmute
+                video.muted = false;
+            } else {
+                // Not Hovering -> Mute
+                video.muted = true;
+            }
+        }
+    }, [isPaused, current, slides]);
+
+    // Ensure video plays when slide becomes current
+    useEffect(() => {
+        if (videoRef.current && slides[current].videoFile) {
+            const video = videoRef.current;
+            video.play().catch(err => {
+                console.error('Error playing video:', err);
+                // Retry play after a short delay
+                setTimeout(() => {
+                    video.play().catch(e => console.error('Retry failed:', e));
+                }, 100);
+            });
+        }
+    }, [current, slides]);
+
     return (
         <div
             className="keynote-carousel relative w-full h-full overflow-hidden rounded-[15px] min-h-[350px] group"
@@ -63,7 +92,7 @@ export default function KeynoteCarousel() {
                     className={`carousel-slide absolute top-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out ${index === current ? "opacity-100 z-10" : "opacity-0 z-0"
                         }`}
                     style={{
-                        backgroundImage: !slide.youtubeId ? `url('${slide.image}')` : 'none',
+                        backgroundImage: !slide.youtubeId && !slide.videoFile ? `url('${slide.image}')` : 'none',
                         backgroundPosition: isMobile && slide.mobileBgPosition ? slide.mobileBgPosition : (slide.bgPosition || 'center'),
                         insetInlineStart: 0,
                         backgroundColor: '#000'
@@ -85,6 +114,41 @@ export default function KeynoteCarousel() {
                         </div>
                     ) : null}
 
+                    {slide.videoFile && index === current ? (
+                        <div className="absolute inset-0 w-full h-full overflow-hidden pointer-events-none">
+                            <video
+                                ref={videoRef}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                preload="auto"
+                                className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none"
+                                style={{
+                                    border: 'none',
+                                    objectPosition: slide.videoPosition || 'center'
+                                }}
+                                onLoadedData={(e) => {
+                                    console.log('Video loaded successfully:', slide.videoFile);
+                                    const video = e.currentTarget;
+                                    video.play().catch(err => console.error('Play error:', err));
+                                }}
+                                onError={(e) => {
+                                    const target = e.currentTarget as HTMLVideoElement;
+                                    console.error('Video loading failed:', {
+                                        src: slide.videoFile,
+                                        error: target.error,
+                                        networkState: target.networkState,
+                                        readyState: target.readyState
+                                    });
+                                }}
+                                onLoadStart={() => console.log('Loading video:', slide.videoFile)}
+                            >
+                                <source src={slide.videoFile} type="video/mp4" />
+                            </video>
+                        </div>
+                    ) : null}
+
                     {/* Content Overlay */}
                     <div className="carousel-content absolute bottom-0 w-full bg-gradient-to-t from-black/95 via-black/70 to-transparent z-[20] transition-opacity duration-300 pointer-events-none"
                         style={{
@@ -95,7 +159,7 @@ export default function KeynoteCarousel() {
                             insetInlineStart: 0
                         }}>
                         <div className="flex items-center gap-4 mb-2">
-                            {slide.youtubeId && (
+                            {(slide.youtubeId || slide.videoFile) && (
                                 <div className={`w-[50px] h-[50px] bg-[rgba(255,0,85,0.2)] border border-[var(--pop-pink)] rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 ${isPaused && index === current ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
                                     <Play style={{ fill: 'var(--pop-pink)', stroke: 'none' }} size={20} />
                                 </div>
