@@ -58,8 +58,16 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
     }, [language]);
 
     const setLanguage = (lang: Language) => {
-        // Navigate to the new language route
-        const newPath = `/${lang}`;
+        // Navigate to the new language route while preserving the current path
+        // Replace /en or /he at the start of the path with the new language
+        let newPath = `/${lang}`;
+
+        if (pathname) {
+            // Remove the current language prefix and add the new one
+            const pathWithoutLang = pathname.replace(/^\/(en|he)/, '');
+            newPath = `/${lang}${pathWithoutLang}`;
+        }
+
         router.push(newPath);
     };
 
