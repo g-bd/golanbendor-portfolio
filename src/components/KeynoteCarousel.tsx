@@ -69,13 +69,22 @@ export default function KeynoteCarousel() {
     useEffect(() => {
         if (videoRef.current && slides[current].videoFile) {
             const video = videoRef.current;
-            video.play().catch(err => {
-                console.error('Error playing video:', err);
-                // Retry play after a short delay
-                setTimeout(() => {
-                    video.play().catch(e => console.error('Retry failed:', e));
-                }, 100);
-            });
+            // Reset and play video
+            video.currentTime = 0;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+                playPromise.catch(err => {
+                    console.error('Error playing video:', err);
+                    // Retry play with user interaction workaround
+                    const retryPlay = () => {
+                        video.play().catch(e => console.error('Retry failed:', e));
+                    };
+                    // Retry after short delay
+                    setTimeout(retryPlay, 100);
+                    // Also retry on any user interaction
+                    document.addEventListener('click', retryPlay, { once: true });
+                });
+            }
         }
     }, [current, slides]);
 
@@ -163,7 +172,7 @@ export default function KeynoteCarousel() {
                                 {slide.tag}
                             </span>
                             {(slide.youtubeId || slide.videoFile) && (
-                                <div className={`w-[50px] h-[50px] bg-[rgba(255,0,85,0.2)] border border-[var(--pop-pink)] rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 ${isPaused && index === current ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
+                                <div className={`w-[50px] h-[50px] mt-4 bg-[rgba(255,0,85,0.2)] border border-[var(--pop-pink)] rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 ${isPaused && index === current ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
                                     <Play style={{ fill: 'var(--pop-pink)', stroke: 'none' }} size={20} />
                                 </div>
                             )}
