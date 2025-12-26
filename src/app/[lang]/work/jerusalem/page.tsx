@@ -97,8 +97,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             <TrafficCanvas />
             <ScrollTransitSystem />
 
-            {/* Navigation - Sticky at top */}
-            <div className="container sticky top-0 z-50 bg-[var(--bg-color)]/90 backdrop-blur-md" dir={direction}>
+            {/* Navigation - Same structure as main page (nav is sticky via CSS) */}
+            <div className="container" dir={direction}>
                 <nav>
                     <Link href={`/${language}`} className="brand">
                         <Image src="/logo_recolored.png" alt="Dr. Golan Ben-Dor Logo" width={100} height={100} />
