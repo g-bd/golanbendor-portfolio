@@ -50,7 +50,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             <TrafficCanvas />
             <ScrollTransitSystem />
 
-            <div className="container" dir={direction}>
+            {/* Navigation Container - Must be above all content */}
+            <div className="container relative z-[1002]" dir={direction}>
                 {/* Navbar - Same as Home Page */}
                 <nav>
                     <Link href={`/${language}`} className="brand">
@@ -219,7 +220,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
 
             {/* Main Content */}
             <div className="relative z-10" dir={direction}>
-                <div className="container mx-auto px-6 py-32 max-w-4xl">
+                <div className="container mx-auto px-6 py-32 md:py-48 max-w-5xl">
 
                     {/* Research Team Card */}
                     <motion.div
@@ -227,20 +228,22 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
-                        className="glass-card p-8 md:p-10 mb-32"
+                        className="glass-card p-10 md:p-14 mb-56 md:mb-80 relative overflow-hidden group"
                     >
-                        <div className="flex flex-col md:flex-row gap-10 items-start">
-                            <div className="w-full md:w-1/3">
-                                <h3 className="text-xl font-bold text-[var(--pop-cyan)] mb-4 flex items-center gap-3">
-                                    <div className="p-2.5 rounded-xl bg-[var(--pop-cyan)]/10 border border-[var(--pop-cyan)]/20">
-                                        <Users className="w-5 h-5" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
+
+                        <div className="flex flex-col md:flex-row gap-12 items-start relative z-10">
+                            <div className="w-full md:w-1/3 flex-shrink-0">
+                                <h3 className="text-xl font-bold text-[var(--pop-cyan)] mb-6 flex items-center gap-4">
+                                    <div className="p-3 rounded-2xl bg-[var(--pop-cyan)]/10 border border-[var(--pop-cyan)]/20 shadow-[0_0_20px_rgba(0,229,255,0.1)]">
+                                        <Users className="w-6 h-6" />
                                     </div>
                                     {content.research_team}
                                 </h3>
-                                <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{content.research_team_desc}</p>
+                                <p className="text-base text-[var(--text-secondary)] leading-relaxed">{content.research_team_desc}</p>
                             </div>
-                            <div className="w-full md:w-2/3 border-t md:border-t-0 md:border-s border-white/10 pt-8 md:pt-0 md:ps-10">
-                                <p className="text-lg leading-[1.85] text-white/90 italic">
+                            <div className="w-full md:w-2/3 border-t md:border-t-0 md:border-s border-white/10 pt-10 md:pt-0 md:ps-12">
+                                <p className="text-xl md:text-2xl leading-[1.8] text-white/90 italic font-light tracking-wide">
                                     "{content.research_quote}"
                                 </p>
                             </div>
@@ -248,7 +251,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                     </motion.div>
 
                     {/* Blog Content */}
-                    <div className="space-y-32">
+                    <div className="space-y-56 md:space-y-80">
 
                         {/* Fresh Insights Section */}
                         <motion.section
@@ -256,20 +259,22 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            className="max-w-4xl mx-auto"
                         >
-                            <span className="text-[var(--pop-pink)] font-mono text-sm tracking-wider uppercase mb-6 block">
-                                // {content.fresh_insights}
+                            <span className="text-[var(--pop-pink)] font-mono text-sm tracking-[0.2em] uppercase mb-8 block flex items-center gap-3">
+                                <span className="w-8 h-[1px] bg-[var(--pop-pink)]"></span>
+                                {content.fresh_insights}
                             </span>
                             <motion.h2
                                 initial={{ opacity: 0, x: direction === 'rtl' ? 30 : -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-3xl md:text-4xl font-bold mb-8 text-white"
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold mb-10 text-white leading-tight"
                             >
                                 {content.blog_section.title}
                             </motion.h2>
-                            <p className="text-xl text-[var(--text-secondary)] leading-[1.85]">
+                            <p className="text-xl md:text-2xl text-[var(--text-secondary)] leading-[1.9] font-light">
                                 {content.blog_section.intro}
                             </p>
                         </motion.section>
@@ -281,32 +286,34 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                         >
-                            <div className="relative p-10 md:p-14 rounded-3xl bg-gradient-to-br from-[var(--pop-lime)]/10 via-[var(--bg-secondary)] to-transparent border border-[var(--pop-lime)]/20 overflow-hidden">
+                            <div className="relative p-12 md:p-20 rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm">
                                 {/* Background Glow */}
-                                <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--pop-lime)]/10 rounded-full blur-[100px] pointer-events-none" />
-                                <div className="absolute -bottom-32 -left-32 w-72 h-72 bg-[var(--pop-cyan)]/5 rounded-full blur-[80px] pointer-events-none" />
+                                <div className="absolute -top-32 -right-32 w-[30rem] h-[30rem] bg-[var(--pop-lime)]/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
+                                <div className="absolute -bottom-32 -left-32 w-[24rem] h-[24rem] bg-[var(--pop-cyan)]/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
 
                                 {/* Section Label */}
-                                <div className="mb-10 relative z-10">
-                                    <span className="text-[var(--pop-lime)]/60 text-xs font-mono tracking-[0.2em] uppercase">
-                                        {language === 'en' ? '// Key Findings' : '// ממצאים מרכזיים'}
-                                    </span>
+                                <div className="mb-14 relative z-10 flex justify-center">
+                                    <div className="px-6 py-2 rounded-full border border-[var(--pop-lime)]/30 bg-[var(--pop-lime)]/5 backdrop-blur-md">
+                                        <span className="text-[var(--pop-lime)] text-xs font-mono tracking-[0.3em] uppercase shadow-[0_0_10px_rgba(204,255,0,0.3)]">
+                                            {language === 'en' ? ' Key Findings' : ' ממצאים מרכזיים'}
+                                        </span>
+                                    </div>
                                 </div>
 
                                 {/* Key Stats */}
-                                <div className="flex flex-col md:flex-row items-center justify-center gap-14 md:gap-20 mb-12 relative z-10">
-                                    <div className="text-center">
-                                        <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--pop-lime)] tracking-tight">€10</div>
-                                        <div className="text-[11px] md:text-xs text-white/50 font-mono uppercase tracking-[0.2em] mt-4">{language === 'en' ? 'Daily Charge' : 'אגרה יומית'}</div>
+                                <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32 mb-16 relative z-10">
+                                    <div className="text-center group">
+                                        <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-lime)] tracking-tighter drop-shadow-[0_0_25px_rgba(204,255,0,0.2)] group-hover:scale-110 transition-transform duration-500">€10</div>
+                                        <div className="text-xs md:text-sm text-white/50 font-mono uppercase tracking-[0.3em] mt-6 border-t border-white/10 pt-4 inline-block">{language === 'en' ? 'Daily Charge' : 'אגרה יומית'}</div>
                                     </div>
-                                    <div className="hidden md:block w-px h-28 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
-                                    <div className="text-center">
-                                        <div className="text-5xl md:text-6xl lg:text-7xl font-bold text-[var(--pop-cyan)] tracking-tight">25%</div>
-                                        <div className="text-[11px] md:text-xs text-white/50 font-mono uppercase tracking-[0.2em] mt-4">{language === 'en' ? 'Traffic Reduction' : 'הפחתת תנועה'}</div>
+                                    <div className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
+                                    <div className="text-center group">
+                                        <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-cyan)] tracking-tighter drop-shadow-[0_0_25px_rgba(0,229,255,0.2)] group-hover:scale-110 transition-transform duration-500">25%</div>
+                                        <div className="text-xs md:text-sm text-white/50 font-mono uppercase tracking-[0.3em] mt-6 border-t border-white/10 pt-4 inline-block">{language === 'en' ? 'Traffic Reduction' : 'הפחתת תנועה'}</div>
                                     </div>
                                 </div>
 
-                                <p className="text-base md:text-lg text-white/80 leading-[1.9] relative z-10 text-center max-w-2xl mx-auto">
+                                <p className="text-lg md:text-2xl text-white/90 leading-[1.9] relative z-10 text-center max-w-3xl mx-auto font-light">
                                     {content.study_finding}
                                 </p>
                             </div>
@@ -318,31 +325,34 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="relative"
+                            className="relative max-w-4xl mx-auto"
                         >
                             {/* Accent Line */}
-                            <div className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--pop-cyan)] via-[var(--pop-cyan)]/50 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? '-right-10' : '-left-10'}`} />
+                            <div className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--pop-cyan)] via-[var(--pop-cyan)]/50 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? '-right-12' : '-left-12'}`} />
 
-                            <h3 className="text-2xl font-bold text-white mb-10 flex items-center gap-4">
-                                <div className="p-3 rounded-xl bg-[var(--pop-cyan)]/10 text-[var(--pop-cyan)] border border-[var(--pop-cyan)]/20">
-                                    <Map className="w-6 h-6" />
+                            <h3 className="text-3xl font-bold text-white mb-12 flex items-center gap-6">
+                                <div className="p-4 rounded-2xl bg-[var(--pop-cyan)]/10 text-[var(--pop-cyan)] border border-[var(--pop-cyan)]/20 shadow-[0_0_30px_-10px_rgba(0,229,255,0.3)]">
+                                    <Map className="w-8 h-8" />
                                 </div>
                                 {content.blog_section.contribution_title}
                             </h3>
 
-                            <div className="space-y-8 text-lg text-[var(--text-secondary)] leading-[1.85]">
+                            <div className="space-y-12 text-xl text-[var(--text-secondary)] leading-[1.9] font-light">
                                 <p>{content.blog_section.contribution_p1}</p>
 
                                 {/* Highlighted Quote */}
-                                <div className="my-14 p-10 rounded-2xl bg-gradient-to-r from-[var(--pop-pink)]/15 to-transparent border-s-4 border-[var(--pop-pink)] relative overflow-hidden">
-                                    <div className="absolute top-0 right-0 w-32 h-32 bg-[var(--pop-pink)]/5 rounded-full blur-3xl" />
-                                    <p className="font-medium text-white text-xl italic relative z-10 leading-[1.85]">
+                                <div className="my-16 p-12 rounded-3xl bg-gradient-to-r from-[var(--pop-pink)]/10 to-transparent border-s-4 border-[var(--pop-pink)] relative overflow-hidden group hover:from-[var(--pop-pink)]/15 transition-colors duration-500">
+                                    <div className="absolute top-0 right-0 w-64 h-64 bg-[var(--pop-pink)]/5 rounded-full blur-[80px]" />
+                                    <p className="font-medium text-white text-2xl italic relative z-10 leading-[1.85] tracking-wide">
                                         "{content.blog_section.contribution_p2}"
                                     </p>
                                 </div>
 
                                 <p>{content.blog_section.contribution_p3}</p>
-                                <p className="font-bold text-white text-xl mt-6">{content.blog_section.contribution_p4}</p>
+                                <p className="font-bold text-white text-2xl mt-8 flex items-center gap-4">
+                                    <span className="w-12 h-[2px] bg-[var(--pop-cyan)]"></span>
+                                    {content.blog_section.contribution_p4}
+                                </p>
                             </div>
                         </motion.section>
 
@@ -353,24 +363,24 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
                         >
-                            <div className="rounded-3xl overflow-hidden border border-white/10 shadow-[0_0_80px_-20px_rgba(0,229,255,0.15)] group relative">
+                            <div className="rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_-30px_rgba(0,229,255,0.2)] group relative">
                                 <video
                                     autoPlay
                                     loop
                                     muted
                                     playsInline
-                                    className="w-full aspect-video object-cover"
+                                    className="w-full aspect-video object-cover transition-transform duration-[2s] group-hover:scale-105"
                                     src="/sim video high res.mp4"
                                 />
                                 {/* Video Overlay */}
-                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-10 md:p-14">
-                                    <div className="flex items-center gap-5">
-                                        <div className="p-4 rounded-full bg-[var(--pop-cyan)]/20 border border-[var(--pop-cyan)]/30 backdrop-blur-sm">
-                                            <Play className="w-6 h-6 text-[var(--pop-cyan)]" />
+                                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-10 md:p-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                                    <div className="flex items-center gap-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                                        <div className="p-5 rounded-full bg-[var(--pop-cyan)] text-black shadow-[0_0_30px_rgba(0,229,255,0.6)] animate-pulse">
+                                            <Play className="w-8 h-8 fill-current" />
                                         </div>
                                         <div>
-                                            <h4 className="text-white font-bold text-xl mb-2">{content.blog_section.video_title}</h4>
-                                            <p className="text-white/70">{content.blog_section.video_desc}</p>
+                                            <h4 className="text-white font-bold text-2xl mb-2">{content.blog_section.video_title}</h4>
+                                            <p className="text-white/80 text-lg">{content.blog_section.video_desc}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -383,18 +393,19 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            className="max-w-5xl mx-auto"
                         >
-                            <div className="glass-card p-10 md:p-12 relative overflow-hidden">
+                            <div className="glass-card p-12 md:p-20 relative overflow-hidden group">
                                 {/* Decorative Glow */}
-                                <div className={`absolute top-0 w-64 h-64 bg-[var(--pop-lime)]/10 rounded-full blur-3xl -translate-y-1/2 pointer-events-none ${direction === 'rtl' ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'}`} />
+                                <div className={`absolute top-0 w-[40rem] h-[40rem] bg-[var(--pop-lime)]/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none transition-all duration-1000 group-hover:bg-[var(--pop-lime)]/10 ${direction === 'rtl' ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'}`} />
 
-                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-4 relative z-10">
-                                    <div className="p-3 rounded-xl bg-[var(--pop-lime)]/10 text-[var(--pop-lime)] border border-[var(--pop-lime)]/20">
-                                        <Lightbulb className="w-6 h-6" />
+                                <h3 className="text-3xl font-bold text-white mb-10 flex items-center gap-6 relative z-10">
+                                    <div className="p-4 rounded-2xl bg-[var(--pop-lime)]/10 text-[var(--pop-lime)] border border-[var(--pop-lime)]/20 shadow-[0_0_30px_-10px_rgba(204,255,0,0.3)]">
+                                        <Lightbulb className="w-8 h-8" />
                                     </div>
                                     {content.blog_section.impact_title}
                                 </h3>
-                                <p className="text-xl text-[var(--text-secondary)] leading-[1.85] relative z-10">
+                                <p className="text-xl md:text-2xl text-[var(--text-secondary)] leading-[1.9] relative z-10 font-light">
                                     {content.blog_section.impact_text}
                                 </p>
                             </div>
@@ -406,35 +417,35 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-center py-24"
+                            className="text-center py-32"
                         >
-                            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">{content.cta_heading}</h2>
+                            <h2 className="text-4xl md:text-6xl font-bold mb-16 text-white tracking-tight">{content.cta_heading}</h2>
 
                             <a
                                 href={content.cta_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="btn inline-flex items-center gap-3 text-lg px-10 py-5"
+                                className="inline-flex items-center gap-4 text-xl px-12 py-6 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
                             >
                                 <span>{content.cta_button}</span>
-                                <ExternalLink className="w-5 h-5" />
+                                <ExternalLink className="w-6 h-6" />
                             </a>
 
                             {/* Back to Portfolio Link */}
-                            <div className="mt-14">
+                            <div className="mt-20">
                                 <Link
                                     href={`/${language}#work`}
-                                    className="inline-flex items-center gap-2 text-[var(--text-secondary)] hover:text-[var(--pop-cyan)] transition-colors font-mono text-sm tracking-wider"
+                                    className="inline-flex items-center gap-3 text-white/50 hover:text-[var(--pop-cyan)] transition-colors font-mono text-sm tracking-[0.2em] uppercase group"
                                 >
                                     {direction === 'rtl' ? (
                                         <>
-                                            <span>{content.back_to_portfolio}</span>
-                                            <ArrowRight className="w-4 h-4" />
+                                            <span className="group-hover:-translate-x-2 transition-transform">{content.back_to_portfolio}</span>
+                                            <ArrowRight className="w-5 h-5" />
                                         </>
                                     ) : (
                                         <>
-                                            <ArrowLeft className="w-4 h-4" />
-                                            <span>{content.back_to_portfolio}</span>
+                                            <ArrowLeft className="w-5 h-5" />
+                                            <span className="group-hover:translate-x-2 transition-transform">{content.back_to_portfolio}</span>
                                         </>
                                     )}
                                 </Link>
