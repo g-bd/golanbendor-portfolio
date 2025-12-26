@@ -12,53 +12,53 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // English version
     {
-      url: `${baseUrl}/en`,
+      url: `${baseUrl}/en/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 1.0,
       alternates: {
         languages: {
-          en: `${baseUrl}/en`,
-          he: `${baseUrl}/he`,
+          en: `${baseUrl}/en/`,
+          he: `${baseUrl}/he/`,
         },
       },
     },
     // Hebrew version
     {
-      url: `${baseUrl}/he`,
+      url: `${baseUrl}/he/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 1.0,
       alternates: {
         languages: {
-          en: `${baseUrl}/en`,
-          he: `${baseUrl}/he`,
+          en: `${baseUrl}/en/`,
+          he: `${baseUrl}/he/`,
         },
       },
     },
     // Jerusalem Article - English
     {
-      url: `${baseUrl}/en/work/jerusalem`,
+      url: `${baseUrl}/en/work/jerusalem/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
       alternates: {
         languages: {
-          en: `${baseUrl}/en/work/jerusalem`,
-          he: `${baseUrl}/he/work/jerusalem`,
+          en: `${baseUrl}/en/work/jerusalem/`,
+          he: `${baseUrl}/he/work/jerusalem/`,
         },
       },
     },
     // Jerusalem Article - Hebrew
     {
-      url: `${baseUrl}/he/work/jerusalem`,
+      url: `${baseUrl}/he/work/jerusalem/`,
       lastModified,
       changeFrequency: 'monthly',
       priority: 0.9,
       alternates: {
         languages: {
-          en: `${baseUrl}/en/work/jerusalem`,
-          he: `${baseUrl}/he/work/jerusalem`,
+          en: `${baseUrl}/en/work/jerusalem/`,
+          he: `${baseUrl}/he/work/jerusalem/`,
         },
       },
     },
