@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Award, Users, Lightbulb, Map, Globe, Menu, X, FileText, Play } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, ChevronDown, Award, Users, Lightbulb, Map, Globe, Menu, X, FileText } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { notFound } from 'next/navigation';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
@@ -260,7 +260,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            style={{ marginBottom: '6rem' }}
+                            style={{ marginBottom: '4rem' }}
                         >
                             <span className="text-[var(--pop-pink)] font-mono text-sm tracking-[0.2em] uppercase mb-8 block flex items-center gap-3">
                                 <span className="w-8 h-[1px] bg-[var(--pop-pink)]"></span>
@@ -286,9 +286,9 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            style={{ marginBottom: '6rem' }}
+                            style={{ marginBottom: '4rem' }}
                         >
-                            <div className="relative p-12 md:p-20 rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm">
+                            <div className="relative p-12 md:p-20 rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm text-center">
                                 {/* Background Glow */}
                                 <div className="absolute -top-32 -right-32 w-[30rem] h-[30rem] bg-[var(--pop-lime)]/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
                                 <div className="absolute -bottom-32 -left-32 w-[24rem] h-[24rem] bg-[var(--pop-cyan)]/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
@@ -328,7 +328,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="relative"
-                            style={{ marginBottom: '6rem' }}
+                            style={{ marginBottom: '4rem' }}
                         >
                             {/* Accent Line */}
                             <div className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--pop-cyan)] via-[var(--pop-cyan)]/50 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? '-right-12' : '-left-12'}`} />
@@ -365,7 +365,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
-                            style={{ marginBottom: '6rem' }}
+                            style={{ marginBottom: '4rem' }}
                         >
                             <div className="rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_-30px_rgba(0,229,255,0.2)] group relative">
                                 <video
@@ -378,14 +378,9 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 />
                                 {/* Video Overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent flex items-end p-10 md:p-16 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                                    <div className="flex items-center gap-8 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                                        <div className="p-5 rounded-full bg-[var(--pop-cyan)] text-black shadow-[0_0_30px_rgba(0,229,255,0.6)] animate-pulse">
-                                            <Play className="w-8 h-8 fill-current" />
-                                        </div>
-                                        <div>
-                                            <h4 className="text-white font-bold text-2xl mb-2">{content.blog_section.video_title}</h4>
-                                            <p className="text-white/80 text-lg">{content.blog_section.video_desc}</p>
-                                        </div>
+                                    <div className="translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
+                                        <h4 className="text-white font-bold text-2xl mb-2">{content.blog_section.video_title}</h4>
+                                        <p className="text-white/80 text-lg">{content.blog_section.video_desc}</p>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +392,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            style={{ marginBottom: '6rem' }}
+                            style={{ marginBottom: '4rem' }}
                         >
                             <div className="glass-card p-12 md:p-20 relative overflow-hidden group">
                                 {/* Decorative Glow */}
@@ -435,14 +430,14 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 href={content.cta_link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-4 text-xl px-12 py-6 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
+                                className="inline-flex items-center gap-4 text-lg md:text-xl px-10 md:px-14 py-5 md:py-6 rounded-full bg-white text-black font-bold tracking-wide hover:bg-[var(--pop-cyan)] transition-all duration-300 shadow-[0_0_40px_rgba(0,0,0,0.5)] hover:shadow-[0_0_60px_rgba(0,229,255,0.5)] hover:scale-105"
                             >
                                 <span>{content.cta_button}</span>
-                                <ExternalLink className="w-6 h-6" />
+                                <ExternalLink className="w-5 h-5" />
                             </a>
 
                             {/* Back to Portfolio Link */}
-                            <div style={{ marginTop: '4rem' }}>
+                            <div style={{ marginTop: '3rem' }}>
                                 <Link
                                     href={`/${language}#work`}
                                     className="inline-flex items-center gap-3 text-white/50 hover:text-[var(--pop-cyan)] transition-colors font-mono text-sm tracking-[0.2em] uppercase group"

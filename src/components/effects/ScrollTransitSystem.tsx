@@ -29,7 +29,7 @@ export default function ScrollTransitSystem() {
     return (
         <div
             ref={containerRef}
-            className="fixed top-0 bottom-0 pointer-events-none z-0 hidden md:block" // Hidden on mobile initially to be safe
+            className="fixed top-0 bottom-0 pointer-events-none z-50 hidden md:block" // Hidden on mobile initially to be safe
             style={{
                 [isRTL ? 'left' : 'right']: '5%', // Position on the side opposite to the main text flow? Or same?
                 // Let's try positioning it on the *outer* edge. 

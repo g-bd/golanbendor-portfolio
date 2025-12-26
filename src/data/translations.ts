@@ -212,12 +212,12 @@ export const translations = {
 
             blog_section: {
                 title: "Fresh Insights: Using Carrot-and-Stick Measures to Improve Transport in Jerusalem",
-                intro: "I'm pleased to share some highlights from my latest research, aimed at enhancing future urban mobility in #Jerusalem.",
+                intro: "I'm pleased to share some highlights from my latest research, aimed at enhancing future urban mobility in Jerusalem.",
 
                 contribution_title: "Our Contribution",
                 contribution_p1: "We used MATSim to create a virtual model of Jerusalem's transport system. Think of it as a super-smart video game where cars, buses, and even self-driving vehicles move like in real life. The virtual people adapt to changes, switching to whatever transport benefits them. This helps us test ideas to improve real-world travel.",
                 contribution_p2: "The MATSim Jerusalem model served as a testing ground for different future \"carrot-and-stick\" strategies.",
-                contribution_p3: "Our model showed that introducing #SharedAutomatedCars alone (the \"carrot\") could divert people from #PublicTransport. Adding a \"stick\" like congestion/parking pricing, however, creates a balanced use of both.",
+                contribution_p3: "Our model showed that introducing Shared Automated Cars alone (the \"carrot\") could divert people from Public Transport. Adding a \"stick\" like congestion/parking pricing, however, creates a balanced use of both.",
                 contribution_p4: "Interestingly, easing traffic in congestion-charged areas can paradoxically attract more private cars.",
 
                 impact_title: "Why It Matters",
@@ -441,12 +441,12 @@ export const translations = {
 
             blog_section: {
                 title: "תובנות חדשות: שימוש בשיטת \"המקל והגזר\" לשיפור התחבורה בירושלים",
-                intro: "אני שמח לשתף כמה נקודות עיקריות מהמחקר האחרון שלי, שמטרתו לשפר את הניידות העירונית העתידית ב-#ירושלים.",
+                intro: "אני שמח לשתף כמה נקודות עיקריות מהמחקר האחרון שלי, שמטרתו לשפר את הניידות העירונית העתידית בירושלים.",
 
                 contribution_title: "התרומה שלנו",
                 contribution_p1: "השתמשנו ב-MATSim כדי ליצור מודל וירטואלי של מערכת התחבורה בירושלים. חשבו על זה כמו משחק וידאו סופר-חכם שבו מכוניות, אוטובוסים ואפילו רכבים אוטונומיים נעים כמו בחיים האמיתיים. האנשים הווירטואליים מסתגלים לשינויים ועוברים לכל אמצעי תחבורה שמשתלם להם. זה עוזר לנו לבדוק רעיונות לשיפור הנסיעה בעולם האמיתי.",
                 contribution_p2: "מודל MATSim ירושלים שימש כשדה ניסוי לאסטרטגיות עתידיות שונות של \"המקל והגזר\".",
-                contribution_p3: "המודל שלנו הראה שהכנסת #רכבים_אוטונומיים_שיתופיים לבד (\"הגזר\") עלולה להסיט אנשים מ-#תחבורה_ציבורית. עם זאת, הוספת \"מקל\" כמו אגרת גודש/תמחור חניה יוצרת איזון בשימוש בשניהם.",
+                contribution_p3: "המודל שלנו הראה שהכנסת רכבים אוטונומיים שיתופיים לבד (\"הגזר\") עלולה להסיט אנשים מתחבורה ציבורית. עם זאת, הוספת \"מקל\" כמו אגרת גודש/תמחור חניה יוצרת איזון בשימוש בשניהם.",
                 contribution_p4: "באופן מעניין, הקלת התנועה באזורים שבהם יש אגרת גודש יכולה באופן פרדוקסלי למשוך יותר רכבים פרטיים.",
 
                 impact_title: "למה זה חשוב",
