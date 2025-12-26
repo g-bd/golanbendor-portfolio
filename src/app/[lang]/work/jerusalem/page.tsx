@@ -109,7 +109,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             </div>
 
             {/* Hero Section with High-Res Video Background */}
-            <section className="relative min-h-screen w-full overflow-hidden flex items-center justify-center py-32">
+            <section className="relative min-h-[70vh] md:min-h-screen w-full overflow-hidden flex items-center justify-center py-20 md:py-32">
                 {/* Video Background - Centered & Contained to Show TrafficCanvas on Sides */}
                 <motion.div
                     style={{ scale }}
@@ -220,7 +220,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
 
             {/* Main Content */}
             <div className="relative z-10" dir={direction}>
-                <div className="container mx-auto px-6 py-32 md:py-48 max-w-5xl">
+                <div className="container mx-auto px-4 md:px-6 py-16 md:py-32 max-w-5xl">
 
                     {/* Research Team Card */}
                     <motion.div
@@ -228,7 +228,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
-                        className="glass-card p-10 md:p-14 relative overflow-hidden group"
+                        className="glass-card p-6 md:p-10 lg:p-14 relative overflow-hidden group"
                         style={{ marginBottom: '5rem' }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
@@ -288,7 +288,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             transition={{ duration: 0.6 }}
                             style={{ marginBottom: '4rem' }}
                         >
-                            <div className="relative p-12 md:p-20 rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm text-center">
+                            <div className="relative p-6 md:p-12 lg:p-20 rounded-[1.5rem] md:rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm text-center">
                                 {/* Background Glow */}
                                 <div className="absolute -top-32 -right-32 w-[30rem] h-[30rem] bg-[var(--pop-lime)]/10 rounded-full blur-[120px] pointer-events-none mix-blend-screen" />
                                 <div className="absolute -bottom-32 -left-32 w-[24rem] h-[24rem] bg-[var(--pop-cyan)]/10 rounded-full blur-[100px] pointer-events-none mix-blend-screen" />
@@ -305,12 +305,12 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 {/* Key Stats */}
                                 <div className="flex flex-col md:flex-row items-center justify-center gap-16 md:gap-32 mb-16 relative z-10">
                                     <div className="text-center group">
-                                        <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-lime)] tracking-tighter drop-shadow-[0_0_25px_rgba(204,255,0,0.2)] group-hover:scale-110 transition-transform duration-500">€10</div>
+                                        <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-lime)] tracking-tighter drop-shadow-[0_0_25px_rgba(204,255,0,0.2)] group-hover:scale-110 transition-transform duration-500">€10</div>
                                         <div className="text-xs md:text-sm text-white/50 font-mono uppercase tracking-[0.3em] mt-6 border-t border-white/10 pt-4 inline-block">{language === 'en' ? 'Daily Charge' : 'אגרה יומית'}</div>
                                     </div>
                                     <div className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/20 to-transparent" />
                                     <div className="text-center group">
-                                        <div className="text-6xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-cyan)] tracking-tighter drop-shadow-[0_0_25px_rgba(0,229,255,0.2)] group-hover:scale-110 transition-transform duration-500">25%</div>
+                                        <div className="text-5xl md:text-7xl lg:text-8xl font-bold text-[var(--pop-cyan)] tracking-tighter drop-shadow-[0_0_25px_rgba(0,229,255,0.2)] group-hover:scale-110 transition-transform duration-500">25%</div>
                                         <div className="text-xs md:text-sm text-white/50 font-mono uppercase tracking-[0.3em] mt-6 border-t border-white/10 pt-4 inline-block">{language === 'en' ? 'Traffic Reduction' : 'הפחתת תנועה'}</div>
                                     </div>
                                 </div>
@@ -405,7 +405,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             transition={{ duration: 0.6 }}
                             style={{ marginBottom: '4rem' }}
                         >
-                            <div className="glass-card p-12 md:p-20 relative overflow-hidden group">
+                            <div className="glass-card p-6 md:p-12 lg:p-20 relative overflow-hidden group">
                                 {/* Decorative Glow */}
                                 <div className={`absolute top-0 w-[40rem] h-[40rem] bg-[var(--pop-lime)]/5 rounded-full blur-[100px] -translate-y-1/2 pointer-events-none transition-all duration-1000 group-hover:bg-[var(--pop-lime)]/10 ${direction === 'rtl' ? 'left-0 -translate-x-1/2' : 'right-0 translate-x-1/2'}`} />
 
