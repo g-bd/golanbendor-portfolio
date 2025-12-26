@@ -198,15 +198,15 @@ export const translations = {
         jerusalem_article: {
             title: "Simulation-based policy evaluation of monetary car driving disincentives in Jerusalem",
             subtitle: "Published in Transportation Research Part A",
-            hero_text: "I am thrilled to announce the publication of our latest article in the esteemed journal, Transportation Research Part A. Together with my co-authors Ido Klein, Aleksey Ogulenko, Eran Ben-Elia and Itzhak Benenson we've embarked on a journey to explore innovative solutions to traffic congestion in one of the world's most historically and culturally rich cities.",
+            hero_text: "I am thrilled to announce the publication of our latest article in the esteemed journal, Transportation Research Part A. Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions to traffic congestion in one of the world's most historically and culturally rich cities.",
             study_highlight: "In our study, we established and validated a multimodal agent-based simulation of Jerusalem using MATSim, investigating how congestion charges and parking pricing can significantly impact traffic flow within the city center.",
             study_finding: "Our findings revealed that a daily charge of approximately €10 could reduce car arrivals by 25%, offering a tangible strategy to alleviate urban congestion. Additionally, when combined with parking pricing, these measures could deter intra-city trips, further reducing congestion and emissions.",
 
             // Page UI
             back_to_portfolio: "Back to Portfolio",
             research_team: "Research Team",
-            research_team_desc: "Collaborative effort between academia and industry leaders.",
-            research_quote: "Together with my co-authors Ido Klein, Aleksey Ogulenko, Eran Ben-Elia and Itzhak Benenson we've embarked on a journey to explore innovative solutions...",
+            research_team_desc: "Collaborative effort between academia, industry leaders, and the JTMT (Jerusalem Transportation Master Plan Team).",
+            research_quote: "Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions...",
             fresh_insights: "Fresh Insights",
             cta_heading: "Ready to dive deeper?",
 
@@ -427,15 +427,15 @@ export const translations = {
         jerusalem_article: {
             title: "הערכת מדיניות מבוססת סימולציה של תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים",
             subtitle: "פורסם ב-Transportation Research Part A",
-            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי עידו קליין, אלכסיי אוגולנקו, ערן בן-אליה ויצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
+            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי ד\"ר עידו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
             study_highlight: "במחקרנו הקמנו ותיקפנו סימולציה מבוססת סוכנים רב-אמצעית של ירושלים באמצעות MATSim, ובחנו כיצד אגרות גודש ותמחור חניה יכולים להשפיע משמעותית על זרימת התנועה במרכז העיר.",
             study_finding: "הממצאים שלנו הראו שאגרה יומית של כ-10 אירו יכולה להפחית את כניסת הרכבים ב-25%, מה שמציע אסטרטגיה מוחשית להקלת הגודש העירוני. בנוסף, בשילוב עם תמחור חניה, צעדים אלו יכולים להרתיע נסיעות פנים-עירוניות ולהפחית עוד יותר את הגודש והפליטות.",
 
             // Page UI
             back_to_portfolio: "חזרה לפורטפוליו",
             research_team: "צוות המחקר",
-            research_team_desc: "מאמץ שיתופי בין האקדמיה למובילי התעשייה.",
-            research_quote: "יחד עם עמיתיי עידו קליין, אלכסיי אוגולנקו, ערן בן-אליה ויצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
+            research_team_desc: "מאמץ שיתופי בין האקדמיה, מובילי התעשייה וצוות תכנית אב לתחבורה ירושלים.",
+            research_quote: "יחד עם עמיתיי ד\"ר עידו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
             fresh_insights: "תובנות חדשות",
             cta_heading: "מוכנים לצלול לעומק?",
 
