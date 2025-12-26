@@ -8,18 +8,36 @@ Title: Urban Mobility Scientist
 Website: https://drbendor.com
 
 # Professional Summary
-Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. He holds a PhD from Tel Aviv University and works as a strategic consultant with Israel's Ministry of Transport, Netivei Israel, Netivei Ayalon, and the Central Bureau of Statistics.
+Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. He holds a PhD from Tel Aviv University and works as a strategic consultant with Israel's Ministry of Transport, Netivei Israel, Netivei Ayalon, and the Central Bureau of Statistics. His work bridges theoretical algorithms and concrete urban reality, focusing on Robust Policy Evaluation to ensure major infrastructure decisions can handle uncertainty.
 
 # Expertise Areas
-- Urban Mobility Simulation
-- Agent-Based Transport Modeling
+- Urban Mobility Simulation & Agent-Based Modeling
 - MATSim (Multi-Agent Transport Simulation)
-- Congestion Pricing Policy
+- Congestion Pricing & Transport Policy Evaluation
 - Traffic Simulation and Analysis
 - Smart Cities and Data-Driven Urbanism
-- Google Maps Traffic Analytics
-- Spatial Analytics and GIS
+- Google Maps Traffic Analytics & Big Data
+- Spatial Analytics, GIS, and SQL
 - Machine Learning for Transport
+- AI-Enhanced Workflows (Claude, Gemini, Codex)
+
+# Selected Projects & Case Studies
+1. **Google Maps Analytics (Strategic Planning)**
+   - Role: Method Lead & Technical Advisor.
+   - Scope: Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution for the Ministry of Transport.
+   - Budget Responsibility: Lead project up to 15 million NIS.
+
+2. **Jerusalem Transportation Master Plan**
+   - Focus: Evaluated "Carrot and Stick" strategies.
+   - Key Finding: Congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.
+   - Methods: Large-scale MATSim simulation.
+
+3. **Blind Control Reconstruction (Beer Sheva)**
+   - Focus: Rigorous "blind" reconstruction of the Beer Sheva traffic model.
+   - Goal: Validate the integrity and accuracy of the simulation for government approval.
+
+4. **AI-Enhanced Workflows**
+   - Focus: Pioneering AI-Native Development to accelerate simulation pipelines and automate complex spatial SQL queries.
 
 # Key Publications
 1. "Robust Policy Evaluation" - Transportation Research Part A (2024)
@@ -34,12 +52,19 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
    DOI: https://doi.org/10.1016/j.simpat.2020.102233
    Topic: Comparing full and sampled populations in transport simulation
 
-# Professional Affiliations
-- Ministry of Transport Israel (משרד התחבורה)
-- Netivei Israel (נתיבי ישראל)
-- Netivei Ayalon (נתיבי איילון)
-- Central Bureau of Statistics Israel (הלמ״ס)
-- Jerusalem Transportation Master Plan Team
+# Common Questions (FAQ)
+
+Q: What is agent-based transport modeling?
+A: It simulates individual travelers as autonomous agents making decisions about routes, modes, and departure times. Tools like MATSim allow researchers to evaluate how millions of individual choices create network-level traffic patterns.
+
+Q: What is MATSim?
+A: MATSim (Multi-Agent Transport Simulation) is an open-source framework for implementing large-scale agent-based transport simulations. It is used to evaluate infrastructure investments and pricing policies.
+
+Q: What is robust policy evaluation?
+A: It tests transport policies under uncertainty by simulating thousands of future scenarios rather than relying on a single forecast. This helps decision-makers choose strategies that work well across different possible futures.
+
+Q: Who does Dr. Ben-Dor work with?
+A: Major collaborations include the Ministry of Transport Israel, Netivei Israel, Netivei Ayalon, the Jerusalem Transportation Master Plan Team, and the Central Bureau of Statistics.
 
 # Contact
 Email: golanbendor@gmail.com
