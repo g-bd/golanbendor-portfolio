@@ -140,6 +140,8 @@ export const translations = {
         contact: {
             title: "LET'S CONNECT",
             desc: "Open to consulting on national and metropolitan models, data infrastructure for mobility analytics, and research collaborations.",
+            phone: "+972-52-293-7463",
+            phone_label: "SECURE LINE //",
             resume: "Resume",
             footer: "© 2025 Golan Ben-Dor."
         },
@@ -331,7 +333,9 @@ export const translations = {
         },
         contact: {
             title: "בואו נדבר",
-            desc: "פתוח לייעוץ בנושאי מודלים לאומיים ומטרופוליניים, תשתיות נתונים לאנליטיקת ניידות ושיתופי פעולה מחקריים.",
+            desc: "פתוח לייעוץ בנושאי מודלים לאומיים ומטרופוליניים, תשתיות נתונים לאנליטיקת ניידות, הרצאות בנושא AI ושיתופי פעולה מחקריים.",
+            phone: "052-293-7463",
+            phone_label: "קו ישיר //",
             resume: "קורות חיים",
             footer: "© 2025 גולן בן-דור."
         },
