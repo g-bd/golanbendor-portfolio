@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date()
 
   return [
-    // English version
+    // English version - Home
     {
       url: `${baseUrl}/en/`,
       lastModified,
@@ -20,10 +20,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: `${baseUrl}/en/`,
           he: `${baseUrl}/he/`,
+          'x-default': `${baseUrl}/he/`,
         },
       },
     },
-    // Hebrew version
+    // Hebrew version - Home
     {
       url: `${baseUrl}/he/`,
       lastModified,
@@ -33,6 +34,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
         languages: {
           en: `${baseUrl}/en/`,
           he: `${baseUrl}/he/`,
+          'x-default': `${baseUrl}/he/`,
+        },
+      },
+    },
+    // Work Index - English
+    {
+      url: `${baseUrl}/en/work/`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/work/`,
+          he: `${baseUrl}/he/work/`,
+          'x-default': `${baseUrl}/he/work/`,
+        },
+      },
+    },
+    // Work Index - Hebrew
+    {
+      url: `${baseUrl}/he/work/`,
+      lastModified,
+      changeFrequency: 'monthly',
+      priority: 0.9,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/work/`,
+          he: `${baseUrl}/he/work/`,
+          'x-default': `${baseUrl}/he/work/`,
         },
       },
     },
@@ -41,11 +71,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/en/work/jerusalem/`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
       alternates: {
         languages: {
           en: `${baseUrl}/en/work/jerusalem/`,
           he: `${baseUrl}/he/work/jerusalem/`,
+          'x-default': `${baseUrl}/he/work/jerusalem/`,
         },
       },
     },
@@ -54,11 +85,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/he/work/jerusalem/`,
       lastModified,
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.8,
       alternates: {
         languages: {
           en: `${baseUrl}/en/work/jerusalem/`,
           he: `${baseUrl}/he/work/jerusalem/`,
+          'x-default': `${baseUrl}/he/work/jerusalem/`,
         },
       },
     },

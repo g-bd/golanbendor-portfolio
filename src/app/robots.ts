@@ -83,6 +83,31 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Amazonbot',
         allow: '/',
       },
+      // X.AI Grok
+      {
+        userAgent: 'Grok',
+        allow: '/',
+      },
+      // Mistral AI
+      {
+        userAgent: 'MistralBot',
+        allow: '/',
+      },
+      // You.com AI
+      {
+        userAgent: 'YouBot',
+        allow: '/',
+      },
+      // AI2 (Allen Institute for AI)
+      {
+        userAgent: 'AI2Bot',
+        allow: '/',
+      },
+      // Neeva AI (now part of Snowflake)
+      {
+        userAgent: 'NeevaBot',
+        allow: '/',
+      },
     ],
     sitemap: 'https://drbendor.com/sitemap.xml',
   }

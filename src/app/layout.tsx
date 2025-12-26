@@ -56,10 +56,22 @@ export const metadata: Metadata = {
   creator: "Dr. Golan Ben-Dor",
   publisher: "Dr. Golan Ben-Dor",
   category: 'Technology',
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
+  manifest: '/manifest.json',
   other: {
     'geo.region': 'IL',
     'geo.placename': 'Tel Aviv',
     'geo.position': '32.0853;34.7818',
+    'ICBM': '32.0853, 34.7818',
   },
   robots: {
     index: true,
@@ -74,6 +86,11 @@ export const metadata: Metadata = {
   },
   verification: {
     google: 'ULtcbnw-SGW4pnuz9fj7nQ7Lr3tJhsjTuMmt0MMyfpk',
+  },
+  alternates: {
+    types: {
+      'application/rss+xml': 'https://drbendor.com/feed.xml',
+    },
   },
 };
 
@@ -98,6 +115,15 @@ export default function RootLayout({
   return (
     <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
+        {/* Preconnect to Google Fonts for performance */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Preconnect to YouTube for embedded videos */}
+        <link rel="preconnect" href="https://www.youtube.com" />
+        <link rel="preconnect" href="https://i.ytimg.com" />
+        {/* DNS prefetch for external resources */}
+        <link rel="dns-prefetch" href="https://scholar.google.com" />
+        <link rel="dns-prefetch" href="https://linkedin.com" />
         {/* Inline script to set lang/dir before React hydration for SEO */}
         <script
           dangerouslySetInnerHTML={{

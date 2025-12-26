@@ -30,6 +30,25 @@ export default function Home() {
     <>
       {/* JSON-LD Structured Data for SEO */}
 
+      {/* BreadcrumbList Schema for Navigation */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": language === 'en' ? "Home" : "דף הבית",
+                "item": `https://drbendor.com/${language}`
+              }
+            ]
+          })
+        }}
+      />
+
       {/* WebSite Schema for AI and Search Engines */}
       <script
         type="application/ld+json"
@@ -42,6 +61,11 @@ export default function Home() {
             "url": "https://drbendor.com",
             "description": "Portfolio of Dr. Golan Ben-Dor, urban mobility scientist specializing in MATSim, agent-based modeling, and transport simulation. מדען ניידות עירונית.",
             "inLanguage": ["en", "he"],
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://drbendor.com/{search_term_string}",
+              "query-input": "required name=search_term_string"
+            },
             "author": {
               "@type": "Person",
               "name": "Dr. Golan Ben-Dor"
@@ -102,19 +126,33 @@ export default function Home() {
             "affiliation": [
               {
                 "@type": "Organization",
-                "name": "Ministry of Transport Israel"
+                "name": "Ministry of Transport Israel",
+                "alternateName": "משרד התחבורה",
+                "url": "https://www.gov.il/he/departments/ministry_of_transport"
               },
               {
                 "@type": "Organization",
-                "name": "Netivei Israel"
+                "name": "Netivei Israel",
+                "alternateName": "נתיבי ישראל",
+                "url": "https://www.iroads.co.il"
               },
               {
                 "@type": "Organization",
-                "name": "Netivei Ayalon"
+                "name": "Netivei Ayalon",
+                "alternateName": "נתיבי איילון",
+                "url": "https://www.ayalonhw.co.il"
               },
               {
                 "@type": "Organization",
-                "name": "Central Bureau of Statistics Israel"
+                "name": "Central Bureau of Statistics Israel",
+                "alternateName": "הלשכה המרכזית לסטטיסטיקה",
+                "url": "https://www.cbs.gov.il"
+              },
+              {
+                "@type": "Organization",
+                "name": "Tel Aviv University",
+                "alternateName": "אוניברסיטת תל אביב",
+                "url": "https://www.tau.ac.il"
               }
             ],
             "knowsAbout": [
@@ -903,17 +941,36 @@ export default function Home() {
               <span className="media-tag" style={{ color: 'var(--pop-lime)', borderColor: 'var(--pop-lime)' }}>{t.knowledge.publications_tag}</span>
 
               <div className="papers-grid">
-                {/* Paper 1 */}
-                <a href="https://doi.org/10.1016/j.tra.2024.104061" target="_blank" rel="noopener noreferrer" className="paper-item">
-                  <div className="paper-thumb">
-                    <Image src="/paper 1.png" alt="Robust Policy Evaluation - Transportation Research Part A 2024 - Congestion Pricing Jerusalem MATSim Study" width={200} height={150} />
-                  </div>
-                  <div className="paper-info">
-                    <h4>{t.knowledge.papers.robust_title}</h4>
-                    <p>{t.knowledge.papers.robust_desc}</p>
-                    <p className="paper-meta">{t.knowledge.papers.robust_meta}</p>
-                  </div>
-                </a>
+                {/* Paper 1 - with internal link to Jerusalem case study */}
+                <div className="paper-item-wrapper">
+                  <a href="https://doi.org/10.1016/j.tra.2024.104061" target="_blank" rel="noopener noreferrer" className="paper-item">
+                    <div className="paper-thumb">
+                      <Image src="/paper 1.png" alt="Robust Policy Evaluation - Transportation Research Part A 2024 - Congestion Pricing Jerusalem MATSim Study" width={200} height={150} />
+                    </div>
+                    <div className="paper-info">
+                      <h4>{t.knowledge.papers.robust_title}</h4>
+                      <p>{t.knowledge.papers.robust_desc}</p>
+                      <p className="paper-meta">{t.knowledge.papers.robust_meta}</p>
+                    </div>
+                  </a>
+                  <Link
+                    href={`/${language}/work/jerusalem`}
+                    className="paper-case-study-link"
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      color: 'var(--pop-pink)',
+                      fontSize: '0.85rem',
+                      fontFamily: 'var(--font-fira-code)',
+                      marginTop: '8px',
+                      paddingInlineStart: '140px',
+                      transition: 'all 0.3s ease',
+                    }}
+                  >
+                    {language === 'en' ? 'View Case Study' : 'לצפייה במקרה הבוחן'} →
+                  </Link>
+                </div>
                 {/* Paper 2 */}
                 <a href="https://doi.org/10.1016/j.simpat.2023.102775" target="_blank" rel="noopener noreferrer" className="paper-item">
                   <div className="paper-thumb">
