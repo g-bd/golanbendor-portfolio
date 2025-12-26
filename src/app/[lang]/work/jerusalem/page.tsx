@@ -228,7 +228,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.7 }}
-                        className="glass-card p-10 md:p-14 mb-40 relative overflow-hidden group"
+                        className="glass-card p-10 md:p-14 relative overflow-hidden group"
+                        style={{ marginBottom: '5rem' }}
                     >
                         <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
 
@@ -251,7 +252,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                     </motion.div>
 
                     {/* Blog Content */}
-                    <div className="space-y-[10rem] md:space-y-[14rem]">
+                    <div className="flex flex-col">
 
                         {/* Fresh Insights Section */}
                         <motion.section
@@ -259,6 +260,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            style={{ marginBottom: '6rem' }}
                         >
                             <span className="text-[var(--pop-pink)] font-mono text-sm tracking-[0.2em] uppercase mb-8 block flex items-center gap-3">
                                 <span className="w-8 h-[1px] bg-[var(--pop-pink)]"></span>
@@ -284,6 +286,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            style={{ marginBottom: '6rem' }}
                         >
                             <div className="relative p-12 md:p-20 rounded-[2.5rem] bg-gradient-to-br from-[var(--pop-lime)]/5 via-[var(--bg-secondary)]/80 to-transparent border border-[var(--pop-lime)]/20 overflow-hidden shadow-2xl backdrop-blur-sm">
                                 {/* Background Glow */}
@@ -294,7 +297,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                                 <div className="mb-14 relative z-10 flex justify-center">
                                     <div className="px-6 py-2 rounded-full border border-[var(--pop-lime)]/30 bg-[var(--pop-lime)]/5 backdrop-blur-md">
                                         <span className="text-[var(--pop-lime)] text-xs font-mono tracking-[0.3em] uppercase shadow-[0_0_10px_rgba(204,255,0,0.3)]">
-                                            {language === 'en' ? ' Key Findings' : ' ממצאים מרכזיים'}
+                                            {language === 'en' ? 'Key Findings' : 'ממצאים מרכזיים'}
                                         </span>
                                     </div>
                                 </div>
@@ -325,6 +328,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
                             className="relative"
+                            style={{ marginBottom: '6rem' }}
                         >
                             {/* Accent Line */}
                             <div className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--pop-cyan)] via-[var(--pop-cyan)]/50 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? '-right-12' : '-left-12'}`} />
@@ -361,6 +365,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.7 }}
+                            style={{ marginBottom: '6rem' }}
                         >
                             <div className="rounded-[2.5rem] overflow-hidden border border-white/10 shadow-[0_0_100px_-30px_rgba(0,229,255,0.2)] group relative">
                                 <video
@@ -392,6 +397,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
+                            style={{ marginBottom: '6rem' }}
                         >
                             <div className="glass-card p-12 md:p-20 relative overflow-hidden group">
                                 {/* Decorative Glow */}
@@ -415,9 +421,15 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="text-center py-32"
+                            className="text-center"
+                            style={{ paddingTop: '4rem', paddingBottom: '6rem' }}
                         >
-                            <h2 className="text-4xl md:text-6xl font-bold mb-16 text-white tracking-tight">{content.cta_heading}</h2>
+                            <h2
+                                className="text-4xl md:text-6xl font-bold text-white tracking-tight"
+                                style={{ marginBottom: '3rem' }}
+                            >
+                                {content.cta_heading}
+                            </h2>
 
                             <a
                                 href={content.cta_link}
@@ -430,7 +442,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             </a>
 
                             {/* Back to Portfolio Link */}
-                            <div className="mt-20">
+                            <div style={{ marginTop: '4rem' }}>
                                 <Link
                                     href={`/${language}#work`}
                                     className="inline-flex items-center gap-3 text-white/50 hover:text-[var(--pop-cyan)] transition-colors font-mono text-sm tracking-[0.2em] uppercase group"
