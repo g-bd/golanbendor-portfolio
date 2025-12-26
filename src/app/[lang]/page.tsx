@@ -790,14 +790,13 @@ export default function Home() {
           <div
             className="flex items-center gap-4 mb-10 justify-center group cursor-pointer"
             onClick={() => window.open(`tel:${t.contact.phone.replace(/-/g, '')}`)}
-            dir="ltr"
           >
             <div className="w-12 h-12 rounded-[12px] border border-[var(--pop-lime)] flex items-center justify-center bg-[rgba(204,255,0,0.05)] group-hover:bg-[var(--pop-lime)] group-hover:text-black transition-all duration-300 shadow-[0_0_15px_rgba(204,255,0,0.1)] group-hover:shadow-[0_0_25px_rgba(204,255,0,0.4)]">
               <Phone size={24} className="text-[var(--pop-lime)] group-hover:text-black transition-colors" />
             </div>
-            <div className="text-start flex flex-col">
+            <div className="flex flex-col" style={{ textAlign: direction === 'rtl' ? 'end' : 'start' }}>
               <span className="text-[0.7rem] text-[var(--pop-lime)] font-mono tracking-[0.2em] mb-1 opacity-80 uppercase">{t.contact.phone_label}</span>
-              <div className="text-[1.8rem] font-mono text-white group-hover:text-[var(--pop-lime)] transition-colors tracking-wider" style={{ fontFamily: "'Fira Code', monospace" }}>
+              <div className="text-[1.8rem] font-mono text-white group-hover:text-[var(--pop-lime)] transition-colors tracking-wider" dir="ltr" style={{ fontFamily: "'Fira Code', monospace" }}>
                 <ScrambleText text={t.contact.phone} className="font-bold" />
               </div>
             </div>
