@@ -192,7 +192,10 @@ export default function Home() {
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
               "https://github.com/g-bd",
-              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl"
+              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl",
+              "https://orcid.org/0000-0001-6576-1431",
+              "https://www.researchgate.net/profile/Golan-Ben-Dor",
+              "https://www.wikidata.org/wiki/Q137592726"
             ]
           })
         }}
@@ -434,6 +437,30 @@ export default function Home() {
                   "@type": "Answer",
                   "text": "ד\"ר גולן בן דור הוא מדען ניידות עירונית המתמחה בסימולציית תחבורה, מודלים מבוססי סוכנים ו-MATSim. הוא בעל דוקטורט מאוניברסיטת תל אביב ועובד כיועץ אסטרטגי עם משרד התחבורה, נתיבי ישראל, נתיבי איילון והלמ\"ס. מחקריו מתמקדים בהערכת מדיניות תחבורה חזקה תחת אי-ודאות."
                 }
+              },
+              {
+                "@type": "Question",
+                "name": "מהו MATSim?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "MATSim (Multi-Agent Transport Simulation) הוא פלטפורמת קוד פתוח ליישום סימולציות תחבורה מבוססות סוכנים בקנה מידה גדול. הוא משמש חוקרים ורשויות תחבורה ברחבי העולם להערכת השקעות בתשתיות, מדיניות תמחור ושינויים ברשת. MATSim מאפשר לחקור כיצד מיליוני החלטות אישיות יוצרות דפוסי תנועה ולבחון התערבויות מדיניות."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "מהי הערכת מדיניות רובסטית?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "הערכת מדיניות רובסטית בוחנת מדיניות תחבורה תחת אי-ודאות על ידי סימולציה של אלפי תרחישי עתיד. במקום להסתמך על תחזית בודדת, היא מעריכה כיצד מדיניות מתפקדת לאורך עתידים אפשריים שונים, ומסייעת למקבלי החלטות לבחור אסטרטגיות שעובדות היטב ללא קשר לתרחיש שיתממש. גישה זו קריטית להחלטות תשתית במיליארדי שקלים."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "מה גילה ד\"ר בן דור על אגרת גודש בירושלים?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "מחקרו של ד\"ר בן דור הראה שאגרה יומית של כ-10 יורו (כ-40 שקלים) יכולה להפחית את הגעת המכוניות למרכז ירושלים ב-25%. בשילוב עם תמחור חניה, אמצעים אלו יכולים להרתיע נסיעות תוך-עירוניות, להפחית עוד יותר את הגודש והפליטות. עם זאת, הכנסת רכבים אוטונומיים משותפים ללא מדיניות תמחור עשויה להעביר משתמשים מתחבורה ציבורית, ולכן נדרש איזון בין 'גזר ומקל'."
+                }
               }
             ]
           })
@@ -639,7 +666,10 @@ export default function Home() {
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
               "https://github.com/g-bd",
-              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ"
+              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ",
+              "https://orcid.org/0000-0001-6576-1431",
+              "https://www.researchgate.net/profile/Golan-Ben-Dor",
+              "https://www.wikidata.org/wiki/Q137592726"
             ]
           })
         }}
