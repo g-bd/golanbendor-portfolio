@@ -644,6 +644,15 @@ export default function Home() {
                   </div>
                   <p style={{ color: '#ddd', textShadow: '0 1px 2px black' }}>{t.knowledge.tv_desc}</p>
                 </div>
+                <a
+                  href={t.knowledge.tv_link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute bottom-6 end-6 text-white hover:text-pink-400 transition-colors cursor-pointer z-50"
+                  style={{ pointerEvents: 'auto' }}
+                >
+                  <ExternalLink size={24} />
+                </a>
               </div>
             </VideoCard>
 
@@ -708,7 +717,34 @@ export default function Home() {
                 </a>
               </div>
 
-              <a href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl=iw&oi=sra" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--pop-lime)', fontSize: '0.9rem', textDecoration: 'none', marginTop: 'auto', display: 'inline-block', alignSelf: 'flex-start' }}>{t.knowledge.view_all_publications}</a>
+              <a
+                href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl=iw&oi=sra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="transition-all duration-300"
+                style={{
+                  color: 'var(--pop-lime)',
+                  fontSize: '0.9rem',
+                  textDecoration: 'none',
+                  marginTop: 'auto',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  alignSelf: 'flex-start',
+                  fontWeight: 'bold'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.textShadow = '0 0 10px rgba(204, 255, 0, 0.8)';
+                  e.currentTarget.style.transform = 'translateX(' + (direction === 'rtl' ? '5px' : '-5px') + ')';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.textShadow = 'none';
+                  e.currentTarget.style.transform = 'translateX(0)';
+                }}
+              >
+                {t.knowledge.view_all_publications}
+                <ExternalLink size={16} />
+              </a>
             </div>
 
             {/* Conference Photo (Carousel) */}

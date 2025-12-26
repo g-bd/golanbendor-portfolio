@@ -36,7 +36,7 @@ export default function NewsCarousel({ className, style }: NewsCarouselProps) {
     return (
         <div
             className={`news-carousel relative block overflow-hidden group ${className}`}
-            style={{ ...style, cursor: 'pointer' }}
+            style={{ ...style }}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             dir={direction}
@@ -45,13 +45,10 @@ export default function NewsCarousel({ className, style }: NewsCarouselProps) {
                 const isActive = index === current;
 
                 return (
-                    <a
+                    <div
                         key={index}
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
                         className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out block ${isActive ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}
-                        style={{ textDecoration: 'none', color: 'inherit', position: 'absolute' }}
+                        style={{ position: 'absolute' }}
                     >
                         {/* Image Container - Handles Auto Scroll */}
                         <div
@@ -139,11 +136,26 @@ export default function NewsCarousel({ className, style }: NewsCarouselProps) {
                                 </h3>
                                 <p style={{ fontSize: '0.8rem', color: '#ccc' }}>{item.source}</p>
                             </div>
-                            <div className="absolute bottom-2 end-2 md:bottom-[25px] md:end-[25px] text-white">
+                            <a
+                                href={item.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-2 end-2 md:bottom-[25px] md:end-[25px] text-white transition-all duration-300 cursor-pointer z-50"
+                                style={{ pointerEvents: 'auto' }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.color = 'var(--pop-pink)';
+                                    e.currentTarget.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 85, 0.8))';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.color = 'white';
+                                    e.currentTarget.style.filter = 'none';
+                                }}
+                                onClick={(e) => e.stopPropagation()}
+                            >
                                 <ExternalLink size={20} />
-                            </div>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 )
             })}
 

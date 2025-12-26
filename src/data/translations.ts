@@ -68,8 +68,9 @@ export const translations = {
         knowledge: {
             title: "Knowledge Hub",
             tv_tag: "TV INTERVIEW",
-            tv_title: "AI in Urban Transport",
-            tv_desc: "Featured on National News discussing the future of autonomous traffic flow.",
+            tv_title: "Public Transportation in the Future",
+            tv_desc: "Interview on Channel 13 News discussing the future of public transportation and urban mobility.",
+            tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
             podcast_tag: "VIDEO PODCAST",
             podcast_title: "The Mobility Future",
             podcast_ep: "Ep. 42: Simulating Chaos",
@@ -251,8 +252,9 @@ export const translations = {
         knowledge: {
             title: "מרכז ידע",
             tv_tag: "ראיון טלוויזיוני",
-            tv_title: "AI בתחבורה עירונית",
-            tv_desc: "ראיון בחדשות הערב על עתיד זרימת התנועה האוטונומית.",
+            tv_title: "תחבורה ציבורית בעתיד",
+            tv_desc: "ראיון בחדשות ערוץ 13 על עתיד התחבורה הציבורית והניידות העירונית.",
+            tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
             podcast_tag: "פודקאסט וידאו",
             podcast_title: "עתיד הניידות",
             podcast_ep: "פרק 42: סימולציה של כאוס",
