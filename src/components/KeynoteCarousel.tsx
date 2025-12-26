@@ -158,15 +158,15 @@ export default function KeynoteCarousel() {
                             paddingInlineEnd: '40px',
                             insetInlineStart: 0
                         }}>
-                        <div className="flex items-center gap-4 mb-2">
+                        <div className="flex items-center justify-between mb-4">
+                            <span className="media-tag inline-block px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
+                                {slide.tag}
+                            </span>
                             {(slide.youtubeId || slide.videoFile) && (
                                 <div className={`w-[50px] h-[50px] bg-[rgba(255,0,85,0.2)] border border-[var(--pop-pink)] rounded-full flex items-center justify-center backdrop-blur-sm transition-all duration-300 ${isPaused && index === current ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}>
                                     <Play style={{ fill: 'var(--pop-pink)', stroke: 'none' }} size={20} />
                                 </div>
                             )}
-                            <span className="media-tag inline-block px-2 py-1 bg-black/50 backdrop-blur-sm rounded border border-white/20 text-xs font-mono text-white">
-                                {slide.tag}
-                            </span>
                         </div>
                         <h3 className="text-2xl font-bold text-white drop-shadow-md mb-1">
                             {slide.title}
