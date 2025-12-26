@@ -59,7 +59,7 @@ export default function PDFModal({
                 <div className="flex-1 bg-black overflow-hidden relative">
                     {isOpen && (
                         <iframe
-                            src={pdfUrl}
+                            src={pdfUrl.startsWith('/') ? pdfUrl : `/${pdfUrl}`}
                             className="w-full h-full border-0"
                             title="PDF Viewer"
                         />
@@ -69,7 +69,7 @@ export default function PDFModal({
                 {/* Footer */}
                 <div className="p-4 border-t border-white/10 flex justify-end bg-black/30 rounded-b-xl">
                     <a
-                        href={pdfUrl}
+                        href={pdfUrl.startsWith('/') ? pdfUrl : `/${pdfUrl}`}
                         download
                         className="flex items-center gap-2 px-5 py-2 bg-[#00e5ff] text-black font-rajdhani font-bold uppercase rounded hover:bg-white hover:shadow-[0_0_15px_white] transition-all"
                     >

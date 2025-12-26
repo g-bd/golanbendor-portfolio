@@ -140,19 +140,11 @@ export default function NewsCarousel({ className, style }: NewsCarouselProps) {
                                 href={item.link}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="absolute bottom-2 end-2 md:bottom-[25px] md:end-[25px] text-white transition-all duration-300 cursor-pointer z-50"
+                                className="absolute bottom-2 end-2 md:bottom-[25px] md:end-[25px] text-white cursor-pointer z-50 transition-all duration-300 hover-glow-pink"
                                 style={{ pointerEvents: 'auto' }}
-                                onMouseEnter={(e) => {
-                                    e.currentTarget.style.color = 'var(--pop-pink)';
-                                    e.currentTarget.style.filter = 'drop-shadow(0 0 8px rgba(255, 0, 85, 0.8))';
-                                }}
-                                onMouseLeave={(e) => {
-                                    e.currentTarget.style.color = 'white';
-                                    e.currentTarget.style.filter = 'none';
-                                }}
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <ExternalLink size={20} />
+                                <ExternalLink size={20} style={{ transition: 'all 0.3s' }} />
                             </a>
                         </div>
                     </div>
