@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Globe, Menu, X, Phone } from 'lucide-react';
+import Link from 'next/link';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
 import ScrambleText from '@/components/effects/ScrambleText';
@@ -623,7 +624,7 @@ export default function Home() {
                 <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
                   {t.work.jerusalem_desc}
                 </p>
-                <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.jerusalem_link}</a>
+                <Link href={`/${language}/work/jerusalem`} style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.jerusalem_link}</Link>
               </div>
             </VideoCard>
 
