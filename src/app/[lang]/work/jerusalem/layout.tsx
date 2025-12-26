@@ -58,7 +58,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description,
       images: [
         {
-          url: '/sim video high res thumbnail.jpg',
+          url: 'https://drbendor.com/sim%20video%20high%20res%20thumbnail.jpg',
           width: 1200,
           height: 630,
           alt: isHebrew

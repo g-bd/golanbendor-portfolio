@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: ogDescription,
       images: [
         {
-          url: '/profile1.jpg',
+          url: 'https://drbendor.com/profile1.jpg',
           width: 1200,
           height: 630,
           alt: isHebrew
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description: isHebrew
         ? 'מדען ניידות עירונית - MATSim, סימולציה תחבורתית, מדיניות תחבורה'
         : 'Urban mobility simulation scientist - MATSim, transport policy, transport simulation',
-      images: ['/profile1.jpg'],
+      images: ['https://drbendor.com/profile1.jpg'],
     },
   };
 }

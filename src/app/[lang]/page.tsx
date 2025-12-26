@@ -397,12 +397,12 @@ export default function Home() {
         {/* Hero */}
         <header className="hero">
           <div className="hero-text">
-            <h2 className="hero-name">{t.hero.name}</h2>
+            <h1 className="hero-name">{t.hero.name}</h1>
             <p className="hero-sub" data-text={t.hero.title}>{t.hero.title}</p>
-            <h1 className="hero-title">
+            <h2 className="hero-title">
               {t.hero.headline_prefix}<br />
               <ScrambleText text={t.hero.headline_suffix} />
-            </h1>
+            </h2>
             <p className="hero-desc">
               {t.hero.description}
               <br /><br />

@@ -33,9 +33,14 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'GPTBot',
         allow: '/',
       },
-      // Anthropic Claude
+      // Anthropic Claude - AI assistant crawler
       {
         userAgent: 'ClaudeBot',
+        allow: '/',
+      },
+      // Anthropic Claude Web - powers Claude.ai web search
+      {
+        userAgent: 'Claude-Web',
         allow: '/',
       },
       // Perplexity AI
