@@ -560,10 +560,10 @@ export default function Home() {
               {/* Master's Thesis Button */}
               <div
                 onClick={() => openPdf('Thesis_Golan_Final- after fixes.pdf', "Master's Thesis: Dedicated Bus Lanes")}
-                className="cursor-pointer transition-all duration-300 bg-[rgba(0,229,255,0.05)] border border-[var(--pop-cyan)] rounded-[8px] hover:bg-[rgba(0,229,255,0.1)] hover:border-[var(--pop-cyan)] hover:shadow-[0_0_15px_rgba(0,229,255,0.1)]"
+                className="cursor-pointer transition-all duration-300 bg-[rgba(204,255,0,0.05)] border border-[var(--pop-lime)] rounded-[8px] hover:bg-[rgba(204,255,0,0.1)] hover:border-[var(--pop-lime)] hover:shadow-[0_0_15px_rgba(204,255,0,0.1)]"
                 style={{ marginTop: '20px', padding: '20px' }}
               >
-                <h4 style={{ color: 'var(--pop-cyan)', marginBottom: '5px' }}>{t.about.msc_title}</h4>
+                <h4 style={{ color: 'var(--pop-lime)', marginBottom: '5px' }}>{t.about.msc_title}</h4>
                 <p style={{ fontSize: '0.9rem' }}>{t.about.msc_desc}</p>
               </div>
             </div>
