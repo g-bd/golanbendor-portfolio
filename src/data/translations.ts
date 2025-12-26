@@ -199,7 +199,7 @@ export const translations = {
                 title: "GIS Course at Tel Aviv University",
                 desc: 'Academic Lecture: Geographic Information Systems',
                 videoFile: "/Golan%20Course%202.mp4",
-                videoPosition: "center 70%"
+                videoPosition: "center 85%"
             },
             {
                 tag: "PRESENTATION",
@@ -481,7 +481,7 @@ export const translations = {
                 title: "קורס GIS באוניברסיטת תל אביב",
                 desc: 'הרצאה אקדמית: מערכות מידע גאוגרפיות',
                 videoFile: "/Golan%20Course%202.mp4",
-                videoPosition: "center 70%"
+                videoPosition: "center 85%"
             },
             {
                 tag: "הצגה",
