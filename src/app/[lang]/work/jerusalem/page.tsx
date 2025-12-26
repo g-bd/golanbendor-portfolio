@@ -43,8 +43,55 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
 
     const content = t.jerusalem_article;
 
+    // JSON-LD Structured Data for the article
+    const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'ScholarlyArticle',
+        'headline': language === 'en'
+            ? 'Simulation-based policy evaluation of financial incentives to reduce private car use in Jerusalem'
+            : 'הערכת מדיניות מבוססת סימולציה של תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים',
+        'description': language === 'en'
+            ? 'Research evaluating congestion pricing and shared autonomous vehicles impact on urban mobility in Jerusalem using MATSim agent-based simulation.'
+            : 'מחקר המעריך את השפעת אגרת גודש ורכבים אוטונומיים משותפים על ניידות עירונית בירושלים באמצעות סימולציית MATSim.',
+        'author': [
+            { '@type': 'Person', 'name': 'Golan Ben-Dor', 'url': 'https://drbendor.com' },
+            { '@type': 'Person', 'name': 'Ido Klein' },
+            { '@type': 'Person', 'name': 'Aleksey Ogulenko' },
+            { '@type': 'Person', 'name': 'Eran Ben-Elia' },
+            { '@type': 'Person', 'name': 'Itzhak Benenson' }
+        ],
+        'datePublished': '2024-05-01',
+        'publisher': {
+            '@type': 'Organization',
+            'name': 'Transportation Research Part A: Policy and Practice',
+            'url': 'https://www.sciencedirect.com/journal/transportation-research-part-a-policy-and-practice'
+        },
+        'url': `https://drbendor.com/${language}/work/jerusalem`,
+        'mainEntityOfPage': `https://drbendor.com/${language}/work/jerusalem`,
+        'image': 'https://drbendor.com/sim video high res thumbnail.jpg',
+        'keywords': language === 'en'
+            ? ['congestion pricing', 'Jerusalem', 'MATSim', 'agent-based modeling', 'transport simulation', 'shared autonomous vehicles']
+            : ['אגרת גודש', 'ירושלים', 'MATSim', 'מודלים מבוססי סוכנים', 'סימולציה תחבורתית', 'רכבים אוטונומיים משותפים'],
+        'about': {
+            '@type': 'Thing',
+            'name': 'Urban Mobility Policy',
+            'description': 'Evaluation of financial incentives for sustainable urban transportation'
+        },
+        'citation': {
+            '@type': 'ScholarlyArticle',
+            'name': 'Transportation Research Part A: Policy and Practice',
+            'url': 'https://doi.org/10.1016/j.tra.2024.104061'
+        }
+    };
+
     return (
         <>
+            {/* JSON-LD Structured Data */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+            />
+
             {/* Background Effects - Same as Home Page */}
             <div className="grid-overlay" />
             <TrafficCanvas />
@@ -88,8 +135,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                     </button>
                 </nav>
 
-                {/* Mobile Menu Overlay */}
-                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}>
+                {/* Mobile Menu Overlay - Higher z-index to ensure it's on top */}
+                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`} style={{ zIndex: 9999 }}>
                     <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
                     <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
                     <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
