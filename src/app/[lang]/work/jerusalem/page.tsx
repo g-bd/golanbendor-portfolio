@@ -259,7 +259,6 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="max-w-4xl mx-auto"
                         >
                             <span className="text-[var(--pop-pink)] font-mono text-sm tracking-[0.2em] uppercase mb-8 block flex items-center gap-3">
                                 <span className="w-8 h-[1px] bg-[var(--pop-pink)]"></span>
@@ -325,7 +324,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="relative max-w-4xl mx-auto"
+                            className="relative"
                         >
                             {/* Accent Line */}
                             <div className={`absolute top-0 bottom-0 w-1 bg-gradient-to-b from-[var(--pop-cyan)] via-[var(--pop-cyan)]/50 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? '-right-12' : '-left-12'}`} />
@@ -393,7 +392,6 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="max-w-5xl mx-auto"
                         >
                             <div className="glass-card p-12 md:p-20 relative overflow-hidden group">
                                 {/* Decorative Glow */}
