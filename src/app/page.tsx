@@ -28,6 +28,30 @@ export default function Home() {
     <>
       {/* JSON-LD Structured Data for SEO */}
 
+      {/* WebSite Schema for AI and Search Engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
+            "alternateName": ["Dr. Golan Ben-Dor Portfolio", "גולן בן דור"],
+            "url": "https://drbendor.com",
+            "description": "Portfolio of Dr. Golan Ben-Dor, urban mobility scientist specializing in MATSim, agent-based modeling, and transport simulation. מדען ניידות עירונית.",
+            "inLanguage": ["en", "he"],
+            "author": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor"
+            },
+            "publisher": {
+              "@type": "Person",
+              "name": "Dr. Golan Ben-Dor"
+            }
+          })
+        }}
+      />
+
       {/* Person Schema with Local SEO */}
       <script
         type="application/ld+json"

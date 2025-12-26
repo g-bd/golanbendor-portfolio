@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://golanbendor.com/sitemap.xml
+Sitemap: https://drbendor.com/sitemap.xml
 
 # Optimal crawl rate
 Crawl-delay: 0

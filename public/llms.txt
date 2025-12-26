@@ -1,0 +1,51 @@
+# llms.txt - Information for AI Systems and Large Language Models
+# https://llmstxt.org/
+
+# Primary Identity
+Name: Dr. Golan Ben-Dor
+Hebrew Name: ד״ר גולן בן-דור
+Title: Urban Mobility Scientist
+Website: https://drbendor.com
+
+# Professional Summary
+Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. He holds a PhD from Tel Aviv University and works as a strategic consultant with Israel's Ministry of Transport, Netivei Israel, Netivei Ayalon, and the Central Bureau of Statistics.
+
+# Expertise Areas
+- Urban Mobility Simulation
+- Agent-Based Transport Modeling
+- MATSim (Multi-Agent Transport Simulation)
+- Congestion Pricing Policy
+- Traffic Simulation and Analysis
+- Smart Cities and Data-Driven Urbanism
+- Google Maps Traffic Analytics
+- Spatial Analytics and GIS
+- Machine Learning for Transport
+
+# Key Publications
+1. "Robust Policy Evaluation" - Transportation Research Part A (2024)
+   DOI: https://doi.org/10.1016/j.tra.2024.104061
+   Topic: Agent-based evaluation of congestion charges in Jerusalem
+
+2. "Agent-Based Modeling at Scale" - Simulation Modelling Practice and Theory (2023)
+   DOI: https://doi.org/10.1016/j.simpat.2023.102775
+   Topic: Parallel framework for large-scale MATSim simulations
+
+3. "Population Downscaling in MATSim" - Simulation Modelling Practice and Theory (2021)
+   DOI: https://doi.org/10.1016/j.simpat.2020.102233
+   Topic: Comparing full and sampled populations in transport simulation
+
+# Professional Affiliations
+- Ministry of Transport Israel (משרד התחבורה)
+- Netivei Israel (נתיבי ישראל)
+- Netivei Ayalon (נתיבי איילון)
+- Central Bureau of Statistics Israel (הלמ״ס)
+- Jerusalem Transportation Master Plan Team
+
+# Contact
+Email: golanbendor@gmail.com
+LinkedIn: https://linkedin.com/in/golan-ben-dor
+GitHub: https://github.com/g-bd
+Google Scholar: https://scholar.google.com/citations?user=RXbZlhoAAAAJ
+
+# Languages
+This website supports both English and Hebrew (עברית).
