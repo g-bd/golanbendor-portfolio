@@ -125,34 +125,38 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                         </button>
                     </div>
 
-                    {/* Mobile Hamburger Button */}
+                    {/* Mobile Hamburger Button - Higher z-index than menu overlay */}
                     <button
                         className="mobile-menu-btn"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         aria-label="Toggle mobile menu"
+                        style={{ position: 'relative', zIndex: 10000 }}
                     >
                         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
                     </button>
                 </nav>
+            </div>
 
-                {/* Mobile Menu Overlay - Higher z-index to ensure it's on top */}
-                <div className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`} style={{ zIndex: 9999 }}>
-                    <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
-                    <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
-                    <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
-                    <Link href={`/${language}#knowledge`} onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</Link>
-                    <Link href={`/${language}#publications`} onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</Link>
-                    <Link href={`/${language}#contact`} onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</Link>
+            {/* Mobile Menu Overlay - OUTSIDE container for proper z-index */}
+            <div
+                className={`mobile-menu ${mobileMenuOpen ? 'open' : ''}`}
+                style={{ zIndex: 9999 }}
+            >
+                <Link href={`/${language}#about`} onClick={() => setMobileMenuOpen(false)}>{t.nav.about}</Link>
+                <Link href={`/${language}#skills`} onClick={() => setMobileMenuOpen(false)}>{t.nav.skills}</Link>
+                <Link href={`/${language}#work`} onClick={() => setMobileMenuOpen(false)}>{t.nav.work}</Link>
+                <Link href={`/${language}#knowledge`} onClick={() => setMobileMenuOpen(false)}>{t.nav.knowledge}</Link>
+                <Link href={`/${language}#publications`} onClick={() => setMobileMenuOpen(false)}>{t.nav.publications}</Link>
+                <Link href={`/${language}#contact`} onClick={() => setMobileMenuOpen(false)}>{t.nav.contact}</Link>
 
-                    <button
-                        onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
-                        className="mobile-lang-btn"
-                        aria-label="Toggle Language"
-                    >
-                        <Globe size={20} />
-                        <span>{language === 'en' ? 'עברית' : 'English'}</span>
-                    </button>
-                </div>
+                <button
+                    onClick={() => { toggleLanguage(); setMobileMenuOpen(false); }}
+                    className="mobile-lang-btn"
+                    aria-label="Toggle Language"
+                >
+                    <Globe size={20} />
+                    <span>{language === 'en' ? 'עברית' : 'English'}</span>
+                </button>
             </div>
 
             {/* Hero Section with High-Res Video Background */}
