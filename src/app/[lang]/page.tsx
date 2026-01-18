@@ -192,7 +192,7 @@ export default function Home() {
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
               "https://github.com/g-bd",
-              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl",
+              "https://scholar.google.com/citations?user=jsVfMncAAAAJ&hl",
               "https://orcid.org/0000-0001-6576-1431",
               "https://www.researchgate.net/profile/Golan-Ben-Dor",
               "https://www.wikidata.org/wiki/Q137592726"
@@ -666,7 +666,7 @@ export default function Home() {
             "sameAs": [
               "https://linkedin.com/in/golan-ben-dor",
               "https://github.com/g-bd",
-              "https://scholar.google.com/citations?user=RXbZlhoAAAAJ",
+              "https://scholar.google.com/citations?user=jsVfMncAAAAJ",
               "https://orcid.org/0000-0001-6576-1431",
               "https://www.researchgate.net/profile/Golan-Ben-Dor",
               "https://www.wikidata.org/wiki/Q137592726"
@@ -1026,7 +1026,7 @@ export default function Home() {
               </div>
 
               <a
-                href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl=iw&oi=sra"
+                href="https://scholar.google.com/citations?user=jsVfMncAAAAJ&hl=iw&oi=sra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="transition-all duration-300"
@@ -1088,7 +1088,7 @@ export default function Home() {
           <div className="social-links">
             <a href="https://linkedin.com/in/golan-ben-dor" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a href="https://github.com/g-bd" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="https://scholar.google.com/citations?user=RXbZlhoAAAAJ&hl" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+            <a href="https://scholar.google.com/citations?user=jsVfMncAAAAJ&hl" target="_blank" rel="noopener noreferrer">Google Scholar</a>
             <button
               onClick={(e) => {
                 e.preventDefault();

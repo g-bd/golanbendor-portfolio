@@ -78,7 +78,7 @@ A: His research showed that a daily charge of approximately €10 could reduce c
 Email: golanbendor@gmail.com
 LinkedIn: https://linkedin.com/in/golan-ben-dor
 GitHub: https://github.com/g-bd
-Google Scholar: https://scholar.google.com/citations?user=RXbZlhoAAAAJ
+Google Scholar: https://scholar.google.com/citations?user=jsVfMncAAAAJ
 
 # Languages
 This website supports both English and Hebrew (עברית).
