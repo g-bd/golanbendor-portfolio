@@ -206,6 +206,18 @@ export const translations = {
                 title: "National Transport Strategy",
                 desc: 'Presenting Advanced Modeling Frameworks',
                 image: "/key note 6.jpg"
+            },
+            {
+                tag: "POSTER",
+                title: "ISTRC 2026 Conference",
+                desc: 'Centrality-based Sampling for Traffic Count Validation',
+                image: "/key note 7.jpeg"
+            },
+            {
+                tag: "TALK",
+                title: "ISTRC 2026 Conference",
+                desc: 'Google Routes to Road Segments: Travel Time Monitoring',
+                image: "/key note 8.jpeg"
             }
         ],
         jerusalem_article: {
@@ -488,6 +500,18 @@ export const translations = {
                 title: "אסטרטגיה תחבורתית לאומית",
                 desc: 'הצגת מסגרות מידול מתקדמות',
                 image: "/key note 6.jpg"
+            },
+            {
+                tag: "פוסטר",
+                title: "כנס ISTRC 2026",
+                desc: 'דגימה מבוססת מרכזיות לאימות ספירות תנועה',
+                image: "/key note 7.jpeg"
+            },
+            {
+                tag: "הרצאה",
+                title: "כנס ISTRC 2026",
+                desc: 'מ-Google Routes לקטעי כביש: ניטור זמני נסיעה רציף',
+                image: "/key note 8.jpeg"
             }
         ],
         jerusalem_article: {
