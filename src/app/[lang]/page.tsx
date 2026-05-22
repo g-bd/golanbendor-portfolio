@@ -1103,9 +1103,28 @@ export default function Home() {
         </section>
 
         <footer>
-          <p style={{ textAlign: 'center', paddingBottom: '20px', fontSize: '0.8rem', opacity: 0.5 }}>
-            {t.contact.footer}
-          </p>
+          <div className="flex flex-col items-center gap-3 pb-5">
+            <div className="flex items-center gap-4">
+              <Link
+                href={`/${language}/accessibility`}
+                className="text-[var(--text-secondary)] hover:text-[var(--pop-cyan)] transition-colors font-mono"
+                style={{ fontSize: '0.75rem' }}
+              >
+                {t.footer_links.accessibility}
+              </Link>
+              <span className="text-[var(--text-secondary)] opacity-30" style={{ fontSize: '0.75rem' }}>|</span>
+              <Link
+                href={`/${language}/privacy`}
+                className="text-[var(--text-secondary)] hover:text-[var(--pop-cyan)] transition-colors font-mono"
+                style={{ fontSize: '0.75rem' }}
+              >
+                {t.footer_links.privacy}
+              </Link>
+            </div>
+            <p style={{ textAlign: 'center', fontSize: '0.8rem', opacity: 0.5 }}>
+              {t.contact.footer}
+            </p>
+          </div>
         </footer>
       </div>
     </>
