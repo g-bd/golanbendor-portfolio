@@ -27,6 +27,9 @@ export default function TrafficCanvas() {
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
 
+        // WCAG 2.1 SC 2.3.3 — respect user's motion preference
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
         const createCar = (): Car => {
             const width = dimensionsRef.current.width || window.innerWidth;
             const height = dimensionsRef.current.height || window.innerHeight;
@@ -53,12 +56,13 @@ export default function TrafficCanvas() {
             }
         };
 
+        let animationId: number;
+
         const animate = () => {
             const { width, height } = dimensionsRef.current;
             ctx.clearRect(0, 0, width, height);
 
             carsRef.current.forEach(car => {
-                // Update position
                 if (car.horizontal) {
                     car.x += car.speed;
                     if (car.x > width + 100) car.x = -100;
@@ -69,7 +73,6 @@ export default function TrafficCanvas() {
                     if (car.y < -100) car.y = height + 100;
                 }
 
-                // Draw
                 ctx.beginPath();
                 ctx.strokeStyle = car.color;
                 ctx.lineWidth = car.width;
@@ -87,7 +90,7 @@ export default function TrafficCanvas() {
                 ctx.globalAlpha = 1;
             });
 
-            requestAnimationFrame(animate);
+            animationId = requestAnimationFrame(animate);
         };
 
         init();
@@ -98,6 +101,7 @@ export default function TrafficCanvas() {
 
         return () => {
             window.removeEventListener('resize', handleResize);
+            cancelAnimationFrame(animationId);
         };
     }, []);
 
