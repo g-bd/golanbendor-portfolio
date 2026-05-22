@@ -94,5 +94,61 @@ export default function sitemap(): MetadataRoute.Sitemap {
         },
       },
     },
+    // Accessibility Statement - English
+    {
+      url: `${baseUrl}/en/accessibility/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/accessibility/`,
+          he: `${baseUrl}/he/accessibility/`,
+          'x-default': `${baseUrl}/he/accessibility/`,
+        },
+      },
+    },
+    // Accessibility Statement - Hebrew
+    {
+      url: `${baseUrl}/he/accessibility/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/accessibility/`,
+          he: `${baseUrl}/he/accessibility/`,
+          'x-default': `${baseUrl}/he/accessibility/`,
+        },
+      },
+    },
+    // Privacy Policy - English
+    {
+      url: `${baseUrl}/en/privacy/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/privacy/`,
+          he: `${baseUrl}/he/privacy/`,
+          'x-default': `${baseUrl}/he/privacy/`,
+        },
+      },
+    },
+    // Privacy Policy - Hebrew
+    {
+      url: `${baseUrl}/he/privacy/`,
+      lastModified,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+      alternates: {
+        languages: {
+          en: `${baseUrl}/en/privacy/`,
+          he: `${baseUrl}/he/privacy/`,
+          'x-default': `${baseUrl}/he/privacy/`,
+        },
+      },
+    },
   ]
 }

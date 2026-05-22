@@ -42,7 +42,7 @@ export default function AccessibilityPage() {
 
                     {/* Page header */}
                     <motion.header {...fadeUp(0.1)} className="mb-16">
-                        <p className="text-[var(--pop-pink)] font-mono text-sm tracking-wider uppercase mb-3">// LEGAL</p>
+                        <p className="text-[var(--pop-pink)] font-mono text-sm tracking-wider uppercase mb-3">{'// LEGAL'}</p>
                         <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 uppercase tracking-tight">
                             {content.title}
                         </h1>
