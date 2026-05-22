@@ -49,3 +49,16 @@ next-env.d.ts
 
 # old folder
 old/
+
+# sensitive files
+public/api-keys-*.csv
+*.csv
+
+# temp files
+tmpclaude-*
+.playwright-mcp/
+
+# large media (not tracked in git)
+public/hi res photos/
+public/*.mp4
+"public/The Istrc21*"
