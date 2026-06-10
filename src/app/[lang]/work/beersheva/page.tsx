@@ -239,14 +239,14 @@ export default function BeerShevaPage() {
                         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
                         style={{ marginBottom: '4rem' }}
                     >
-                        <h3 className="text-3xl font-bold text-white mb-12 flex items-center gap-6">
+                        <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-6">
                             <div className="p-4 rounded-2xl bg-[var(--pop-lime)]/10 text-[var(--pop-lime)] border border-[var(--pop-lime)]/20">
                                 <CheckCircle className="w-8 h-8" />
                             </div>
                             {a.blog_section.how_title}
                         </h3>
                         <div className="relative">
-                            <div className={`absolute top-5 bottom-5 w-[2px] bg-gradient-to-b from-[var(--pop-lime)]/60 via-[var(--pop-lime)]/20 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
+                            <div className={`absolute top-6 bottom-10 w-[2px] bg-gradient-to-b from-[var(--pop-lime)]/60 via-[var(--pop-lime)]/20 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
                             <div className="flex flex-col gap-4">
                                 {howSteps.map((step, i) => (
                                     <motion.div
