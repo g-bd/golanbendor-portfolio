@@ -23,12 +23,13 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
 - AI-Enhanced Workflows (Claude, Gemini, Codex)
 
 # Selected Projects & Case Studies
-1. **Google Maps Analytics (Strategic Planning)**
-   - Role: Method Lead & Technical Advisor.
-   - Scope: Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution for the Ministry of Transport.
-   - Budget Responsibility: Lead project up to 15 million NIS.
+1. **Digital Road Network Basemap — Ministry of Transport** (Article: drbendor.com/en/work/google)
+   - Role: Method Lead & Technical Architect.
+   - Scope: Built a production-ready AI-native pipeline that creates accurate digital basemaps of urban road networks for Tel Aviv, Jerusalem, Haifa, and Be'er Sheva — the foundation for national travel-time measurement.
+   - Method: Directed-segment decomposition, automated geometry matching against real-world driving routes, interactive visual review interface with keyboard shortcuts, export to national measurement system.
+   - AI-Native: Entire pipeline — data processing, review interface, automated tests, production deployment — built with Claude and Codex workflows.
 
-2. **Jerusalem Transportation Master Plan** (Featured Article: drbendor.com/en/work/jerusalem)
+2. **Jerusalem Transportation Master Plan** (Article: drbendor.com/en/work/jerusalem)
    - Focus: Evaluated "Carrot and Stick" strategies for urban mobility.
    - Co-Authors: Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia, Prof. Itzhak Benenson
    - Collaboration: JTMT (Jerusalem Transportation Master Plan Team / צוות תכנית אב לתחבורה ירושלים)
@@ -37,9 +38,11 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
    - Methods: Large-scale MATSim agent-based simulation with multimodal transport modeling.
    - Publication: Transportation Research Part A (2024)
 
-3. **Blind Control Reconstruction (Beer Sheva)**
-   - Focus: Rigorous "blind" reconstruction of the Beer Sheva traffic model.
-   - Goal: Validate the integrity and accuracy of the simulation for government approval.
+3. **Beer Sheva Model Validation — AI-Native Reconstruction System** (Article: drbendor.com/en/work/beersheva)
+   - Focus: Built a complete AI-native validation system for the Beer Sheva transportation model.
+   - Method: Automated reconstruction of transport model output tables (route analysis, road network, transit capacity) from raw model data using pandas; smart tolerance comparison; field-by-field diff reporting.
+   - Deliverable: Packaged Streamlit dashboard with professional GUI shipped directly to the customer as a standalone tool.
+   - AI-Native: System architecture, reconstruction engine, test suite, and GUI all built using AI-native development workflows.
 
 4. **AI-Enhanced Workflows**
    - Focus: Pioneering AI-Native Development to accelerate simulation pipelines and automate complex spatial SQL queries.

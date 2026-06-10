@@ -9,6 +9,24 @@ export async function GET() {
 
   const items = [
     {
+      title: 'Beer Sheva Model Validation — AI-Native Reconstruction System',
+      titleHe: 'אימות מודל באר שבע — מערכת שחזור AI-Native',
+      link: `${baseUrl}/en/work/beersheva`,
+      linkHe: `${baseUrl}/he/work/beersheva`,
+      description: 'Built an AI-native validation system for the Beer Sheva transportation model: automated table reconstruction from raw model outputs, smart tolerance comparison, and a packaged Streamlit dashboard delivered to the customer.',
+      pubDate: new Date('2026-06-10').toUTCString(),
+      category: 'Case Study',
+    },
+    {
+      title: 'Building a Digital Basemap of Israel\'s Road Network — Ministry of Transport',
+      titleHe: 'בניית מפת בסיס דיגיטלית של רשת הכבישים — משרד התחבורה',
+      link: `${baseUrl}/en/work/google`,
+      linkHe: `${baseUrl}/he/work/google`,
+      description: 'AI-native pipeline that creates production-ready digital basemaps of urban road networks for travel-time measurement. Built end-to-end with Claude and Codex — architecture, implementation, automated testing, and production hardening.',
+      pubDate: new Date('2026-06-10').toUTCString(),
+      category: 'Case Study',
+    },
+    {
       title: 'Jerusalem Transportation Master Plan - Congestion Pricing Study',
       titleHe: 'תוכנית אב לתחבורה ירושלים - מחקר אגרת גודש',
       link: `${baseUrl}/en/work/jerusalem`,

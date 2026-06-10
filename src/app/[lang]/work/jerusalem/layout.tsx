@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         },
       ],
       publishedTime: '2024-05-01T00:00:00.000Z',
-      modifiedTime: new Date().toISOString(),
+      modifiedTime: '2024-12-01T00:00:00.000Z',
       authors: ['Dr. Golan Ben-Dor'],
       tags: isHebrew
         ? ['אגרת גודש', 'ירושלים', 'סימולציה', 'MATSim', 'תחבורה']

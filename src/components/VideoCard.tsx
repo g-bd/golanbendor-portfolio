@@ -22,30 +22,44 @@ export default function VideoCard({ src, poster, children, className = '', style
 
         const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
-        // Force load and attempt autoplay
-        video.load();
-        video.play().catch(e => {
-            console.log("Autoplay blocked:", e);
-        });
+        // Safe play helper — prevents concurrent play() calls that produce AbortError
+        // (browser pauses video-only media to save power, then a second play() fires mid-pause)
+        let playPending = false;
+        const safePlay = () => {
+            if (playPending || !video.paused) return;
+            playPending = true;
+            video.play().then(() => {
+                playPending = false;
+            }).catch(e => {
+                playPending = false;
+                if (e.name !== 'AbortError') console.log('Play prevented:', e);
+            });
+        };
+
+        safePlay();
 
         // IntersectionObserver for pause when out of view
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    video.play().catch(e => console.log("Play prevented:", e));
+                    safePlay();
                 } else {
-                    video.pause();
+                    if (!video.paused) video.pause();
                 }
             });
         }, { threshold: 0.5 });
 
         observer.observe(video);
 
+        // Resume after tab becomes visible (browser may have paused to save power)
+        const handleVisibility = () => {
+            if (!document.hidden) safePlay();
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+
         // Desktop: Sound on hover
         const handleMouseEnter = () => {
-            if (video.paused) {
-                video.play().catch(e => console.log("Play on hover prevented:", e));
-            }
+            safePlay();
             if (enableSoundOnHover) {
                 video.muted = false;
                 video.volume = 0.5;
@@ -61,9 +75,7 @@ export default function VideoCard({ src, poster, children, className = '', style
         // Mobile: Toggle sound on tap
         let soundEnabled = false;
         const handleTouchStart = () => {
-            if (video.paused) {
-                video.play().catch(e => console.log("Play on tap prevented:", e));
-            }
+            safePlay();
             soundEnabled = !soundEnabled;
             video.muted = !soundEnabled;
             video.volume = soundEnabled ? 0.5 : 0;
@@ -78,6 +90,7 @@ export default function VideoCard({ src, poster, children, className = '', style
 
         return () => {
             observer.disconnect();
+            document.removeEventListener('visibilitychange', handleVisibility);
             if (!isMobile) {
                 card.removeEventListener('mouseenter', handleMouseEnter);
                 card.removeEventListener('mouseleave', handleMouseLeave);
@@ -96,7 +109,7 @@ export default function VideoCard({ src, poster, children, className = '', style
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="metadata"
                 poster={poster}
             >
                 <source src={src} type="video/mp4" />

@@ -99,8 +99,19 @@ export default function TrafficCanvas() {
         const handleResize = () => init();
         window.addEventListener('resize', handleResize);
 
+        // Pause animation when tab is hidden to save CPU/battery
+        const handleVisibility = () => {
+            if (document.hidden) {
+                cancelAnimationFrame(animationId);
+            } else {
+                animationId = requestAnimationFrame(animate);
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisibility);
+
         return () => {
             window.removeEventListener('resize', handleResize);
+            document.removeEventListener('visibilitychange', handleVisibility);
             cancelAnimationFrame(animationId);
         };
     }, []);

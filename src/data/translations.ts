@@ -321,6 +321,97 @@ export const translations = {
             cta_button: "Read Full Article",
             cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
         },
+        google_article: {
+            title: "Building a Digital Basemap of Israel's Road Network",
+            subtitle: "Ministry of Transport · National Travel-Time Project",
+            hero_text: "How I built a production-ready pipeline that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Developed as part of a flagship strategic-planning project for the Israeli Ministry of Transport, in collaboration with Israel's leading transport agencies.",
+            project_quote: "Every travel-time measurement is only as good as the map underneath it. This pipeline makes sure that map is right.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "From Raw Road Network to Production-Ready Basemap",
+                intro: "To measure how traffic really flows through a city, you first need a precise digital map of every road segment — in each direction of travel. Off-the-shelf maps aren't accurate enough for that. So I built a system that creates these 'basemaps' from scratch, for Tel Aviv, Jerusalem, Haifa and Be'er Sheva.",
+
+                how_title: "How It Works",
+                how_p1: "The pipeline loads the city's road network and breaks it down into directed segments — a two-way street becomes two separate one-way links, each with its own unique ID.",
+                how_p2: "Each segment is then compared against real-world driving routes. The system automatically measures how well the two geometries match, and flags every mismatch.",
+                how_p3: "A dedicated visual review interface lets an analyst inspect each flagged segment on an interactive map, fix it with a few clicks — adjust endpoints, add waypoints, re-check — and approve it. Keyboard shortcuts make reviewing hundreds of segments fast.",
+                how_p4: "The result: a validated, export-ready basemap that feeds the national travel-time measurement system.",
+
+                ai_title: "Built AI-Native, End to End",
+                ai_text: "I built this entire pipeline — the data processing, the interactive review interface, the automated test suite, and the production deployment — using AI-native development workflows with tools like Claude and Codex. AI didn't just write code snippets; it powered the full cycle: architecture, implementation, automated testing, and production hardening. This is exactly the workflow I teach in my AI lectures and consulting.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Transport agencies make multi-million shekel decisions based on travel-time data. An inaccurate basemap silently corrupts every measurement built on top of it. This pipeline turns a months-long manual mapping effort into a fast, repeatable, quality-controlled process — already in production use across four metropolitan areas.",
+
+                video_title: "The Pipeline in Action",
+                video_desc: "A walkthrough of the basemap creation and review workflow.",
+            },
+
+            stats: {
+                cities_value: "4",
+                cities_label: "Metropolitan Areas",
+                production_value: "LIVE",
+                production_label: "In Production",
+            },
+
+            cta_heading: "Want AI-native workflows like this in your organization?",
+            cta_button: "Get in Touch",
+        },
+        beersheva_article: {
+            title: "Beer Sheva Model Validation System",
+            subtitle: "Netivei Ayalon · Transport Model QA",
+            hero_text: "How I built an AI-native system to reconstruct, validate, and package a complete transport model output — and ship it as a production tool to the customer.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Developed for Netivei Ayalon as part of the Beer Sheva metropolitan transport model certification process, enabling rigorous quality assurance of model outputs before government submission.",
+            project_quote: "You can't approve a model you can't verify. This system makes verification fast, repeatable, and transparent.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "From Raw Model Output to a Validated, Packaged Deliverable",
+                intro: "Transport model outputs are complex — dozens of tables, thousands of rows, multiple time periods. Manually checking them against targets takes weeks and is error-prone. I built a system that does it automatically, and ships as a ready-to-use tool.",
+
+                how_title: "How It Works",
+                how_p1: "The system reads raw model outputs — road network assignments, transit ridership, route data — and reconstructs each required report table using the exact formulas from the model's specification document.",
+                how_p2: "Each reconstructed table is automatically compared against the official target. The system flags every mismatch — missing rows, extra rows, value differences above tolerance — and produces a detailed diff report.",
+                how_p3: "A professional Streamlit dashboard lets an analyst review any table, switch between time periods (AM, off-peak, PM), filter by match status, and inspect individual cell-level differences with smart color coding.",
+                how_p4: "The entire system was packaged as a standalone deliverable and handed to the customer — including all inputs, scripts, GUI, and documentation — so they can run it independently at any time.",
+
+                ai_title: "Built AI-Native",
+                ai_text: "The reconstruction engine, test suite, GUI, and packaging workflow were all built using AI-native development with Claude and Codex. Not just code generation — full-cycle development: architecture design, iterative implementation, automated testing, and production hardening. This is the workflow I teach.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Transport model validation is a legal and contractual requirement before major infrastructure decisions. A system that does it automatically — and produces a paper trail — replaces weeks of manual analyst work and eliminates the risk of undetected errors in the outputs that decision-makers rely on.",
+
+                video_title: "The System in Action",
+                video_desc: "A walkthrough of the reconstruction dashboard and validation interface.",
+            },
+
+            stats: {
+                tables_value: "10+",
+                tables_label: "Reconstructed Tables",
+                periods_value: "3",
+                periods_label: "Time Periods Validated",
+            },
+
+            cta_heading: "Want AI-native tooling like this for your transport project?",
+            cta_button: "Get in Touch",
+        },
+        related_work: {
+            heading: "More Case Studies",
+            jerusalem_title: "Jerusalem Congestion Pricing Study",
+            jerusalem_desc: "Simulation-based policy evaluation using MATSim.",
+            google_title: "Digital Road Network Basemap",
+            google_desc: "AI-native pipeline for national travel-time measurement.",
+            beersheva_title: "Beer Sheva Model Validation",
+            beersheva_desc: "AI-native reconstruction and validation system.",
+        },
         work_index: {
             title: "Case Studies & Projects",
             subtitle: "Research and consulting work in urban mobility simulation",
@@ -680,6 +771,97 @@ export const translations = {
 
             cta_button: "לקריאת המאמר המלא",
             cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
+        },
+        google_article: {
+            title: "בניית מפת בסיס דיגיטלית של רשת הכבישים בישראל",
+            subtitle: "משרד התחבורה · פרויקט זמני נסיעה ארצי",
+            hero_text: "כך בניתי צינור עבודה ברמת production שיוצר מפות בסיס דיגיטליות ומדויקות של רשתות כבישים עירוניות — התשתית למדידת זמני נסיעה אמיתיים בערים הגדולות בישראל.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "פותח כחלק מפרויקט דגל לתכנון אסטרטגי עבור משרד התחבורה, בשיתוף סוכנויות התחבורה המובילות בישראל.",
+            project_quote: "כל מדידת זמן נסיעה טובה בדיוק כמו המפה שמתחתיה. הצינור הזה מוודא שהמפה נכונה.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מרשת כבישים גולמית למפת בסיס מוכנה לייצור",
+                intro: "כדי למדוד איך תנועה באמת זורמת בעיר, צריך קודם כל מפה דיגיטלית מדויקת של כל מקטע כביש — בכל כיוון נסיעה. מפות מדף לא מדויקות מספיק לזה. אז בניתי מערכת שיוצרת את 'מפות הבסיס' האלה מאפס, עבור תל אביב, ירושלים, חיפה ובאר שבע.",
+
+                how_title: "איך זה עובד",
+                how_p1: "הצינור טוען את רשת הכבישים של העיר ומפרק אותה למקטעים מכווּנים — רחוב דו-סטרי הופך לשני קטעים חד-סטריים נפרדים, כל אחד עם מזהה ייחודי משלו.",
+                how_p2: "כל מקטע מושווה מול מסלולי נסיעה מהעולם האמיתי. המערכת מודדת אוטומטית עד כמה שתי הגאומטריות תואמות, ומסמנת כל אי-התאמה.",
+                how_p3: "ממשק בקרה ויזואלי ייעודי מאפשר לאנליסט לבחון כל מקטע מסומן על מפה אינטראקטיבית, לתקן אותו בכמה לחיצות — להזיז נקודות קצה, להוסיף נקודות מעבר, לבדוק מחדש — ולאשר. קיצורי מקלדת הופכים בקרה של מאות מקטעים למהירה.",
+                how_p4: "התוצאה: מפת בסיס מאומתת ומוכנה לייצוא, שמזינה את מערכת מדידת זמני הנסיעה הארצית.",
+
+                ai_title: "פיתוח AI-Native מקצה לקצה",
+                ai_text: "את כל הצינור הזה — עיבוד הנתונים, ממשק הבקרה האינטראקטיבי, חבילת הבדיקות האוטומטיות וההטמעה בסביבת הייצור — בניתי בשיטות עבודה AI-Native עם כלים כמו Claude ו-Codex. ה-AI לא רק כתב קטעי קוד; הוא הניע את כל המחזור: ארכיטקטורה, מימוש, בדיקות אוטומטיות והקשחה לייצור. זו בדיוק שיטת העבודה שאני מלמד בהרצאות ובייעוץ ה-AI שלי.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "סוכנויות תחבורה מקבלות החלטות של עשרות מיליוני שקלים על בסיס נתוני זמני נסיעה. מפת בסיס לא מדויקת משבשת בשקט כל מדידה שנבנית מעליה. הצינור הזה הופך תהליך מיפוי ידני של חודשים לתהליך מהיר, חוזר ומבוקר איכות — שכבר פועל בייצור בארבעה מטרופולינים.",
+
+                video_title: "הצינור בפעולה",
+                video_desc: "הדגמה של תהליך יצירת מפת הבסיס והבקרה עליה.",
+            },
+
+            stats: {
+                cities_value: "4",
+                cities_label: "מטרופולינים",
+                production_value: "LIVE",
+                production_label: "בסביבת ייצור",
+            },
+
+            cta_heading: "רוצים תהליכי עבודה AI-Native כאלה בארגון שלכם?",
+            cta_button: "צרו קשר",
+        },
+        beersheva_article: {
+            title: "מערכת אימות מודל באר שבע",
+            subtitle: "נתיבי איילון · בקרת איכות מודל תחבורה",
+            hero_text: "כך בניתי מערכת AI-Native לשחזור, אימות ואריזת פלטי מודל תחבורה מלאים — ומסרתי אותה כלי מוכן לשימוש ללקוח.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "פותח עבור נתיבי איילון כחלק מתהליך הסמכת מודל התחבורה המטרופוליני של באר שבע, לאפשר בקרת איכות קפדנית של פלטי המודל לפני הגשה לממשלה.",
+            project_quote: "אי אפשר לאשר מודל שלא ניתן לאמת. המערכת הזו הופכת את האימות למהיר, חוזר ושקוף.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מפלט גולמי של המודל לתוצר מאומת ומאורז",
+                intro: "פלטי מודל תחבורה הם מורכבים — עשרות טבלאות, אלפי שורות, מספר תקופות זמן. בדיקה ידנית שלהן מול יעדים לוקחת שבועות ורגישה לשגיאות. בניתי מערכת שעושה את זה אוטומטית, ונמסרת כלי מוכן לשימוש.",
+
+                how_title: "איך זה עובד",
+                how_p1: "המערכת קוראת פלטי מודל גולמיים — שיוכי רשת כבישים, נסיעות תחבורה ציבורית, נתוני קווים — ומשחזרת כל טבלת דוח נדרשת בשימוש בנוסחאות המדויקות מתיעוד המפרט של המודל.",
+                how_p2: "כל טבלה משוחזרת מושווית אוטומטית מול היעד הרשמי. המערכת מסמנת כל אי-התאמה — שורות חסרות, שורות עודפות, הפרשי ערכים מעל סבילות — ומפיקה דוח diff מפורט.",
+                how_p3: "לוח בקרה מקצועי ב-Streamlit מאפשר לאנליסט לסקור כל טבלה, לעבור בין תקופות זמן (בוקר, שעות עסק, אחר הצהריים), לסנן לפי מצב התאמה, ולבחון הבדלים ברמת תא בודד עם צביעה חכמה.",
+                how_p4: "כל המערכת אורזה כתוצר עצמאי ונמסרה ללקוח — כולל כל הקלטים, הסקריפטים, הממשק והתיעוד — כדי שיוכלו להפעיל אותה באופן עצמאי בכל עת.",
+
+                ai_title: "פיתוח AI-Native",
+                ai_text: "מנוע השחזור, חבילת הבדיקות, הממשק ותהליך האריזה כולם נבנו בפיתוח AI-Native עם Claude ו-Codex. לא רק יצירת קוד — פיתוח מחזור מלא: תכנון ארכיטקטורה, מימוש איטרטיבי, בדיקות אוטומטיות והקשחה לייצור. זו שיטת העבודה שאני מלמד.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "אימות מודל תחבורה הוא דרישה חוקית וחוזית לפני החלטות תשתית מרכזיות. מערכת שעושה זאת אוטומטית — ומפיקה תיעוד מסלול ביקורת — מחליפה שבועות של עבודה ידנית של אנליסט ומבטלת את הסיכון של שגיאות לא מזוהות בפלטים שמקבלי ההחלטות מסתמכים עליהם.",
+
+                video_title: "המערכת בפעולה",
+                video_desc: "הדגמה של לוח הבקרה לשחזור וממשק האימות.",
+            },
+
+            stats: {
+                tables_value: "10+",
+                tables_label: "טבלאות שוחזרו",
+                periods_value: "3",
+                periods_label: "תקופות זמן אומתו",
+            },
+
+            cta_heading: "רוצים כלים AI-Native כאלה לפרויקט התחבורה שלכם?",
+            cta_button: "צרו קשר",
+        },
+        related_work: {
+            heading: "עוד מקרי בוחן",
+            jerusalem_title: "מחקר אגרת גודש בירושלים",
+            jerusalem_desc: "הערכת מדיניות מבוססת סימולציה באמצעות MATSim.",
+            google_title: "מפת בסיס דיגיטלית לרשת הכבישים",
+            google_desc: "צינור AI-Native למדידת זמני נסיעה ארצית.",
+            beersheva_title: "אימות מודל באר שבע",
+            beersheva_desc: "מערכת שחזור ואימות AI-Native.",
         },
         work_index: {
             title: "מקרי בוחן ופרויקטים",

@@ -862,7 +862,7 @@ export default function Home() {
                 <strong>{t.work.google_role}</strong><br />
                 <strong>{t.work.google_budget}</strong>
               </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.google_link}</a>
+              <Link href={`/${language}/work/google`} style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.google_link}</Link>
             </div>
 
             {/* Item 2 - Jerusalem Article */}
@@ -892,16 +892,32 @@ export default function Home() {
               </VideoCard>
             </Link>
 
-            {/* Item 3 */}
-            <div className="work-card">
-              <span className="status-badge">{t.work.status_validation}</span>
-              <div className="work-icon"><Eye strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">{t.work.blind_title}</h3>
-              <p className="work-desc">
-                {t.work.blind_desc}
-              </p>
-              <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.blind_link}</a>
-            </div>
+            {/* Item 3 - Beer Sheva Article */}
+            <Link href={`/${language}/work/beersheva`} className="block h-full">
+              <VideoCard
+                src="/beer-sheva-web.mp4"
+                className="work-card group hover:!border-[var(--pop-lime)] hover:!shadow-[0_10px_40px_-10px_rgba(204,255,0,0.3),inset_0_0_20px_rgba(204,255,0,0.1)] cursor-pointer h-full"
+                style={{ padding: 0 }}
+                enableSoundOnHover={false}
+              >
+                <div className="transition-colors duration-500 bg-gradient-to-b from-black/30 via-black/60 to-black/90 group-hover:from-black/60 group-hover:via-black/80 group-hover:to-black/95" style={{
+                  padding: '30px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  <span className="status-badge" style={{ insetInlineEnd: '20px', top: '20px', zIndex: 10 }}>{t.work.status_validation}</span>
+                  <div className="work-icon"><Eye strokeWidth={1} size={32} /></div>
+                  <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{t.work.blind_title}</h3>
+                  <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                    {t.work.blind_desc}
+                  </p>
+                  <span style={{ color: 'var(--pop-lime)', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.blind_link}</span>
+                </div>
+              </VideoCard>
+            </Link>
 
             {/* Item 4 - AI Integration */}
             <div className="work-card">
