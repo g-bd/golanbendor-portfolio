@@ -61,4 +61,6 @@ tmpclaude-*
 # large media (not tracked in git)
 public/hi res photos/
 public/*.mp4
+# web-compressed versions are small enough to track
+!public/*-web.mp4
 "public/The Istrc21*"

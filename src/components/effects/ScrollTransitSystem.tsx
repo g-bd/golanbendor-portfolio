@@ -37,6 +37,8 @@ export default function ScrollTransitSystem() {
     const braking = carState === 'brake';
     const wasMoving = useRef(false);
     const brakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const isDragging = useRef(false);
+    const [grabbing, setGrabbing] = useState(false);
 
     useMotionValueEvent(velocity, 'change', (v) => {
         if (prefersReducedMotion) return;
@@ -54,7 +56,26 @@ export default function ScrollTransitSystem() {
     });
 
     useEffect(() => {
+        const onPointerMove = (e: PointerEvent) => {
+            if (!isDragging.current) return;
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            const targetScroll = (e.clientY / window.innerHeight) * maxScroll;
+            window.scrollTo({ top: targetScroll, behavior: 'instant' });
+        };
+
+        const onPointerUp = () => {
+            if (!isDragging.current) return;
+            isDragging.current = false;
+            setGrabbing(false);
+            document.body.style.userSelect = '';
+        };
+
+        window.addEventListener('pointermove', onPointerMove);
+        window.addEventListener('pointerup', onPointerUp);
+
         return () => {
+            window.removeEventListener('pointermove', onPointerMove);
+            window.removeEventListener('pointerup', onPointerUp);
             if (brakeTimer.current) clearTimeout(brakeTimer.current);
         };
     }, []);
@@ -62,12 +83,13 @@ export default function ScrollTransitSystem() {
     return (
         <div
             ref={containerRef}
-            className="fixed top-0 bottom-0 pointer-events-none z-50 hidden md:block"
+            className="fixed top-0 bottom-0 z-50 hidden md:block"
             style={{
                 left: isRTL ? '50px' : 'auto',
                 right: isRTL ? 'auto' : '50px',
                 width: '100px',
                 height: '100vh',
+                pointerEvents: 'none',
             }}
         >
             {/* The Road */}
@@ -140,6 +162,13 @@ export default function ScrollTransitSystem() {
 
             {/* The Car — top-down PNG, driving down the page */}
             <motion.div
+                onPointerDown={(e) => {
+                    e.preventDefault();
+                    isDragging.current = true;
+                    setGrabbing(true);
+                    document.body.style.userSelect = 'none';
+                    (e.target as Element).setPointerCapture(e.pointerId);
+                }}
                 style={{
                     position: 'absolute',
                     top: 0,
@@ -151,6 +180,9 @@ export default function ScrollTransitSystem() {
                     marginTop: '-40px', // center the car body on the progress point
                     filter: 'drop-shadow(0 0 8px rgba(0,229,255,0.5))',
                     zIndex: 10,
+                    pointerEvents: 'auto',
+                    cursor: grabbing ? 'grabbing' : 'grab',
+                    touchAction: 'none',
                 }}
             >
                 {/* Red tail glow smear (behind the rear, lit while braking) */}
