@@ -264,7 +264,7 @@ export default function GooglePage() {
                         initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
                         style={{ marginBottom: '4rem' }}
                     >
-                        <h3 className="text-3xl font-bold text-white mb-6 flex items-center gap-6">
+                        <h3 className="text-3xl font-bold text-white mb-10 flex items-center gap-6">
                             <div className="p-4 rounded-2xl bg-[var(--pop-cyan)]/10 text-[var(--pop-cyan)] border border-[var(--pop-cyan)]/20 shadow-[0_0_30px_-10px_rgba(0,229,255,0.3)]">
                                 <TrendingUp className="w-8 h-8" />
                             </div>
@@ -273,7 +273,7 @@ export default function GooglePage() {
 
                         <div className="relative">
                             {/* Connecting rail */}
-                            <div className={`absolute top-6 bottom-10 w-[2px] bg-gradient-to-b from-[var(--pop-cyan)]/60 via-[var(--pop-cyan)]/20 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
+                            <div className={`absolute top-6 bottom-10 w-[2px] bg-gradient-to-b from-[var(--pop-cyan)]/60 to-[var(--pop-cyan)]/20 hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
 
                             <div className="flex flex-col gap-4">
                                 {howSteps.map((step, i) => (
