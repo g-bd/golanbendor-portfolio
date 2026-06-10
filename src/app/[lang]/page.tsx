@@ -724,9 +724,9 @@ export default function Home() {
             </p>
             <a href="#work" className="btn">{t.hero.cta}</a>
           </div>
-          <div className="hero-visual">
+          <div className="hero-visual" itemScope itemType="https://schema.org/Person">
             <div className="profile-hex">
-              <Image src="/profile1.jpg" alt="Dr. Golan Ben-Dor - Urban Mobility Simulation Scientist and Transport Policy Expert from Tel Aviv University" width={320} height={450} />
+              <Image src="/profile1.jpg" alt="Dr. Golan Ben-Dor - Urban Mobility Simulation Scientist and Transport Policy Expert from Tel Aviv University" width={320} height={450} itemProp="image" />
             </div>
           </div>
         </header>
@@ -852,18 +852,20 @@ export default function Home() {
           <h2 className="section-title">{t.work.title}</h2>
           <div className="work-grid">
             {/* Item 1 */}
-            <div className="work-card">
-              <span className="status-badge">{t.work.status_live}</span>
-              <div className="work-icon"><MapPin strokeWidth={1} size={32} /></div>
-              <h3 className="work-title">{t.work.google_title}</h3>
-              <p className="work-desc">
-                {t.work.google_desc}
-                <br /><br />
-                <strong>{t.work.google_role}</strong><br />
-                <strong>{t.work.google_budget}</strong>
-              </p>
-              <Link href={`/${language}/work/google`} style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.google_link}</Link>
-            </div>
+            <Link href={`/${language}/work/google`} className="block h-full">
+              <div className="work-card cursor-pointer h-full hover:!border-[var(--pop-cyan)] hover:!shadow-[0_10px_40px_-10px_rgba(0,229,255,0.3),inset_0_0_20px_rgba(0,229,255,0.1)]" style={{ display: 'flex', flexDirection: 'column' }}>
+                <span className="status-badge">{t.work.status_live}</span>
+                <div className="work-icon"><MapPin strokeWidth={1} size={32} /></div>
+                <h3 className="work-title">{t.work.google_title}</h3>
+                <p className="work-desc">
+                  {t.work.google_desc}
+                  <br /><br />
+                  <strong>{t.work.google_role}</strong><br />
+                  <strong>{t.work.google_budget}</strong>
+                </p>
+                <span style={{ color: 'var(--pop-cyan)', fontWeight: 'bold', marginTop: 'auto' }}>{t.work.google_link}</span>
+              </div>
+            </Link>
 
             {/* Item 2 - Jerusalem Article */}
             <Link href={`/${language}/work/jerusalem`} className="block h-full">

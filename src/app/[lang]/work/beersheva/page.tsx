@@ -260,7 +260,7 @@ export default function BeerShevaPage() {
                                         <div className="flex-shrink-0 w-10 h-10 mt-1 rounded-full bg-[var(--pop-lime)]/10 border border-[var(--pop-lime)]/30 flex items-center justify-center text-[var(--pop-lime)] font-mono font-bold text-sm z-10">
                                             {i + 1}
                                         </div>
-                                        <div className="glass-card px-5 py-4 flex-1 rounded-xl">
+                                        <div className="glass-card flex-1 rounded-xl" style={{ padding: '1rem 1.25rem' }}>
                                             <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.85]">{step}</p>
                                         </div>
                                     </motion.div>

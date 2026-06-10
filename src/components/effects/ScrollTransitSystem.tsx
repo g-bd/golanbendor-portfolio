@@ -31,9 +31,10 @@ export default function ScrollTransitSystem() {
 
     const carY = useTransform(smoothProgress, [0, 1], ['0vh', '100vh']);
 
-    // Brake lights: flash red when the car rolls to a stop
+    // Car state: idle at rest, driving while scrolling, braking when rolling to a stop
     const velocity = useVelocity(smoothProgress);
-    const [braking, setBraking] = useState(false);
+    const [carState, setCarState] = useState<'idle' | 'drive' | 'brake'>('idle');
+    const braking = carState === 'brake';
     const wasMoving = useRef(false);
     const brakeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -43,12 +44,12 @@ export default function ScrollTransitSystem() {
         if (moving) {
             wasMoving.current = true;
             if (brakeTimer.current) clearTimeout(brakeTimer.current);
-            setBraking(false);
+            setCarState('drive');
         } else if (wasMoving.current) {
-            // moving -> stopped: flash brakes
+            // moving -> stopped: flash brakes, then settle back to idle
             wasMoving.current = false;
-            setBraking(true);
-            brakeTimer.current = setTimeout(() => setBraking(false), 900);
+            setCarState('brake');
+            brakeTimer.current = setTimeout(() => setCarState('idle'), 900);
         }
     });
 
@@ -79,16 +80,16 @@ export default function ScrollTransitSystem() {
             >
                 {/* Road surface (glass-dark asphalt strip) */}
                 <rect
-                    x="40"
+                    x="26"
                     y="0"
-                    width="20"
+                    width="48"
                     height="800"
                     fill="rgba(255,255,255,0.025)"
                 />
 
                 {/* Edge lines (faint neon road edges) */}
                 <path
-                    d="M 40 0 L 40 800"
+                    d="M 26 0 L 26 800"
                     fill="none"
                     stroke="var(--pop-pink)"
                     strokeWidth="1.5"
@@ -96,7 +97,7 @@ export default function ScrollTransitSystem() {
                     style={{ filter: 'drop-shadow(0 0 4px rgba(255,0,85,0.3))' }}
                 />
                 <path
-                    d="M 60 0 L 60 800"
+                    d="M 74 0 L 74 800"
                     fill="none"
                     stroke="var(--pop-pink)"
                     strokeWidth="1.5"
@@ -116,7 +117,7 @@ export default function ScrollTransitSystem() {
 
                 {/* Active edges — the driven stretch lights up behind the car */}
                 <motion.path
-                    d="M 40 0 L 40 800"
+                    d="M 26 0 L 26 800"
                     fill="none"
                     stroke="var(--pop-pink)"
                     strokeWidth="2.5"
@@ -126,7 +127,7 @@ export default function ScrollTransitSystem() {
                     }}
                 />
                 <motion.path
-                    d="M 60 0 L 60 800"
+                    d="M 74 0 L 74 800"
                     fill="none"
                     stroke="var(--pop-pink)"
                     strokeWidth="2.5"
@@ -137,7 +138,7 @@ export default function ScrollTransitSystem() {
                 />
             </svg>
 
-            {/* The Car — top-down neon blip, driving down the page */}
+            {/* The Car — top-down PNG, driving down the page */}
             <motion.div
                 style={{
                     position: 'absolute',
@@ -145,103 +146,53 @@ export default function ScrollTransitSystem() {
                     left: '50%',
                     x: '-50%',
                     y: carY,
-                    width: '20px',
-                    height: '60px',
-                    marginTop: '-28px', // center the car body on the progress point
-                    filter: 'drop-shadow(0 0 8px rgba(0,229,255,0.7))',
+                    width: '40px',
+                    height: '80px',
+                    marginTop: '-40px', // center the car body on the progress point
+                    filter: 'drop-shadow(0 0 8px rgba(0,229,255,0.5))',
                     zIndex: 10,
                 }}
             >
-                <svg width="20" height="60" viewBox="0 0 20 60" fill="none">
-                    <defs>
-                        <linearGradient id="sts-headlight" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#ffffff" stopOpacity="0.15" />
-                            <stop offset="100%" stopColor="#ffffff" stopOpacity="0" />
-                        </linearGradient>
-                        <linearGradient id="sts-brakeglow" x1="0" y1="1" x2="0" y2="0">
-                            <stop offset="0%" stopColor="#ff2244" stopOpacity="0.35" />
-                            <stop offset="100%" stopColor="#ff2244" stopOpacity="0" />
-                        </linearGradient>
-                    </defs>
+                {/* Red tail glow smear (behind the rear, lit while braking) */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: braking ? 1 : 0 }}
+                    transition={{ duration: 0.15 }}
+                    style={{
+                        position: 'absolute',
+                        top: '-14px',
+                        left: '4px',
+                        right: '4px',
+                        height: '18px',
+                        background: 'linear-gradient(to top, rgba(255,34,68,0.35), rgba(255,34,68,0))',
+                        filter: 'blur(2px)',
+                    }}
+                />
 
-                    {/* Brake glow smear (above the rear, lit while braking) */}
-                    <motion.rect
-                        x="2"
-                        y="0"
-                        width="16"
-                        height="9"
-                        fill="url(#sts-brakeglow)"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: braking ? 1 : 0 }}
-                        transition={{ duration: 0.15 }}
+                {/* Car state images — cross-fade between idle / drive / brake */}
+                {([
+                    ['idle', '/aligned_car_pngs/car_idle_aligned.png'],
+                    ['drive', '/aligned_car_pngs/car_drive_headlights_aligned.png'],
+                    ['brake', '/aligned_car_pngs/car_brake_headlights_aligned.png'],
+                ] as const).map(([state, src]) => (
+                    /* eslint-disable-next-line @next/next/no-img-element */
+                    <img
+                        key={state}
+                        src={src}
+                        alt=""
+                        width={40}
+                        height={80}
+                        style={{
+                            position: 'absolute',
+                            inset: 0,
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'contain',
+                            opacity: carState === state ? 1 : 0,
+                            transition: 'opacity 0.15s ease',
+                        }}
                     />
-
-                    {/* Headlight beams (front = bottom, car drives down) */}
-                    <polygon points="3.5,47 7.5,47 9.5,60 1.5,60" fill="url(#sts-headlight)" />
-                    <polygon points="12.5,47 16.5,47 18.5,60 10.5,60" fill="url(#sts-headlight)" />
-
-                    {/* Car body — rounded silhouette, tapered nose at the bottom */}
-                    <path
-                        d="M 1 15
-                           Q 1 9 10 9
-                           Q 19 9 19 15
-                           L 19 38
-                           Q 19 44 14 46
-                           Q 12 47 10 47
-                           Q 8 47 6 46
-                           Q 1 44 1 38
-                           Z"
-                        fill="var(--pop-cyan)"
-                    />
-
-                    {/* Rear window (upper third) */}
-                    <rect x="4" y="13" width="12" height="5" rx="2" fill="rgba(10,10,18,0.6)" />
-
-                    {/* Windshield (lower third — front of the car) */}
-                    <rect x="3.5" y="33" width="13" height="7" rx="2.5" fill="rgba(10,10,18,0.6)" />
-
-                    {/* Roof decal — single-stroke "G" mark */}
-                    <path
-                        d="M 13.2 23.2
-                           A 4.2 4.2 0 1 0 14.2 25.5
-                           L 10.5 25.5"
-                        fill="none"
-                        stroke="rgba(10,10,18,0.85)"
-                        strokeWidth="1.8"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                    />
-
-                    {/* Headlamp dots (front edge) */}
-                    <circle cx="5.5" cy="45.5" r="1.2" fill="#ffffff" fillOpacity="0.9" />
-                    <circle cx="14.5" cy="45.5" r="1.2" fill="#ffffff" fillOpacity="0.9" />
-
-                    {/* Brake lights (rear edge) */}
-                    <motion.rect
-                        x="3"
-                        y="9.5"
-                        width="4"
-                        height="2.5"
-                        rx="1.2"
-                        fill="#ff2244"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: braking ? 1 : 0 }}
-                        transition={{ duration: 0.15 }}
-                        style={{ filter: 'drop-shadow(0 0 6px #ff2244)' }}
-                    />
-                    <motion.rect
-                        x="13"
-                        y="9.5"
-                        width="4"
-                        height="2.5"
-                        rx="1.2"
-                        fill="#ff2244"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: braking ? 1 : 0 }}
-                        transition={{ duration: 0.15 }}
-                        style={{ filter: 'drop-shadow(0 0 6px #ff2244)' }}
-                    />
-                </svg>
+                ))}
             </motion.div>
         </div>
     );

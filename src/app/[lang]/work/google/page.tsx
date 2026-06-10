@@ -273,7 +273,7 @@ export default function GooglePage() {
 
                         <div className="relative">
                             {/* Connecting rail */}
-                            <div className={`absolute top-6 bottom-6 w-[2px] bg-gradient-to-b from-[var(--pop-cyan)]/60 via-[var(--pop-cyan)]/20 to-transparent hidden md:block ${direction === 'rtl' ? 'right-[1.65rem]' : 'left-[1.65rem]'}`} />
+                            <div className={`absolute top-5 bottom-5 w-[2px] bg-gradient-to-b from-[var(--pop-cyan)]/60 via-[var(--pop-cyan)]/20 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
 
                             <div className="space-y-4">
                                 {howSteps.map((step, i) => (
@@ -288,7 +288,7 @@ export default function GooglePage() {
                                         <div className="flex-shrink-0 w-10 h-10 mt-1 rounded-full bg-[var(--pop-cyan)]/10 border border-[var(--pop-cyan)]/30 flex items-center justify-center text-[var(--pop-cyan)] font-mono font-bold text-sm shadow-[0_0_20px_rgba(0,229,255,0.1)] z-10">
                                             {i + 1}
                                         </div>
-                                        <div className="glass-card px-5 py-4 flex-1 rounded-xl">
+                                        <div className="glass-card flex-1 rounded-xl" style={{ padding: '1rem 1.25rem' }}>
                                             <p className="text-base md:text-lg text-[var(--text-secondary)] leading-[1.8]">{step}</p>
                                         </div>
                                     </motion.div>
