@@ -275,7 +275,7 @@ export default function GooglePage() {
                             {/* Connecting rail */}
                             <div className={`absolute top-5 bottom-5 w-[2px] bg-gradient-to-b from-[var(--pop-cyan)]/60 via-[var(--pop-cyan)]/20 to-transparent hidden md:block rounded-full ${direction === 'rtl' ? 'right-[1.2rem]' : 'left-[1.2rem]'}`} />
 
-                            <div className="space-y-4">
+                            <div className="flex flex-col gap-4">
                                 {howSteps.map((step, i) => (
                                     <motion.div
                                         key={i}
