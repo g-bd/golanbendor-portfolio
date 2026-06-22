@@ -1,7 +1,7 @@
 'use client';
 
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { translations, Language, Direction } from '../data/translations';
 
 interface LanguageContextType {
@@ -21,7 +21,6 @@ interface LanguageProviderProps {
 }
 
 export const LanguageProvider = ({ children, initialLang }: LanguageProviderProps) => {
-    const router = useRouter();
     const pathname = usePathname();
 
     // Determine language from URL path or prop
@@ -60,7 +59,7 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
     const setLanguage = (lang: Language) => {
         // Navigate to the new language route while preserving the current path
         // Replace /en or /he at the start of the path with the new language
-        let newPath = `/${lang}`;
+        let newPath = `/${lang}/`;
 
         if (pathname) {
             // Remove the current language prefix and add the new one
@@ -68,7 +67,16 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
             newPath = `/${lang}${pathWithoutLang}`;
         }
 
-        router.push(newPath);
+        // Use a full-page navigation instead of the Next.js client router.
+        // This is a static export (output: 'export'); the App Router's
+        // soft-navigation tries to fetch RSC segment data (e.g.
+        // /en/__next.$d$lang.__PAGE__.txt) which does not exist on a static
+        // host, so router.push() fails intermittently. A hard navigation
+        // always loads the correct pre-rendered page with the right
+        // lang/dir/metadata.
+        if (typeof window !== 'undefined') {
+            window.location.assign(newPath);
+        }
     };
 
     const toggleLanguage = () => {
