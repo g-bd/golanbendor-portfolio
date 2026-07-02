@@ -83,7 +83,7 @@ export default function ScrollTransitSystem() {
     return (
         <div
             ref={containerRef}
-            className="fixed top-0 bottom-0 z-50 hidden md:block"
+            className="fixed top-0 bottom-0 z-[1001] hidden md:block"
             style={{
                 left: isRTL ? '50px' : 'auto',
                 right: isRTL ? 'auto' : '50px',
