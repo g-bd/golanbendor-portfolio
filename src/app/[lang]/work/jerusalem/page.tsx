@@ -66,8 +66,8 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
             'name': 'Transportation Research Part A: Policy and Practice',
             'url': 'https://www.sciencedirect.com/journal/transportation-research-part-a-policy-and-practice'
         },
-        'url': `https://drbendor.com/${language}/work/jerusalem`,
-        'mainEntityOfPage': `https://drbendor.com/${language}/work/jerusalem`,
+        'url': `https://drbendor.com/${language}/work/jerusalem/`,
+        'mainEntityOfPage': `https://drbendor.com/${language}/work/jerusalem/`,
         'image': 'https://drbendor.com/sim video high res thumbnail.jpg',
         'keywords': language === 'en'
             ? ['congestion pricing', 'Jerusalem', 'MATSim', 'agent-based modeling', 'transport simulation', 'shared autonomous vehicles']
@@ -93,7 +93,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                 '@type': 'ListItem',
                 'position': 1,
                 'name': language === 'en' ? 'Home' : 'דף הבית',
-                'item': `https://drbendor.com/${language}`
+                'item': `https://drbendor.com/${language}/`
             },
             {
                 '@type': 'ListItem',
@@ -105,7 +105,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
                 '@type': 'ListItem',
                 'position': 3,
                 'name': language === 'en' ? 'Jerusalem Transportation Study' : 'מחקר תחבורה ירושלים',
-                'item': `https://drbendor.com/${language}/work/jerusalem`
+                'item': `https://drbendor.com/${language}/work/jerusalem/`
             }
         ]
     };
@@ -138,7 +138,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
         },
         'mainEntityOfPage': {
             '@type': 'WebPage',
-            '@id': `https://drbendor.com/${language}/work/jerusalem`
+            '@id': `https://drbendor.com/${language}/work/jerusalem/`
         },
         'image': {
             '@type': 'ImageObject',
@@ -172,7 +172,7 @@ export default function JerusalemPage({ params }: { params: { lang: string } }) 
         'uploadDate': '2024-05-01T00:00:00+03:00',
         'duration': 'PT2M30S',
         'contentUrl': 'https://drbendor.com/sim video high res.mp4',
-        'embedUrl': `https://drbendor.com/${language}/work/jerusalem`,
+        'embedUrl': `https://drbendor.com/${language}/work/jerusalem/`,
         'author': {
             '@type': 'Person',
             'name': 'Dr. Golan Ben-Dor'

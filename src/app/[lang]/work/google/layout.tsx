@@ -31,18 +31,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     keywords,
     authors: [{ name: "Dr. Golan Ben-Dor", url: "https://drbendor.com" }],
     alternates: {
-      canonical: `https://drbendor.com/${lang}/work/google`,
+      canonical: `https://drbendor.com/${lang}/work/google/`,
       languages: {
-        'en': 'https://drbendor.com/en/work/google',
-        'he': 'https://drbendor.com/he/work/google',
-        'x-default': 'https://drbendor.com/he/work/google',
+        'en': 'https://drbendor.com/en/work/google/',
+        'he': 'https://drbendor.com/he/work/google/',
+        'x-default': 'https://drbendor.com/he/work/google/',
       },
     },
     openGraph: {
       type: 'article',
       locale: isHebrew ? 'he_IL' : 'en_US',
       alternateLocale: isHebrew ? ['en_US'] : ['he_IL'],
-      url: `https://drbendor.com/${lang}/work/google`,
+      url: `https://drbendor.com/${lang}/work/google/`,
       siteName: isHebrew ? 'ד״ר גולן בן-דור' : 'Dr. Golan Ben-Dor',
       title: isHebrew
         ? 'מפת בסיס דיגיטלית לרשת הכבישים | ד״ר גולן בן-דור'

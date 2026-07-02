@@ -39,18 +39,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       { name: "Prof. Itzhak Benenson" },
     ],
     alternates: {
-      canonical: `https://drbendor.com/${lang}/work/jerusalem`,
+      canonical: `https://drbendor.com/${lang}/work/jerusalem/`,
       languages: {
-        'en': 'https://drbendor.com/en/work/jerusalem',
-        'he': 'https://drbendor.com/he/work/jerusalem',
-        'x-default': 'https://drbendor.com/he/work/jerusalem',
+        'en': 'https://drbendor.com/en/work/jerusalem/',
+        'he': 'https://drbendor.com/he/work/jerusalem/',
+        'x-default': 'https://drbendor.com/he/work/jerusalem/',
       },
     },
     openGraph: {
       type: 'article',
       locale: isHebrew ? 'he_IL' : 'en_US',
       alternateLocale: isHebrew ? ['en_US'] : ['he_IL'],
-      url: `https://drbendor.com/${lang}/work/jerusalem`,
+      url: `https://drbendor.com/${lang}/work/jerusalem/`,
       siteName: isHebrew ? 'ד״ר גולן בן-דור' : 'Dr. Golan Ben-Dor',
       title: isHebrew
         ? 'מחקר אגרת גודש בירושלים | ד״ר גולן בן-דור'

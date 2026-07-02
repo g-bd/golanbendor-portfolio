@@ -31,18 +31,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     keywords,
     authors: [{ name: "Dr. Golan Ben-Dor", url: "https://drbendor.com" }],
     alternates: {
-      canonical: `https://drbendor.com/${lang}/work/beersheva`,
+      canonical: `https://drbendor.com/${lang}/work/beersheva/`,
       languages: {
-        'en': 'https://drbendor.com/en/work/beersheva',
-        'he': 'https://drbendor.com/he/work/beersheva',
-        'x-default': 'https://drbendor.com/he/work/beersheva',
+        'en': 'https://drbendor.com/en/work/beersheva/',
+        'he': 'https://drbendor.com/he/work/beersheva/',
+        'x-default': 'https://drbendor.com/he/work/beersheva/',
       },
     },
     openGraph: {
       type: 'article',
       locale: isHebrew ? 'he_IL' : 'en_US',
       alternateLocale: isHebrew ? ['en_US'] : ['he_IL'],
-      url: `https://drbendor.com/${lang}/work/beersheva`,
+      url: `https://drbendor.com/${lang}/work/beersheva/`,
       siteName: isHebrew ? 'ד״ר גולן בן-דור' : 'Dr. Golan Ben-Dor',
       title: isHebrew
         ? 'מערכת אימות מודל באר שבע | ד״ר גולן בן-דור'

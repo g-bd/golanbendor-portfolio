@@ -56,7 +56,7 @@ export default function WorkIndexPage() {
         '@type': 'CollectionPage',
         'name': language === 'en' ? 'Case Studies & Projects' : 'מקרי בוחן ופרויקטים',
         'description': workIndex?.description,
-        'url': `https://drbendor.com/${language}/work`,
+        'url': `https://drbendor.com/${language}/work/`,
         'mainEntity': {
             '@type': 'ItemList',
             'itemListElement': projects.map((project, index) => ({
@@ -76,13 +76,13 @@ export default function WorkIndexPage() {
                 '@type': 'ListItem',
                 'position': 1,
                 'name': language === 'en' ? 'Home' : 'דף הבית',
-                'item': `https://drbendor.com/${language}`,
+                'item': `https://drbendor.com/${language}/`,
             },
             {
                 '@type': 'ListItem',
                 'position': 2,
                 'name': language === 'en' ? 'Work' : 'פרויקטים',
-                'item': `https://drbendor.com/${language}/work`,
+                'item': `https://drbendor.com/${language}/work/`,
             },
         ],
     };

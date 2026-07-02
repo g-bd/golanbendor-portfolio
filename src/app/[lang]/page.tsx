@@ -43,7 +43,7 @@ export default function Home() {
                 "@type": "ListItem",
                 "position": 1,
                 "name": language === 'en' ? "Home" : "דף הבית",
-                "item": `https://drbendor.com/${language}`
+                "item": `https://drbendor.com/${language}/`
               }
             ]
           })
@@ -235,7 +235,7 @@ export default function Home() {
             "name": language === 'en'
               ? "Dr. Golan Ben-Dor - Urban Mobility Scientist"
               : "ד\"ר גולן בן-דור - מדען ניידות עירונית",
-            "url": `https://drbendor.com/${language}`,
+            "url": `https://drbendor.com/${language}/`,
             "inLanguage": language,
             "dateCreated": "2025-11-01T00:00:00.000Z",
             "dateModified": "2026-07-03T00:00:00.000Z",

@@ -44,7 +44,7 @@ export default function BeerShevaPage() {
         'datePublished': '2026-06-10',
         'dateModified': '2026-06-10',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
-        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/beersheva` },
+        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/beersheva/` },
         'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/beer-sheva-thumbnail.jpg', 'width': 1920, 'height': 1080 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
     };
@@ -53,9 +53,9 @@ export default function BeerShevaPage() {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}` },
+            { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}/` },
             { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}#work` },
-            { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Beer Sheva Model Validation' : 'אימות מודל באר שבע', 'item': `https://drbendor.com/${language}/work/beersheva` },
+            { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Beer Sheva Model Validation' : 'אימות מודל באר שבע', 'item': `https://drbendor.com/${language}/work/beersheva/` },
         ],
     };
 

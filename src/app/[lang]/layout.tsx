@@ -35,18 +35,18 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     },
     description,
     alternates: {
-      canonical: `https://drbendor.com/${lang}`,
+      canonical: `https://drbendor.com/${lang}/`,
       languages: {
-        'en': 'https://drbendor.com/en',
-        'he': 'https://drbendor.com/he',
-        'x-default': 'https://drbendor.com/he',
+        'en': 'https://drbendor.com/en/',
+        'he': 'https://drbendor.com/he/',
+        'x-default': 'https://drbendor.com/he/',
       },
     },
     openGraph: {
       type: 'website',
       locale: isHebrew ? 'he_IL' : 'en_US',
       alternateLocale: isHebrew ? ['en_US'] : ['he_IL'],
-      url: `https://drbendor.com/${lang}`,
+      url: `https://drbendor.com/${lang}/`,
       siteName: isHebrew ? 'ד״ר גולן בן-דור' : 'Dr. Golan Ben-Dor',
       title: isHebrew ? 'ד״ר גולן בן-דור | מדען ניידות עירונית' : 'Dr. Golan Ben-Dor | Urban Mobility Scientist',
       description: ogDescription,

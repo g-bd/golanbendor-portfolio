@@ -44,7 +44,7 @@ export default function GooglePage() {
         'datePublished': '2026-06-10',
         'dateModified': '2026-06-10',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
-        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/google` },
+        'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/google/` },
         'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/google-thumbnail.jpg', 'width': 1920, 'height': 1080 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
         'keywords': language === 'en'
@@ -56,9 +56,9 @@ export default function GooglePage() {
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         'itemListElement': [
-            { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}` },
+            { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}/` },
             { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}#work` },
-            { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Digital Road Network Basemap' : 'מפת בסיס דיגיטלית', 'item': `https://drbendor.com/${language}/work/google` },
+            { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Digital Road Network Basemap' : 'מפת בסיס דיגיטלית', 'item': `https://drbendor.com/${language}/work/google/` },
         ],
     };
 
@@ -70,7 +70,7 @@ export default function GooglePage() {
         'thumbnailUrl': 'https://drbendor.com/google-thumbnail.jpg',
         'uploadDate': '2026-06-10T00:00:00+03:00',
         'contentUrl': 'https://drbendor.com/google-web.mp4',
-        'embedUrl': `https://drbendor.com/${language}/work/google`,
+        'embedUrl': `https://drbendor.com/${language}/work/google/`,
         'author': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor' },
     };
 

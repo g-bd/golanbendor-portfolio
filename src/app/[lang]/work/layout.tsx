@@ -27,17 +27,17 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     title,
     description,
     alternates: {
-      canonical: `https://drbendor.com/${lang}/work`,
+      canonical: `https://drbendor.com/${lang}/work/`,
       languages: {
-        'en': 'https://drbendor.com/en/work',
-        'he': 'https://drbendor.com/he/work',
-        'x-default': 'https://drbendor.com/he/work',
+        'en': 'https://drbendor.com/en/work/',
+        'he': 'https://drbendor.com/he/work/',
+        'x-default': 'https://drbendor.com/he/work/',
       },
     },
     openGraph: {
       type: 'website',
       locale: isHebrew ? 'he_IL' : 'en_US',
-      url: `https://drbendor.com/${lang}/work`,
+      url: `https://drbendor.com/${lang}/work/`,
       title,
       description,
       images: [
