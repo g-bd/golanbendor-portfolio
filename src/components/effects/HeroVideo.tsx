@@ -35,27 +35,37 @@ export default function HeroVideo() {
         const video = videoRef.current;
         if (!video || !showVideo) return;
 
-        // Pause when the hero scrolls out of the viewport
+        let intersecting = true;
+
+        // Play only when the hero is in view AND the tab is visible. Never call
+        // play() while the document is hidden — Chrome's power-saver pauses muted
+        // background media and interrupts that play(), which logs "video-only
+        // background media was paused to save power". We pause on hide / scroll-out
+        // and resume on show / scroll-in instead of fighting it.
+        const sync = () => {
+            const shouldPlay = intersecting && !document.hidden;
+            if (shouldPlay && video.paused) {
+                video.play().catch(() => { /* autoplay blocked - poster stays */ });
+            } else if (!shouldPlay && !video.paused) {
+                video.pause();
+            }
+        };
+
         const observer = new IntersectionObserver(
             (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        // only start it if it isn't already playing — avoids the
-                        // play()/pause() race that logs "video-only background media
-                        // was paused to save power"
-                        if (video.paused) {
-                            video.play().catch(() => { /* autoplay blocked - poster stays */ });
-                        }
-                    } else if (!video.paused) {
-                        video.pause();
-                    }
-                });
+                entries.forEach((entry) => { intersecting = entry.isIntersecting; });
+                sync();
             },
             { threshold: 0.05 }
         );
         observer.observe(video);
+        document.addEventListener('visibilitychange', sync);
+        sync();
 
-        return () => observer.disconnect();
+        return () => {
+            observer.disconnect();
+            document.removeEventListener('visibilitychange', sync);
+        };
     }, [showVideo]);
 
     return (
@@ -65,7 +75,6 @@ export default function HeroVideo() {
                     ref={videoRef}
                     src="/hero-network-4k-web.mp4"
                     poster="/hero-network-poster.jpg"
-                    autoPlay
                     muted
                     loop
                     playsInline
