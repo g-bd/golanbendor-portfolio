@@ -4,7 +4,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone } from 'lucide-react';
 import Link from 'next/link';
-import TrafficCanvas from '@/components/effects/TrafficCanvas';
+import SiteBackground from '@/components/effects/SiteBackground';
+import HeroVideo from '@/components/effects/HeroVideo';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
@@ -701,8 +702,11 @@ export default function Home() {
 
       {/* Background */}
       <div className="grid-overlay" />
-      <TrafficCanvas />
+      <SiteBackground />
       <ScrollTransitSystem />
+
+      {/* Hero video (first viewport only, fades into page background) */}
+      <HeroVideo />
 
       {/* Navbar - shared component */}
       <Navbar />

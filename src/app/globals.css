@@ -74,6 +74,75 @@ h6 {
   -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
+/* --- SCHEMATIC GRID BACKGROUND (canvas variant) --- */
+#schematic-grid-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
+/* --- FULL-PAGE VIDEO BACKGROUND (video variant) --- */
+.bg-video-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.bg-video-layer video,
+.bg-video-layer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+  filter: brightness(0.85);
+}
+
+/* --- HERO VIDEO BACKGROUND --- */
+.hero-video-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-video-bg video,
+.hero-video-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.55;
+  filter: brightness(0.8);
+}
+
+/* seamless handoff into the page background */
+.hero-video-fade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to bottom,
+      rgba(10, 10, 18, 0.35) 0%,
+      rgba(10, 10, 18, 0) 30%,
+      rgba(10, 10, 18, 0) 55%,
+      var(--bg-color) 96%);
+}
+
+@media (max-width: 900px) {
+  .hero-video-bg {
+    height: 70vh;
+  }
+}
+
 /* --- LAYOUT --- */
 .container {
   max-width: 1200px;
