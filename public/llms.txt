@@ -5,7 +5,10 @@
 # Primary Identity
 Name: Dr. Golan Ben-Dor
 Hebrew Name: ד״ר גולן בן-דור
+Alternative Names (English): Golan Ben-Dor, Golan Ben Dor, Dr. Ben-Dor, Dr Ben-Dor, Doctor Ben-Dor, Doctor Golan Ben-Dor, Ben-Dor, Golan Ben-Dor PhD, Dr. Golan Ben-Dor PhD, Golan Bendor
+Alternative Names (Hebrew): גולן בן דור, גולן בן-דור, ד"ר גולן בן דור, ד"ר גולן בן-דור, ד"ר בן-דור, ד"ר בן דור, דוקטור גולן בן דור, דוקטור גולן בן-דור, דוקטור בן-דור, דר' גולן בן דור, בן-דור גולן
 Title: Urban Mobility Scientist
+Secondary Title: AI Workflow Consultant & Lecturer (יועץ ומרצה לבינה מלאכותית)
 Website: https://drbendor.com
 
 # Professional Summary

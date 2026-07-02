@@ -58,15 +58,10 @@ export default function Home() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             "name": "Dr. Golan Ben-Dor | ד״ר גולן בן-דור",
-            "alternateName": ["Dr. Golan Ben-Dor Portfolio", "גולן בן דור"],
+            "alternateName": ["Dr. Golan Ben-Dor Portfolio", "גולן בן דור", "גולן בן-דור", "ד\"ר בן-דור", "Dr. Ben-Dor"],
             "url": "https://drbendor.com",
             "description": "Portfolio of Dr. Golan Ben-Dor, urban mobility scientist specializing in MATSim, agent-based modeling, and transport simulation. מדען ניידות עירונית.",
             "inLanguage": ["en", "he"],
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://drbendor.com/{search_term_string}",
-              "query-input": "required name=search_term_string"
-            },
             "author": {
               "@type": "Person",
               "name": "Dr. Golan Ben-Dor"
@@ -86,26 +81,54 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Person",
+            "@id": "https://drbendor.com/#person",
             "name": "Dr. Golan Ben-Dor",
             "alternateName": [
               "Golan Ben-Dor",
               "Golan Ben Dor",
               "Dr. Golan Ben Dor",
+              "Dr. Ben-Dor",
               "Dr Ben-Dor",
               "Dr Ben Dor",
+              "Doctor Ben-Dor",
               "Doctor Golan Ben-Dor",
+              "Ben-Dor",
               "Golan Ben-Dor PhD",
+              "Dr. Golan Ben-Dor PhD",
+              "Golan Bendor",
               "גולן בן דור",
               "גולן בן-דור",
+              "בן-דור גולן",
               "ד\"ר גולן בן דור",
               "ד\"ר גולן בן-דור",
+              "ד״ר גולן בן דור",
+              "ד״ר גולן בן-דור",
+              "ד\"ר בן-דור",
+              "ד\"ר בן דור",
+              "ד״ר בן-דור",
+              "ד״ר בן דור",
               "דוקטור גולן בן דור",
               "דוקטור גולן בן-דור",
-              "דר' גולן בן דור"
+              "דוקטור בן-דור",
+              "דר' גולן בן דור",
+              "דר' בן-דור"
             ],
             "givenName": "Golan",
             "familyName": "Ben-Dor",
             "honorificPrefix": "Dr.",
+            "honorificSuffix": "PhD",
+            "knowsLanguage": ["en", "he"],
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "credentialCategory": "degree",
+              "educationalLevel": "PhD",
+              "about": "Urban Mobility Simulation & Agent-Based Modeling",
+              "recognizedBy": {
+                "@type": "CollegeOrUniversity",
+                "name": "Tel Aviv University",
+                "url": "https://www.tau.ac.il"
+              }
+            },
             "jobTitle": "Urban Mobility Simulation Scientist",
             "description": "Urban mobility scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. מדען ניידות עירונית המתמחה במודלים מבוססי סוכנים, סימולציה תחבורתית והערכת מדיניות תחבורה",
             "url": "https://drbendor.com",
@@ -198,6 +221,25 @@ export default function Home() {
               "https://www.researchgate.net/profile/Golan-Ben-Dor",
               "https://www.wikidata.org/wiki/Q137592726"
             ]
+          })
+        }}
+      />
+
+      {/* ProfilePage Schema - Google profile rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ProfilePage",
+            "name": language === 'en'
+              ? "Dr. Golan Ben-Dor - Urban Mobility Scientist"
+              : "ד\"ר גולן בן-דור - מדען ניידות עירונית",
+            "url": `https://drbendor.com/${language}`,
+            "inLanguage": language,
+            "dateCreated": "2025-11-01T00:00:00.000Z",
+            "dateModified": "2026-07-03T00:00:00.000Z",
+            "mainEntity": { "@id": "https://drbendor.com/#person" }
           })
         }}
       />

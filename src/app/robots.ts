@@ -43,9 +43,34 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: 'Claude-Web',
         allow: '/',
       },
+      // Anthropic Claude - user-initiated fetches from Claude.ai
+      {
+        userAgent: 'Claude-User',
+        allow: '/',
+      },
+      // Anthropic Claude - search result crawler
+      {
+        userAgent: 'Claude-SearchBot',
+        allow: '/',
+      },
+      // OpenAI - user-initiated browsing from ChatGPT
+      {
+        userAgent: 'ChatGPT-User',
+        allow: '/',
+      },
       // Perplexity AI
       {
         userAgent: 'PerplexityBot',
+        allow: '/',
+      },
+      // Perplexity AI - user-initiated fetches
+      {
+        userAgent: 'Perplexity-User',
+        allow: '/',
+      },
+      // DuckDuckGo AI assist
+      {
+        userAgent: 'DuckAssistBot',
         allow: '/',
       },
       // Google AI (Gemini training)

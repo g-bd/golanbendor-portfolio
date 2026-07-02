@@ -43,14 +43,28 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://drbendor.com'),
   applicationName: "Dr. Golan Ben-Dor Portfolio",
   keywords: [
-    // Name variations (both languages)
-    "Golan Ben-Dor", "Dr. Golan Ben-Dor", "Golan Ben Dor",
-    "גולן בן דור", "גולן בן-דור", "ד\"ר גולן בן דור", "ד\"ר גולן בן-דור",
+    // Name variations - English
+    "Golan Ben-Dor", "Dr. Golan Ben-Dor", "Golan Ben Dor", "Dr. Golan Ben Dor",
+    "Dr. Ben-Dor", "Dr Ben-Dor", "Doctor Ben-Dor", "Doctor Golan Ben-Dor",
+    "Ben-Dor", "Golan Ben-Dor PhD", "Dr. Golan Ben-Dor PhD", "Golan Bendor",
+    // Name variations - Hebrew (both quote styles)
+    "גולן בן דור", "גולן בן-דור", "בן דור גולן", "בן-דור",
+    "ד\"ר גולן בן דור", "ד\"ר גולן בן-דור", "ד״ר גולן בן דור", "ד״ר גולן בן-דור",
+    "ד\"ר בן-דור", "ד\"ר בן דור", "ד״ר בן-דור", "ד״ר בן דור",
+    "דוקטור גולן בן דור", "דוקטור גולן בן-דור", "דוקטור בן-דור", "דר' גולן בן דור",
     // Core expertise (both languages)
     "urban mobility", "transport simulation", "MATSim", "agent-based modeling",
+    "traffic simulation", "congestion pricing", "transport policy",
     "סימולציה תחבורתית", "ניידות עירונית", "מדען ניידות עירונית",
+    "מודלים מבוססי סוכנים", "אגרת גודש", "תכנון תחבורה", "סימולציית תנועה",
+    // AI consulting & lecturing (both languages)
+    "AI workflow consultant", "AI lecturer Israel", "AI corporate training",
+    "AI-native development", "prompt engineering training",
+    "יועץ בינה מלאכותית", "מרצה בינה מלאכותית", "הרצאות AI",
+    "סדנאות בינה מלאכותית", "הדרכת AI לארגונים",
     // Organizations
     "Ministry of Transport Israel", "משרד התחבורה", "Netivei Israel", "נתיבי ישראל",
+    "Netivei Ayalon", "נתיבי איילון", "Tel Aviv University", "אוניברסיטת תל אביב",
   ],
   authors: [{ name: "Dr. Golan Ben-Dor" }],
   creator: "Dr. Golan Ben-Dor",

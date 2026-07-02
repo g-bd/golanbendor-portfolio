@@ -8,14 +8,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       url: `${baseUrl}/en/`,
-      lastModified: new Date('2026-06-10'),
+      lastModified: new Date('2026-07-03'),
       changeFrequency: 'monthly',
       priority: 1.0,
       alternates: { languages: { en: `${baseUrl}/en/`, he: `${baseUrl}/he/`, 'x-default': `${baseUrl}/he/` } },
     },
     {
       url: `${baseUrl}/he/`,
-      lastModified: new Date('2026-06-10'),
+      lastModified: new Date('2026-07-03'),
       changeFrequency: 'monthly',
       priority: 1.0,
       alternates: { languages: { en: `${baseUrl}/en/`, he: `${baseUrl}/he/`, 'x-default': `${baseUrl}/he/` } },
