@@ -41,8 +41,14 @@ export default function SiteBackground() {
         const handleVisibility = () => {
             const video = videoRef.current;
             if (!video) return;
-            if (document.hidden) video.pause();
-            else video.play().catch(() => { /* ignore */ });
+            // guard so we never call play() on an already-playing element (or
+            // pause() on a paused one) — that race logs the "video-only
+            // background media was paused to save power" console warning
+            if (document.hidden) {
+                if (!video.paused) video.pause();
+            } else if (video.paused) {
+                video.play().catch(() => { /* ignore */ });
+            }
         };
         document.addEventListener('visibilitychange', handleVisibility);
         return () => document.removeEventListener('visibilitychange', handleVisibility);

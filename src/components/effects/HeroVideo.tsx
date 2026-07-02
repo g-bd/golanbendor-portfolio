@@ -40,8 +40,13 @@ export default function HeroVideo() {
             (entries) => {
                 entries.forEach((entry) => {
                     if (entry.isIntersecting) {
-                        video.play().catch(() => { /* autoplay blocked - poster stays */ });
-                    } else {
+                        // only start it if it isn't already playing — avoids the
+                        // play()/pause() race that logs "video-only background media
+                        // was paused to save power"
+                        if (video.paused) {
+                            video.play().catch(() => { /* autoplay blocked - poster stays */ });
+                        }
+                    } else if (!video.paused) {
                         video.pause();
                     }
                 });
