@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from 'react';
  * - Fades into the page background at the bottom so the transition is seamless
  * - Autoplays muted; pauses when scrolled out of view (battery/CPU)
  * - Respects prefers-reduced-motion (shows poster instead)
- * - On mobile the video is skipped entirely and the poster is shown
+ * - Plays on mobile too (same 4K file); only reduced-motion falls back to poster
  */
 export default function HeroVideo() {
     const videoRef = useRef<HTMLVideoElement>(null);
@@ -16,18 +16,15 @@ export default function HeroVideo() {
 
     useEffect(() => {
         const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        const isMobile = window.matchMedia('(max-width: 900px)');
-        const update = () => setShowVideo(!reducedMotion.matches && !isMobile.matches);
+        const update = () => setShowVideo(!reducedMotion.matches);
 
         // deferred to avoid synchronous setState inside the effect body
         const raf = requestAnimationFrame(update);
         reducedMotion.addEventListener('change', update);
-        isMobile.addEventListener('change', update);
 
         return () => {
             cancelAnimationFrame(raf);
             reducedMotion.removeEventListener('change', update);
-            isMobile.removeEventListener('change', update);
         };
     }, []);
 
