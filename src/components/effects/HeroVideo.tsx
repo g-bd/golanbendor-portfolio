@@ -63,7 +63,7 @@ export default function HeroVideo() {
             {showVideo ? (
                 <video
                     ref={videoRef}
-                    src="/hero-network-web.mp4"
+                    src="/hero-network-4k-web.mp4"
                     poster="/hero-network-poster.jpg"
                     autoPlay
                     muted
