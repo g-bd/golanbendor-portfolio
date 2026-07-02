@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Globe, Menu, X } from 'lucide-react';
@@ -13,8 +13,18 @@ interface NavbarProps {
 
 export default function Navbar({ isSubpage = false }: NavbarProps) {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const { langData, toggleLanguage, language, direction } = useLanguage();
     const t = langData;
+
+    // Transparent at the top (hero shows through); solid glass once scrolled
+    // so nav text stays readable over page content (no text-on-text).
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
 
     // Generate link href based on whether we're on a subpage or home
     const getHref = (anchor: string) => {
@@ -33,7 +43,7 @@ export default function Navbar({ isSubpage = false }: NavbarProps) {
     return (
         <>
             {/* Navbar Container - sticky positioning handled by CSS */}
-            <div className="navbar-wrapper" dir={direction}>
+            <div className={`navbar-wrapper ${scrolled ? 'scrolled' : ''}`} dir={direction}>
                 <nav>
                     <Link href={isSubpage ? `/${language}` : '#'} className="brand">
                         <Image
