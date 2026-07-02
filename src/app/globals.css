@@ -23,11 +23,15 @@
   --glass-highlight: rgba(255, 255, 255, 0.1);
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  scroll-behavior: smooth;
+/* Reset lives in the base layer so Tailwind spacing utilities (p-*, m-*)
+   can override it; an unlayered * rule would silently defeat them all. */
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -379,6 +383,33 @@ nav {
 .btn:hover {
   background: white;
   box-shadow: 0 0 20px white;
+}
+
+/* Primary CTA button used on article/case-study pages */
+.btn-primary {
+  display: inline-block;
+  padding: 15px 40px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--bg-color);
+  background: var(--pop-cyan);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+  transition: 0.3s;
+}
+
+.btn-primary:hover {
+  background: white;
+  box-shadow: 0 0 20px white;
+}
+
+.font-hebrew .btn-primary {
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
 }
 
 /* Trusted By */
@@ -1043,6 +1074,11 @@ nav {
 
 .font-hebrew .hero-title {
   line-height: 1.1 !important;
+}
+
+/* Hebrew: wide tracking (0.2-0.3em) on mono labels reads poorly in Hebrew script */
+.font-hebrew .font-mono {
+  letter-spacing: 0.06em !important;
 }
 
 /* Hebrew section title - increase gap for RTL */

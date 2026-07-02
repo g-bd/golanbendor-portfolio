@@ -314,8 +314,8 @@ export default function GooglePage() {
                                 style={{ filter: 'brightness(0.75) saturate(0.85)' }}
                                 src="/google-web.mp4"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-transparent to-transparent opacity-70" />
-                            <div className={`absolute bottom-8 ${direction === 'rtl' ? 'right-8 items-end' : 'left-8 items-start'} flex flex-col gap-2`}>
+                            <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-color)] via-[var(--bg-color)]/30 to-transparent opacity-90" />
+                            <div className={`absolute bottom-8 ${direction === 'rtl' ? 'right-8 items-end' : 'left-8 items-start'} flex flex-col gap-2`} style={{ textShadow: '0 2px 12px rgba(0,0,0,0.8)' }}>
                                 <span className="text-[var(--pop-cyan)] font-mono text-xs tracking-[0.2em] uppercase">{'// Video'}</span>
                                 <h4 className="text-xl md:text-2xl font-bold text-white">{a.blog_section.video_title}</h4>
                                 <p className="text-sm text-white/60">{a.blog_section.video_desc}</p>
@@ -367,7 +367,10 @@ export default function GooglePage() {
                             initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}
                             style={{ marginBottom: '4rem' }}
                         >
-                            <h3 className="text-xl font-mono text-[var(--pop-pink)] tracking-wider uppercase mb-8">{rel.heading}</h3>
+                            <h3 className="text-[var(--pop-pink)] font-mono text-sm tracking-[0.2em] uppercase mb-8 flex items-center gap-3">
+                                <span className="w-8 h-[1px] bg-[var(--pop-pink)]" />
+                                {rel.heading}
+                            </h3>
                             <div className="space-y-4">
                                 <div className="glass-card p-6 md:p-8 rounded-2xl group hover:border-[var(--pop-pink)]/30 transition-colors duration-300">
                                     <Link href={`/${language}/work/jerusalem`} className="flex items-center justify-between gap-4">
