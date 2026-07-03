@@ -54,7 +54,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         {
           url: 'https://drbendor.com/og-image.jpg',
           width: 1200,
-          height: 630,
+          height: 1200,
           alt: isHebrew
             ? 'ד״ר גולן בן-דור - מדען ניידות עירונית'
             : 'Dr. Golan Ben-Dor - Urban Mobility Scientist',

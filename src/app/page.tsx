@@ -32,7 +32,7 @@ export const metadata: Metadata = {
       {
         url: 'https://drbendor.com/og-image.jpg',
         width: 1200,
-        height: 630,
+        height: 1200,
         alt: 'ד״ר גולן בן-דור - מדען ניידות עירונית',
       },
     ],
