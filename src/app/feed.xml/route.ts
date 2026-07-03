@@ -9,6 +9,33 @@ export async function GET() {
 
   const items = [
     {
+      title: "Israel's 2026 National Cordon & Screenline Survey — Methodology & Coordination",
+      titleHe: 'סקר ספירות חיץ וחגורה הארצי 2026 — מתודולוגיה ותיאום',
+      link: `${baseUrl}/en/work/cordon`,
+      linkHe: `${baseUrl}/he/work/cordon`,
+      description: "Orchestrating the first full-national cordon & screenline traffic count survey for the joint validation of Israel's five strategic transport models — 28 lines, 355 count stations and ~2,115 km of survey lines, coordinated across Netivei Israel, Netivei Ayalon and JTMT under one unified GIS methodology.",
+      pubDate: new Date('2026-07-03').toUTCString(),
+      category: 'Case Study',
+    },
+    {
+      title: 'BRT Corridor Analysis — Pink Line, Powered by Replan',
+      titleHe: 'ניתוח פרוזדור BRT — הקו הוורוד, מבוסס Replan',
+      link: `${baseUrl}/en/work/brt`,
+      linkHe: `${baseUrl}/he/work/brt`,
+      description: 'Agent-based simulation of the Pink Line BRT corridor, in partnership with Replan and Netivei Ayalon. Corridor-level demand and modal shift analysis, run in-house — before any infrastructure decision is made.',
+      pubDate: new Date('2026-07-03').toUTCString(),
+      category: 'Case Study',
+    },
+    {
+      title: 'Traffic Count Sampling Design — Centrality-Based Methodology (ISTRC 2026)',
+      titleHe: 'תכנון מדגם ספירות תנועה — מתודולוגיה מבוססת מרכזיות (ISTRC 2026)',
+      link: `${baseUrl}/en/work/counts`,
+      linkHe: `${baseUrl}/he/work/counts`,
+      description: 'A network-science methodology developed at the Ministry of Transport for selecting traffic count locations to validate strategic transport models. Distance-weighted betweenness centrality with zone-based selection, applied to all four of Israel\'s metropolitan models and presented at ISTRC 2026.',
+      pubDate: new Date('2026-07-03').toUTCString(),
+      category: 'Research',
+    },
+    {
       title: 'Beer Sheva Model Validation — AI-Native Reconstruction System',
       titleHe: 'אימות מודל באר שבע — מערכת שחזור AI-Native',
       link: `${baseUrl}/en/work/beersheva`,

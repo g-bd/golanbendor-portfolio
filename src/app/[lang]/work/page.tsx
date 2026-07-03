@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowRight, MapPin, BarChart3, Shield, Cpu, ExternalLink } from 'lucide-react';
+import { ArrowLeft, ArrowRight, MapPin, BarChart3, Shield, Cpu, ExternalLink, Waypoints, BusFront, Map } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import TrafficCanvas from '@/components/effects/TrafficCanvas';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
@@ -37,6 +37,30 @@ export default function WorkIndexPage() {
             icon: Shield,
             color: 'var(--pop-lime)',
             link: `/${language}/work/beersheva`,
+            hasPage: true,
+            featured: false,
+        },
+        {
+            key: 'counts',
+            icon: Waypoints,
+            color: 'var(--pop-pink)',
+            link: `/${language}/work/counts`,
+            hasPage: true,
+            featured: false,
+        },
+        {
+            key: 'brt',
+            icon: BusFront,
+            color: 'var(--pop-pink)',
+            link: `/${language}/work/brt`,
+            hasPage: true,
+            featured: false,
+        },
+        {
+            key: 'cordon',
+            icon: Map,
+            color: 'var(--pop-cyan)',
+            link: `/${language}/work/cordon`,
             hasPage: true,
             featured: false,
         },

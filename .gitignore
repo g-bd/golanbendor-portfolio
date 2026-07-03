@@ -57,6 +57,7 @@ public/api-keys-*.csv
 # temp files
 tmpclaude-*
 .playwright-mcp/
+.playwright-cli/
 
 # large media (not tracked in git)
 public/hi res photos/

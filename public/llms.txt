@@ -47,7 +47,27 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
    - Deliverable: Packaged Streamlit dashboard with professional GUI shipped directly to the customer as a standalone tool.
    - AI-Native: System architecture, reconstruction engine, test suite, and GUI all built using AI-native development workflows.
 
-4. **AI-Enhanced Workflows**
+4. **Traffic Count Sampling Design — Ministry of Transport** (Article: drbendor.com/en/work/counts)
+   - Focus: Centrality-based sampling methodology that selects where to place traffic counts for validating strategic transport models.
+   - Method (deployed): edge betweenness centrality computed over the full network with Dijkstra shortest paths weighted by DISTANCE (speed-weighting funnels routes onto national highways, which Israel already monitors with permanent counters); sampling restricted to metropolitan road classes 4-5; zone-based selection — within each traffic analysis zone the top 20% (configurable) of links by centrality are selected, ensuring spatial coverage. Ramps and links under 200 m excluded from sampling but kept in the centrality graph.
+   - General framework (ISTRC 2026 poster): international guideline ranges + stratified sampling with proportional allocation (weights from RMSE accuracy targets by road class, w = 1/e²) + centrality ranking within class.
+   - Scope: Applied to Israel's four metropolitan strategic models (Tel Aviv, Jerusalem, Haifa, Be'er Sheva) on the strategic road classes: 3,448 eligible links → 755 selected count locations (~22%; Tel Aviv 335, Haifa 185, Jerusalem 146, Be'er Sheva 89). Earlier full-network Tel Aviv pilot (all six road classes): 21,791 eligible links → 1,934 selected (~10%).
+   - Co-Authors: Marcus Szeniuk, Ido Klein (Ministry of Transport), Prof. Shlomo Bekhor (Technion).
+   - Presented: Poster paper at ISTRC 2026 (Israel Section of Transportation Research Conference).
+
+5. **BRT Corridor Analysis — Pink Line, Powered by Replan** (Article: drbendor.com/en/work/brt)
+   - Focus: Agent-based simulation of the Pink Line BRT corridor, in partnership with Replan (replan.city) and Netivei Ayalon.
+   - Method: Corridor-level scenarios (dedicated lanes, stations, signal priority) simulated on Replan's cloud platform; a synthetic agent population chooses mode and route, producing demand, boarding and modal-shift estimates against a calibrated baseline.
+   - Value: Corridor-level demand and modal shift analysis run in-house — before any infrastructure decision is made.
+   - Partners: Replan (simulation platform), Netivei Ayalon (planning agency).
+
+6. **National Cordon & Screenline Survey 2026 — Models Round Table** (Article: drbendor.com/en/work/cordon)
+   - Role: Methodology orchestration and multi-agency coordination of count station placement.
+   - Focus: Israel's first traffic count survey with full national coverage, created for the joint periodic validation of all five strategic transport models (national, Tel Aviv, Haifa, Be'er Sheva, Jerusalem).
+   - Scope: 28 cordon & screenline lines, 355 count stations, ~2,115 km of survey lines, executed by Netivei Israel, Netivei Ayalon and JTMT under the Ministry of Transport's "Models Round Table".
+   - Method: Lines defined relative to model boundaries; every crossing road becomes a count station; one shared GeoPackage as the binding execution plan; synchronized timing rules (region within two months, each line within 1–2 days) so entry/exit balances can be verified; unified vehicle classification and QC.
+
+7. **AI-Enhanced Workflows**
    - Focus: Pioneering AI-Native Development to accelerate simulation pipelines and automate complex spatial SQL queries.
 
 # Key Publications

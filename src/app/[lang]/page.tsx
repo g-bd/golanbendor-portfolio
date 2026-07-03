@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone } from 'lucide-react';
+import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone, Waypoints, BusFront } from 'lucide-react';
 import Link from 'next/link';
 import SiteBackground from '@/components/effects/SiteBackground';
 import HeroVideo from '@/components/effects/HeroVideo';
@@ -968,7 +968,100 @@ export default function Home() {
               </VideoCard>
             </Link>
 
-            {/* Item 4 - AI Integration */}
+            {/* Item 4 - Traffic Count Sampling (ISTRC 2026) */}
+            <Link href={`/${language}/work/counts`} className="block h-full">
+              <div
+                className="work-card group cursor-pointer h-full hover:!border-[var(--pop-pink)] hover:!shadow-[0_10px_40px_-10px_rgba(255,0,85,0.3),inset_0_0_20px_rgba(255,0,85,0.1)]"
+                style={{ padding: 0, position: 'relative', overflow: 'hidden' }}
+              >
+                <div
+                  className="absolute inset-0 transition-all duration-700 grayscale-[60%] group-hover:grayscale-0 scale-105 group-hover:scale-110"
+                  style={{
+                    backgroundImage: 'url(/counts-thumbnail.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+                <div className="transition-colors duration-500 bg-gradient-to-b from-black/30 via-black/60 to-black/90 group-hover:from-black/50 group-hover:via-black/70 group-hover:to-black/95" style={{
+                  padding: '30px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  <span className="status-badge" style={{ insetInlineEnd: '20px', top: '20px', zIndex: 10 }}>{t.work.status_research}</span>
+                  <div className="work-icon"><Waypoints strokeWidth={1} size={32} /></div>
+                  <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{t.work.counts_title}</h3>
+                  <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                    {t.work.counts_desc}
+                  </p>
+                  <span style={{ color: 'var(--pop-pink)', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.counts_link}</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Item 5 - BRT Corridor Analysis (Replan) */}
+            <Link href={`/${language}/work/brt`} className="block h-full">
+              <VideoCard
+                src="/brt-web.mp4"
+                className="work-card group hover:!border-[var(--pop-pink)] hover:!shadow-[0_10px_40px_-10px_rgba(255,0,85,0.3),inset_0_0_20px_rgba(255,0,85,0.1)] cursor-pointer h-full"
+                style={{ padding: 0 }}
+                enableSoundOnHover={false}
+              >
+                <div className="transition-colors duration-500 bg-gradient-to-b from-black/30 via-black/60 to-black/90 group-hover:from-black/60 group-hover:via-black/80 group-hover:to-black/95" style={{
+                  padding: '30px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  <span className="status-badge" style={{ insetInlineEnd: '20px', top: '20px', zIndex: 10 }}>{t.work.status_simulation}</span>
+                  <div className="work-icon"><BusFront strokeWidth={1} size={32} /></div>
+                  <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{t.work.brt_title}</h3>
+                  <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                    {t.work.brt_desc}
+                  </p>
+                  <span style={{ color: 'var(--pop-pink)', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.brt_link}</span>
+                </div>
+              </VideoCard>
+            </Link>
+
+            {/* Item 6 - National Cordon & Screenline Survey */}
+            <Link href={`/${language}/work/cordon`} className="block h-full">
+              <div
+                className="work-card group cursor-pointer h-full hover:!border-[var(--pop-cyan)] hover:!shadow-[0_10px_40px_-10px_rgba(0,229,255,0.3),inset_0_0_20px_rgba(0,229,255,0.1)]"
+                style={{ padding: 0, position: 'relative', overflow: 'hidden' }}
+              >
+                <div
+                  className="absolute inset-0 transition-all duration-700 grayscale-[60%] group-hover:grayscale-0 scale-105 group-hover:scale-110"
+                  style={{
+                    backgroundImage: 'url(/cordon-thumbnail.jpg)',
+                    backgroundSize: 'cover',
+                    backgroundPosition: 'center',
+                  }}
+                />
+                <div className="transition-colors duration-500 bg-gradient-to-b from-black/30 via-black/60 to-black/90 group-hover:from-black/50 group-hover:via-black/70 group-hover:to-black/95" style={{
+                  padding: '30px',
+                  height: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  position: 'relative',
+                  zIndex: 2
+                }}>
+                  <span className="status-badge" style={{ insetInlineEnd: '20px', top: '20px', zIndex: 10 }}>{t.work.status_survey}</span>
+                  <div className="work-icon"><Map strokeWidth={1} size={32} /></div>
+                  <h3 className="work-title" style={{ textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>{t.work.cordon_title}</h3>
+                  <p className="work-desc" style={{ color: '#e0e0e0', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>
+                    {t.work.cordon_desc}
+                  </p>
+                  <span style={{ color: 'var(--pop-cyan)', fontWeight: 'bold', marginTop: 'auto', textShadow: '0 1px 2px rgba(0,0,0,0.8)' }}>{t.work.cordon_link}</span>
+                </div>
+              </div>
+            </Link>
+
+            {/* Item 7 - AI Integration */}
             <div className="work-card">
               <span className="status-badge">{t.work.status_ongoing}</span>
               <div className="work-icon"><BrainCircuit strokeWidth={1} size={32} /></div>

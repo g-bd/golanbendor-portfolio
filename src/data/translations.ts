@@ -69,6 +69,18 @@ export const translations = {
             blind_title: "Blind Control Reconstruction",
             blind_desc: "Rigorous \"blind\" reconstruction of the Beer Sheva traffic model results to validate the integrity and accuracy of the simulation for government approval.",
             blind_link: "View Methodology →",
+            status_simulation: "SIMULATION",
+            status_research: "ISTRC 2026",
+            counts_title: "Traffic Count Sampling Design",
+            counts_desc: "Where should a city count its traffic? A network-science methodology developed at the Ministry of Transport that selects the exact links to count for validating Israel's metropolitan transport models.",
+            counts_link: "View Research →",
+            brt_title: "BRT Corridor Analysis",
+            brt_desc: "Agent-based simulation of the Pink Line BRT corridor, powered by Replan and in partnership with Netivei Ayalon. Corridor-level demand and modal shift analysis — run in-house, before any infrastructure decision is made.",
+            brt_link: "View Case Study →",
+            status_survey: "NATIONAL · 2026",
+            cordon_title: "National Cordon & Screenline Survey",
+            cordon_desc: "The first full-national traffic count survey for validating Israel's five strategic transport models. I orchestrated the methodology and coordinated 355 count stations across Netivei Israel, Netivei Ayalon and JTMT.",
+            cordon_link: "Explore the Map →",
             ai_title: "AI-Enhanced Workflows",
             ai_desc: "Pioneering AI-Native Development using Claude, Gemini, and Codex to accelerate simulation pipelines and automate complex spatial SQL queries.",
             ai_link: "Learn More →"
@@ -403,14 +415,202 @@ export const translations = {
             cta_heading: "Want AI-native tooling like this for your transport project?",
             cta_button: "Get in Touch",
         },
+        brt_article: {
+            title: "BRT Corridor Analysis — Powered by Replan",
+            subtitle: "Israel · Netivei Ayalon · BRT",
+            hero_text: "Corridor-level demand and modal shift analysis run in-house — before any infrastructure decision is made. Agent-based simulation of the Pink Line BRT corridor, in partnership with Replan and Netivei Ayalon.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Partnership",
+            project_team_desc: "A joint project with Replan and Netivei Ayalon: bringing corridor-level agent-based simulation in-house, so planners can stress-test BRT scenarios on the Pink Line corridor before committing to infrastructure.",
+            project_quote: "A BRT decision reshapes a corridor for decades. Simulating it first — in-house, in days — is the cheapest insurance a planning agency can buy.",
+            fresh_insights: "Case Study",
+
+            highlights: {
+                h1_title: "Corridor-Level",
+                h1_desc: "Not a black-box regional forecast — a focused, high-resolution view of one corridor: demand, boardings, travel times, station by station.",
+                h2_title: "Modal Shift",
+                h2_desc: "Every simulated traveler chooses between car, bus and BRT. The output is the number that matters: how many drivers actually switch.",
+                h3_title: "In-House",
+                h3_desc: "The analysis runs inside the organization — scenarios are iterated in days, not procured in months, before any infrastructure decision is made.",
+            },
+
+            blog_section: {
+                title: "Testing the Pink Line Before It's Built",
+                intro: "Bus Rapid Transit promises light-rail performance at a fraction of the cost — but only if the corridor design actually pulls drivers out of their cars. Together with Replan and Netivei Ayalon, we run agent-based simulations of the Pink Line BRT corridor to answer that question before a single lane is repainted.",
+
+                how_title: "How It Works",
+                how_p1: "The Pink Line corridor is modeled in Replan's simulation platform — network, stations, dedicated lanes and signal priority — alongside a calibrated baseline of today's traffic.",
+                how_p2: "A synthetic population of agents, each with its own daily activity schedule, travels through the corridor. Every agent chooses its mode and route — private car, bus or BRT — reacting to travel times, service frequency and congestion.",
+                how_p3: "Scenarios are compared head-to-head against the baseline: corridor-level demand, boarding profiles, travel-time savings, and the modal shift from private cars to the new BRT service.",
+                how_p4: "Results arrive in days, not months — run in-house, so the corridor design can be iterated and refined before any infrastructure decision is locked in.",
+
+                partner_title: "Powered by Replan",
+                partner_text: "The analysis runs on Replan's cloud simulation platform — purpose-built for testing transit scenarios with agent-based modeling. The partnership brings a capability that used to require months-long consulting studies directly into the planning organization.",
+                partner_link_label: "Visit replan.city",
+
+                impact_title: "Why It Matters",
+                impact_text: "A BRT corridor is a decades-long commitment of road space, budget and political capital. Getting the demand and modal-shift picture before the design is locked means the infrastructure that gets built is the infrastructure the corridor actually needs.",
+
+                video_title: "Corridor Simulation — Preview",
+                video_desc: "Placeholder visualization — the full corridor analysis is available on request.",
+            },
+
+            cta_heading: "Want the full Pink Line corridor analysis?",
+            cta_button: "Request Case Study",
+        },
+        counts_article: {
+            title: "Where Should a City Count Its Traffic?",
+            subtitle: "Ministry of Transport · ISTRC 2026",
+            hero_text: "Strategic transport models are validated against real-world traffic counts — but counting is expensive, and you can only measure a fraction of the network. I led the development of a methodology that answers the where and how many with network science, applied to all four of Israel's metropolitan models.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Research",
+            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Marcus Szeniuk and Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
+            project_quote: "The manuals say 'count 5–20% of your links.' Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
+            fresh_insights: "Research Spotlight",
+
+            blog_section: {
+                title: "From Vague Guidelines to a Transparent Algorithm",
+                intro: "Every strategic transport model — the models behind billions in infrastructure decisions — must prove it reproduces real traffic. That proof comes from traffic counts at selected road links. But every counting station costs money, so agencies face the same question everywhere: where exactly should the counters go? International manuals offer only rough ranges. We turned that guesswork into an algorithm that combines statistical sampling theory with network science.",
+
+                how_title: "How the Algorithm Works",
+                how_p1: "Filter the network: only links that carry private vehicle traffic are eligible, and ramps and very short links (under 200 m) are excluded as count locations. Everything stays in the graph, though — so the centrality math stays honest.",
+                how_p2: "Compute betweenness centrality for the entire network: the shortest routes between all origins and destinations are found with Dijkstra's algorithm, and every link is scored by how many of those routes pass through it. High centrality means the link is a load-bearing beam of the network.",
+                how_p3: "Tune it for the metropolis: the routes are weighted by distance — otherwise everything funnels onto the national highways, which Israel already monitors with permanent counters. Distance weighting lets the urban connectors surface, so sampling can focus on the metropolitan road classes (4–5).",
+                how_p4: "Sample zone by zone: within every traffic analysis zone, the top 20% (configurable) of metropolitan links by centrality are selected — a share in line with what the scientific literature recommends.",
+                how_p5: "The result is a spatially balanced 'measurement skeleton': every zone in the metropolis is covered, and within each zone the budget goes to the most connected, most important roads.",
+
+                maps_title: "Four Metropolitan Areas, One Algorithm",
+                maps_intro: "The methodology was applied to Israel's four metropolitan strategic models. Across the four, 755 count locations were selected out of 3,448 eligible metropolitan links — about 22%, roughly the top fifth of every traffic zone. Each map shows the selected links glowing over the model's traffic analysis zones, colored by betweenness centrality score.",
+                legend_low: "Lower centrality",
+                legend_high: "Highest centrality",
+                metro_telaviv: "Tel Aviv",
+                metro_jerusalem: "Jerusalem",
+                metro_haifa: "Haifa",
+                metro_beersheva: "Beer Sheva",
+                map_links_label: "links",
+                map_eligible_label: "eligible metropolitan links",
+                map_selected_label: "selected",
+                map_road_label: "Road",
+                map_centrality_label: "Centrality",
+                map_length_label: "Length",
+                map_unnamed: "Unnamed link",
+                map_select_prompt: "Hover over a glowing link to see which road it is and how central it sits in the network.",
+                map_hint: "Hover or tap a link for details · switch metropolitan area with the buttons",
+                map_aria: "Interactive map of selected traffic count locations, colored by betweenness centrality",
+
+                science_title: "The Science, Simply",
+                science_p1: "Imagine computing the shortest route between every pair of zones in a metropolitan area — hundreds of thousands of routes, each found with Dijkstra's algorithm. Some road links appear in a huge share of those routes: bridges, interchanges, key connectors. That share is the link's betweenness centrality — shown on the maps as a simple 0–100% score. For the metropolitan sample the routes are weighted by distance rather than speed: speed-weighting funnels every route onto the national highways, which Israel already monitors with permanent counters, while distance-weighting reveals the urban roads that hold the metropolis together.",
+                science_p2: "Selection is then zone-based: within each traffic analysis zone, the top 20% (configurable) of metropolitan links (classes 4–5) by centrality are picked — a sampling share consistent with the scientific literature. This guarantees true spatial coverage: no zone is left unmeasured, and within every zone the counting budget goes to the most connected, most important roads.",
+                science_formula: "for each zone:  select top 20% of class 4–5 links, ranked by Cᵦ(e)",
+                demo_caption: "Watch it live: every moment, the shortest route between two random zones lights up. One link keeps getting crossed — the bridge between the two halves of the network. That's high betweenness centrality.",
+                demo_share_suffix: "of all shortest routes cross this link",
+                demo_hint: "Hover any link to see its share",
+                demo_route_word: "route",
+
+                poster_title: "Presented at ISTRC 2026",
+                poster_desc: "The methodology was presented as a poster paper at the Israel Section of Transportation Research Conference 2026. The poster describes the general sampling framework; the version deployed for the four metropolitan areas extends it with distance-based centrality and per-zone selection, tuned for metropolitan roads.",
+                poster_authors: "Golan Ben Dor, Marcus Szeniuk, Ido Klein — Ministry of Transport · Shlomo Bekhor — Technion",
+                poster_button: "View Full-Size Poster",
+
+                impact_title: "Why It Matters",
+                impact_text: "Every counting station means field equipment, crews and processing budgets. This methodology makes sure each one buys maximum validation power: the sample is structurally critical, covers every traffic zone, and focuses on the metropolitan roads that have no permanent monitoring — the national highways are already counted. It replaces 'we count where we've always counted' with a transparent, defensible, repeatable procedure — applied to the strategic models of all four of Israel's metropolitan areas.",
+            },
+
+            stats: {
+                metros_value: "4",
+                metros_label: "Metropolitan Models",
+                links_value: "3,448",
+                links_label: "Eligible Strategic Links",
+                sample_value: "755",
+                sample_label: "Count Locations Selected",
+                rate_value: "~22%",
+                rate_label: "Sampling Rate",
+            },
+
+            cta_heading: "Want methodology like this behind your transport decisions?",
+            cta_button: "Get in Touch",
+        },
+        cordon_article: {
+            title: "Israel's 2026 National Cordon & Screenline Survey",
+            subtitle: "Models Round Table · Joint Model Validation",
+            hero_text: "How I orchestrated the survey methodology and coordinated the placement of hundreds of count stations across Israel's transport authorities — Netivei Israel, Netivei Ayalon and the Jerusalem Transportation Master Plan Team — creating the first traffic count survey with full national coverage.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework.",
+            project_quote: "Five models, three authorities, one map. The entire survey lives in a single shared GeoPackage that every partner reviews, refines and executes from.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "One Unified Map for Validating All of Israel's Strategic Transport Models",
+                intro: "Cordon and screenline counts are the gold standard for validating transport models: strategic measurement lines are drawn across the road network, and every road crossing them gets counted. Previous Israeli surveys covered single metropolitan areas. The 2026 survey is the first with full national coverage — all five strategic models, one methodology, one shared map. My role: orchestrate the methodology and coordinate, with all partners, exactly where every count station goes.",
+
+                map_title: "The Survey Map",
+                map_desc: "28 cordon & screenline lines, 355 count stations, five model regions. Hover or tap a line for details, and use the legend to filter by region.",
+
+                how_title: "How the Methodology Works",
+                how_p1: "28 cordon and screenline lines were defined relative to the boundaries of the metropolitan and national models — closed rings ('cordons') around cities and metropolitan areas, and crossing lines ('screenlines') along natural or artificial barriers.",
+                how_p2: "Every road crossing a line becomes a count station. Each candidate crossing was examined individually — questionable ones (minor local or agricultural roads) were explicitly resolved with the responsible authority, converging on 355 final stations.",
+                how_p3: "The full map — lines, stations and model boundaries — lives in a single shared GeoPackage. Each authority reviewed its region, moved or confirmed stations, and the agreed version became the binding execution plan.",
+                how_p4: "Strict timing rules preserve data consistency: all lines of a region are counted within a single two-month window, and each individual line within one or two days — so entry/exit balances can actually be verified.",
+
+                coordination_title: "Orchestrating Three Authorities",
+                coordination_text: "Each authority — Netivei Israel (national model), Netivei Ayalon (Tel Aviv, Haifa and Be'er Sheva models) and JTMT (Jerusalem) — executes the counts in its own territory, with its own contractors and budget. My work was making sure this decentralized execution produces one coherent national dataset: a standard station-placement methodology, a unified GIS data structure, shared vehicle classification, synchronized timing rules, and a clear escalation path to the Round Table for overlaps and disputes.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Strategic transport models drive multi-billion shekel infrastructure decisions — and they are only trustworthy if periodically validated against reality. This survey creates the reference dataset for validating all of Israel's strategic models in a single coordinated cycle, designed to repeat every two years.",
+            },
+
+            map: {
+                regions: {
+                    national: "National",
+                    telaviv: "Tel Aviv",
+                    haifa: "Haifa",
+                    jerusalem: "Jerusalem",
+                    beersheva: "Be'er Sheva",
+                },
+                type_cordon: "Cordon",
+                type_screenline: "Screenline",
+                stations: "stations",
+                km: "km",
+                lines: "lines",
+                hint: "Hover or tap a line · click a region to filter",
+                select_prompt: "Select a corridor on the map",
+                total_label: "Survey totals",
+                points_note: "414 mapped count points incl. alternates",
+                aria: "Interactive map of Israel's 2026 cordon and screenline traffic count survey",
+            },
+
+            stats: {
+                stations_value: "355",
+                stations_label: "Count Stations",
+                lines_value: "28",
+                lines_label: "Cordon & Screenline Lines",
+                km_value: "2,112",
+                km_label: "Kilometers of Lines",
+                models_value: "5",
+                models_label: "Strategic Models",
+            },
+
+            cta_heading: "Need methodology orchestration across multiple agencies?",
+            cta_button: "Get in Touch",
+        },
         related_work: {
             heading: "More Case Studies",
+            cordon_title: "National Cordon & Screenline Survey",
+            cordon_desc: "Coordinating 355 count stations across three transport authorities.",
             jerusalem_title: "Jerusalem Congestion Pricing Study",
             jerusalem_desc: "Simulation-based policy evaluation using MATSim.",
             google_title: "Digital Road Network Basemap",
             google_desc: "AI-native pipeline for national travel-time measurement.",
             beersheva_title: "Beer Sheva Model Validation",
             beersheva_desc: "AI-native reconstruction and validation system.",
+            counts_title: "Traffic Count Sampling Design",
+            counts_desc: "Centrality-based sampling methodology, presented at ISTRC 2026.",
+            brt_title: "BRT Corridor Analysis",
+            brt_desc: "Agent-based Pink Line corridor simulation, powered by Replan.",
         },
         work_index: {
             title: "Case Studies & Projects",
@@ -443,6 +643,24 @@ export const translations = {
                     desc: "Rigorous blind reconstruction of metropolitan traffic model to validate simulation integrity for government approval.",
                     tags: ["Model Validation", "Quality Assurance", "Government"],
                     status: "Completed"
+                },
+                counts: {
+                    title: "Traffic Count Sampling Design",
+                    desc: "Centrality-based methodology that selects where to place traffic counts for validating Israel's four metropolitan strategic models. Presented at ISTRC 2026.",
+                    tags: ["Network Science", "Sampling Design", "Model Validation"],
+                    status: "ISTRC 2026"
+                },
+                brt: {
+                    title: "BRT Corridor Analysis — Pink Line",
+                    desc: "Agent-based simulation of the Pink Line BRT corridor with Replan and Netivei Ayalon. Corridor-level demand and modal shift analysis, run in-house — before any infrastructure decision is made.",
+                    tags: ["BRT", "Agent-Based Simulation", "Replan"],
+                    status: "In Progress"
+                },
+                cordon: {
+                    title: "National Cordon & Screenline Survey 2026",
+                    desc: "First full-national traffic count survey for the joint validation of Israel's five strategic transport models — 28 lines, 355 stations, one unified GIS methodology across three transport authorities.",
+                    tags: ["GIS", "Methodology", "Multi-Agency Coordination"],
+                    status: "In Progress · 2026"
                 },
                 ai_workflows: {
                     title: "AI-Enhanced Simulation Workflows",
@@ -520,6 +738,18 @@ export const translations = {
             blind_title: "שחזור 'עיוור' - באר שבע",
             blind_desc: "שחזור ריגורוזי בתנאי \"עיוורון\" של תוצאות מודל התנועה בבאר שבע, לאימות שלמות ודיוק הסימולציה לאישור ממשלתי.",
             blind_link: "צפה במתודולוגיה ←",
+            status_simulation: "סימולציה",
+            status_research: "ISTRC 2026",
+            counts_title: "תכנון מדגם ספירות תנועה",
+            counts_desc: "איפה כדאי לעיר לספור את התנועה שלה? מתודולוגיה מבוססת מדע רשתות שפותחה במשרד התחבורה ובוחרת בדיוק אילו מקטעים לספור לאימות המודלים המטרופוליניים של ישראל.",
+            counts_link: "צפה במחקר ←",
+            brt_title: "ניתוח פרוזדור BRT",
+            brt_desc: "סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד, מבוססת Replan ובשיתוף נתיבי איילון. ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור — בתוך הארגון, לפני כל החלטת תשתית.",
+            brt_link: "צפה במקרה הבוחן ←",
+            status_survey: "ארצי · 2026",
+            cordon_title: "סקר חיץ וחגורה ארצי",
+            cordon_desc: "סקר ספירות התנועה הארצי הראשון בכיסוי מלא לתיקוף חמשת המודלים האסטרטגיים של ישראל. הובלתי את המתודולוגיה ותיאמתי 355 תחנות ספירה בין נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה.",
+            cordon_link: "לצפייה במפה ←",
             ai_title: "תהליכים מועצמי AI",
             ai_desc: "פיתוח מבוסס בינה מלאכותית (AI-Native) באמצעות Claude, Gemini ו-Codex להאצת תהליכי סימולציה ואוטומציה של שאילתות מרחביות מורכבות.",
             ai_link: "למד עוד ←"
@@ -854,14 +1084,202 @@ export const translations = {
             cta_heading: "רוצים כלים AI-Native כאלה לפרויקט התחבורה שלכם?",
             cta_button: "צרו קשר",
         },
+        counts_article: {
+            title: "איפה כדאי לעיר לספור את התנועה שלה?",
+            subtitle: "משרד התחבורה · ISTRC 2026",
+            hero_text: "מודלים תחבורתיים אסטרטגיים מאומתים מול ספירות תנועה אמיתיות — אבל ספירות עולות כסף, ואפשר למדוד רק חלק קטן מהרשת. הובלתי פיתוח מתודולוגיה שעונה על השאלות איפה וכמה באמצעות מדע רשתות, ויושמה על ארבעת המודלים המטרופוליניים של ישראל.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "המחקר",
+            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם מרקוס שניוק ועידו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
+            project_quote: "המדריכים אומרים 'ספרו 5–20% מהמקטעים'. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
+            fresh_insights: "זרקור מחקרי",
+
+            blog_section: {
+                title: "מהנחיות מעורפלות לאלגוריתם שקוף",
+                intro: "כל מודל תחבורה אסטרטגי — המודלים שמאחורי החלטות תשתית של מיליארדים — חייב להוכיח שהוא משחזר תנועה אמיתית. ההוכחה מגיעה מספירות תנועה במקטעי כביש נבחרים. אבל כל תחנת ספירה עולה כסף, וכל רשות מתמודדת עם אותה שאלה: איפה בדיוק למקם את הספירות? המדריכים הבינלאומיים נותנים רק טווחים כלליים. הפכנו את הניחוש הזה לאלגוריתם שמשלב תורת הדגימה הסטטיסטית עם מדע רשתות.",
+
+                how_title: "איך האלגוריתם עובד",
+                how_p1: "סינון הרשת: רק מקטעים שנושאים תנועת רכב פרטי נכללים, ורמפות ומקטעים קצרים מאוד (מתחת ל-200 מטר) לא נבחרים כנקודות ספירה. הכול נשאר בגרף — כדי שחישוב המרכזיות יישאר נאמן למציאות.",
+                how_p2: "חישוב מרכזיות ביניים (Betweenness Centrality) לכל הרשת: המסלולים הקצרים ביותר בין כל המוצאים והיעדים מחושבים באלגוריתם דייקסטרה, וכל מקטע מקבל ציון לפי כמה מהמסלולים האלה עוברים דרכו. מרכזיות גבוהה פירושה שהמקטע הוא קורת תמך של הרשת.",
+                how_p3: "כיוונון למטרופולין: המסלולים משוקללים לפי מרחק — אחרת הכול מתנקז לכבישים הבין-עירוניים, שבישראל כבר מנוטרים בספירות קבועות. שקלול לפי מרחק מבליט את המחברים העירוניים, כך שהדגימה מתמקדת בסוגי הכבישים המטרופוליניים (4–5).",
+                how_p4: "דגימה אזור-אזור: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים בעלי המרכזיות הגבוהה ביותר — נתח שתואם את המומלץ בספרות המדעית.",
+                how_p5: "התוצאה היא 'שלד מדידה' מאוזן מרחבית: כל אזור במטרופולין מכוסה, ובתוך כל אזור התקציב מגיע לכבישים המקושרים והחשובים ביותר.",
+
+                maps_title: "ארבעה מטרופולינים, אלגוריתם אחד",
+                maps_intro: "המתודולוגיה יושמה על ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. בסך הכל נבחרו 755 נקודות ספירה מתוך 3,448 מקטעים מטרופוליניים כשירים — כ-22%, בערך החמישית המובילה בכל אזור תנועה. כל מפה מציגה את המקטעים שנבחרו זוהרים מעל אזורי התנועה של המודל, צבועים לפי ציון מרכזיות הביניים.",
+                legend_low: "מרכזיות נמוכה",
+                legend_high: "מרכזיות מרבית",
+                metro_telaviv: "תל אביב",
+                metro_jerusalem: "ירושלים",
+                metro_haifa: "חיפה",
+                metro_beersheva: "באר שבע",
+                map_links_label: "מקטעים",
+                map_eligible_label: "מקטעים מטרופוליניים כשירים",
+                map_selected_label: "נבחרו",
+                map_road_label: "כביש",
+                map_centrality_label: "מרכזיות",
+                map_length_label: "אורך",
+                map_unnamed: "מקטע ללא שם",
+                map_select_prompt: "רחפו מעל מקטע זוהר כדי לראות איזה כביש זה ועד כמה הוא מרכזי ברשת.",
+                map_hint: "רחפו או הקישו על מקטע לפרטים · החליפו מטרופולין בכפתורים",
+                map_aria: "מפה אינטראקטיבית של נקודות ספירת התנועה שנבחרו, צבועות לפי מרכזיות ביניים",
+
+                science_title: "המדע, בפשטות",
+                science_p1: "דמיינו חישוב של המסלול הקצר ביותר בין כל זוג אזורים במטרופולין — מאות אלפי מסלולים, כל אחד מחושב באלגוריתם דייקסטרה. חלק ממקטעי הכביש מופיעים בנתח עצום מהמסלולים האלה: גשרים, מחלפים, מחברים מרכזיים. הנתח הזה הוא מרכזיות הביניים של המקטע — מוצג במפות כציון פשוט של 0–100%. עבור המדגם המטרופוליני המסלולים משוקללים לפי מרחק ולא לפי מהירות: שקלול לפי מהירות מנקז כל מסלול לכבישים הבין-עירוניים, שכבר מנוטרים בישראל בספירות קבועות, בעוד שקלול לפי מרחק חושף את הכבישים העירוניים שמחזיקים את המטרופולין.",
+                science_p2: "הבחירה נעשית לפי אזורים: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים (סוגים 4–5) בעלי המרכזיות הגבוהה ביותר — נתח דגימה שתואם את הספרות המדעית. כך מובטח כיסוי מרחבי אמיתי: אף אזור לא נשאר בלי מדידה, ובכל אזור תקציב הספירות מגיע לכבישים המקושרים והחשובים ביותר.",
+                science_formula: "לכל אזור:  בחר את 20% המקטעים המובילים מסוגים 4–5, מדורגים לפי Cᵦ(e)",
+                demo_caption: "צפו בזה חי: בכל רגע נדלק המסלול הקצר ביותר בין שני אזורים אקראיים. מקטע אחד נחצה שוב ושוב — הגשר בין שני חצאי הרשת. זו מרכזיות ביניים גבוהה.",
+                demo_share_suffix: "מכלל המסלולים הקצרים עוברים במקטע הזה",
+                demo_hint: "רחפו מעל מקטע כדי לראות את הנתח שלו",
+                demo_route_word: "מסלול",
+
+                poster_title: "הוצג בכנס ISTRC 2026",
+                poster_desc: "המתודולוגיה הוצגה כפוסטר בכנס האגודה הישראלית לחקר התחבורה 2026. הפוסטר מציג את מסגרת הדגימה הכללית; הגרסה שיושמה בארבעת המטרופולינים מרחיבה אותה עם מרכזיות מבוססת מרחק ובחירה לפי אזורי תנועה, מכווננת לכבישים מטרופוליניים.",
+                poster_authors: "גולן בן דור, מרקוס שניוק, עידו קליין — משרד התחבורה · שלמה בכור — הטכניון",
+                poster_button: "צפייה בפוסטר בגודל מלא",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "כל תחנת ספירה משמעה ציוד שטח, צוותים ותקציבי עיבוד. המתודולוגיה מבטיחה שכל אחת קונה כוח אימות מרבי: המדגם קריטי מבנית, מכסה כל אזור תנועה, ומתמקד בכבישים המטרופוליניים שאין להם ניטור קבוע — הכבישים הבין-עירוניים כבר נספרים. היא מחליפה את 'סופרים איפה שתמיד ספרנו' בהליך שקוף, ניתן להגנה וחוזר — שיושם על המודלים האסטרטגיים של כל ארבעת המטרופולינים בישראל.",
+            },
+
+            stats: {
+                metros_value: "4",
+                metros_label: "מודלים מטרופוליניים",
+                links_value: "3,448",
+                links_label: "מקטעים אסטרטגיים כשירים",
+                sample_value: "755",
+                sample_label: "נקודות ספירה נבחרו",
+                rate_value: "כ-22%",
+                rate_label: "שיעור דגימה",
+            },
+
+            cta_heading: "רוצים מתודולוגיה כזו מאחורי החלטות התחבורה שלכם?",
+            cta_button: "צרו קשר",
+        },
+        brt_article: {
+            title: "ניתוח פרוזדור BRT — מבוסס Replan",
+            subtitle: "ישראל · נתיבי איילון · BRT",
+            hero_text: "ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור, בתוך הארגון — לפני כל החלטת תשתית. סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד, בשיתוף Replan ונתיבי איילון.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "השותפות",
+            project_team_desc: "פרויקט משותף עם Replan ונתיבי איילון: הכנסת יכולת סימולציה מבוססת סוכנים ברמת הפרוזדור אל תוך הארגון, כך שמתכננים יכולים לבחון תרחישי BRT על פרוזדור הקו הוורוד לפני התחייבות לתשתית.",
+            project_quote: "החלטת BRT מעצבת פרוזדור לעשרות שנים. לסמלץ אותה קודם — בתוך הארגון, בתוך ימים — זה הביטוח הזול ביותר שגוף תכנון יכול לקנות.",
+            fresh_insights: "מקרה בוחן",
+
+            highlights: {
+                h1_title: "ברמת הפרוזדור",
+                h1_desc: "לא תחזית אזורית של קופסה שחורה — מבט ממוקד וברזולוציה גבוהה על פרוזדור אחד: ביקושים, עליות נוסעים, זמני נסיעה, תחנה אחר תחנה.",
+                h2_title: "מעבר בין אמצעים",
+                h2_desc: "כל נוסע מסומלץ בוחר בין רכב פרטי, אוטובוס ו-BRT. הפלט הוא המספר שחשוב באמת: כמה נהגים באמת עוברים.",
+                h3_title: "בתוך הארגון",
+                h3_desc: "הניתוח רץ בתוך הארגון — תרחישים נבחנים בתוך ימים, לא נרכשים בחודשים, לפני כל החלטת תשתית.",
+            },
+
+            blog_section: {
+                title: "בוחנים את הקו הוורוד לפני שהוא נבנה",
+                intro: "מערכת BRT מבטיחה ביצועים של רכבת קלה בשבריר מהעלות — אבל רק אם תכנון הפרוזדור באמת מוציא נהגים מהרכב הפרטי. יחד עם Replan ונתיבי איילון, אנחנו מריצים סימולציות מבוססות סוכנים של פרוזדור ה-BRT של הקו הוורוד כדי לענות על השאלה הזו לפני שנצבע ולו נתיב אחד.",
+
+                how_title: "איך זה עובד",
+                how_p1: "פרוזדור הקו הוורוד ממודל בפלטפורמת הסימולציה של Replan — רשת, תחנות, נתיבים ייעודיים והעדפה ברמזורים — לצד תרחיש בסיס מכויל של התנועה כיום.",
+                how_p2: "אוכלוסייה סינתטית של סוכנים, לכל אחד סדר יום פעילויות משלו, נעה בפרוזדור. כל סוכן בוחר אמצעי ומסלול — רכב פרטי, אוטובוס או BRT — בתגובה לזמני נסיעה, תדירות שירות וגודש.",
+                how_p3: "התרחישים מושווים ראש בראש מול תרחיש הבסיס: ביקושים ברמת הפרוזדור, פרופילי עליית נוסעים, חיסכון בזמני נסיעה, והמעבר מרכב פרטי לשירות ה-BRT החדש.",
+                how_p4: "התוצאות מתקבלות בתוך ימים, לא חודשים — בהרצה בתוך הארגון, כך שאפשר לשפר ולדייק את תכנון הפרוזדור לפני שכל החלטת תשתית ננעלת.",
+
+                partner_title: "מבוסס Replan",
+                partner_text: "הניתוח רץ על פלטפורמת הסימולציה בענן של Replan — שנבנתה במיוחד לבחינת תרחישי תחבורה ציבורית במידול מבוסס סוכנים. השותפות מכניסה יכולת שבעבר דרשה מחקרי ייעוץ של חודשים ישירות אל תוך גוף התכנון.",
+                partner_link_label: "בקרו ב-replan.city",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "פרוזדור BRT הוא התחייבות של עשרות שנים של שטח דרך, תקציב והון פוליטי. לקבל את תמונת הביקושים והמעבר בין האמצעים לפני שהתכנון ננעל, פירושו שהתשתית שנבנית היא התשתית שהפרוזדור באמת צריך.",
+
+                video_title: "סימולציית הפרוזדור — תצוגה מקדימה",
+                video_desc: "המחשה זמנית — ניתוח הפרוזדור המלא זמין לפי בקשה.",
+            },
+
+            cta_heading: "רוצים את ניתוח פרוזדור הקו הוורוד המלא?",
+            cta_button: "בקשו מקרה בוחן",
+        },
+        cordon_article: {
+            title: "סקר ספירות חיץ וחגורה הארצי 2026",
+            subtitle: "שולחן עגול מודלים · תיקוף מודלים משותף",
+            hero_text: "כך הובלתי את מתודולוגיית הסקר ותיאמתי את מיקומן של מאות תחנות ספירה בין רשויות התחבורה בישראל — נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה ירושלים — ביצירת סקר ספירות התנועה הראשון בכיסוי ארצי מלא.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת.",
+            project_quote: "חמישה מודלים, שלוש רשויות, מפה אחת. כל הסקר חי בקובץ GeoPackage משותף אחד שכל שותף בודק, מדייק ומבצע ממנו.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מפה אחידה אחת לתיקוף כל המודלים האסטרטגיים של ישראל",
+                intro: "ספירות חיץ וחגורה הן הסטנדרט המוביל לתיקוף מודלים תחבורתיים: קווי מדידה אסטרטגיים משורטטים על רשת הדרכים, וכל כביש שחוצה אותם נספר. סקרים קודמים בישראל כיסו מטרופולין בודד. סקר 2026 הוא הראשון בכיסוי ארצי מלא — כל חמשת המודלים האסטרטגיים, מתודולוגיה אחת, מפה משותפת אחת. התפקיד שלי: להוביל את המתודולוגיה ולתאם עם כל השותפים היכן בדיוק תמוקם כל תחנת ספירה.",
+
+                map_title: "מפת הסקר",
+                map_desc: "28 קווי חיץ וחגורה, 355 תחנות ספירה, חמישה אזורי מודל. רחפו או הקישו על קו לפרטים, והשתמשו במקרא לסינון לפי אזור.",
+
+                how_title: "איך המתודולוגיה עובדת",
+                how_p1: "28 קווי חיץ וחגורה הוגדרו ביחס לגבולות המודלים המטרופוליניים והארצי — טבעות סגורות (\"חגורות\") סביב ערים ומטרופולינים, וקווים חוצים (\"חיצים\") לאורך מחסומים טבעיים או מלאכותיים.",
+                how_p2: "כל כביש שחוצה קו הופך לתחנת ספירה. כל חצייה מועמדת נבחנה פרטנית — חציות מסופקות (דרכים מקומיות שוליות או חקלאיות) הוכרעו במפורש מול הרשות האחראית, עד להתכנסות ל-355 תחנות סופיות.",
+                how_p3: "המפה המלאה — קווים, תחנות וגבולות מודלים — חיה בקובץ GeoPackage משותף אחד. כל רשות בדקה את אזורה, הזיזה או אישרה תחנות, והגרסה המוסכמת הפכה לתוכנית הביצוע המחייבת.",
+                how_p4: "כללי תזמון קפדניים שומרים על עקביות הנתונים: כל קווי האזור נספרים בתוך חלון אחד של חודשיים, וכל קו בודד בתוך יום או יומיים — כך שאפשר באמת לבדוק איזון כניסות ויציאות.",
+
+                coordination_title: "תיאום בין שלוש רשויות",
+                coordination_text: "כל רשות — נתיבי ישראל (המודל הארצי), נתיבי איילון (מודלי תל אביב, חיפה ובאר שבע) וצוות תכנית אב לתחבורה (ירושלים) — מבצעת את הספירות בשטחה, עם הקבלנים והתקציב שלה. העבודה שלי הייתה לוודא שהביצוע המבוזר הזה מייצר מסד נתונים ארצי אחיד: מתודולוגיית מיקום תחנות סטנדרטית, מבנה נתוני GIS אחיד, סיווג רכבים משותף, כללי תזמון מסונכרנים, ומסלול הכרעה ברור לשולחן העגול עבור חפיפות ומחלוקות.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "מודלים תחבורתיים אסטרטגיים מניעים החלטות תשתית של מיליארדי שקלים — והם אמינים רק אם מתקפים אותם תקופתית מול המציאות. הסקר הזה יוצר את מסד הייחוס לתיקוף כל המודלים האסטרטגיים של ישראל במחזור מתואם אחד, שתוכנן לחזור אחת לשנתיים.",
+            },
+
+            map: {
+                regions: {
+                    national: "ארצי",
+                    telaviv: "תל אביב",
+                    haifa: "חיפה",
+                    jerusalem: "ירושלים",
+                    beersheva: "באר שבע",
+                },
+                type_cordon: "חגורה",
+                type_screenline: "חיץ",
+                stations: "תחנות",
+                km: "ק\"מ",
+                lines: "קווים",
+                hint: "רחפו או הקישו על קו · לחצו על אזור לסינון",
+                select_prompt: "בחרו קו במפה",
+                total_label: "סך הכל בסקר",
+                points_note: "414 נקודות ספירה ממופות כולל חלופות",
+                aria: "מפה אינטראקטיבית של סקר ספירות החיץ והחגורה הארצי 2026",
+            },
+
+            stats: {
+                stations_value: "355",
+                stations_label: "תחנות ספירה",
+                lines_value: "28",
+                lines_label: "קווי חיץ וחגורה",
+                km_value: "2,112",
+                km_label: "ק\"מ של קווים",
+                models_value: "5",
+                models_label: "מודלים אסטרטגיים",
+            },
+
+            cta_heading: "צריכים הובלת מתודולוגיה בין מספר גופים?",
+            cta_button: "צרו קשר",
+        },
         related_work: {
             heading: "עוד מקרי בוחן",
+            cordon_title: "סקר חיץ וחגורה ארצי",
+            cordon_desc: "תיאום 355 תחנות ספירה בין שלוש רשויות תחבורה.",
             jerusalem_title: "מחקר אגרת גודש בירושלים",
             jerusalem_desc: "הערכת מדיניות מבוססת סימולציה באמצעות MATSim.",
             google_title: "מפת בסיס דיגיטלית לרשת הכבישים",
             google_desc: "צינור AI-Native למדידת זמני נסיעה ארצית.",
             beersheva_title: "אימות מודל באר שבע",
             beersheva_desc: "מערכת שחזור ואימות AI-Native.",
+            counts_title: "תכנון מדגם ספירות תנועה",
+            counts_desc: "מתודולוגיית דגימה מבוססת מרכזיות, הוצגה בכנס ISTRC 2026.",
+            brt_title: "ניתוח פרוזדור BRT",
+            brt_desc: "סימולציית פרוזדור הקו הוורוד מבוססת סוכנים, מבוססת Replan.",
         },
         work_index: {
             title: "מקרי בוחן ופרויקטים",
@@ -894,6 +1312,24 @@ export const translations = {
                     desc: "שחזור עיוור ריגורוזי של מודל תנועה מטרופוליני לאימות שלמות הסימולציה לאישור ממשלתי.",
                     tags: ["אימות מודל", "בקרת איכות", "ממשלה"],
                     status: "הושלם"
+                },
+                counts: {
+                    title: "תכנון מדגם ספירות תנועה",
+                    desc: "מתודולוגיה מבוססת מרכזיות שבוחרת היכן למקם ספירות תנועה לאימות ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. הוצגה בכנס ISTRC 2026.",
+                    tags: ["מדע רשתות", "תכנון מדגם", "אימות מודל"],
+                    status: "ISTRC 2026"
+                },
+                brt: {
+                    title: "ניתוח פרוזדור BRT — הקו הוורוד",
+                    desc: "סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד עם Replan ונתיבי איילון. ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור, בתוך הארגון — לפני כל החלטת תשתית.",
+                    tags: ["BRT", "סימולציה מבוססת סוכנים", "Replan"],
+                    status: "בתהליך"
+                },
+                cordon: {
+                    title: "סקר ספירות חיץ וחגורה ארצי 2026",
+                    desc: "סקר ספירות התנועה הארצי הראשון בכיסוי מלא לתיקוף המשותף של חמשת המודלים האסטרטגיים של ישראל — 28 קווים, 355 תחנות, מתודולוגיית GIS אחידה אחת בין שלוש רשויות תחבורה.",
+                    tags: ["GIS", "מתודולוגיה", "תיאום בין-ארגוני"],
+                    status: "בביצוע · 2026"
                 },
                 ai_workflows: {
                     title: "תהליכי סימולציה מועצמי AI",
