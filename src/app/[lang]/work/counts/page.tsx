@@ -329,11 +329,14 @@ export default function CountsPage() {
                             <p className="text-lg md:text-xl text-[var(--text-secondary)] leading-[1.9] font-light relative z-10 mb-8">
                                 {b.science_p2}
                             </p>
-                            <div className="relative z-10 rounded-xl border border-[var(--pop-cyan)]/20 bg-[var(--bg-color)]/60 px-6 py-5 overflow-x-auto" dir="ltr">
+                            <div className="relative z-10 rounded-xl border border-[var(--pop-cyan)]/20 bg-[var(--bg-color)]/60 px-6 py-5 overflow-x-auto" dir={direction}>
                                 <code className="font-mono text-sm md:text-base text-[var(--pop-cyan)] whitespace-nowrap">
                                     {b.science_formula}
                                 </code>
                             </div>
+                            <p className="text-sm md:text-base text-[var(--text-secondary)] leading-[1.9] font-light relative z-10 mt-6">
+                                {b.science_formula_explainer}
+                            </p>
                         </div>
                     </motion.section>
 
