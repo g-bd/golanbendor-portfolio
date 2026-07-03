@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const isHebrew = lang === 'he';
 
   const title = isHebrew
-    ? "מדיניות פרטיות | ד״ר גולן בן-דור"
-    : "Privacy Policy | Dr. Golan Ben-Dor";
+    ? "מדיניות פרטיות"
+    : "Privacy Policy";
 
   const description = isHebrew
     ? "מדיניות הפרטיות של אתר ד״ר גולן בן-דור. אתר זה אינו אוסף מידע אישי."

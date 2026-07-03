@@ -968,6 +968,32 @@ nav {
     text-align: center;
   }
 
+  /* Compact 2-up logo grid on mobile (was one tall full-width stack) */
+  .trusted-logos {
+    gap: 14px;
+  }
+
+  .trusted-logo {
+    width: auto;
+    padding: 12px;
+  }
+
+  .trusted-logo > div {
+    width: 120px !important;
+    height: 42px !important;
+  }
+
+  /* Keep footer links on one tidy line each; no mid-phrase breaks */
+  .social-links {
+    flex-wrap: wrap;
+    gap: 14px 22px;
+  }
+
+  .social-links a {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+
   .hero-visual {
     justify-content: center;
     margin-top: 50px;

@@ -16,8 +16,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const isHebrew = lang === 'he';
 
   const title = isHebrew
-    ? "מקרי בוחן ופרויקטים | ד״ר גולן בן-דור"
-    : "Case Studies & Projects | Dr. Golan Ben-Dor";
+    ? "מקרי בוחן ופרויקטים"
+    : "Case Studies & Projects";
 
   const description = isHebrew
     ? "גלו מקרי בוחן מפורטים מעבודתי עם סוכנויות התחבורה המובילות בישראל - סימולציה מבוססת סוכנים, MATSim, ואנליטיקת תנועה."

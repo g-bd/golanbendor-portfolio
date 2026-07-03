@@ -83,7 +83,10 @@ export const translations = {
             cordon_link: "Explore the Map →",
             ai_title: "AI-Enhanced Workflows",
             ai_desc: "Pioneering AI-Native Development using Claude, Gemini, and Codex to accelerate simulation pipelines and automate complex spatial SQL queries.",
-            ai_link: "Learn More →"
+            ai_link: "Learn More →",
+            all_work_title: "All Case Studies",
+            all_work_desc: "Browse the full index of projects and case studies — methodology, agencies, status and tags for each.",
+            all_work_link: "View All →"
         },
         knowledge: {
             title: "Knowledge Hub",
@@ -155,7 +158,7 @@ export const translations = {
             phone: "+972-52-293-7463",
             phone_label: "SECURE LINE //",
             resume: "Resume",
-            footer: "© 2025 Golan Ben-Dor."
+            footer: "© 2026 Golan Ben-Dor."
         },
         footer_links: {
             accessibility: "Accessibility Statement",
@@ -753,7 +756,10 @@ export const translations = {
             cordon_link: "לצפייה במפה ←",
             ai_title: "תהליכים מועצמי AI",
             ai_desc: "פיתוח מבוסס בינה מלאכותית (AI-Native) באמצעות Claude, Gemini ו-Codex להאצת תהליכי סימולציה ואוטומציה של שאילתות מרחביות מורכבות.",
-            ai_link: "למד עוד ←"
+            ai_link: "למד עוד ←",
+            all_work_title: "כל מקרי הבוחן",
+            all_work_desc: "עיינו באינדקס המלא של הפרויקטים ומקרי הבוחן — מתודולוגיה, רשויות, סטטוס ותגיות לכל אחד.",
+            all_work_link: "לכל הפרויקטים ←"
         },
         knowledge: {
             title: "מרכז ידע",
@@ -825,7 +831,7 @@ export const translations = {
             phone: "052-293-7463",
             phone_label: "קו ישיר //",
             resume: "קורות חיים",
-            footer: "© 2025 גולן בן-דור."
+            footer: "© 2026 גולן בן-דור."
         },
         footer_links: {
             accessibility: "הצהרת נגישות",

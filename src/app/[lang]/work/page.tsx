@@ -21,6 +21,7 @@ export default function WorkIndexPage() {
             icon: MapPin,
             color: 'var(--pop-pink)',
             link: `/${language}/work/jerusalem`,
+            thumb: '/sim%20video%20high%20res%20thumbnail.jpg',
             hasPage: true,
             featured: true,
         },
@@ -29,6 +30,7 @@ export default function WorkIndexPage() {
             icon: BarChart3,
             color: 'var(--pop-cyan)',
             link: `/${language}/work/google`,
+            thumb: '/google-thumbnail.jpg',
             hasPage: true,
             featured: false,
         },
@@ -37,6 +39,7 @@ export default function WorkIndexPage() {
             icon: Shield,
             color: 'var(--pop-lime)',
             link: `/${language}/work/beersheva`,
+            thumb: '/beer-sheva-thumbnail.jpg',
             hasPage: true,
             featured: false,
         },
@@ -45,6 +48,7 @@ export default function WorkIndexPage() {
             icon: Waypoints,
             color: 'var(--pop-pink)',
             link: `/${language}/work/counts`,
+            thumb: '/counts-thumbnail.jpg',
             hasPage: true,
             featured: false,
         },
@@ -53,6 +57,7 @@ export default function WorkIndexPage() {
             icon: BusFront,
             color: 'var(--pop-pink)',
             link: `/${language}/work/brt`,
+            thumb: '/brt-thumbnail.jpg',
             hasPage: true,
             featured: false,
         },
@@ -61,6 +66,7 @@ export default function WorkIndexPage() {
             icon: Map,
             color: 'var(--pop-cyan)',
             link: `/${language}/work/cordon`,
+            thumb: '/cordon-thumbnail.jpg',
             hasPage: true,
             featured: false,
         },
@@ -69,6 +75,7 @@ export default function WorkIndexPage() {
             icon: Cpu,
             color: 'var(--pop-cyan)',
             link: null,
+            thumb: null,
             hasPage: false,
             featured: false,
         },
@@ -182,6 +189,18 @@ export default function WorkIndexPage() {
                                         borderWidth: project.featured ? '1px' : undefined,
                                     }}
                                 >
+                                    {/* Thumbnail background */}
+                                    {project.thumb && (
+                                        <div
+                                            className="absolute inset-0 pointer-events-none bg-cover bg-center opacity-[0.12] grayscale group-hover:opacity-25 group-hover:grayscale-0 transition-all duration-500"
+                                            style={{
+                                                backgroundImage: `url("${project.thumb}")`,
+                                                WebkitMaskImage: `linear-gradient(to ${direction === 'rtl' ? 'left' : 'right'}, black, transparent 85%)`,
+                                                maskImage: `linear-gradient(to ${direction === 'rtl' ? 'left' : 'right'}, black, transparent 85%)`,
+                                            }}
+                                        />
+                                    )}
+
                                     {/* Featured Badge */}
                                     {project.featured && (
                                         <div
@@ -196,7 +215,7 @@ export default function WorkIndexPage() {
                                         </div>
                                     )}
 
-                                    <div className="flex flex-col md:flex-row gap-6 items-start">
+                                    <div className="relative z-10 flex flex-col md:flex-row gap-6 items-start">
                                         {/* Icon */}
                                         <div
                                             className="p-4 rounded-xl shrink-0"

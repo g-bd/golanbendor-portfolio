@@ -14,8 +14,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
   const isHebrew = lang === 'he';
 
   const title = isHebrew
-    ? "הצהרת נגישות | ד״ר גולן בן-דור"
-    : "Accessibility Statement | Dr. Golan Ben-Dor";
+    ? "הצהרת נגישות"
+    : "Accessibility Statement";
 
   const description = isHebrew
     ? "הצהרת הנגישות של אתר ד״ר גולן בן-דור — מחויבות לנגישות דיגיטלית בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקן WCAG 2.0."

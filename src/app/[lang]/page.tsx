@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone, Waypoints, BusFront } from 'lucide-react';
+import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play, PlayCircle, ExternalLink, Phone, Waypoints, BusFront, LayoutGrid } from 'lucide-react';
 import Link from 'next/link';
 import SiteBackground from '@/components/effects/SiteBackground';
 import HeroVideo from '@/components/effects/HeroVideo';
@@ -1071,6 +1071,18 @@ export default function Home() {
               </p>
               <a href="#" style={{ color: 'var(--pop-cyan)', textDecoration: 'none', fontWeight: 'bold' }}>{t.work.ai_link}</a>
             </div>
+
+            {/* Item 8 - All Case Studies index */}
+            <Link href={`/${language}/work`} className="block h-full">
+              <div className="work-card cursor-pointer h-full hover:!border-[var(--pop-cyan)] hover:!shadow-[0_10px_40px_-10px_rgba(0,229,255,0.3),inset_0_0_20px_rgba(0,229,255,0.1)]" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div className="work-icon"><LayoutGrid strokeWidth={1} size={32} /></div>
+                <h3 className="work-title">{t.work.all_work_title}</h3>
+                <p className="work-desc">
+                  {t.work.all_work_desc}
+                </p>
+                <span style={{ color: 'var(--pop-cyan)', fontWeight: 'bold', marginTop: 'auto' }}>{t.work.all_work_link}</span>
+              </div>
+            </Link>
           </div>
         </section>
 
@@ -1156,7 +1168,7 @@ export default function Home() {
                       transition: 'all 0.3s ease',
                     }}
                   >
-                    {language === 'en' ? 'View Case Study' : 'לצפייה במקרה הבוחן'} →
+                    {language === 'en' ? 'View Case Study →' : 'לצפייה במקרה הבוחן ←'}
                   </Link>
                 </div>
                 {/* Paper 2 */}
