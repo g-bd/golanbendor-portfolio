@@ -169,6 +169,12 @@ export default function Home() {
               },
               {
                 "@type": "Organization",
+                "name": "Eshed - Transport Planning Administration (Ministry of Transport)",
+                "alternateName": "אשד - המינהלת לתכנון תחבורתי",
+                "url": "https://www.eshed-mtl.co.il"
+              },
+              {
+                "@type": "Organization",
                 "name": "Central Bureau of Statistics Israel",
                 "alternateName": "הלשכה המרכזית לסטטיסטיקה",
                 "url": "https://www.cbs.gov.il"
