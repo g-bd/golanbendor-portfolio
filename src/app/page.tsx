@@ -30,7 +30,7 @@ export const metadata: Metadata = {
       'מדען ניידות עירונית | Urban mobility simulation scientist - MATSim, מודלים מבוססי סוכנים, מדיניות תחבורה. דוקטורט מאוניברסיטת תל אביב.',
     images: [
       {
-        url: 'https://drbendor.com/og-image.jpg',
+        url: 'https://drbendor.com/og-image.jpg?v=2',
         width: 1200,
         height: 1200,
         alt: 'ד״ר גולן בן-דור - מדען ניידות עירונית',
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'ד״ר גולן בן-דור',
     description: 'מדען ניידות עירונית - MATSim, סימולציה תחבורתית, מדיניות תחבורה',
-    images: ['https://drbendor.com/og-image.jpg'],
+    images: ['https://drbendor.com/og-image.jpg?v=2'],
   },
 };
 

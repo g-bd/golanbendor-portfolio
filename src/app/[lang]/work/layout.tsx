@@ -42,7 +42,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       description,
       images: [
         {
-          url: 'https://drbendor.com/og-image.jpg',
+          url: 'https://drbendor.com/og-image.jpg?v=2',
           width: 1200,
           height: 1200,
           alt: isHebrew
