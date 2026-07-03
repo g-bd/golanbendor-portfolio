@@ -6,6 +6,7 @@ import { Building2, Navigation, Map, BarChart2, MapPin, Eye, BrainCircuit, Play,
 import Link from 'next/link';
 import SiteBackground from '@/components/effects/SiteBackground';
 import HeroVideo from '@/components/effects/HeroVideo';
+import ConnectVideo from '@/components/effects/ConnectVideo';
 import ScrollTransitSystem from '@/components/effects/ScrollTransitSystem';
 import ScrambleText from '@/components/effects/ScrambleText';
 import VideoCard from '@/components/VideoCard';
@@ -1129,6 +1130,8 @@ export default function Home() {
 
         {/* Contact */}
         <section id="contact" className="contact-box">
+          <ConnectVideo />
+          <div className="relative z-10">
           <h2 style={{ fontSize: '4rem', marginBottom: '20px' }}>{t.contact.title}</h2>
           <p style={{ fontSize: '1.2rem', color: 'var(--text-secondary)', marginBottom: '40px' }}>
             {t.contact.desc}
@@ -1163,6 +1166,7 @@ export default function Home() {
             >
               {t.contact.resume}
             </button>
+          </div>
           </div>
         </section>
 
