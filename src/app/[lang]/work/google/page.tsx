@@ -38,8 +38,8 @@ export default function GooglePage() {
             ? 'Building a Digital Basemap of Israel\'s Road Network'
             : 'בניית מפת בסיס דיגיטלית של רשת הכבישים בישראל',
         'description': language === 'en'
-            ? 'AI-native pipeline that creates accurate digital basemaps of urban road networks for the Israeli Ministry of Transport travel-time measurement system.'
-            : 'צינור AI-Native שיוצר מפות בסיס דיגיטליות מדויקות של רשתות כבישים עירוניות עבור מערכת מדידת זמני הנסיעה של משרד התחבורה.',
+            ? 'AI-native system that creates accurate digital basemaps of urban road networks for the Israeli Ministry of Transport travel-time measurement system.'
+            : 'מערכת AI-Native שיוצרת מפות בסיס דיגיטליות מדויקות של רשתות כבישים עירוניות עבור מערכת מדידת זמני הנסיעה של משרד התחבורה.',
         'author': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com', 'jobTitle': 'Urban Mobility Scientist' },
         'datePublished': '2026-06-10',
         'dateModified': '2026-06-10',
@@ -65,7 +65,7 @@ export default function GooglePage() {
     const videoSchema = {
         '@context': 'https://schema.org',
         '@type': 'VideoObject',
-        'name': language === 'en' ? 'Road Network Basemap Pipeline Walkthrough' : 'הדגמת צינור יצירת מפת הבסיס',
+        'name': language === 'en' ? 'Road Network Basemap Walkthrough' : 'הדגמת יצירת מפת הבסיס',
         'description': language === 'en' ? a.blog_section.video_desc : a.blog_section.video_desc,
         'thumbnailUrl': 'https://drbendor.com/google-thumbnail.jpg',
         'uploadDate': '2026-06-10T00:00:00+03:00',

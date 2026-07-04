@@ -18,7 +18,7 @@ export const translations = {
             headline_prefix: "SIMULATING",
             headline_suffix: "THE FUTURE",
             description: "I work with transport agencies to evaluate major projects under uncertainty, using real-world data, agent-based models, AI and scenario analysis. I also lecture to companies on leveraging AI tools to transform complex challenges into streamlined workflows.",
-            description_collaboration: "Current collaborations include the Ministry of Transport's Strategic Planning and Innovation Division, Netivei Ayalon, Netivei Israel, the Jerusalem Master Transportation Team, and the Central Bureau of Statistics (CBS).",
+            description_collaboration: "Current collaborations include the Ministry of Transport, Netivei Ayalon, Netivei Israel, the Jerusalem Master Transportation Team, and the Central Bureau of Statistics (CBS).",
             cta: "Explore Models"
         },
         trusted_by: "TRUSTED BY AND COLLABORATING WITH INDUSTRY LEADERS",
@@ -61,7 +61,6 @@ export const translations = {
             google_title: "Google Maps Analytics",
             google_desc: "Strategic planning for the Ministry of Transport. Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution.",
             google_role: "Role: Method Lead, Technical Advisor, Co-PI",
-            google_budget: "Budget Responsibility: Lead project up to 15 million (Google Project).",
             google_link: "View Analysis →",
             jerusalem_title: "Jerusalem Master Plan",
             jerusalem_desc: "Evaluated \"Carrot and Stick\" strategies for Jerusalem. Findings showed how congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.",
@@ -339,12 +338,12 @@ export const translations = {
         google_article: {
             title: "Building a Digital Basemap of Israel's Road Network",
             subtitle: "Ministry of Transport · National Travel-Time Project",
-            hero_text: "How I built a production-ready pipeline that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.",
+            hero_text: "How I built a production-ready system that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.",
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Project",
-            project_team_desc: "Developed as part of a flagship strategic-planning project for the Israeli Ministry of Transport, in collaboration with Israel's leading transport agencies.",
-            project_quote: "Every travel-time measurement is only as good as the map underneath it. This pipeline makes sure that map is right.",
+            project_team_desc: "Developed for the Ministry of Transport's Transport Planning Division, in partnership with the Jerusalem Transportation Master Plan Team (JTMT) and in collaboration with Eng. Marcus Szeniuk and Dr. Ido Klein.",
+            project_quote: "Every travel-time measurement is only as good as the map underneath it. This system makes sure that map is right.",
             fresh_insights: "Case Study",
 
             blog_section: {
@@ -352,18 +351,18 @@ export const translations = {
                 intro: "To measure how traffic really flows through a city, you first need a precise digital map of every road segment — in each direction of travel. Off-the-shelf maps aren't accurate enough for that. So I built a system that creates these 'basemaps' from scratch, for Tel Aviv, Jerusalem, Haifa and Be'er Sheva.",
 
                 how_title: "How It Works",
-                how_p1: "The pipeline loads the city's road network and breaks it down into directed segments — a two-way street becomes two separate one-way links, each with its own unique ID.",
+                how_p1: "At the start of the process, the city's road network is loaded and broken down into directed segments — a two-way street becomes two separate one-way links, each with its own unique ID.",
                 how_p2: "Each segment is then compared against real-world driving routes. The system automatically measures how well the two geometries match, and flags every mismatch.",
                 how_p3: "A dedicated visual review interface lets an analyst inspect each flagged segment on an interactive map, fix it with a few clicks — adjust endpoints, add waypoints, re-check — and approve it. Keyboard shortcuts make reviewing hundreds of segments fast.",
                 how_p4: "The result: a validated, export-ready basemap that feeds the national travel-time measurement system.",
 
                 ai_title: "Built AI-Native, End to End",
-                ai_text: "I built this entire pipeline — the data processing, the interactive review interface, the automated test suite, and the production deployment — using AI-native development workflows with tools like Claude and Codex. AI didn't just write code snippets; it powered the full cycle: architecture, implementation, automated testing, and production hardening. This is exactly the workflow I teach in my AI lectures and consulting.",
+                ai_text: "I built this entire system — the data processing, the interactive review interface, the automated test suite, and the production deployment — using AI-native development workflows with tools like Claude and Codex. AI didn't just write code snippets; it powered the full cycle: architecture, implementation, automated testing, and production hardening. This is exactly the workflow I teach in my AI lectures and consulting.",
 
                 impact_title: "Why It Matters",
-                impact_text: "Transport agencies make multi-million shekel decisions based on travel-time data. An inaccurate basemap silently corrupts every measurement built on top of it. This pipeline turns a months-long manual mapping effort into a fast, repeatable, quality-controlled process — already in production use across four metropolitan areas.",
+                impact_text: "Transport agencies make multi-million shekel decisions based on travel-time data. An inaccurate basemap silently corrupts every measurement built on top of it. This system turns a months-long manual mapping effort into a fast, repeatable, quality-controlled process — already in production use across four metropolitan areas.",
 
-                video_title: "The Pipeline in Action",
+                video_title: "The System in Action",
                 video_desc: "A walkthrough of the basemap creation and review workflow.",
             },
 
@@ -425,7 +424,7 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Partnership",
-            project_team_desc: "A joint project with Replan and Netivei Ayalon: bringing corridor-level agent-based simulation in-house, so planners can stress-test BRT scenarios on the Pink Line corridor before committing to infrastructure.",
+            project_team_desc: "A joint project with Replan (replan.city) and Netivei Ayalon: bringing corridor-level agent-based simulation in-house, so planners can stress-test BRT scenarios on the Pink Line corridor before committing to infrastructure.",
             project_quote: "A BRT decision reshapes a corridor for decades. Simulating it first — in-house, in days — is the cheapest insurance a planning agency can buy.",
             fresh_insights: "Case Study",
 
@@ -469,8 +468,8 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Research",
-            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Marcus Szeniuk and Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
-            project_quote: "The manuals say 'count 5–20% of your links.' Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
+            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Eng. Marcus Szeniuk and Dr. Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
+            project_quote: "The scientific literature says to count 5–20% of your links to faithfully represent the network. Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
             fresh_insights: "Research Spotlight",
 
             blog_section: {
@@ -515,7 +514,7 @@ export const translations = {
 
                 poster_title: "Presented at ISTRC 2026",
                 poster_desc: "The methodology was presented as a poster paper at the Israel Section of Transportation Research Conference 2026. The poster describes the general sampling framework; the version deployed for the four metropolitan areas extends it with distance-based centrality and per-zone selection, tuned for metropolitan roads.",
-                poster_authors: "Golan Ben Dor, Marcus Szeniuk, Ido Klein — Ministry of Transport · Shlomo Bekhor — Technion",
+                poster_authors: "Dr. Golan Ben Dor, Eng. Marcus Szeniuk, Dr. Ido Klein — Ministry of Transport · Prof. Shlomo Bekhor — Technion",
                 poster_button: "View Full-Size Poster",
 
                 impact_title: "Why It Matters",
@@ -543,7 +542,7 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Project",
-            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework.",
+            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework. I led the methodology in collaboration with Dr. Ido Klein, Eng. Marcus Szeniuk and Prof. Shlomo Bekhor.",
             project_quote: "Five models, three authorities, one map. The entire survey lives in a single shared GeoPackage that every partner reviews, refines and executes from.",
             fresh_insights: "Case Study",
 
@@ -608,7 +607,7 @@ export const translations = {
             jerusalem_title: "Jerusalem Congestion Pricing Study",
             jerusalem_desc: "Simulation-based policy evaluation using MATSim.",
             google_title: "Digital Road Network Basemap",
-            google_desc: "AI-native pipeline for national travel-time measurement.",
+            google_desc: "AI-native system for national travel-time measurement.",
             beersheva_title: "Beer Sheva Model Validation",
             beersheva_desc: "AI-native reconstruction and validation system.",
             counts_title: "Traffic Count Sampling Design",
@@ -691,7 +690,7 @@ export const translations = {
             headline_prefix: "מדע שמניע",
             headline_suffix: "ערים קדימה",
             description: "אני עובד עם רשויות תחבורה להערכת פרויקטים גדולים בתנאי אי-ודאות, באמצעות נתוני אמת, מודלים מבוססי סוכנים (MATSim) ובינה מלאכותית. בנוסף, אני מרצה לחברות על מינוף כלי AI להפיכת אתגרים מורכבים לתהליכי עבודה יעילים.",
-            description_collaboration: "שיתופי פעולה נוכחיים כוללים את אגף אסטרטגיה במשרד התחבורה, נתיבי איילון, נתיבי ישראל, צוות תכנית אב לתחבורה ירושלים והלמ\"ס.",
+            description_collaboration: "שיתופי פעולה נוכחיים כוללים את משרד התחבורה, נתיבי איילון, נתיבי ישראל, צוות תכנית אב לתחבורה ירושלים והלמ\"ס.",
             cta: "פרויקטים נבחרים"
         },
         trusted_by: "בשיתוף עם מובילי התעשייה",
@@ -734,7 +733,6 @@ export const translations = {
             google_title: "ניתוח Google Maps",
             google_desc: "תכנון אסטרטגי עבור משרד התחבורה. שימוש במאגרי מידע עצומים לניתוח גודש בזמן אמת ואופטימיזציה של מערכי ספירת תנועה.",
             google_role: "תפקיד: מוביל מתודולוגי, יועץ טכני",
-            google_budget: "אחריות תקציבית: פרויקט דגל (עד 15 מיליון ש\"ח).",
             google_link: "צפה בניתוח ←",
             jerusalem_title: "תוכנית אב ירושלים",
             jerusalem_desc: "הערכת אסטרטגיות \"המקל והגזר\" לירושלים. הממצאים הראו כיצד אגרות גודש מייצבות את ההשפעה של רכבים אוטונומיים שיתופיים על השימוש בתחבורה ציבורית.",
@@ -977,7 +975,7 @@ export const translations = {
         jerusalem_article: {
             title: "הערכת מדיניות מבוססת סימולציה של תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים",
             subtitle: "פורסם ב-Transportation Research Part A",
-            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי ד\"ר עידו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
+            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
             study_highlight: "במחקרנו הקמנו ותיקפנו סימולציה מבוססת סוכנים רב-אמצעית של ירושלים באמצעות MATSim, ובחנו כיצד אגרות גודש ותמחור חניה יכולים להשפיע משמעותית על זרימת התנועה במרכז העיר.",
             study_finding: "הממצאים שלנו הראו שאגרה יומית של כ-10 אירו יכולה להפחית את כניסת הרכבים ב-25%, מה שמציע אסטרטגיה מוחשית להקלת הגודש העירוני. בנוסף, בשילוב עם תמחור חניה, צעדים אלו יכולים להרתיע נסיעות פנים-עירוניות ולהפחית עוד יותר את הגודש והפליטות.",
 
@@ -985,7 +983,7 @@ export const translations = {
             back_to_portfolio: "חזרה לפורטפוליו",
             research_team: "צוות המחקר",
             research_team_desc: "מאמץ שיתופי בין האקדמיה, מובילי התעשייה וצוות תכנית אב לתחבורה ירושלים.",
-            research_quote: "יחד עם עמיתיי ד\"ר עידו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
+            research_quote: "יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
             fresh_insights: "תובנות חדשות",
             cta_heading: "מוכנים לצלול לעומק?",
 
@@ -1012,12 +1010,12 @@ export const translations = {
         google_article: {
             title: "בניית מפת בסיס דיגיטלית של רשת הכבישים בישראל",
             subtitle: "משרד התחבורה · פרויקט זמני נסיעה ארצי",
-            hero_text: "כך בניתי צינור עבודה ברמת production שיוצר מפות בסיס דיגיטליות ומדויקות של רשתות כבישים עירוניות — התשתית למדידת זמני נסיעה אמיתיים בערים הגדולות בישראל.",
+            hero_text: "כך בניתי מערכת ברמת production שיוצרת מפות בסיס דיגיטליות ומדויקות של רשתות כבישים עירוניות — התשתית למדידת זמני נסיעה אמיתיים בערים הגדולות בישראל.",
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "הפרויקט",
-            project_team_desc: "פותח כחלק מפרויקט דגל לתכנון אסטרטגי עבור משרד התחבורה, בשיתוף סוכנויות התחבורה המובילות בישראל.",
-            project_quote: "כל מדידת זמן נסיעה טובה בדיוק כמו המפה שמתחתיה. הצינור הזה מוודא שהמפה נכונה.",
+            project_team_desc: "פותח עבור אגף תכנון תחבורתי במשרד התחבורה, בשיתוף עם צוות תכנית אב לתחבורה ירושלים (JTMT) ובשיתוף פעולה עם אינג׳ מרקוס שניוק וד\"ר עדו קליין.",
+            project_quote: "כל מדידת זמן נסיעה טובה בדיוק כמו המפה שמתחתיה. המערכת הזו מוודאת שהמפה נכונה.",
             fresh_insights: "מקרה בוחן",
 
             blog_section: {
@@ -1025,18 +1023,18 @@ export const translations = {
                 intro: "כדי למדוד איך תנועה באמת זורמת בעיר, צריך קודם כל מפה דיגיטלית מדויקת של כל מקטע כביש — בכל כיוון נסיעה. מפות מדף לא מדויקות מספיק לזה. אז בניתי מערכת שיוצרת את 'מפות הבסיס' האלה מאפס, עבור תל אביב, ירושלים, חיפה ובאר שבע.",
 
                 how_title: "איך זה עובד",
-                how_p1: "הצינור טוען את רשת הכבישים של העיר ומפרק אותה למקטעים מכווּנים — רחוב דו-סטרי הופך לשני קטעים חד-סטריים נפרדים, כל אחד עם מזהה ייחודי משלו.",
+                how_p1: "בתחילת התהליך, רשת הכבישים של העיר נטענת ומפורקת למקטעים מכווּנים — רחוב דו-סטרי הופך לשני קטעים חד-סטריים נפרדים, כל אחד עם מזהה ייחודי משלו.",
                 how_p2: "כל מקטע מושווה מול מסלולי נסיעה מהעולם האמיתי. המערכת מודדת אוטומטית עד כמה שתי הגאומטריות תואמות, ומסמנת כל אי-התאמה.",
                 how_p3: "ממשק בקרה ויזואלי ייעודי מאפשר לאנליסט לבחון כל מקטע מסומן על מפה אינטראקטיבית, לתקן אותו בכמה לחיצות — להזיז נקודות קצה, להוסיף נקודות מעבר, לבדוק מחדש — ולאשר. קיצורי מקלדת הופכים בקרה של מאות מקטעים למהירה.",
                 how_p4: "התוצאה: מפת בסיס מאומתת ומוכנה לייצוא, שמזינה את מערכת מדידת זמני הנסיעה הארצית.",
 
                 ai_title: "פיתוח AI-Native מקצה לקצה",
-                ai_text: "את כל הצינור הזה — עיבוד הנתונים, ממשק הבקרה האינטראקטיבי, חבילת הבדיקות האוטומטיות וההטמעה בסביבת הייצור — בניתי בשיטות עבודה AI-Native עם כלים כמו Claude ו-Codex. ה-AI לא רק כתב קטעי קוד; הוא הניע את כל המחזור: ארכיטקטורה, מימוש, בדיקות אוטומטיות והקשחה לייצור. זו בדיוק שיטת העבודה שאני מלמד בהרצאות ובייעוץ ה-AI שלי.",
+                ai_text: "את כל המערכת הזו — עיבוד הנתונים, ממשק הבקרה האינטראקטיבי, חבילת הבדיקות האוטומטיות וההטמעה בסביבת הייצור — בניתי בשיטות עבודה AI-Native עם כלים כמו Claude ו-Codex. ה-AI לא רק כתב קטעי קוד; הוא הניע את כל המחזור: ארכיטקטורה, מימוש, בדיקות אוטומטיות והקשחה לייצור. זו בדיוק שיטת העבודה שאני מלמד בהרצאות ובייעוץ ה-AI שלי.",
 
                 impact_title: "למה זה חשוב",
-                impact_text: "סוכנויות תחבורה מקבלות החלטות של עשרות מיליוני שקלים על בסיס נתוני זמני נסיעה. מפת בסיס לא מדויקת משבשת בשקט כל מדידה שנבנית מעליה. הצינור הזה הופך תהליך מיפוי ידני של חודשים לתהליך מהיר, חוזר ומבוקר איכות — שכבר פועל בייצור בארבעה מטרופולינים.",
+                impact_text: "סוכנויות תחבורה מקבלות החלטות של עשרות מיליוני שקלים על בסיס נתוני זמני נסיעה. מפת בסיס לא מדויקת משבשת בשקט כל מדידה שנבנית מעליה. המערכת הזו הופכת תהליך מיפוי ידני של חודשים לתהליך מהיר, חוזר ומבוקר איכות — שכבר פועל בייצור בארבעה מטרופולינים.",
 
-                video_title: "הצינור בפעולה",
+                video_title: "המערכת בפעולה",
                 video_desc: "הדגמה של תהליך יצירת מפת הבסיס והבקרה עליה.",
             },
 
@@ -1098,8 +1096,8 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "המחקר",
-            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם מרקוס שניוק ועידו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
-            project_quote: "המדריכים אומרים 'ספרו 5–20% מהמקטעים'. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
+            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם אינג׳ מרקוס שניוק וד\"ר עדו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
+            project_quote: "הספרות המדעית ציינה לספור 5–20% מהמקטעים כדי לייצג נאמנה את המרחב. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
             fresh_insights: "זרקור מחקרי",
 
             blog_section: {
@@ -1144,7 +1142,7 @@ export const translations = {
 
                 poster_title: "הוצג בכנס ISTRC 2026",
                 poster_desc: "המתודולוגיה הוצגה כפוסטר בכנס האגודה הישראלית לחקר התחבורה 2026. הפוסטר מציג את מסגרת הדגימה הכללית; הגרסה שיושמה בארבעת המטרופולינים מרחיבה אותה עם מרכזיות מבוססת מרחק ובחירה לפי אזורי תנועה, מכווננת לכבישים מטרופוליניים.",
-                poster_authors: "גולן בן דור, מרקוס שניוק, עידו קליין — משרד התחבורה · שלמה בכור — הטכניון",
+                poster_authors: "ד\"ר גולן בן דור, אינג׳ מרקוס שניוק, ד\"ר עדו קליין — משרד התחבורה · פרופ׳ שלמה בכור — הטכניון",
                 poster_button: "צפייה בפוסטר בגודל מלא",
 
                 impact_title: "למה זה חשוב",
@@ -1172,7 +1170,7 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "השותפות",
-            project_team_desc: "פרויקט משותף עם Replan ונתיבי איילון: הכנסת יכולת סימולציה מבוססת סוכנים ברמת הפרוזדור אל תוך הארגון, כך שמתכננים יכולים לבחון תרחישי BRT על פרוזדור הקו הוורוד לפני התחייבות לתשתית.",
+            project_team_desc: "פרויקט משותף עם Replan (replan.city) ונתיבי איילון: הכנסת יכולת סימולציה מבוססת סוכנים ברמת הפרוזדור אל תוך הארגון, כך שמתכננים יכולים לבחון תרחישי BRT על פרוזדור הקו הוורוד לפני התחייבות לתשתית.",
             project_quote: "החלטת BRT מעצבת פרוזדור לעשרות שנים. לסמלץ אותה קודם — בתוך הארגון, בתוך ימים — זה הביטוח הזול ביותר שגוף תכנון יכול לקנות.",
             fresh_insights: "מקרה בוחן",
 
@@ -1216,7 +1214,7 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "הפרויקט",
-            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת.",
+            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת. הובלתי את המתודולוגיה בשיתוף פעולה עם ד\"ר עדו קליין, אינג׳ מרקוס שניוק ופרופ׳ שלמה בכור.",
             project_quote: "חמישה מודלים, שלוש רשויות, מפה אחת. כל הסקר חי בקובץ GeoPackage משותף אחד שכל שותף בודק, מדייק ומבצע ממנו.",
             fresh_insights: "מקרה בוחן",
 
@@ -1281,7 +1279,7 @@ export const translations = {
             jerusalem_title: "מחקר אגרת גודש בירושלים",
             jerusalem_desc: "הערכת מדיניות מבוססת סימולציה באמצעות MATSim.",
             google_title: "מפת בסיס דיגיטלית לרשת הכבישים",
-            google_desc: "צינור AI-Native למדידת זמני נסיעה ארצית.",
+            google_desc: "מערכת AI-Native למדידת זמני נסיעה ארצית.",
             beersheva_title: "אימות מודל באר שבע",
             beersheva_desc: "מערכת שחזור ואימות AI-Native.",
             counts_title: "תכנון מדגם ספירות תנועה",

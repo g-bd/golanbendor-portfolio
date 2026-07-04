@@ -919,8 +919,7 @@ export default function Home() {
                 <p className="work-desc">
                   {t.work.google_desc}
                   <br /><br />
-                  <strong>{t.work.google_role}</strong><br />
-                  <strong>{t.work.google_budget}</strong>
+                  <strong>{t.work.google_role}</strong>
                 </p>
                 <span style={{ color: 'var(--pop-cyan)', fontWeight: 'bold', marginTop: 'auto' }}>{t.work.google_link}</span>
               </div>

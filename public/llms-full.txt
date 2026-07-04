@@ -25,7 +25,7 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist and AI workflow cons
 
 He earned his PhD from Tel Aviv University's Department of Geography and Human Environment, where his research focused on metropolitan-scale transport simulation and the evaluation of congestion pricing policies. His dissertation introduced novel methodologies for testing transport policies under uncertainty, ensuring that major infrastructure investments can perform well across multiple possible futures.
 
-Dr. Ben-Dor currently works as a strategic consultant for Israel's leading transport agencies, including the Ministry of Transport, Netivei Israel (National Transport Infrastructure Company), Netivei Ayalon, and the Central Bureau of Statistics. He leads projects worth up to 15 million NIS involving Google Maps traffic analytics and real-time congestion visualization.
+Dr. Ben-Dor currently works as a strategic consultant for Israel's leading transport agencies, including the Ministry of Transport, Netivei Israel (National Transport Infrastructure Company), Netivei Ayalon, and the Central Bureau of Statistics. He leads strategic projects involving Google Maps traffic analytics and real-time congestion visualization.
 
 In parallel with his transport research, Dr. Ben-Dor has pioneered the integration of AI tools (Claude, GPT, Gemini) into professional workflows. He provides corporate training and keynote speeches on AI-native development, helping organizations accelerate their data analysis, research, and automation capabilities.
 
@@ -56,7 +56,6 @@ SECTION 4: CURRENT PROFESSIONAL ROLES
 Role 1: Private Consultant - Transport Simulation
 - Clients: Ministry of Transport Israel, Netivei Israel, Netivei Ayalon, Central Bureau of Statistics
 - Scope: Strategic consulting on national and metropolitan transport models
-- Budget Responsibility: Lead projects up to 15 million NIS
 - Key Activities:
   * Google Maps traffic analytics for strategic planning
   * Real-time congestion visualization systems
@@ -113,7 +112,6 @@ SECTION 6: KEY PROJECTS & CASE STUDIES
 PROJECT 1: Google Maps Analytics for Strategic Planning
 - Role: Method Lead & Technical Advisor
 - Client: Ministry of Transport Israel
-- Budget: Up to 15 million NIS
 - Scope:
   * Harnessing massive Google Maps API datasets
   * Real-time congestion visualization
@@ -302,7 +300,7 @@ SECTION 12: HEBREW CONTENT (תוכן בעברית)
 - שילוב כלי AI בזרימות עבודה מקצועיות
 
 פרויקטים מרכזיים:
-1. אנליטיקת Google Maps לתכנון אסטרטגי - עד 15 מיליון ש"ח
+1. אנליטיקת Google Maps לתכנון אסטרטגי
 2. מחקר תכנית אב לתחבורה ירושלים - הערכת אגרת גודש ורכבים אוטונומיים משותפים
 3. שחזור עיוור של מודל התנועה בבאר שבע
 

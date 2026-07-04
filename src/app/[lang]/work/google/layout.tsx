@@ -18,8 +18,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     : "Digital Road Network Basemap | Ministry of Transport Project";
 
   const description = isHebrew
-    ? "צינור AI-Native שיוצר מפות בסיס דיגיטליות מדויקות של רשתות כבישים — התשתית למדידת זמני נסיעה בערים הגדולות בישראל."
-    : "AI-native pipeline that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.";
+    ? "מערכת AI-Native שיוצרת מפות בסיס דיגיטליות מדויקות של רשתות כבישים — התשתית למדידת זמני נסיעה בערים הגדולות בישראל."
+    : "AI-native system that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.";
 
   const keywords = isHebrew
     ? ["מפת בסיס", "רשת כבישים", "זמני נסיעה", "משרד התחבורה", "גולן בן-דור", "AI", "אוטומציה", "ניתוח תחבורה"]
@@ -71,8 +71,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
         ? 'מפת בסיס דיגיטלית לרשת הכבישים'
         : 'Digital Road Network Basemap',
       description: isHebrew
-        ? 'צינור AI-Native למדידת זמני נסיעה בארבעה מטרופולינים בישראל'
-        : 'AI-native pipeline for travel-time measurement across four Israeli metros',
+        ? 'מערכת AI-Native למדידת זמני נסיעה בארבעה מטרופולינים בישראל'
+        : 'AI-native system for travel-time measurement across four Israeli metros',
     },
   };
 }
