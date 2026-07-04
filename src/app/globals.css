@@ -120,13 +120,39 @@ h6 {
   pointer-events: none;
 }
 
-.hero-video-bg video,
-.hero-video-bg img {
+/* dimming lives on the wrapper so stacked layers don't bleed through each other */
+.hero-video-media {
+  position: absolute;
+  inset: 0;
+  opacity: 0.6;
+  filter: brightness(1.2);
+}
+
+.hero-video-media video,
+.hero-video-media img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  opacity: 0.6;
-  filter: brightness(1.2);
+}
+
+/* progressive-loading layers: poster img is the base, videos fade in over it
+   at FULL opacity (poster == video frame 0, so the crossfades are invisible;
+   an opaque top layer completely hides the ones below — no ghosting).
+   Quick layer fades fast (its frame ~equals the poster when it starts);
+   the 4K layer dissolves slower — it's frame-aligned first, so it's invisible. */
+.hero-video-media .hero-video-layer {
+  opacity: 0;
+  transition: opacity 0.45s ease;
+}
+
+.hero-video-media .hero-video-layer-hd {
+  transition: opacity 1s ease;
+}
+
+.hero-video-media .hero-video-layer.is-visible {
+  opacity: 1;
 }
 
 /* seamless handoff into the page background */
@@ -275,7 +301,7 @@ nav {
   -webkit-text-stroke: 0px transparent;
   border-inline-end: 2px solid var(--pop-cyan);
   overflow: hidden;
-  animation: type 3s steps(25) infinite alternate;
+  animation: type 2s steps(25) infinite alternate;
   white-space: nowrap;
 }
 

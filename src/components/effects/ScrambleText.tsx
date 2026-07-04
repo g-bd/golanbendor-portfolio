@@ -40,15 +40,15 @@ export default function ScrambleText({ text, className = '' }: ScrambleTextProps
                 }
             }
 
-            iteration += 1 / 3;
-        }, 30);
+            iteration += 1 / 2;
+        }, 24);
     }, [text]);
 
     useEffect(() => {
         // Trigger once on load
         const timeout = setTimeout(() => {
             scramble();
-        }, 500);
+        }, 150);
 
         return () => {
             clearTimeout(timeout);
