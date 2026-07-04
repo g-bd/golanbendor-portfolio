@@ -34,11 +34,24 @@
   }
 }
 
+/* Lock the page horizontally so a mobile left/right swipe can't pan the
+   viewport. Without overflow-x:hidden + overscroll-behavior-x on <html>,
+   the visual viewport rubber-bands sideways and drags the position:fixed
+   background layers (traffic canvas, schematic grid, grid overlay) with it —
+   the "background moves when I swipe" bug. Harmless on desktop. */
+html {
+  overflow-x: hidden;
+  overscroll-behavior-x: none;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-primary);
   font-family: 'Outfit', sans-serif;
   overflow-x: hidden;
+  overscroll-behavior-x: none;
+  position: relative;
+  width: 100%;
   line-height: 1.6;
 }
 
