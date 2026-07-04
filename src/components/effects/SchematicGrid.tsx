@@ -261,7 +261,13 @@ export default function SchematicGrid() {
             animationId = requestAnimationFrame(animate);
         }
 
+        // Only rebuild on a real WIDTH change (e.g. orientation change). Mobile
+        // browsers fire `resize` constantly during touch — the address bar and
+        // elastic scroll change innerHeight on every swipe — and rebuilding here
+        // re-randomizes the whole scene, so the background visibly "regenerates"
+        // when you swipe. `width` holds the last built width; skip height-only churn.
         const handleResize = () => {
+            if (window.innerWidth === width) return;
             buildScene();
             if (reducedMotion) drawStatic();
         };

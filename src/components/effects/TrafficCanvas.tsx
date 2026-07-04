@@ -96,7 +96,15 @@ export default function TrafficCanvas() {
         init();
         animate();
 
-        const handleResize = () => init();
+        // Only re-init on a real WIDTH change (e.g. orientation change). Mobile
+        // browsers fire `resize` constantly during touch — the address bar and
+        // elastic scroll change innerHeight on every swipe — and re-init here
+        // re-randomizes all the cars, so the background visibly "regenerates"
+        // when you swipe. Skip height-only churn to keep it stable.
+        const handleResize = () => {
+            if (window.innerWidth === dimensionsRef.current.width) return;
+            init();
+        };
         window.addEventListener('resize', handleResize);
 
         // Pause animation when tab is hidden to save CPU/battery
