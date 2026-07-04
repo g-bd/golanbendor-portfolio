@@ -342,7 +342,7 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Project",
-            project_team_desc: "Developed for the Ministry of Transport's Transport Planning Division, in partnership with the Jerusalem Transportation Master Plan Team (JTMT) and in collaboration with Eng. Marcus Szeniuk and Dr. Ido Klein.",
+            project_team_desc: "Developed for the Ministry of Transport's Transport Planning Division, in partnership with the Jerusalem Transportation Master Plan Team (JTMT) and in collaboration with Eng. Marcus Szeinuk and Dr. Ido Klein.",
             project_quote: "Every travel-time measurement is only as good as the map underneath it. This system makes sure that map is right.",
             fresh_insights: "Case Study",
 
@@ -468,7 +468,7 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Research",
-            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Eng. Marcus Szeniuk and Dr. Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
+            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Eng. Marcus Szeinuk and Dr. Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
             project_quote: "The scientific literature says to count 5–20% of your links to faithfully represent the network. Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
             fresh_insights: "Research Spotlight",
 
@@ -514,7 +514,7 @@ export const translations = {
 
                 poster_title: "Presented at ISTRC 2026",
                 poster_desc: "The methodology was presented as a poster paper at the Israel Section of Transportation Research Conference 2026. The poster describes the general sampling framework; the version deployed for the four metropolitan areas extends it with distance-based centrality and per-zone selection, tuned for metropolitan roads.",
-                poster_authors: "Dr. Golan Ben Dor, Eng. Marcus Szeniuk, Dr. Ido Klein — Ministry of Transport · Prof. Shlomo Bekhor — Technion",
+                poster_authors: "Dr. Golan Ben Dor, Eng. Marcus Szeinuk, Dr. Ido Klein — Ministry of Transport · Prof. Shlomo Bekhor — Technion",
                 poster_button: "View Full-Size Poster",
 
                 impact_title: "Why It Matters",
@@ -542,7 +542,7 @@ export const translations = {
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Project",
-            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework. I led the methodology in collaboration with Dr. Ido Klein, Eng. Marcus Szeniuk and Prof. Shlomo Bekhor.",
+            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework. I led the methodology in collaboration with Dr. Ido Klein, Eng. Marcus Szeinuk and Prof. Shlomo Bekhor.",
             project_quote: "Five models, three authorities, one map. The entire survey lives in a single shared GeoPackage that every partner reviews, refines and executes from.",
             fresh_insights: "Case Study",
 
@@ -1014,7 +1014,7 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "הפרויקט",
-            project_team_desc: "פותח עבור אגף תכנון תחבורתי במשרד התחבורה, בשיתוף עם צוות תכנית אב לתחבורה ירושלים (JTMT) ובשיתוף פעולה עם אינג׳ מרקוס שניוק וד\"ר עדו קליין.",
+            project_team_desc: "פותח עבור אגף תכנון תחבורתי במשרד התחבורה, בשיתוף עם צוות תכנית אב לתחבורה ירושלים (JTMT) ובשיתוף פעולה עם אינג׳ מרכוס סניוק וד\"ר עדו קליין.",
             project_quote: "כל מדידת זמן נסיעה טובה בדיוק כמו המפה שמתחתיה. המערכת הזו מוודאת שהמפה נכונה.",
             fresh_insights: "מקרה בוחן",
 
@@ -1096,7 +1096,7 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "המחקר",
-            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם אינג׳ מרקוס שניוק וד\"ר עדו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
+            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם אינג׳ מרכוס סניוק וד\"ר עדו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
             project_quote: "הספרות המדעית ציינה לספור 5–20% מהמקטעים כדי לייצג נאמנה את המרחב. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
             fresh_insights: "זרקור מחקרי",
 
@@ -1142,7 +1142,7 @@ export const translations = {
 
                 poster_title: "הוצג בכנס ISTRC 2026",
                 poster_desc: "המתודולוגיה הוצגה כפוסטר בכנס האגודה הישראלית לחקר התחבורה 2026. הפוסטר מציג את מסגרת הדגימה הכללית; הגרסה שיושמה בארבעת המטרופולינים מרחיבה אותה עם מרכזיות מבוססת מרחק ובחירה לפי אזורי תנועה, מכווננת לכבישים מטרופוליניים.",
-                poster_authors: "ד\"ר גולן בן דור, אינג׳ מרקוס שניוק, ד\"ר עדו קליין — משרד התחבורה · פרופ׳ שלמה בכור — הטכניון",
+                poster_authors: "ד\"ר גולן בן דור, אינג׳ מרכוס סניוק, ד\"ר עדו קליין — משרד התחבורה · פרופ׳ שלמה בכור — הטכניון",
                 poster_button: "צפייה בפוסטר בגודל מלא",
 
                 impact_title: "למה זה חשוב",
@@ -1214,7 +1214,7 @@ export const translations = {
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "הפרויקט",
-            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת. הובלתי את המתודולוגיה בשיתוף פעולה עם ד\"ר עדו קליין, אינג׳ מרקוס שניוק ופרופ׳ שלמה בכור.",
+            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת. הובלתי את המתודולוגיה בשיתוף פעולה עם ד\"ר עדו קליין, אינג׳ מרכוס סניוק ופרופ׳ שלמה בכור.",
             project_quote: "חמישה מודלים, שלוש רשויות, מפה אחת. כל הסקר חי בקובץ GeoPackage משותף אחד שכל שותף בודק, מדייק ומבצע ממנו.",
             fresh_insights: "מקרה בוחן",
 

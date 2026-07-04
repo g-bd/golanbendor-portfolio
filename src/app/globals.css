@@ -524,6 +524,12 @@ nav {
   font-size: 0.9rem;
   color: var(--pop-cyan);
   transition: 0.3s;
+  /* Keep each tag on one line so its size is deterministic. As inline-block
+     shrink-to-fit spans, short tags (MATSim (Java), ArcGIS Pro) wrap to two
+     lines ambiguously, and a mobile tap/scroll re-layout pops them back to one
+     line — making the box appear to change size. nowrap fixes that; the longest
+     tags already fit on one line. */
+  white-space: nowrap;
 }
 
 .skill-tag:hover {

@@ -35,7 +35,7 @@ export default function CountsPage() {
             : 'מתודולוגיה מבוססת מדע רשתות לבחירת מיקומי ספירות תנועה לאימות מודלים תחבורתיים אסטרטגיים, הוצגה בכנס ISTRC 2026.',
         'author': [
             { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
-            { '@type': 'Person', 'name': 'Marcus Szeniuk' },
+            { '@type': 'Person', 'name': 'Marcus Szeinuk' },
             { '@type': 'Person', 'name': 'Ido Klein' },
             { '@type': 'Person', 'name': 'Shlomo Bekhor' },
         ],

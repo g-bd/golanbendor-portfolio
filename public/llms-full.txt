@@ -143,7 +143,7 @@ PROJECT 3: Beer Sheva Traffic Model Reconstruction
 PROJECT 4: Traffic Count Sampling Design — Ministry of Transport (ISTRC 2026)
 - Article URL: https://drbendor.com/en/work/counts
 - Focus: Network-science methodology selecting where to place traffic counts to validate strategic transport models
-- Co-Authors: Marcus Szeniuk, Ido Klein (Ministry of Transport), Prof. Shlomo Bekhor (Technion)
+- Co-Authors: Marcus Szeinuk, Ido Klein (Ministry of Transport), Prof. Shlomo Bekhor (Technion)
 - Method (deployed, four metros): Edge betweenness centrality computed over the full network with Dijkstra shortest paths weighted by distance (not speed, which would funnel routes onto national highways already monitored by permanent counters); sampling restricted to metropolitan road classes 4-5; zone-based selection — within every traffic analysis zone, the top 20% (configurable) of links by centrality are chosen, guaranteeing spatial coverage
 - General framework (ISTRC 2026 poster): international guideline ranges + stratified sampling with proportional allocation (weights from RMSE accuracy targets by road class) + centrality ranking within class
 - Scope: Applied to Israel's four metropolitan strategic models — 3,448 eligible metropolitan links, 755 selected (~22%): Tel Aviv 335/1,526, Haifa 185/838, Jerusalem 146/674, Be'er Sheva 89/410
