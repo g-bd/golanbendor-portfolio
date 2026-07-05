@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMapZoom } from '@/hooks/useMapZoom';
 import MapZoomControls from '@/components/MapZoomControls';
+import MapHint from '@/components/MapHint';
 import { COUNTS_METROS, MetroKey, CountLink } from '@/data/countsMapData';
 
 export interface CountsMapLabels {
@@ -24,6 +25,7 @@ export interface CountsMapLabels {
     zoom_in: string;
     zoom_out: string;
     zoom_reset: string;
+    zoom_hint: string;
 }
 
 const METRO_ORDER: MetroKey[] = ['telaviv', 'jerusalem', 'haifa', 'beersheva'];
@@ -108,7 +110,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
     const { direction } = useLanguage();
     const [metro, setMetro] = useState<MetroKey>('telaviv');
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
-    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
+    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut, isZoomed } = useMapZoom();
 
     const view = useMemo(() => buildMetro(metro), [metro]);
     const active = activeIdx != null ? view.links[activeIdx] : undefined;
@@ -204,6 +206,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
                     </g>
                 </motion.svg>
                 </div>
+                <MapHint text={labels.zoom_hint} hidden={isZoomed || activeIdx !== null} />
             </div>
 
             {/* Side panel */}

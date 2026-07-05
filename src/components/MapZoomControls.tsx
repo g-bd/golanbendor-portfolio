@@ -23,18 +23,9 @@ export default function MapZoomControls({
     canZoomIn: boolean;
     canZoomOut: boolean;
 }) {
-    const btnClass =
-        'w-9 h-9 flex items-center justify-center rounded-lg border transition-all duration-200 disabled:opacity-30 disabled:cursor-not-allowed';
-    const btnStyle = {
-        background: 'rgba(10,10,18,0.65)',
-        borderColor: 'rgba(255,255,255,0.12)',
-        color: 'var(--pop-cyan)',
-        backdropFilter: 'blur(8px)',
-    };
-
     return (
         <div
-            className="absolute top-3 flex flex-col gap-1.5 z-10"
+            className="map-zoom-controls absolute top-3 flex flex-col gap-1.5 z-10"
             style={{ insetInlineEnd: '0.75rem' }}
             // Keep button interactions off the map's drag handler: a pointerdown
             // that bubbles to the container calls setPointerCapture there, and
@@ -47,8 +38,8 @@ export default function MapZoomControls({
                 onClick={zoomIn}
                 disabled={!canZoomIn}
                 aria-label={labels.zoom_in}
-                className={btnClass}
-                style={btnStyle}
+                title={labels.zoom_in}
+                className="map-zoom-btn"
             >
                 <ZoomIn size={16} />
             </button>
@@ -57,8 +48,8 @@ export default function MapZoomControls({
                 onClick={zoomOut}
                 disabled={!canZoomOut}
                 aria-label={labels.zoom_out}
-                className={btnClass}
-                style={btnStyle}
+                title={labels.zoom_out}
+                className="map-zoom-btn"
             >
                 <ZoomOut size={16} />
             </button>
@@ -67,8 +58,8 @@ export default function MapZoomControls({
                 onClick={reset}
                 disabled={!canZoomOut}
                 aria-label={labels.zoom_reset}
-                className={btnClass}
-                style={btnStyle}
+                title={labels.zoom_reset}
+                className="map-zoom-btn"
             >
                 <RotateCcw size={14} />
             </button>

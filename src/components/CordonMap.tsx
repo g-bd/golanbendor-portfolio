@@ -5,6 +5,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMapZoom } from '@/hooks/useMapZoom';
 import MapZoomControls from '@/components/MapZoomControls';
+import MapHint from '@/components/MapHint';
 import { CORDON_LINES, COUNT_POINTS, MODEL_BOUNDS, EzorKey, CordonLine } from '@/data/cordonMapData';
 
 export interface CordonMapLabels {
@@ -22,6 +23,7 @@ export interface CordonMapLabels {
     zoom_in: string;
     zoom_out: string;
     zoom_reset: string;
+    zoom_hint: string;
 }
 
 // Site POP palette + two harmonious neons for the five survey regions
@@ -80,7 +82,7 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
     const prefersReducedMotion = useReducedMotion();
     const [activeEzor, setActiveEzor] = useState<EzorKey | null>(null);
     const [activeLineId, setActiveLineId] = useState<number | null>(null);
-    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
+    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut, isZoomed } = useMapZoom();
 
     const activeLine = activeLineId != null ? LINE_BY_ID.get(activeLineId) : undefined;
 
@@ -201,6 +203,7 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
                         })}
                     </g>
                 </svg>
+                <MapHint text={labels.zoom_hint} hidden={isZoomed || activeLineId !== null} />
             </div>
 
             {/* Side panel: legend + details + totals */}

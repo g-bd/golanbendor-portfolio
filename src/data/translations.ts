@@ -505,6 +505,7 @@ export const translations = {
                 map_zoom_in: "Zoom in",
                 map_zoom_out: "Zoom out",
                 map_zoom_reset: "Reset zoom",
+                map_zoom_hint: "Scroll or pinch to zoom · drag to pan · tap a link",
 
                 science_title: "The Science, Simply",
                 science_p1: "Imagine computing the shortest route between every pair of zones in a metropolitan area — hundreds of thousands of routes, each found with Dijkstra's algorithm. Some road links appear in a huge share of those routes: bridges, interchanges, key connectors. That share is the link's betweenness centrality — shown on the maps as a simple 0–100% score. For the metropolitan sample the routes are weighted by distance rather than speed: speed-weighting funnels every route onto the national highways, which Israel already monitors with permanent counters, while distance-weighting reveals the urban roads that hold the metropolis together.",
@@ -591,6 +592,7 @@ export const translations = {
                 zoom_in: "Zoom in",
                 zoom_out: "Zoom out",
                 zoom_reset: "Reset zoom",
+                zoom_hint: "Scroll or pinch to zoom · drag to pan · tap a line",
             },
 
             stats: {
@@ -1140,6 +1142,7 @@ export const translations = {
                 map_zoom_in: "התקרבות",
                 map_zoom_out: "התרחקות",
                 map_zoom_reset: "איפוס זום",
+                map_zoom_hint: "גלגלו או צבטו לזום · גררו להזזה · הקישו על מקטע",
 
                 science_title: "המדע, בפשטות",
                 science_p1: "דמיינו חישוב של המסלול הקצר ביותר בין כל זוג אזורים במטרופולין — מאות אלפי מסלולים, כל אחד מחושב באלגוריתם דייקסטרה. חלק ממקטעי הכביש מופיעים בנתח עצום מהמסלולים האלה: גשרים, מחלפים, מחברים מרכזיים. הנתח הזה הוא מרכזיות הביניים של המקטע — מוצג במפות כציון פשוט של 0–100%. עבור המדגם המטרופוליני המסלולים משוקללים לפי מרחק ולא לפי מהירות: שקלול לפי מהירות מנקז כל מסלול לכבישים הבין-עירוניים, שכבר מנוטרים בישראל בספירות קבועות, בעוד שקלול לפי מרחק חושף את הכבישים העירוניים שמחזיקים את המטרופולין.",
@@ -1270,6 +1273,7 @@ export const translations = {
                 zoom_in: "התקרבות",
                 zoom_out: "התרחקות",
                 zoom_reset: "איפוס זום",
+                zoom_hint: "גלגלו או צבטו לזום · גררו להזזה · הקישו על קו",
             },
 
             stats: {

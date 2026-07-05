@@ -81,6 +81,7 @@ export default function CountsPage() {
         zoom_in: b.map_zoom_in,
         zoom_out: b.map_zoom_out,
         zoom_reset: b.map_zoom_reset,
+        zoom_hint: b.map_zoom_hint,
     };
 
     const stats = [

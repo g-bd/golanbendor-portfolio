@@ -1255,3 +1255,66 @@ nav {
     scroll-behavior: auto !important;
   }
 }
+
+/* Interactive-map affordances (zoom controls + hint chip) */
+.map-zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.5rem;
+  color: var(--pop-cyan);
+  background: rgba(10, 10, 18, 0.65);
+  border: 1px solid rgba(0, 229, 255, 0.28);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+
+.map-zoom-btn:hover:not(:disabled) {
+  background: var(--pop-cyan);
+  border-color: var(--pop-cyan);
+  color: var(--bg-color);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.5);
+}
+
+.map-zoom-btn:active:not(:disabled) {
+  transform: scale(0.92);
+}
+
+.map-zoom-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* Gentle attention pulse on the zoom cluster so the control reads as usable */
+@keyframes map-zoom-attention {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
+  50% { box-shadow: 0 0 0 5px rgba(0, 229, 255, 0.22); }
+}
+
+.map-zoom-controls .map-zoom-btn:first-child {
+  animation: map-zoom-attention 1.6s ease-in-out 3;
+}
+
+/* On-map hint chip */
+.map-hint-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  font-family: 'Fira Code', monospace;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(10, 10, 18, 0.65);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  backdrop-filter: blur(8px);
+  transition: opacity 0.5s;
+}
+
+.map-hint-icon {
+  color: var(--pop-cyan);
+  flex-shrink: 0;
+}
