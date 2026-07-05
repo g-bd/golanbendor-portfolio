@@ -36,6 +36,11 @@ export default function MapZoomControls({
         <div
             className="absolute top-3 flex flex-col gap-1.5 z-10"
             style={{ insetInlineEnd: '0.75rem' }}
+            // Keep button interactions off the map's drag handler: a pointerdown
+            // that bubbles to the container calls setPointerCapture there, and
+            // Chrome then retargets the click to the container, so the button's
+            // onClick would never fire once the map is zoomed in.
+            onPointerDown={e => e.stopPropagation()}
         >
             <button
                 type="button"
