@@ -108,7 +108,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
     const { direction } = useLanguage();
     const [metro, setMetro] = useState<MetroKey>('telaviv');
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
-    const { containerRef, containerHandlers, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
+    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
 
     const view = useMemo(() => buildMetro(metro), [metro]);
     const active = activeIdx != null ? view.links[activeIdx] : undefined;
@@ -125,6 +125,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
             <div
                 ref={containerRef}
                 className="relative flex-1 flex justify-center min-w-0 overflow-hidden"
+                style={containerStyle}
                 {...containerHandlers}
             >
                 <MapZoomControls
@@ -135,13 +136,17 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
                     canZoomIn={canZoomIn}
                     canZoomOut={canZoomOut}
                 />
+                {/* Zoom transform lives on this plain wrapper — a framer-motion
+                    element would override a raw `transform` string with its own
+                    transform system, so the scale would never apply. */}
+                <div className="flex justify-center w-full" style={svgStyle}>
                 <motion.svg
                     key={metro}
                     viewBox={`0 0 ${view.width} ${MAP_H}`}
                     role="img"
                     aria-label={labels.aria}
                     className="h-[62vh] md:h-[72vh] w-auto max-w-full select-none"
-                    style={{ filter: 'drop-shadow(0 0 40px rgba(255,0,85,0.05))', ...svgStyle }}
+                    style={{ filter: 'drop-shadow(0 0 40px rgba(255,0,85,0.05))' }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}
@@ -198,6 +203,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
                         })}
                     </g>
                 </motion.svg>
+                </div>
             </div>
 
             {/* Side panel */}

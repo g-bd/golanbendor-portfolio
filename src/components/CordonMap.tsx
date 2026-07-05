@@ -80,7 +80,7 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
     const prefersReducedMotion = useReducedMotion();
     const [activeEzor, setActiveEzor] = useState<EzorKey | null>(null);
     const [activeLineId, setActiveLineId] = useState<number | null>(null);
-    const { containerRef, containerHandlers, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
+    const { containerRef, containerHandlers, containerStyle, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
 
     const activeLine = activeLineId != null ? LINE_BY_ID.get(activeLineId) : undefined;
 
@@ -108,6 +108,7 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
             <div
                 ref={containerRef}
                 className="relative flex-1 flex justify-center min-w-0 overflow-hidden"
+                style={containerStyle}
                 {...containerHandlers}
             >
                 <MapZoomControls
