@@ -3,6 +3,8 @@
 import { useMemo, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { useMapZoom } from '@/hooks/useMapZoom';
+import MapZoomControls from '@/components/MapZoomControls';
 import { COUNTS_METROS, MetroKey, CountLink } from '@/data/countsMapData';
 
 export interface CountsMapLabels {
@@ -19,6 +21,9 @@ export interface CountsMapLabels {
     legend_low: string;
     legend_high: string;
     aria: string;
+    zoom_in: string;
+    zoom_out: string;
+    zoom_reset: string;
 }
 
 const METRO_ORDER: MetroKey[] = ['telaviv', 'jerusalem', 'haifa', 'beersheva'];
@@ -103,6 +108,7 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
     const { direction } = useLanguage();
     const [metro, setMetro] = useState<MetroKey>('telaviv');
     const [activeIdx, setActiveIdx] = useState<number | null>(null);
+    const { containerRef, containerHandlers, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
 
     const view = useMemo(() => buildMetro(metro), [metro]);
     const active = activeIdx != null ? view.links[activeIdx] : undefined;
@@ -110,19 +116,32 @@ export default function CountsMap({ labels }: { labels: CountsMapLabels }) {
     const switchMetro = (key: MetroKey) => {
         setMetro(key);
         setActiveIdx(null);
+        reset();
     };
 
     return (
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-center lg:items-stretch" dir={direction}>
             {/* Map */}
-            <div className="relative flex-1 flex justify-center min-w-0">
+            <div
+                ref={containerRef}
+                className="relative flex-1 flex justify-center min-w-0 overflow-hidden"
+                {...containerHandlers}
+            >
+                <MapZoomControls
+                    labels={labels}
+                    zoomIn={zoomIn}
+                    zoomOut={zoomOut}
+                    reset={reset}
+                    canZoomIn={canZoomIn}
+                    canZoomOut={canZoomOut}
+                />
                 <motion.svg
                     key={metro}
                     viewBox={`0 0 ${view.width} ${MAP_H}`}
                     role="img"
                     aria-label={labels.aria}
                     className="h-[62vh] md:h-[72vh] w-auto max-w-full select-none"
-                    style={{ filter: 'drop-shadow(0 0 40px rgba(255,0,85,0.05))' }}
+                    style={{ filter: 'drop-shadow(0 0 40px rgba(255,0,85,0.05))', ...svgStyle }}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6 }}

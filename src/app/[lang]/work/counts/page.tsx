@@ -78,6 +78,9 @@ export default function CountsPage() {
         legend_low: b.legend_low,
         legend_high: b.legend_high,
         aria: b.map_aria,
+        zoom_in: b.map_zoom_in,
+        zoom_out: b.map_zoom_out,
+        zoom_reset: b.map_zoom_reset,
     };
 
     const stats = [

@@ -502,6 +502,9 @@ export const translations = {
                 map_select_prompt: "Hover over a glowing link to see which road it is and how central it sits in the network.",
                 map_hint: "Hover or tap a link for details · switch metropolitan area with the buttons",
                 map_aria: "Interactive map of selected traffic count locations, colored by betweenness centrality",
+                map_zoom_in: "Zoom in",
+                map_zoom_out: "Zoom out",
+                map_zoom_reset: "Reset zoom",
 
                 science_title: "The Science, Simply",
                 science_p1: "Imagine computing the shortest route between every pair of zones in a metropolitan area — hundreds of thousands of routes, each found with Dijkstra's algorithm. Some road links appear in a huge share of those routes: bridges, interchanges, key connectors. That share is the link's betweenness centrality — shown on the maps as a simple 0–100% score. For the metropolitan sample the routes are weighted by distance rather than speed: speed-weighting funnels every route onto the national highways, which Israel already monitors with permanent counters, while distance-weighting reveals the urban roads that hold the metropolis together.",
@@ -585,6 +588,9 @@ export const translations = {
                 total_label: "Survey totals",
                 points_note: "414 mapped count points incl. alternates",
                 aria: "Interactive map of Israel's 2026 cordon and screenline traffic count survey",
+                zoom_in: "Zoom in",
+                zoom_out: "Zoom out",
+                zoom_reset: "Reset zoom",
             },
 
             stats: {
@@ -1131,6 +1137,9 @@ export const translations = {
                 map_select_prompt: "רחפו מעל מקטע זוהר כדי לראות איזה כביש זה ועד כמה הוא מרכזי ברשת.",
                 map_hint: "רחפו או הקישו על מקטע לפרטים · החליפו מטרופולין בכפתורים",
                 map_aria: "מפה אינטראקטיבית של נקודות ספירת התנועה שנבחרו, צבועות לפי מרכזיות ביניים",
+                map_zoom_in: "התקרבות",
+                map_zoom_out: "התרחקות",
+                map_zoom_reset: "איפוס זום",
 
                 science_title: "המדע, בפשטות",
                 science_p1: "דמיינו חישוב של המסלול הקצר ביותר בין כל זוג אזורים במטרופולין — מאות אלפי מסלולים, כל אחד מחושב באלגוריתם דייקסטרה. חלק ממקטעי הכביש מופיעים בנתח עצום מהמסלולים האלה: גשרים, מחלפים, מחברים מרכזיים. הנתח הזה הוא מרכזיות הביניים של המקטע — מוצג במפות כציון פשוט של 0–100%. עבור המדגם המטרופוליני המסלולים משוקללים לפי מרחק ולא לפי מהירות: שקלול לפי מהירות מנקז כל מסלול לכבישים הבין-עירוניים, שכבר מנוטרים בישראל בספירות קבועות, בעוד שקלול לפי מרחק חושף את הכבישים העירוניים שמחזיקים את המטרופולין.",
@@ -1258,6 +1267,9 @@ export const translations = {
                 total_label: "סך הכל בסקר",
                 points_note: "414 נקודות ספירה ממופות כולל חלופות",
                 aria: "מפה אינטראקטיבית של סקר ספירות החיץ והחגורה הארצי 2026",
+                zoom_in: "התקרבות",
+                zoom_out: "התרחקות",
+                zoom_reset: "איפוס זום",
             },
 
             stats: {

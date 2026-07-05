@@ -3,6 +3,8 @@
 import { useMemo, useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useLanguage } from '@/context/LanguageContext';
+import { useMapZoom } from '@/hooks/useMapZoom';
+import MapZoomControls from '@/components/MapZoomControls';
 import { CORDON_LINES, COUNT_POINTS, MODEL_BOUNDS, EzorKey, CordonLine } from '@/data/cordonMapData';
 
 export interface CordonMapLabels {
@@ -17,6 +19,9 @@ export interface CordonMapLabels {
     total_label: string;
     points_note: string;
     aria: string;
+    zoom_in: string;
+    zoom_out: string;
+    zoom_reset: string;
 }
 
 // Site POP palette + two harmonious neons for the five survey regions
@@ -75,6 +80,7 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
     const prefersReducedMotion = useReducedMotion();
     const [activeEzor, setActiveEzor] = useState<EzorKey | null>(null);
     const [activeLineId, setActiveLineId] = useState<number | null>(null);
+    const { containerRef, containerHandlers, svgStyle, zoomIn, zoomOut, reset, canZoomIn, canZoomOut } = useMapZoom();
 
     const activeLine = activeLineId != null ? LINE_BY_ID.get(activeLineId) : undefined;
 
@@ -99,13 +105,25 @@ export default function CordonMap({ labels }: { labels: CordonMapLabels }) {
     return (
         <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 items-center lg:items-stretch" dir={direction}>
             {/* Map */}
-            <div className="relative flex-1 flex justify-center min-w-0">
+            <div
+                ref={containerRef}
+                className="relative flex-1 flex justify-center min-w-0 overflow-hidden"
+                {...containerHandlers}
+            >
+                <MapZoomControls
+                    labels={labels}
+                    zoomIn={zoomIn}
+                    zoomOut={zoomOut}
+                    reset={reset}
+                    canZoomIn={canZoomIn}
+                    canZoomOut={canZoomOut}
+                />
                 <svg
                     viewBox={`0 0 ${MAP_W} ${MAP_H}`}
                     role="img"
                     aria-label={labels.aria}
                     className="h-[62vh] md:h-[74vh] w-auto max-w-full select-none"
-                    style={{ filter: 'drop-shadow(0 0 40px rgba(0,229,255,0.06))' }}
+                    style={{ filter: 'drop-shadow(0 0 40px rgba(0,229,255,0.06))', ...svgStyle }}
                 >
                     <defs>
                         <filter id="cordon-glow" x="-40%" y="-40%" width="180%" height="180%">
