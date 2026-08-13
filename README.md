@@ -405,6 +405,32 @@ cobe
 ```
 `````
 
+### Prompt 4 — Gradient Tracing (HextaUI)
+
+Source: https://21st.dev/@preetsuthar17/components/gradient-tracing — usage given was:
+
+```tsx
+import { GradientTracing } from "@/components/ui/gradient-tracing";
+
+const Demo = () => (
+  <GradientTracing width={300} height={100} />
+);
+
+export { Demo };
+```
+
+Implemented here as `src/components/GradientTracing.tsx`: an SVG with a dim base path plus a
+second path stroked with an animated `<linearGradient>` (framer-motion animates the gradient's
+`x1`/`x2` across the viewBox) to send a neon pulse along the line. Props: `width`, `height`,
+`path` (defaults to a straight line — pass any `d` to trace an arbitrary shape), `baseColor`,
+`gradientColors`, `strokeWidth`, `duration`, `reverse` (RTL). Uses `useId()` for the gradient id
+so multiple instances don't collide, and renders base-line-only under `prefers-reduced-motion`.
+
+Used once, deliberately: the `.flow-divider` between the Globe and the Contact CTA. It is
+built to be reusable on arbitrary paths (e.g. tracing map roads) — but note `CordonMap`/
+`CountsMap` already animate their paths on scroll-in, so adding pulses there would fight the
+existing hover/click interaction.
+
 **Dark-theme cobe recipe that actually works (0.6.5):** `dark: 1, diffuse: 1.2,
 mapBrightness: 8, baseColor: [0.35, 0.65, 0.75]` (cyan dots), `markerColor: [1, 0, 0.33]`
 (POP pink), `glowColor: [0.09, 0.19, 0.24]`. Start rotation facing a longitude with
