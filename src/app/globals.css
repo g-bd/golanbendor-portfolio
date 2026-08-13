@@ -704,6 +704,13 @@ nav {
   }
 }
 
+/* Flow divider (GradientTracing) */
+.flow-divider {
+  max-width: 900px;
+  margin: 0 auto 60px;
+  padding: 0 20px;
+}
+
 /* Global Reach globe */
 .globe-section {
   text-align: center;

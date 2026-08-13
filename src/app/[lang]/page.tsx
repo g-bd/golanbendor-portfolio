@@ -17,6 +17,7 @@ import Navbar from '@/components/Navbar';
 import Marquee from '@/components/Marquee';
 import AwardBadge, { AwardIcon, AwardAccent } from '@/components/AwardBadge';
 import Globe from '@/components/Globe';
+import GradientTracing from '@/components/GradientTracing';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -1291,6 +1292,11 @@ export default function Home() {
           <p className="globe-cities">{t.globe.cities}</p>
           <Globe ariaLabel={t.globe.aria} />
         </section>
+
+        {/* Flow line leading into the CTA */}
+        <div className="flow-divider">
+          <GradientTracing reverse={direction === 'rtl'} duration={3.5} />
+        </div>
 
         {/* Contact */}
         <section id="contact" className="contact-box">
