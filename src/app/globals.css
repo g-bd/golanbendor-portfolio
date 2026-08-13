@@ -704,6 +704,73 @@ nav {
   }
 }
 
+/* Global Reach globe */
+.globe-section {
+  text-align: center;
+  padding: 40px 20px 0;
+  margin-bottom: 60px;
+}
+
+.globe-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.globe-cities {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+/* horizon crop: square canvas inside a shorter wrapper, bottom fades into the page bg */
+.globe-wrap {
+  position: relative;
+  width: min(92vw, 520px);
+  aspect-ratio: 1 / 0.62;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.globe-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+  cursor: grab;
+  /* horizontal drag spins the globe; vertical swipe still scrolls the page */
+  touch-action: pan-y;
+  contain: layout paint size;
+}
+
+.globe-fade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom, transparent 55%, var(--bg-color) 97%);
+}
+
+.font-hebrew .globe-title {
+  font-family: var(--font-heebo), system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+}
+
+@media (max-width: 900px) {
+  .globe-title {
+    font-size: 1.35rem;
+  }
+
+  .globe-cities {
+    font-size: 0.62rem;
+  }
+}
+
 /* Sections */
 .section-title {
   font-family: 'Space Grotesk', sans-serif;

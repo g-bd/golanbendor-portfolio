@@ -65,6 +65,12 @@ export const translations = {
                 }
             ]
         },
+        globe: {
+            label: "// GLOBAL REACH",
+            title: "Presented in 15+ cities worldwide",
+            cities: "Chicago · Singapore · Munich · London · Stockholm · Warsaw · Lyon · Porto · Leuven · Vilnius · Limassol · Manchester · Orlando · Berlin · Tel Aviv",
+            aria: "Interactive globe showing cities where Dr. Golan Ben-Dor has presented his research"
+        },
         about: {
             title: "About Me",
             role_title: "The Architect of Flow",
@@ -781,6 +787,12 @@ export const translations = {
                     desc: "נבחר להשתתף מטעם משרד הכלכלה של מדינת בוואריה"
                 }
             ]
+        },
+        globe: {
+            label: "// נוכחות גלובלית",
+            title: "הרצאות וכנסים ביותר מ-15 ערים ברחבי העולם",
+            cities: "שיקגו · סינגפור · מינכן · לונדון · שטוקהולם · ורשה · ליון · פורטו · לוון · וילנה · לימסול · מנצ'סטר · אורלנדו · ברלין · תל אביב",
+            aria: "גלובוס אינטראקטיבי המציג ערים בהן הציג ד\"ר גולן בן-דור את מחקריו"
         },
         about: {
             title: "אודותיי",

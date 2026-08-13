@@ -16,6 +16,7 @@ import PDFModal from '@/components/PDFModal';
 import Navbar from '@/components/Navbar';
 import Marquee from '@/components/Marquee';
 import AwardBadge, { AwardIcon, AwardAccent } from '@/components/AwardBadge';
+import Globe from '@/components/Globe';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -1279,6 +1280,16 @@ export default function Home() {
               );
             })}
           </Marquee>
+        </section>
+
+        {/* Global Reach */}
+        <section className="globe-section">
+          <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: 'var(--pop-pink)', marginBottom: '10px' }}>
+            {t.globe.label}
+          </p>
+          <h3 className="globe-title">{t.globe.title}</h3>
+          <p className="globe-cities">{t.globe.cities}</p>
+          <Globe ariaLabel={t.globe.aria} />
         </section>
 
         {/* Contact */}
