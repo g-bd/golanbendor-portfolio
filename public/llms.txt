@@ -83,6 +83,15 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
    DOI: https://doi.org/10.1016/j.simpat.2020.102233
    Topic: Comparing full and sampled populations in transport simulation
 
+# Awards & Recognition
+Dr. Golan Ben-Dor has received 13+ academic and professional honors, including:
+- Selected from 1,700 applicants worldwide for the Global Young Scientists Summit (GYSS) 2022
+- Represented Tel Aviv University in a global student delegation at the Pritzker Forum on Global Cities, Chicago (2019)
+- Mordechai Ofer Foundation PhD Excellence Scholarship in transportation, land and environmental research (2023)
+- "Shlomo Shmeltzer" Smart Transportation Institute innovation scholarship, Tel Aviv University (2019-2023)
+- Israeli Smart Transportation Research Center (ISTRC) PhD scholarship, Technion (2020-2023)
+- Selected participant, Bavarian-Israeli Smart City Workshop, Munich (2021)
+
 # Common Questions (FAQ)
 
 Q: What is agent-based transport modeling?

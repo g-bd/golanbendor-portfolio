@@ -29,6 +29,42 @@ export const translations = {
             jerusalem_team: "Jerusalem Transportation Team",
             cbs: "CBS"
         },
+        recognition: {
+            label: "// RECOGNITION & AWARDS",
+            subtitle: "13+ academic and professional honors",
+            awards: [
+                {
+                    year: "2022",
+                    title: "Global Young Scientists Summit (GYSS)",
+                    desc: "Selected from 1,700 applicants worldwide"
+                },
+                {
+                    year: "2019",
+                    title: "Pritzker Forum on Global Cities, Chicago",
+                    desc: "Represented Tel Aviv University in a global student delegation"
+                },
+                {
+                    year: "2023",
+                    title: "Mordechai Ofer Foundation",
+                    desc: "PhD excellence scholarship — transportation, land and environmental research"
+                },
+                {
+                    year: "2019-2023",
+                    title: "\"Shlomo Shmeltzer\" Smart Transportation Institute",
+                    desc: "Innovation scholarship for intelligent transportation research, Tel Aviv University"
+                },
+                {
+                    year: "2020-2023",
+                    title: "Israeli Smart Transportation Research Center (ISTRC)",
+                    desc: "PhD excellence scholarship, Technion"
+                },
+                {
+                    year: "2021",
+                    title: "Bavarian-Israeli Smart City Workshop, Munich",
+                    desc: "Selected participant — Bavarian State Ministry of Economic Affairs"
+                }
+            ]
+        },
         about: {
             title: "About Me",
             role_title: "The Architect of Flow",
@@ -709,6 +745,42 @@ export const translations = {
             netivei_ayalon: "נתיבי איילון",
             jerusalem_team: "צוות תכנית אב לתחבורה",
             cbs: "למ\"ס"
+        },
+        recognition: {
+            label: "// הוקרה והישגים",
+            subtitle: "למעלה מ-13 פרסים ומלגות הצטיינות אקדמיים ומקצועיים",
+            awards: [
+                {
+                    year: "2022",
+                    title: "Global Young Scientists Summit (GYSS)",
+                    desc: "נבחר מתוך 1,700 מועמדים מכל העולם"
+                },
+                {
+                    year: "2019",
+                    title: "פורום פריצקר לערים גלובליות, שיקגו",
+                    desc: "נבחר לייצג את אוניברסיטת תל אביב במשלחת סטודנטים גלובלית"
+                },
+                {
+                    year: "2023",
+                    title: "קרן מרדכי עופר",
+                    desc: "מלגת הצטיינות לדוקטורט בתחום התחבורה, הקרקע והנוף"
+                },
+                {
+                    year: "2019-2023",
+                    title: "מכון \"שלמה שמלצר\" לתחבורה חכמה",
+                    desc: "מלגת הצטיינות לחדשנות בתחום התחבורה החכמה, אוניברסיטת תל אביב"
+                },
+                {
+                    year: "2020-2023",
+                    title: "המרכז לחקר התחבורה החכמה בישראל (ISTRC)",
+                    desc: "מלגת הצטיינות לעבודת הדוקטורט, טכניון"
+                },
+                {
+                    year: "2021",
+                    title: "סדנת עיר חכמה בווארית-ישראלית, מינכן",
+                    desc: "נבחר להשתתף מטעם משרד הכלכלה של מדינת בוואריה"
+                }
+            ]
         },
         about: {
             title: "אודותיי",

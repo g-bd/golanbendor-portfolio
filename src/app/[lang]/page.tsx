@@ -14,6 +14,8 @@ import KeynoteCarousel from '@/components/KeynoteCarousel';
 import NewsCarousel from '@/components/NewsCarousel';
 import PDFModal from '@/components/PDFModal';
 import Navbar from '@/components/Navbar';
+import Marquee from '@/components/Marquee';
+import AwardBadge, { AwardIcon, AwardAccent } from '@/components/AwardBadge';
 import { useLanguage } from '@/context/LanguageContext';
 
 export default function Home() {
@@ -130,6 +132,14 @@ export default function Home() {
                 "url": "https://www.tau.ac.il"
               }
             },
+            "award": [
+              "Selected from 1,700 applicants for the Global Young Scientists Summit (GYSS) 2022",
+              "Represented Tel Aviv University at the Pritzker Forum on Global Cities, Chicago (2019)",
+              "Mordechai Ofer Foundation PhD Excellence Scholarship in transportation and environmental research (2023)",
+              "Shlomo Shmeltzer Smart Transportation Institute innovation scholarship, Tel Aviv University (2019-2023)",
+              "Israeli Smart Transportation Research Center (ISTRC) PhD scholarship, Technion (2020-2023)",
+              "Selected participant, Bavarian-Israeli Smart City Workshop, Munich (2021)"
+            ],
             "jobTitle": "Urban Mobility Simulation Scientist",
             "description": "Urban mobility scientist specializing in agent-based modeling, MATSim, and transport policy evaluation. מדען ניידות עירונית המתמחה במודלים מבוססי סוכנים, סימולציה תחבורתית והערכת מדיניות תחבורה",
             "url": "https://drbendor.com",
@@ -245,7 +255,7 @@ export default function Home() {
             "url": `https://drbendor.com/${language}/`,
             "inLanguage": language,
             "dateCreated": "2025-11-01T00:00:00.000Z",
-            "dateModified": "2026-07-03T00:00:00.000Z",
+            "dateModified": "2026-08-14T00:00:00.000Z",
             "mainEntity": { "@id": "https://drbendor.com/#person" }
           })
         }}
@@ -795,7 +805,7 @@ export default function Home() {
           <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: 'var(--pop-cyan)', marginBottom: '20px' }}>
             {t.trusted_by}
           </p>
-          <div className="trusted-logos">
+          <Marquee reverse={direction === 'rtl'} speed={35}>
             <div className="trusted-logo">
               <div className="relative w-[150px] h-[50px]">
                 <Image src="/logos/mot.png" alt="Israel Ministry of Transport - Transport Simulation Partner" fill className="object-contain" />
@@ -826,7 +836,7 @@ export default function Home() {
               </div>
               <span>{t.trusted_companies.cbs}</span>
             </div>
-          </div>
+          </Marquee>
         </section>
 
         {/* About & Skills */}
@@ -1242,6 +1252,33 @@ export default function Home() {
             </div>
 
           </div>
+        </section>
+
+        {/* Recognition & Awards */}
+        <section className="awards-strip" aria-label={t.recognition.subtitle}>
+          <p style={{ fontFamily: "'Fira Code', monospace", fontSize: '0.8rem', color: 'var(--pop-pink)', marginBottom: '6px' }}>
+            {t.recognition.label}
+          </p>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '20px' }}>
+            {t.recognition.subtitle}
+          </p>
+          <Marquee reverse={direction !== 'rtl'} speed={55}>
+            {t.recognition.awards.map((award: { year: string; title: string; desc: string }, i: number) => {
+              const icons: AwardIcon[] = ['globe', 'landmark', 'grad', 'medal', 'trophy', 'city'];
+              const accents: AwardAccent[] = ['cyan', 'pink', 'lime'];
+              return (
+                <AwardBadge
+                  key={award.title}
+                  year={award.year}
+                  title={award.title}
+                  desc={award.desc}
+                  icon={icons[i % icons.length]}
+                  accent={accents[i % accents.length]}
+                  dir={direction}
+                />
+              );
+            })}
+          </Marquee>
         </section>
 
         {/* Contact */}
