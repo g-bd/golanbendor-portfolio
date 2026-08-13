@@ -1275,7 +1275,10 @@ export default function Home() {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                openPdf('Golan_Resume.pdf', 'Golan Ben-Dor Resume');
+                openPdf(
+                  language === 'he' ? 'Golan_Resume_HE.pdf' : 'Golan_Resume.pdf',
+                  language === 'he' ? 'קורות חיים - ד"ר גולן בן-דור' : 'Golan Ben-Dor Resume'
+                );
               }}
               className="text-[var(--text-secondary)] text-[1.2rem] hover:text-white transition-colors"
               style={{ background: 'none', border: 'none', cursor: 'pointer', fontFamily: 'inherit' }}
