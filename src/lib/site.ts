@@ -1,5 +1,6 @@
 // Shared helpers for the editorial site components.
-export const asset = (name: string) => `/${encodeURIComponent(name)}`;
+// Encodes each path segment (spaces in file names) but keeps folder slashes.
+export const asset = (name: string) => '/' + name.split('/').map(encodeURIComponent).join('/');
 export const logo = (name: string) => `/logos/${name}`;
 export const external = { target: '_blank', rel: 'noopener noreferrer' } as const;
 export const HOME_SECTIONS = ['intro', 'work', 'expertise', 'about', 'global', 'media', 'contact'] as const;

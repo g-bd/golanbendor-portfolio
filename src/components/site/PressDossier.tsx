@@ -3,10 +3,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, ChevronUp, Maximize2, X } from 'lucide-react';
 import { ArchiveContent, NewsItem } from '@/data/siteContent';
+import { Language } from '@/data/translations';
 import { asset, external } from '@/lib/site';
 import Label from './Label';
 
 const publisher = (color: string) => ({ ['--publisher' as string]: color } as React.CSSProperties);
+const formatDate = (iso: string | undefined, lang: Language) => {
+    if (!iso) return null;
+    const d = new Date(iso + 'T00:00:00Z');
+    return d.toLocaleDateString(lang === 'he' ? 'he-IL' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
+};
 
 function ClippingDialog({ item, t, onClose }: { item: NewsItem | null; t: ArchiveContent; onClose: () => void }) {
     const ref = useRef<HTMLDialogElement>(null);
@@ -32,9 +38,9 @@ function ClippingDialog({ item, t, onClose }: { item: NewsItem | null; t: Archiv
     );
 }
 
-// Press coverage as a dossier: one lead story (swappable), the rest as briefs.
-// Any clipping opens full-size in a lightbox; the article link opens the source.
-export default function PressDossier({ t }: { t: ArchiveContent }) {
+// Press coverage as a front page: one lead story (swappable) presented like a
+// newspaper front, the others as typographic briefs. Any clipping opens full-size.
+export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; lang?: Language }) {
     const [featured, setFeatured] = useState(0);
     const [open, setOpen] = useState<number | null>(null);
     const lead = t.news[featured];
@@ -45,8 +51,9 @@ export default function PressDossier({ t }: { t: ArchiveContent }) {
             <div className="press-dossier">
                 <article className="coverage-lead" key={lead.link} style={publisher(lead.color)}>
                     <div className="coverage-copy">
-                        <div className="publisher-row"><p className="publisher-name">{lead.source}</p></div>
+                        <div className="publisher-row"><p className="publisher-name">{lead.source}</p>{lead.date && <span className="dateline">{formatDate(lead.date, lang)}</span>}</div>
                         <h3 className="pull-quote">{lead.title}</h3>
+                        <p className="coverage-summary">{lead.summary}</p>
                         <a className="text-link" href={lead.link} {...external}>{t.readArticle}<ArrowUpRight size={17} /></a>
                         <div className="coverage-dots" role="tablist" aria-label={t.newsLabel}>
                             {t.news.map((item, i) => <button key={item.link} role="tab" aria-selected={i === featured} aria-label={item.source} className={i === featured ? 'active' : ''} style={publisher(item.color)} onClick={() => setFeatured(i)} />)}
@@ -60,12 +67,16 @@ export default function PressDossier({ t }: { t: ArchiveContent }) {
                     <article className="coverage-brief" key={item.link} style={publisher(item.color)}>
                         <div className="coverage-copy">
                             <p className="publisher-name">{item.source}</p>
+                            {item.date && <span className="dateline">{formatDate(item.date, lang)}</span>}
                             <h3>{item.title}</h3>
-                            <a className="text-link" href={item.link} {...external}>{t.readArticle}<ArrowUpRight size={17} /></a>
-                            <div><button className="promote" onClick={() => setFeatured(i)}>{t.featureArticle}<ChevronUp size={13} /></button></div>
+                            <p className="coverage-summary">{item.summary}</p>
+                            <div className="brief-actions">
+                                <a className="text-link" href={item.link} {...external}>{t.readArticle}<ArrowUpRight size={15} /></a>
+                                <button className="promote" onClick={() => setFeatured(i)}>{t.featureArticle}<ChevronUp size={13} /></button>
+                            </div>
                         </div>
                         <button className="paper-card" onClick={() => setOpen(i)} aria-label={`${t.enlarge}: ${item.source}`}>
-                            <img src={asset(item.image)} alt="" loading="lazy" /><span><Maximize2 size={15} /></span>
+                            <img src={asset(item.image)} alt="" loading="lazy" /><span><Maximize2 size={13} /></span>
                         </button>
                     </article>
                 ))}

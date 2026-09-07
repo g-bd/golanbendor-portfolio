@@ -68,3 +68,6 @@ public/*.mp4
 
 # retired Vite prototype (source kept in archive/homepage-preview-src)
 homepage-preview/
+
+# local-only archive of the classic site and the retired prototype (never uploaded)
+archive/

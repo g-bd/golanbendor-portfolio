@@ -161,8 +161,8 @@ const mediaDurations = ['2:08', '0:44', '1:00', '0:39'];
 const mediaRatios = [852 / 478, 9 / 16, 928 / 480, 720 / 480];
 
 export interface EventItem { tag: string; title: string; desc: string; image: string; }
-export interface MediaItem { tag: string; title: string; desc: string; video: string; poster: string; duration: string; ratio: number; }
-export interface NewsItem { source: string; title: string; image: string; link: string; color: string; }
+export interface MediaItem { tag: string; title: string; desc: string; source: string; video: string; poster: string; duration: string; ratio: number; frames: string[]; }
+export interface NewsItem { source: string; title: string; summary: string; date?: string; image: string; link: string; color: string; }
 export interface ConferenceVideo { youtubeId: string; start: number; title: string; desc: string; }
 
 export interface ArchiveContent {
@@ -176,7 +176,8 @@ export interface ArchiveContent {
   newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; news: NewsItem[];
 }
 
-type ArchiveSeed = Omit<ArchiveContent, 'events' | 'media' | 'news'> & { events: [string, string, string][]; media: [string, string, string][]; news: [string, string][] };
+type ArchiveSeed = Omit<ArchiveContent, 'events' | 'media' | 'news'> & { events: [string, string, string][]; media: [string, string, string, string][]; news: [string, string, string][] };
+const newsDates = ['2024-05-01', '2020-02-19', ''];
 
 const seed: Record<Language, ArchiveSeed> = {
   en: {
@@ -223,16 +224,16 @@ const seed: Record<Language, ArchiveSeed> = {
     mediaLabel: '05 — WATCH & DISCOVER', mediaTitle: ['Transport, data & AI.', 'In everyday language.'],
     mediaDesc: 'Media interviews, conversations about AI and a look inside the classroom: sharing the knowledge behind the work.', play: 'Watch video', close: 'Close player', videoLanguage: 'Original audio · Hebrew', captionsNote: 'Original audio in Hebrew. This video has no caption track.',
     media: [
-      ['TV INTERVIEW · CHANNEL 13', 'Public transportation in the future', 'A conversation about public transport and urban mobility.'],
-      ['VIDEO PODCAST', 'Working smarter with AI', 'Using AI tools to improve everyday workflows.'],
-      ['TEACHING · MATSIM', 'Transport modeling with MATSim', 'Advanced MATSim modeling course.'],
-      ['TEACHING · TEL AVIV UNIVERSITY', 'Geographic information systems', 'GIS course at Tel Aviv University.'],
+      ['TV INTERVIEW', 'Public transportation in the future', 'A conversation about public transport and urban mobility.', 'Channel 13 News'],
+      ['VIDEO PODCAST', 'Working smarter with AI', 'Using AI tools to improve everyday workflows.', 'Podcast'],
+      ['TEACHING', 'Transport modeling with MATSim', 'From an advanced MATSim modeling course.', 'MATSim course'],
+      ['TEACHING', 'Geographic information systems', 'From the GIS course at Tel Aviv University.', 'Tel Aviv University'],
     ],
     newsLabel: 'IN THE NEWS', newsTitle: 'Research in the public conversation.', readArticle: 'Read the article', enlarge: 'Enlarge clipping', featureArticle: 'Feature this story', closeClipping: 'Close clipping', clippingNote: 'Press clipping · opens the original article in a new tab',
     news: [
-      ['Calcalist', 'Study: a congestion charge could cut Jerusalem traffic by a quarter.'],
-      ['TheMarker', 'How much does smart transportation really improve the journey?'],
-      ['Mako', 'On-demand transport: a bus that arrives when you need it.'],
+      ['Calcalist', 'Study: a congestion charge could cut Jerusalem traffic by a quarter.', 'Coverage of the Tel Aviv University MATSim study that modeled congestion pricing and parking policy for central Jerusalem.'],
+      ['TheMarker', 'How much does smart transportation really improve the journey?', 'A simulation of shared autonomous vehicles shows why on-demand fleets cannot replace high-capacity public transport.'],
+      ['Mako', 'On-demand transport: a bus that arrives when you need it.', 'Research on demand-responsive transit, tested with agent-based simulation before any service is launched.'],
     ],
   },
   he: {
@@ -278,16 +279,16 @@ const seed: Record<Language, ArchiveSeed> = {
     mediaLabel: '05 — לצפות ולהכיר', mediaTitle: ['על תחבורה, נתונים ו־AI.', 'בשפה של אנשים.'],
     mediaDesc: 'ראיונות בתקשורת, שיחות על AI והצצה להרצאות — הידע שמאחורי העבודה, גם מחוץ למחקר.', play: 'לצפייה בסרטון', close: 'סגירת הנגן', videoLanguage: 'שמע מקורי · עברית', captionsNote: 'השמע המקורי בעברית. לסרטון זה אין רצועת כתוביות.',
     media: [
-      ['ראיון טלוויזיה · ערוץ 13', 'עתיד התחבורה הציבורית', 'שיחה על תחבורה ציבורית וניידות עירונית.'],
-      ['פודקאסט וידאו', 'לעבוד חכם יותר עם AI', 'כלי בינה מלאכותית לשיפור תהליכי העבודה ביום־יום.'],
-      ['הרצאה · MATSim', 'מידול תחבורה עם MATSim', 'מתוך קורס מתקדם בסימולציה תחבורתית.'],
-      ['הרצאה · אוניברסיטת תל אביב', 'מערכות מידע גאוגרפיות', 'מתוך קורס GIS באוניברסיטת תל אביב.'],
+      ['ראיון טלוויזיה', 'עתיד התחבורה הציבורית', 'שיחה על תחבורה ציבורית וניידות עירונית.', 'חדשות 13'],
+      ['פודקאסט וידאו', 'לעבוד חכם יותר עם AI', 'כלי בינה מלאכותית לשיפור תהליכי העבודה ביום־יום.', 'פודקאסט'],
+      ['הרצאה', 'מידול תחבורה עם MATSim', 'מתוך קורס מתקדם בסימולציה תחבורתית.', 'קורס MATSim'],
+      ['הרצאה', 'מערכות מידע גאוגרפיות', 'מתוך קורס GIS באוניברסיטת תל אביב.', 'אוניברסיטת תל אביב'],
     ],
     newsLabel: 'סיקור תקשורתי', newsTitle: 'המחקר בשיח הציבורי.', readArticle: 'לכתבה המלאה', enlarge: 'הגדלת הכתבה', featureArticle: 'להצגת הכתבה', closeClipping: 'סגירת הכתבה', clippingNote: 'גזיר עיתונות · הכתבה המקורית נפתחת בלשונית חדשה',
     news: [
-      ['כלכליסט', 'אגרת גודש בירושלים: המודל מצביע על אפשרות להפחתת התנועה ברבע.'],
-      ['TheMarker', 'עד כמה תחבורה חכמה באמת משפרת את הנסיעה?'],
-      ['mako', 'תחבורה לפי דרישה: אוטובוס שמגיע כשצריך אותו.'],
+      ['כלכליסט', 'אגרת גודש בירושלים: המודל מצביע על אפשרות להפחתת התנועה ברבע.', 'סיקור מחקר MATSim מאוניברסיטת תל אביב שבחן תמחור גודש ומדיניות חניה במרכז ירושלים.'],
+      ['TheMarker', 'עד כמה תחבורה חכמה באמת משפרת את הנסיעה?', 'סימולציה של רכבים אוטונומיים משותפים מראה מדוע ציי רכב לפי דרישה אינם יכולים להחליף תחבורה ציבורית עתירת קיבולת.'],
+      ['mako', 'תחבורה לפי דרישה: אוטובוס שמגיע כשצריך אותו.', 'מחקר על תחבורה מגיבת ביקוש, שנבחן בסימולציה מבוססת סוכנים לפני השקת שירות.'],
     ],
   },
 };
@@ -295,8 +296,8 @@ const seed: Record<Language, ArchiveSeed> = {
 const build = (s: ArchiveSeed): ArchiveContent => ({
   ...s,
   events: s.events.map(([tag, title, desc], i) => ({ tag, title, desc, image: eventImages[i] })),
-  media: s.media.map(([tag, title, desc], i) => ({ tag, title, desc, video: mediaFiles[i], poster: mediaPosters[i], duration: mediaDurations[i], ratio: mediaRatios[i] })),
-  news: s.news.map(([source, title], i) => ({ source, title, image: newsImages[i], link: newsLinks[i], color: newsColors[i] })),
+  media: s.media.map(([tag, title, desc, source], i) => ({ tag, title, desc, source, video: mediaFiles[i], poster: mediaPosters[i], duration: mediaDurations[i], ratio: mediaRatios[i], frames: [1, 2, 3, 4].map(k => `media-frames/m${i}-${k}.jpg`) })),
+  news: s.news.map(([source, title, summary], i) => ({ source, title, summary, date: newsDates[i] || undefined, image: newsImages[i], link: newsLinks[i], color: newsColors[i] })),
 });
 
 export const archive: Record<Language, ArchiveContent> = { en: build(seed.en), he: build(seed.he) };
