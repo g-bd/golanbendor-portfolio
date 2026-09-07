@@ -1285,3 +1285,64 @@ button.paper-card { width: 100%; text-align: start; }
 .project-facts strong .count-up { font-size: inherit; color: inherit; margin: 0; }
 
 @media (max-width: 760px) { .playlist-meta .selected-label { display: none; } }
+
+/* ==========================================================================
+   Mobile pass (Sept 2026): larger type on phones, RTL-safe partner logos.
+   ========================================================================== */
+@media (max-width: 760px) {
+  /* Partners: a centered wrapping row (3 + 2), identical in LTR and RTL. */
+  .trust-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 26px 18px; }
+  .trust-logo { flex: 0 0 calc(33.333% - 12px); max-width: 150px; }
+  .trust-logo:nth-child(4), .trust-logo:last-child { grid-column: auto; justify-self: auto; width: auto; }
+  .logo-surface { width: 100%; max-width: 110px; height: 44px; }
+  .trust-logo > span { font-size: 12px; max-width: none; line-height: 1.4; }
+  .trust > .eyebrow { font-size: 10px; margin-bottom: 22px; }
+
+  /* Type scale: nothing below 10px, body copy 16-17px. */
+  .eyebrow, .chapter-label, .hero-role, .question .eyebrow, .story-chapter > .eyebrow, .row-heading > .eyebrow, .work-thumbnail .eyebrow, .stage-top .eyebrow, .research .eyebrow, .career-intro .eyebrow, .career-role > .eyebrow, .awards .eyebrow, .event-caption > .eyebrow, .globe-controls .eyebrow, .playlist-meta, .dateline, .broadcast, .studio-tag-chip, .hero-index, .portrait-coordinates, .portrait-caption, .project-stations a span, .toolkit > p, .case-hero-grid .eyebrow, .project-team .eyebrow, .method-step .eyebrow, .directory-card > .eyebrow, .chapter-navigation a span { font-size: 10px; }
+  .hero-role { font-size: 10px; letter-spacing: .08em; }
+  .hero-intro { font-size: 17px; line-height: 1.7; }
+  .hero-agencies { font-size: 13px; }
+  .scroll-prompt { font-size: 13px; }
+  .question h2 { font-size: 31px; }
+  .question > p:last-of-type { font-size: 17px; line-height: 1.7; }
+  .section-heading > p, .row-heading > p, .events-section .row-heading > p { font-size: 16px; line-height: 1.65; }
+  .chapter-description { font-size: 17px; }
+  .project-facts span { font-size: 13px; }
+  .project-stations a { font-size: 11px; }
+  .work-thumbnail h3 { font-size: 21px; }
+  .service > p { font-size: 16px; }
+  .service li { font-size: 15px; }
+  .about-copy > p { font-size: 16px; }
+  .about-links .text-link, .service .text-link, .row-heading .text-link, .thesis .text-link, .event-caption .text-link, .coverage-lead .text-link, .brief-actions .text-link { font-size: 14px; }
+  .proof-strip { font-size: 14px; }
+  .career-role h4 { font-size: 17px; }
+  .career-role p { font-size: 13px; }
+  .toolkit span { font-size: 11px; padding: 6px 10px; }
+  .paper p { font-size: 14px; }
+  .paper .journal { font-size: 11px; }
+  .thesis h3 { font-size: 20px; }
+  .global-copy > p:not(.eyebrow) { font-size: 16px; }
+  .global-stat > span { font-size: 15px; }
+  .global-copy p.city-list { font-size: 12px; line-height: 1.9; }
+  .awards article > p:last-child { font-size: 13px; }
+  .more-awards summary { font-size: 14px; }
+  .event-caption > p:not(.eyebrow) { font-size: 15px; }
+  .gallery-status { font-size: 12px; }
+  .refined-studio .studio-caption > p:not(.eyebrow):not(.portrait-duration) { font-size: 16px; }
+  .playlist-desc { font-size: 14px; }
+  .refined-studio .playlist-title { font-size: 18px; }
+  .coverage-summary, .coverage-brief .coverage-summary { font-size: 15px; }
+  .coverage-brief h3 { font-size: 21px; }
+  .coverage-brief .promote { font-size: 13px; }
+  .contact-copy > p:not(.eyebrow) { font-size: 17px; }
+  .contact-actions .text-link { font-size: 15px; }
+  .email-line { font-size: 14px; }
+  .footer-links > a, .footer .footer-links a, .footer .motion-control, .motion-control { font-size: 12px; }
+  .footer .brand { font-size: 14px; }
+  .case-hero-grid > div > p:not(.eyebrow), .case-overview > div > p:not(.eyebrow), .case-extra > div > p, .method-step > p:last-child, .case-evidence > p:not(.eyebrow), .case-impact > p:not(.eyebrow), .information-layout section p:not(.eyebrow), .information-layout li, .directory-card > p:not(.eyebrow), .directory-intro > p:last-child { font-size: 16px; line-height: 1.75; }
+  .case-stats span { font-size: 13px; }
+  .breadcrumbs { font-size: 12px; }
+  .chapter-navigation a { font-size: 11px; }
+  .information-layout > nav a { font-size: 13px; }
+}
