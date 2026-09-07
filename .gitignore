@@ -65,3 +65,6 @@ public/*.mp4
 # web-compressed versions are small enough to track
 !public/*-web.mp4
 "public/The Istrc21*"
+
+# retired Vite prototype (source kept in archive/homepage-preview-src)
+homepage-preview/

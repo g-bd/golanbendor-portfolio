@@ -207,7 +207,7 @@ export const translations = {
         },
         accessibility: {
             back_home: "Back to Portfolio",
-            last_updated: "Last updated: May 2026",
+            last_updated: "Last updated: September 2026",
             title: "Accessibility Statement",
             subtitle: "Our commitment to inclusive digital access",
             commitment_label: "OUR COMMITMENT",
@@ -229,6 +229,7 @@ export const translations = {
             exceptions_text: "The following elements have partial accessibility limitations. They are noted here for full transparency:",
             exceptions_items: [
                 "Decorative background videos (conference footage, simulation clips) do not include captions",
+                "Interview, podcast and lecture videos (played on request) have no caption track; their original audio is in Hebrew and each is summarized in text beside the player",
                 "Some animated text transitions (hero section) do not have screen-reader equivalents — the static text is always present in the DOM",
                 "The ISTRC 2026 conference poster is presented as an image; its full text content is not separately available as an accessible text transcript",
             ],
@@ -242,7 +243,7 @@ export const translations = {
         },
         privacy: {
             back_home: "Back to Portfolio",
-            last_updated: "Last updated: May 2026",
+            last_updated: "Last updated: September 2026",
             title: "Privacy Policy",
             subtitle: "Simple and honest",
             overview_label: "OVERVIEW",
@@ -253,7 +254,7 @@ export const translations = {
             data_text: "None. This is a static portfolio website. Visiting this site does not result in any personal data being collected or stored by us.",
             cookies_label: "COOKIES",
             cookies_title: "Cookie Policy",
-            cookies_text: "This site sets no cookies of its own — no tracking, analytics, or marketing cookies. Note that embedded YouTube videos may set cookies of their own (see Third-Party Services below).",
+            cookies_text: "This site sets no cookies of its own — no tracking, analytics, or marketing cookies. Your light/dark display preference is saved in your browser's local storage only and is never sent anywhere. Note that YouTube videos, which load only when you choose to play them, may set cookies of their own (see Third-Party Services below).",
             hosting_label: "HOSTING",
             hosting_title: "Infrastructure Logs",
             hosting_text: "This site is hosted on Vercel. As part of standard infrastructure operation, Vercel may collect server access logs (IP address, browser type, requested URL) for infrastructure and security purposes. This data is collected by Vercel, not by us, and is governed by Vercel's Privacy Policy.",
@@ -930,7 +931,7 @@ export const translations = {
         },
         accessibility: {
             back_home: "חזרה לפורטפוליו",
-            last_updated: "עודכן לאחרונה: מאי 2026",
+            last_updated: "עודכן לאחרונה: ספטמבר 2026",
             title: "הצהרת נגישות",
             subtitle: "המחויבות שלנו לגישה דיגיטלית שוויונית",
             commitment_label: "המחויבות שלנו",
@@ -952,6 +953,7 @@ export const translations = {
             exceptions_text: "לאלמנטים הבאים מגבלות נגישות חלקיות. הם מפורטים כאן לשם שקיפות מלאה:",
             exceptions_items: [
                 "סרטוני רקע דקורטיביים (צילומי כנסים, קטעי סימולציה) אינם כוללים כתוביות",
+                "סרטוני הראיונות, הפודקאסט וההרצאות (המופעלים לפי בחירה) אינם כוללים רצועת כתוביות; השמע המקורי בעברית ולצד הנגן מופיע תקציר טקסטואלי של כל סרטון",
                 "חלק מאנימציות הטקסט בסעיף הגיבור אינן כוללות מקבילה לקוראי מסך — הטקסט הסטטי קיים תמיד ב-DOM",
                 "פוסטר הכנס ISTRC 2026 מוצג כתמונה; תוכנו המלא אינו זמין בנפרד כתמליל טקסט נגיש",
             ],
@@ -965,7 +967,7 @@ export const translations = {
         },
         privacy: {
             back_home: "חזרה לפורטפוליו",
-            last_updated: "עודכן לאחרונה: מאי 2026",
+            last_updated: "עודכן לאחרונה: ספטמבר 2026",
             title: "מדיניות פרטיות",
             subtitle: "פשוט וכנה",
             overview_label: "סקירה כללית",
@@ -976,7 +978,7 @@ export const translations = {
             data_text: "אין. זהו אתר פורטפוליו סטטי. ביקור באתר זה אינו מביא לאיסוף או אחסון של מידע אישי כלשהו על ידינו.",
             cookies_label: "עוגיות",
             cookies_title: "מדיניות עוגיות",
-            cookies_text: "אתר זה אינו מציב עוגיות משלו — לא עוגיות מעקב, לא אנליטיקה, ולא שיווק. שימו לב שסרטוני YouTube המוטמעים באתר עשויים להציב עוגיות משלהם (ראו שירותי צד שלישי בהמשך).",
+            cookies_text: "אתר זה אינו מציב עוגיות משלו — לא עוגיות מעקב, לא אנליטיקה, ולא שיווק. שימו לב שסרטוני YouTube המוטמעים באתר עשויים להציב עוגיות משלהם (ראו שירותי צד שלישי בהמשך). העדפת התצוגה שלכם (בהיר/כהה) נשמרת באחסון המקומי של הדפדפן בלבד ואינה נשלחת לשום מקום. סרטוני YouTube נטענים רק כשבוחרים להפעיל אותם.",
             hosting_label: "אחסון",
             hosting_title: "יומני תשתית",
             hosting_text: "אתר זה מתארח בשרותי Vercel. כחלק מהפעלה תקינה של התשתית, Vercel עשויה לאסוף יומני גישה סטנדרטיים (כתובת IP, סוג דפדפן, כתובת URL שנבקשה) לצרכי תשתית ואבטחה. מידע זה נאסף על ידי Vercel ולא על ידינו, ומוסדר במדיניות הפרטיות של Vercel.",

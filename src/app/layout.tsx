@@ -1,23 +1,17 @@
 import type { Metadata, Viewport } from "next";
-import { Outfit, Space_Grotesk, Rajdhani, Fira_Code, Rubik, Heebo } from "next/font/google";
+import { Outfit, Space_Grotesk, Fira_Code, Rubik } from "next/font/google";
 import "./globals.css";
 
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const rajdhani = Rajdhani({
-  variable: "--font-rajdhani",
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const firaCode = Fira_Code({
@@ -29,13 +23,7 @@ const firaCode = Fira_Code({
 const rubik = Rubik({
   variable: "--font-rubik",
   subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
-});
-
-const heebo = Heebo({
-  variable: "--font-heebo",
-  subsets: ["hebrew", "latin"],
-  weight: ["300", "400", "500", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 // Base metadata - language-specific metadata is in [lang]/layout.tsx
@@ -114,12 +102,17 @@ export const viewport: Viewport = {
   maximumScale: 5,
   themeColor: [
     { media: '(prefers-color-scheme: dark)', color: '#0a0a12' },
-    { media: '(prefers-color-scheme: light)', color: '#0a0a12' },
+    { media: '(prefers-color-scheme: light)', color: '#f1f8fa' },
   ],
-  colorScheme: 'dark',
+  colorScheme: 'light dark',
 };
 
 import ClientProviders from "@/components/ClientProviders";
+
+// Runs before first paint: sets lang/dir from the URL and the theme from
+// localStorage -> ?theme= -> system preference -> light. Keeps the static
+// export flash-free and lets crawlers see the corrected attributes.
+const bootScript = `(function(){var d=document.documentElement,p=location.pathname,h=p.indexOf('/he')===0;d.lang=h?'he':'en';d.dir=h?'rtl':'ltr';var t=null;try{t=localStorage.getItem('theme')}catch(e){}var q=new URLSearchParams(location.search).get('theme');if(q==='dark'||q==='light'){t=q;try{localStorage.setItem('theme',q)}catch(e){}}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}d.dataset.theme=t;})();`;
 
 export default function RootLayout({
   children,
@@ -127,37 +120,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang="en" dir="ltr" data-theme="light" className={`${outfit.variable} ${spaceGrotesk.variable} ${firaCode.variable} ${rubik.variable}`} suppressHydrationWarning>
       <head>
-        {/* Preconnect to Google Fonts for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Preconnect to YouTube for embedded videos */}
-        <link rel="preconnect" href="https://www.youtube.com" />
-        <link rel="preconnect" href="https://i.ytimg.com" />
-        {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="https://scholar.google.com" />
         <link rel="dns-prefetch" href="https://linkedin.com" />
-        {/* Inline script to set lang/dir before React hydration for SEO */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                var path = window.location.pathname;
-                var isHebrew = path.startsWith('/he');
-                document.documentElement.lang = isHebrew ? 'he' : 'en';
-                document.documentElement.dir = isHebrew ? 'rtl' : 'ltr';
-                if (isHebrew) document.body?.classList.add('font-hebrew');
-              })();
-            `,
-          }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
       </head>
-      <body
-        className={`${outfit.variable} ${spaceGrotesk.variable} ${rajdhani.variable} ${firaCode.variable} ${rubik.variable} ${heebo.variable}`}
-        style={{ fontFamily: "'Outfit', sans-serif" }}
-        suppressHydrationWarning
-      >
+      <body suppressHydrationWarning>
         <ClientProviders>
           {children}
         </ClientProviders>

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { translations } from "@/data/translations";
+import SiteShell from "@/components/site/SiteShell";
 
 type Props = {
   children: React.ReactNode;
@@ -73,6 +74,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
 }
 
 export default async function LangLayout({ children, params }: Props) {
-  // hreflang tags are handled via generateMetadata -> alternates.languages
-  return <>{children}</>;
+  // hreflang tags are handled via generateMetadata -> alternates.languages.
+  // SiteShell renders the shared header, ambient background and footer.
+  return <SiteShell>{children}</SiteShell>;
 }

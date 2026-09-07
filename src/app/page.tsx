@@ -62,14 +62,14 @@ export default function RootPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          background: '#0a0a12',
-          color: '#b0b0c0',
+          background: '#f1f8fa',
+          color: '#496576',
           fontFamily: 'sans-serif',
         }}
       >
         <p>
           {'מעביר אותך לאתר… '}
-          <Link href="/he/" style={{ color: '#00e5ff' }}>
+          <Link href="/he/" style={{ color: '#176c91' }}>
             drbendor.com
           </Link>
         </p>

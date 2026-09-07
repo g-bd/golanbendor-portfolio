@@ -1,0 +1,1451 @@
+export type Language = 'en' | 'he';
+export type Direction = 'ltr' | 'rtl';
+
+export const translations = {
+    en: {
+        nav: {
+            brand_name: "Golan Ben-Dor",
+            about: "About",
+            skills: "Skills",
+            work: "Work",
+            knowledge: "Knowledge Hub",
+            publications: "Publications",
+            contact: "Contact",
+        },
+        hero: {
+            name: "DR. GOLAN BEN-DOR",
+            title: "URBAN MOBILITY SCIENTIST",
+            headline_prefix: "SIMULATING",
+            headline_suffix: "THE FUTURE",
+            description: "I work with transport agencies to evaluate major projects under uncertainty, using real-world data, agent-based models, AI and scenario analysis. I also lecture to companies on leveraging AI tools to transform complex challenges into streamlined workflows.",
+            description_collaboration: "Current collaborations include the Ministry of Transport, Netivei Ayalon, Netivei Israel, the Jerusalem Master Transportation Team, and the Central Bureau of Statistics (CBS).",
+            cta: "Explore Models"
+        },
+        trusted_by: "TRUSTED BY AND COLLABORATING WITH INDUSTRY LEADERS",
+        trusted_companies: {
+            mot: "Ministry of Transport",
+            netivei_israel: "Netivei Israel",
+            netivei_ayalon: "Netivei Ayalon",
+            jerusalem_team: "Jerusalem Transportation Team",
+            cbs: "CBS"
+        },
+        recognition: {
+            label: "// RECOGNITION & AWARDS",
+            subtitle: "13+ academic and professional honors",
+            awards: [
+                {
+                    year: "2022",
+                    title: "Global Young Scientists Summit (GYSS)",
+                    desc: "Selected from 1,700 applicants worldwide"
+                },
+                {
+                    year: "2019",
+                    title: "Pritzker Forum on Global Cities, Chicago",
+                    desc: "Represented Tel Aviv University in a global student delegation"
+                },
+                {
+                    year: "2023",
+                    title: "Mordechai Ofer Foundation",
+                    desc: "PhD excellence scholarship — transportation, land and environmental research"
+                },
+                {
+                    year: "2019-2023",
+                    title: "\"Shlomo Shmeltzer\" Smart Transportation Institute",
+                    desc: "Innovation scholarship for intelligent transportation research, Tel Aviv University"
+                },
+                {
+                    year: "2020-2023",
+                    title: "Israeli Smart Transportation Research Center (ISTRC)",
+                    desc: "PhD excellence scholarship, Technion"
+                },
+                {
+                    year: "2021",
+                    title: "Bavarian-Israeli Smart City Workshop, Munich",
+                    desc: "Selected participant — Bavarian State Ministry of Economic Affairs"
+                }
+            ]
+        },
+        globe: {
+            label: "// GLOBAL REACH",
+            title: "Presented in 15+ cities worldwide",
+            cities: "Chicago · Singapore · Munich · London · Stockholm · Warsaw · Lyon · Porto · Leuven · Vilnius · Limassol · Manchester · Orlando · Berlin · Tel Aviv",
+            aria: "Interactive globe showing cities where Dr. Golan Ben-Dor has presented his research"
+        },
+        about: {
+            title: "About Me",
+            role_title: "The Architect of Flow",
+            role_desc: "With a PhD from Tel Aviv University, I bridge the gap between theoretical algorithms and concrete urban reality. My work focuses on Robust Policy Evaluation—ensuring that billion-dollar decisions handle uncertainty. I also lecture to companies on AI-native workflows, showing teams how to leverage cutting-edge AI tools to transform complex challenges into elegant solutions.",
+            current_label: "Current",
+            current_role: "Authorized Consultant",
+            current_org: "Netivei Ayalon & Ministry of Transport (via Eshed)",
+            current_label2: "Current",
+            current_role2: "AI Workflow Consultant & Lecturer",
+            current_org2: "Corporate Training & Consulting",
+            past_label: "2016 - 2023",
+            past_role: "Transport Simulation Scientist",
+            past_org: "Geosimulation Lab, TAU",
+            past_label2: "2023",
+            past_role2: "Academic Lecturer (GIS)",
+            past_org2: "Tel Aviv University",
+            skills_title: "Technical Arsenal",
+            skills_desc: "Core technologies used for simulation & analysis:",
+            phd_title: "PhD Research",
+            phd_desc: "\"Combating Congestion: Robust Transportation Policy Evaluation\"",
+            msc_title: "Master's Thesis",
+            msc_desc: "\"Evaluating the Impacts of Dedicated Bus Lanes on Urban Traffic with an Agent-Based Model\""
+        },
+        work: {
+            title: "Selected Work",
+            status_live: "LIVE",
+            status_completed: "COMPLETED",
+            status_validation: "VALIDATION",
+            status_ongoing: "ONGOING",
+            google_title: "Google Maps Analytics",
+            google_desc: "Strategic planning for the Ministry of Transport. Harnessing massive API datasets to visualize real-time congestion and optimize traffic count distribution.",
+            google_role: "Role: Method Lead, Technical Advisor, Co-PI",
+            google_link: "View Analysis →",
+            jerusalem_title: "Jerusalem Master Plan",
+            jerusalem_desc: "Evaluated \"Carrot and Stick\" strategies for Jerusalem. Findings showed how congestion pricing stabilizes the impact of Shared Automated Cars on public transport usage.",
+            jerusalem_link: "View Simulation →",
+            blind_title: "Blind Control Reconstruction",
+            blind_desc: "Rigorous \"blind\" reconstruction of the Beer Sheva traffic model results to validate the integrity and accuracy of the simulation for government approval.",
+            blind_link: "View Methodology →",
+            status_simulation: "SIMULATION",
+            status_research: "ISTRC 2026",
+            counts_title: "Traffic Count Sampling Design",
+            counts_desc: "Where should a city count its traffic? A network-science methodology developed at the Ministry of Transport that selects the exact links to count for validating Israel's metropolitan transport models.",
+            counts_link: "View Research →",
+            brt_title: "BRT Corridor Analysis",
+            brt_desc: "Agent-based simulation of the Pink Line BRT corridor, powered by Replan and in partnership with Netivei Ayalon. Corridor-level demand and modal shift analysis — run in-house, before any infrastructure decision is made.",
+            brt_link: "View Case Study →",
+            status_survey: "NATIONAL · 2026",
+            cordon_title: "National Cordon & Screenline Survey",
+            cordon_desc: "The first full-national traffic count survey for validating Israel's five strategic transport models. I orchestrated the methodology and coordinated 355 count stations across Netivei Israel, Netivei Ayalon and JTMT.",
+            cordon_link: "Explore the Map →",
+            ai_title: "AI-Enhanced Workflows",
+            ai_desc: "Pioneering AI-Native Development using Claude, Gemini, and Codex to accelerate simulation pipelines and automate complex spatial SQL queries.",
+            ai_link: "Learn More →",
+            all_work_title: "All Case Studies",
+            all_work_desc: "Browse the full index of projects and case studies — methodology, agencies, status and tags for each.",
+            all_work_link: "View All →"
+        },
+        knowledge: {
+            title: "Knowledge Hub",
+            tv_tag: "TV INTERVIEW",
+            tv_title: "Public Transportation in the Future",
+            tv_desc: "Interview on Channel 13 News discussing the future of public transportation and urban mobility.",
+            tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
+            podcast_tag: "VIDEO PODCAST",
+            podcast_title: "AI-Native Workflows",
+            podcast_ep: "Leveraging AI Tools for Complex Problem Solving",
+            podcast_link: "Watch Episode",
+            news: [
+                {
+                    tag: "PRESS",
+                    title: "\"Study: Jerusalem congestion charge cut traffic by a quarter.\"",
+                    source: "Calcalist Feature",
+                    image: "/article news.jpg",
+                    link: "https://www.calcalist.co.il/local_news/article/ry11iv5cz0",
+                    isLong: true,
+                    scrollDepth: '-20%',
+                    duration: 15000,
+                    disableMobileScroll: true,
+                    mobileTitle: "Study: Congestion charge cuts traffic by 25%.",
+                    mobileImageClassName: "h-full object-cover object-right-top md:h-auto md:object-center",
+                },
+                {
+                    tag: "PRESS",
+                    title: "Like a bus, but empty and motionless: The study exposing the inefficiency of smart transportation",
+                    source: "TheMarker Feature",
+                    image: "/article news 2.png",
+                    link: "https://www.themarker.com/dynamo/cars/2020-02-19/ty-article/.premium/0000017f-e0f6-d38f-a57f-e6f6deb60000",
+                    isLong: true,
+                    scrollDepth: '-55%',
+                    duration: 10000,
+                    scrollDuration: 8000, // Scroll in 8s, pause 2s before next slide
+                    disableMobileScroll: true,
+                    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)', // Lighter gradient
+                    mobileTitle: "Smart Transport Inefficiency?",
+                },
+                {
+                    tag: "PRESS",
+                    title: "Right Around the Corner: The Bus Will Arrive Exactly When You Need It",
+                    source: "Mako Feature",
+                    image: "/article news 3.png",
+                    link: "https://www.mako.co.il/nexter-internet/developments/Article-e34ae227f71af51006.htm",
+                    isLong: true,
+                    scrollDepth: '-80%',
+                    duration: 60000,
+                    mobileTitle: "The Bus Arrives On Time.",
+                }
+            ],
+            publications_tag: "PUBLICATIONS",
+            view_all_publications: "View All Publications →",
+            papers: {
+                robust_title: "Robust Policy Evaluation",
+                robust_desc: "Agent-based evaluation of congestion charges and parking prices in central Jerusalem. MATsim scenarios show how fees reduce congestion and emissions and encourage travelers to switch from private cars.",
+                robust_meta: "Transportation Research Part A • 2024",
+                scale_title: "Agent-Based Modeling at Scale",
+                scale_desc: "Parallel framework for large-scale urban traffic simulation in MATsim. Automatically clusters traffic to partition the network, balance cores, and reduce synchronization, delivering faster simulations on real road networks.",
+                scale_meta: "Simulation Modelling Practice and Theory • 2023",
+                downscaling_title: "Population Downscaling in MATsim",
+                downscaling_desc: "Studies MATsim downscaling by comparing full and sampled populations in Sioux Falls. Shows which reduced agent shares preserve key traffic statistics and where further scaling distorts network dynamics.",
+                downscaling_meta: "Simulation Modelling Practice and Theory • 2021"
+            }
+        },
+        contact: {
+            title: "LET'S CONNECT",
+            desc: "Open to consulting on national and metropolitan models, data infrastructure for mobility analytics, and research collaborations.",
+            phone: "+972-52-293-7463",
+            phone_label: "SECURE LINE //",
+            resume: "Resume",
+            footer: "© 2026 Golan Ben-Dor."
+        },
+        footer_links: {
+            accessibility: "Accessibility Statement",
+            privacy: "Privacy Policy",
+        },
+        accessibility: {
+            back_home: "Back to Portfolio",
+            last_updated: "Last updated: May 2026",
+            title: "Accessibility Statement",
+            subtitle: "Our commitment to inclusive digital access",
+            commitment_label: "OUR COMMITMENT",
+            commitment_title: "Equal Access For All",
+            commitment_text: "Dr. Golan Ben-Dor is committed to making this website accessible to all users, including persons with disabilities, in accordance with the Equal Rights for Persons with Disabilities Law (5758-1998) and the Israeli Standard IS 5568 (WCAG 2.0 Level AA).",
+            done_label: "ACCESSIBILITY FEATURES",
+            done_title: "What We've Done",
+            done_items: [
+                "All images include descriptive alternative text",
+                "Navigation and interactive controls include ARIA labels",
+                "Color contrast meets WCAG 2.0 AA standards throughout",
+                "Keyboard navigation is fully supported",
+                "Full Hebrew (RTL) and English (LTR) language support",
+                "Decorative background animations are disabled when the user enables the \"reduce motion\" system setting",
+                "Compatible with major screen readers (NVDA, VoiceOver)",
+            ],
+            exceptions_label: "KNOWN LIMITATIONS",
+            exceptions_title: "Partial Compliance — Noted Exceptions",
+            exceptions_text: "The following elements have partial accessibility limitations. They are noted here for full transparency:",
+            exceptions_items: [
+                "Decorative background videos (conference footage, simulation clips) do not include captions",
+                "Some animated text transitions (hero section) do not have screen-reader equivalents — the static text is always present in the DOM",
+                "The ISTRC 2026 conference poster is presented as an image; its full text content is not separately available as an accessible text transcript",
+            ],
+            coordinator_label: "ACCESSIBILITY COORDINATOR",
+            coordinator_title: "Contact for Accessibility",
+            coordinator_text: "To report an accessibility issue, request content in an accessible format, or ask for assistance navigating this site, please contact:",
+            coordinator_name: "Dr. Golan Ben-Dor",
+            coordinator_phone: "+972-52-293-7463",
+            coordinator_email: "golanbendor@gmail.com",
+            coordinator_response: "We aim to respond to all accessibility requests within 5 business days.",
+        },
+        privacy: {
+            back_home: "Back to Portfolio",
+            last_updated: "Last updated: May 2026",
+            title: "Privacy Policy",
+            subtitle: "Simple and honest",
+            overview_label: "OVERVIEW",
+            overview_title: "We Collect Nothing",
+            overview_text: "This website (drbendor.com) does not collect, store, or process any personal data from visitors. There are no contact forms, no account registration, no newsletter, and no tracking cookies placed by this site.",
+            data_label: "DATA COLLECTION",
+            data_title: "Personal Data",
+            data_text: "None. This is a static portfolio website. Visiting this site does not result in any personal data being collected or stored by us.",
+            cookies_label: "COOKIES",
+            cookies_title: "Cookie Policy",
+            cookies_text: "This site sets no cookies of its own — no tracking, analytics, or marketing cookies. Note that embedded YouTube videos may set cookies of their own (see Third-Party Services below).",
+            hosting_label: "HOSTING",
+            hosting_title: "Infrastructure Logs",
+            hosting_text: "This site is hosted on Vercel. As part of standard infrastructure operation, Vercel may collect server access logs (IP address, browser type, requested URL) for infrastructure and security purposes. This data is collected by Vercel, not by us, and is governed by Vercel's Privacy Policy.",
+            hosting_link_text: "Vercel Privacy Policy →",
+            hosting_link_url: "https://vercel.com/legal/privacy-policy",
+            links_label: "EXTERNAL LINKS",
+            links_title: "Third-Party Services",
+            links_text: "This site links to external services including WhatsApp, LinkedIn, GitHub, Google Scholar, and academic publishers. This site also embeds YouTube videos; when these play, YouTube may set cookies on your browser, governed by Google's privacy policy. These services have their own privacy policies. We are not responsible for their data practices.",
+            contact_label: "QUESTIONS",
+            contact_title: "Contact",
+            contact_text: "For any privacy-related questions:",
+            contact_email: "golanbendor@gmail.com",
+            contact_phone: "+972-52-293-7463",
+        },
+        carousel: [
+            {
+                tag: "STRATEGIC MEETING",
+                title: "Google-Ministry Partnership",
+                desc: 'Presenting National Traffic Monitoring Platform',
+                image: "/key note 5.jpg"
+            },
+            {
+                tag: "KEYNOTE",
+                title: "Smart Cities Summit 2024",
+                desc: 'Keynote Speaker: "Data-Driven Urbanism"',
+                image: "/key note 1.jpg",
+                bgPosition: '25% top'
+            },
+            {
+                tag: "COURSE VIDEO",
+                title: "Advanced MATSim Modeling Course",
+                desc: 'Teaching session: Transport Simulation Fundamentals',
+                videoFile: "/Golan%20Course%201.mp4"
+            },
+            {
+                tag: "VIDEO",
+                title: "ISTRC 2021 Conference",
+                desc: 'Talk: "Robust Policy Evaluation"',
+                image: "/key note 4.jpg", // Fallback image if needed, though video will cover it
+                youtubeId: "3inUnuxH_W0",
+                startTime: 23
+            },
+            {
+                tag: "CONFERENCE",
+                title: "MATSim User Meeting",
+                desc: 'Presenting Research: "Robust Policy Evaluation in Jerusalem"',
+                image: "/key note 4.jpg"
+            },
+            {
+                tag: "PANEL",
+                title: "Transport Innovation Hub",
+                desc: 'Expert Panel: "The Future of Simulation"',
+                image: "/key note 2.jpg",
+                bgPosition: '25% top'
+            },
+            {
+                tag: "WORKSHOP",
+                title: "Urban Future Conference",
+                desc: 'Leading Workshop: "Agents of Change"',
+                image: "/key note 3.jpg",
+                bgPosition: 'center',
+                mobileBgPosition: 'top right'
+            },
+            {
+                tag: "COURSE VIDEO",
+                title: "GIS Course at Tel Aviv University",
+                desc: 'Academic Lecture: Geographic Information Systems',
+                videoFile: "/Golan%20Course%202.mp4",
+                videoPosition: "center 85%"
+            },
+            {
+                tag: "PRESENTATION",
+                title: "National Transport Strategy",
+                desc: 'Presenting Advanced Modeling Frameworks',
+                image: "/key note 6.jpg"
+            },
+            {
+                tag: "POSTER",
+                title: "ISTRC 2026 Conference",
+                desc: 'Centrality-based Sampling for Traffic Count Validation',
+                image: "/key note 7.jpeg"
+            },
+            {
+                tag: "TALK",
+                title: "ISTRC 2026 Conference",
+                desc: 'Google Routes to Road Segments: Travel Time Monitoring',
+                image: "/key note 8.jpeg"
+            }
+        ],
+        jerusalem_article: {
+            title: "Simulation-based policy evaluation of monetary car driving disincentives in Jerusalem",
+            subtitle: "Published in Transportation Research Part A",
+            hero_text: "I am thrilled to announce the publication of our latest article in the esteemed journal, Transportation Research Part A. Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions to traffic congestion in one of the world's most historically and culturally rich cities.",
+            study_highlight: "In our study, we established and validated a multimodal agent-based simulation of Jerusalem using MATSim, investigating how congestion charges and parking pricing can significantly impact traffic flow within the city center.",
+            study_finding: "Our findings revealed that a daily charge of approximately €10 could reduce car arrivals by 25%, offering a tangible strategy to alleviate urban congestion. Additionally, when combined with parking pricing, these measures could deter intra-city trips, further reducing congestion and emissions.",
+
+            // Page UI
+            back_to_portfolio: "Back to Portfolio",
+            research_team: "Research Team",
+            research_team_desc: "Collaborative effort between academia, industry leaders, and the JTMT (Jerusalem Transportation Master Plan Team).",
+            research_quote: "Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions...",
+            fresh_insights: "Fresh Insights",
+            cta_heading: "Ready to dive deeper?",
+
+            blog_section: {
+                title: "Fresh Insights: Using Carrot-and-Stick Measures to Improve Transport in Jerusalem",
+                intro: "I'm pleased to share some highlights from my latest research, aimed at enhancing future urban mobility in Jerusalem.",
+
+                contribution_title: "Our Contribution",
+                contribution_p1: "We used MATSim to create a virtual model of Jerusalem's transport system. Think of it as a super-smart video game where cars, buses, and even self-driving vehicles move like in real life. The virtual people adapt to changes, switching to whatever transport benefits them. This helps us test ideas to improve real-world travel.",
+                contribution_p2: "The MATSim Jerusalem model served as a testing ground for different future \"carrot-and-stick\" strategies.",
+                contribution_p3: "Our model showed that introducing Shared Automated Cars alone (the \"carrot\") could divert people from Public Transport. Adding a \"stick\" like congestion/parking pricing, however, creates a balanced use of both.",
+                contribution_p4: "Interestingly, easing traffic in congestion-charged areas can paradoxically attract more private cars.",
+
+                impact_title: "Why It Matters",
+                impact_text: "The work provides valuable insights for city planners, helping them understand how to effectively use rewards (\"carrots\") and penalties (\"sticks\") to improve urban mobility.",
+
+                video_title: "See It in Action",
+                video_desc: "I have created a video simulation to visually represent the model (Via by Simunto).",
+            },
+
+            cta_button: "Read Full Article",
+            cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
+        },
+        google_article: {
+            title: "Building a Digital Basemap of Israel's Road Network",
+            subtitle: "Ministry of Transport · National Travel-Time Project",
+            hero_text: "How I built a production-ready system that creates accurate digital basemaps of urban road networks — the foundation for measuring real travel times across Israel's major cities.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Developed for the Ministry of Transport's Transport Planning Division, in partnership with the Jerusalem Transportation Master Plan Team (JTMT) and in collaboration with Eng. Marcus Szeinuk and Dr. Ido Klein.",
+            project_quote: "Every travel-time measurement is only as good as the map underneath it. This system makes sure that map is right.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "From Raw Road Network to Production-Ready Basemap",
+                intro: "To measure how traffic really flows through a city, you first need a precise digital map of every road segment — in each direction of travel. Off-the-shelf maps aren't accurate enough for that. So I built a system that creates these 'basemaps' from scratch, for Tel Aviv, Jerusalem, Haifa and Be'er Sheva.",
+
+                how_title: "How It Works",
+                how_p1: "At the start of the process, the city's road network is loaded and broken down into directed segments — a two-way street becomes two separate one-way links, each with its own unique ID.",
+                how_p2: "Each segment is then compared against real-world driving routes. The system automatically measures how well the two geometries match, and flags every mismatch.",
+                how_p3: "A dedicated visual review interface lets an analyst inspect each flagged segment on an interactive map, fix it with a few clicks — adjust endpoints, add waypoints, re-check — and approve it. Keyboard shortcuts make reviewing hundreds of segments fast.",
+                how_p4: "The result: a validated, export-ready basemap that feeds the national travel-time measurement system.",
+
+                ai_title: "Built AI-Native, End to End",
+                ai_text: "I built this entire system — the data processing, the interactive review interface, the automated test suite, and the production deployment — using AI-native development workflows with tools like Claude and Codex. AI didn't just write code snippets; it powered the full cycle: architecture, implementation, automated testing, and production hardening. This is exactly the workflow I teach in my AI lectures and consulting.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Transport agencies make multi-million shekel decisions based on travel-time data. An inaccurate basemap silently corrupts every measurement built on top of it. This system turns a months-long manual mapping effort into a fast, repeatable, quality-controlled process — already in production use across four metropolitan areas.",
+
+                video_title: "The System in Action",
+                video_desc: "A walkthrough of the basemap creation and review workflow.",
+            },
+
+            stats: {
+                cities_value: "4",
+                cities_label: "Metropolitan Areas",
+                production_value: "LIVE",
+                production_label: "In Production",
+            },
+
+            cta_heading: "Want AI-native workflows like this in your organization?",
+            cta_button: "Get in Touch",
+        },
+        beersheva_article: {
+            title: "Beer Sheva Model Validation System",
+            subtitle: "Netivei Ayalon · Transport Model QA",
+            hero_text: "How I built an AI-native system to reconstruct, validate, and package a complete transport model output — and ship it as a production tool to the customer.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Developed for Netivei Ayalon as part of the Beer Sheva metropolitan transport model certification process, enabling rigorous quality assurance of model outputs before government submission.",
+            project_quote: "You can't approve a model you can't verify. This system makes verification fast, repeatable, and transparent.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "From Raw Model Output to a Validated, Packaged Deliverable",
+                intro: "Transport model outputs are complex — dozens of tables, thousands of rows, multiple time periods. Manually checking them against targets takes weeks and is error-prone. I built a system that does it automatically, and ships as a ready-to-use tool.",
+
+                how_title: "How It Works",
+                how_p1: "The system reads raw model outputs — road network assignments, transit ridership, route data — and reconstructs each required report table using the exact formulas from the model's specification document.",
+                how_p2: "Each reconstructed table is automatically compared against the official target. The system flags every mismatch — missing rows, extra rows, value differences above tolerance — and produces a detailed diff report.",
+                how_p3: "A professional Streamlit dashboard lets an analyst review any table, switch between time periods (AM, off-peak, PM), filter by match status, and inspect individual cell-level differences with smart color coding.",
+                how_p4: "The entire system was packaged as a standalone deliverable and handed to the customer — including all inputs, scripts, GUI, and documentation — so they can run it independently at any time.",
+
+                ai_title: "Built AI-Native",
+                ai_text: "The reconstruction engine, test suite, GUI, and packaging workflow were all built using AI-native development with Claude and Codex. Not just code generation — full-cycle development: architecture design, iterative implementation, automated testing, and production hardening. This is the workflow I teach.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Transport model validation is a legal and contractual requirement before major infrastructure decisions. A system that does it automatically — and produces a paper trail — replaces weeks of manual analyst work and eliminates the risk of undetected errors in the outputs that decision-makers rely on.",
+
+                video_title: "The System in Action",
+                video_desc: "A walkthrough of the reconstruction dashboard and validation interface.",
+            },
+
+            stats: {
+                tables_value: "10+",
+                tables_label: "Reconstructed Tables",
+                periods_value: "3",
+                periods_label: "Time Periods Validated",
+            },
+
+            cta_heading: "Want AI-native tooling like this for your transport project?",
+            cta_button: "Get in Touch",
+        },
+        brt_article: {
+            title: "BRT Corridor Analysis — Powered by Replan",
+            subtitle: "Israel · Netivei Ayalon · BRT",
+            hero_text: "Corridor-level demand and modal shift analysis run in-house — before any infrastructure decision is made. Agent-based simulation of the Pink Line BRT corridor, in partnership with Replan and Netivei Ayalon.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Partnership",
+            project_team_desc: "A joint project with Replan (replan.city) and Netivei Ayalon: bringing corridor-level agent-based simulation in-house, so planners can stress-test BRT scenarios on the Pink Line corridor before committing to infrastructure.",
+            project_quote: "A BRT decision reshapes a corridor for decades. Simulating it first — in-house, in days — is the cheapest insurance a planning agency can buy.",
+            fresh_insights: "Case Study",
+
+            highlights: {
+                h1_title: "Corridor-Level",
+                h1_desc: "Not a black-box regional forecast — a focused, high-resolution view of one corridor: demand, boardings, travel times, station by station.",
+                h2_title: "Modal Shift",
+                h2_desc: "Every simulated traveler chooses between car, bus and BRT. The output is the number that matters: how many drivers actually switch.",
+                h3_title: "In-House",
+                h3_desc: "The analysis runs inside the organization — scenarios are iterated in days, not procured in months, before any infrastructure decision is made.",
+            },
+
+            blog_section: {
+                title: "Testing the Pink Line Before It's Built",
+                intro: "Bus Rapid Transit promises light-rail performance at a fraction of the cost — but only if the corridor design actually pulls drivers out of their cars. Together with Replan and Netivei Ayalon, we run agent-based simulations of the Pink Line BRT corridor to answer that question before a single lane is repainted.",
+
+                how_title: "How It Works",
+                how_p1: "The Pink Line corridor is modeled in Replan's simulation platform — network, stations, dedicated lanes and signal priority — alongside a calibrated baseline of today's traffic.",
+                how_p2: "A synthetic population of agents, each with its own daily activity schedule, travels through the corridor. Every agent chooses its mode and route — private car, bus or BRT — reacting to travel times, service frequency and congestion.",
+                how_p3: "Scenarios are compared head-to-head against the baseline: corridor-level demand, boarding profiles, travel-time savings, and the modal shift from private cars to the new BRT service.",
+                how_p4: "Results arrive in days, not months — run in-house, so the corridor design can be iterated and refined before any infrastructure decision is locked in.",
+
+                partner_title: "Powered by Replan",
+                partner_text: "The analysis runs on Replan's cloud simulation platform — purpose-built for testing transit scenarios with agent-based modeling. The partnership brings a capability that used to require months-long consulting studies directly into the planning organization.",
+                partner_link_label: "Visit replan.city",
+
+                impact_title: "Why It Matters",
+                impact_text: "A BRT corridor is a decades-long commitment of road space, budget and political capital. Getting the demand and modal-shift picture before the design is locked means the infrastructure that gets built is the infrastructure the corridor actually needs.",
+
+                video_title: "Corridor Simulation — Preview",
+                video_desc: "Placeholder visualization — the full corridor analysis is available on request.",
+            },
+
+            cta_heading: "Want the full Pink Line corridor analysis?",
+            cta_button: "Request Case Study",
+        },
+        counts_article: {
+            title: "Where Should a City Count Its Traffic?",
+            subtitle: "Ministry of Transport · ISTRC 2026",
+            hero_text: "Strategic transport models are validated against real-world traffic counts — but counting is expensive, and you can only measure a fraction of the network. I led the development of a methodology that answers the where and how many with network science, applied to all four of Israel's metropolitan models.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Research",
+            project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Eng. Marcus Szeinuk and Dr. Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
+            project_quote: "The scientific literature says to count 5–20% of your links to faithfully represent the network. Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
+            fresh_insights: "Research Spotlight",
+
+            blog_section: {
+                title: "From Vague Guidelines to a Transparent Algorithm",
+                intro: "Every strategic transport model — the models behind billions in infrastructure decisions — must prove it reproduces real traffic. That proof comes from traffic counts at selected road links. But every counting station costs money, so agencies face the same question everywhere: where exactly should the counters go? International manuals offer only rough ranges. We turned that guesswork into an algorithm that combines statistical sampling theory with network science.",
+
+                how_title: "How the Algorithm Works",
+                how_p1: "Filter the network: only links that carry private vehicle traffic are eligible, and ramps and very short links (under 200 m) are excluded as count locations. Everything stays in the graph, though — so the centrality math stays honest.",
+                how_p2: "Compute betweenness centrality for the entire network: the shortest routes between all origins and destinations are found with Dijkstra's algorithm, and every link is scored by how many of those routes pass through it. High centrality means the link is a load-bearing beam of the network.",
+                how_p3: "Tune it for the metropolis: the routes are weighted by distance — otherwise everything funnels onto the national highways, which Israel already monitors with permanent counters. Distance weighting lets the urban connectors surface, so sampling can focus on the metropolitan road classes (4–5).",
+                how_p4: "Sample zone by zone: within every traffic analysis zone, the top 20% (configurable) of metropolitan links by centrality are selected — a share in line with what the scientific literature recommends.",
+                how_p5: "The result is a spatially balanced 'measurement skeleton': every zone in the metropolis is covered, and within each zone the budget goes to the most connected, most important roads.",
+
+                maps_title: "Four Metropolitan Areas, One Algorithm",
+                maps_intro: "The methodology was applied to Israel's four metropolitan strategic models. Across the four, 755 count locations were selected out of 3,448 eligible metropolitan links — about 22%, roughly the top fifth of every traffic zone. Each map shows the selected links glowing over the model's traffic analysis zones, colored by betweenness centrality score.",
+                legend_low: "Lower centrality",
+                legend_high: "Highest centrality",
+                metro_telaviv: "Tel Aviv",
+                metro_jerusalem: "Jerusalem",
+                metro_haifa: "Haifa",
+                metro_beersheva: "Beer Sheva",
+                map_links_label: "links",
+                map_eligible_label: "eligible metropolitan links",
+                map_selected_label: "selected",
+                map_road_label: "Road",
+                map_centrality_label: "Centrality",
+                map_length_label: "Length",
+                map_unnamed: "Unnamed link",
+                map_select_prompt: "Hover over a glowing link to see which road it is and how central it sits in the network.",
+                map_hint: "Hover or tap a link for details · switch metropolitan area with the buttons",
+                map_aria: "Interactive map of selected traffic count locations, colored by betweenness centrality",
+                map_zoom_in: "Zoom in",
+                map_zoom_out: "Zoom out",
+                map_zoom_reset: "Reset zoom",
+                map_zoom_hint: "Scroll or pinch to zoom · drag to pan · tap a link",
+
+                science_title: "The Science, Simply",
+                science_p1: "Imagine computing the shortest route between every pair of zones in a metropolitan area — hundreds of thousands of routes, each found with Dijkstra's algorithm. Some road links appear in a huge share of those routes: bridges, interchanges, key connectors. That share is the link's betweenness centrality — shown on the maps as a simple 0–100% score. For the metropolitan sample the routes are weighted by distance rather than speed: speed-weighting funnels every route onto the national highways, which Israel already monitors with permanent counters, while distance-weighting reveals the urban roads that hold the metropolis together.",
+                science_p2: "Selection is then zone-based: within each traffic analysis zone, the top 20% (configurable) of metropolitan links (classes 4–5) by centrality are picked — a sampling share consistent with the scientific literature. This guarantees true spatial coverage: no zone is left unmeasured, and within every zone the counting budget goes to the most connected, most important roads.",
+                science_formula: "for each zone:  select top 20% of class 4–5 links, ranked by Cᵦ(e)",
+                science_formula_explainer: "Here, Cᵦ(e) is the betweenness centrality of link e — the share of shortest routes between zone pairs that cross it, as described above. In the deployed version this calculation is distance-bounded: each road class has its own maximum distance (configurable) beyond which a shortest route no longer counts toward a link's centrality, computed via Dijkstra's algorithm with edge weights based on that class's typical travel speed (also configurable).",
+                demo_caption: "Watch it live: every moment, the shortest route between two random zones lights up. One link keeps getting crossed — the bridge between the two halves of the network. That's high betweenness centrality.",
+                demo_share_suffix: "of all shortest routes cross this link",
+                demo_hint: "Hover any link to see its share",
+                demo_route_word: "route",
+
+                poster_title: "Presented at ISTRC 2026",
+                poster_desc: "The methodology was presented as a poster paper at the Israel Section of Transportation Research Conference 2026. The poster describes the general sampling framework; the version deployed for the four metropolitan areas extends it with distance-based centrality and per-zone selection, tuned for metropolitan roads.",
+                poster_authors: "Dr. Golan Ben Dor, Eng. Marcus Szeinuk, Dr. Ido Klein — Ministry of Transport · Prof. Shlomo Bekhor — Technion",
+                poster_button: "View Full-Size Poster",
+
+                impact_title: "Why It Matters",
+                impact_text: "Every counting station means field equipment, crews and processing budgets. This methodology makes sure each one buys maximum validation power: the sample is structurally critical, covers every traffic zone, and focuses on the metropolitan roads that have no permanent monitoring — the national highways are already counted. It replaces 'we count where we've always counted' with a transparent, defensible, repeatable procedure — applied to the strategic models of all four of Israel's metropolitan areas.",
+            },
+
+            stats: {
+                metros_value: "4",
+                metros_label: "Metropolitan Models",
+                links_value: "3,448",
+                links_label: "Eligible Strategic Links",
+                sample_value: "755",
+                sample_label: "Count Locations Selected",
+                rate_value: "~22%",
+                rate_label: "Sampling Rate",
+            },
+
+            cta_heading: "Want methodology like this behind your transport decisions?",
+            cta_button: "Get in Touch",
+        },
+        cordon_article: {
+            title: "Israel's 2026 National Cordon & Screenline Survey",
+            subtitle: "Models Round Table · Joint Model Validation",
+            hero_text: "How I orchestrated the survey methodology and coordinated the placement of hundreds of count stations across Israel's transport authorities — Netivei Israel, Netivei Ayalon and the Jerusalem Transportation Master Plan Team — creating the first traffic count survey with full national coverage.",
+
+            back_to_portfolio: "Back to Portfolio",
+            project_team: "The Project",
+            project_team_desc: "Led within the Ministry of Transport's 'Models Round Table' — the forum governing Israel's five strategic transport models. Every count line and station was agreed jointly with Netivei Israel, Netivei Ayalon and JTMT, inside one unified GIS framework. I led the methodology in collaboration with Dr. Ido Klein, Eng. Marcus Szeinuk and Prof. Shlomo Bekhor.",
+            project_quote: "Five models, three authorities, one map. The entire survey lives in a single shared GeoPackage that every partner reviews, refines and executes from.",
+            fresh_insights: "Case Study",
+
+            blog_section: {
+                title: "One Unified Map for Validating All of Israel's Strategic Transport Models",
+                intro: "Cordon and screenline counts are the gold standard for validating transport models: strategic measurement lines are drawn across the road network, and every road crossing them gets counted. Previous Israeli surveys covered single metropolitan areas. The 2026 survey is the first with full national coverage — all five strategic models, one methodology, one shared map. My role: orchestrate the methodology and coordinate, with all partners, exactly where every count station goes.",
+
+                map_title: "The Survey Map",
+                map_desc: "28 cordon & screenline lines, 355 count stations, five model regions. Hover or tap a line for details, and use the legend to filter by region.",
+
+                how_title: "How the Methodology Works",
+                how_p1: "28 cordon and screenline lines were defined relative to the boundaries of the metropolitan and national models — closed rings ('cordons') around cities and metropolitan areas, and crossing lines ('screenlines') along natural or artificial barriers.",
+                how_p2: "Every road crossing a line becomes a count station. Each candidate crossing was examined individually — questionable ones (minor local or agricultural roads) were explicitly resolved with the responsible authority, converging on 355 final stations.",
+                how_p3: "The full map — lines, stations and model boundaries — lives in a single shared GeoPackage. Each authority reviewed its region, moved or confirmed stations, and the agreed version became the binding execution plan.",
+                how_p4: "Strict timing rules preserve data consistency: all lines of a region are counted within a single two-month window, and each individual line within one or two days — so entry/exit balances can actually be verified.",
+
+                coordination_title: "Orchestrating Three Authorities",
+                coordination_text: "Each authority — Netivei Israel (national model), Netivei Ayalon (Tel Aviv, Haifa and Be'er Sheva models) and JTMT (Jerusalem) — executes the counts in its own territory, with its own contractors and budget. My work was making sure this decentralized execution produces one coherent national dataset: a standard station-placement methodology, a unified GIS data structure, shared vehicle classification, synchronized timing rules, and a clear escalation path to the Round Table for overlaps and disputes.",
+
+                impact_title: "Why It Matters",
+                impact_text: "Strategic transport models drive multi-billion shekel infrastructure decisions — and they are only trustworthy if periodically validated against reality. This survey creates the reference dataset for validating all of Israel's strategic models in a single coordinated cycle, designed to repeat every two years.",
+            },
+
+            map: {
+                regions: {
+                    national: "National",
+                    telaviv: "Tel Aviv",
+                    haifa: "Haifa",
+                    jerusalem: "Jerusalem",
+                    beersheva: "Be'er Sheva",
+                },
+                type_cordon: "Cordon",
+                type_screenline: "Screenline",
+                stations: "stations",
+                km: "km",
+                lines: "lines",
+                hint: "Hover or tap a line · click a region to filter",
+                select_prompt: "Select a corridor on the map",
+                total_label: "Survey totals",
+                points_note: "414 mapped count points incl. alternates",
+                aria: "Interactive map of Israel's 2026 cordon and screenline traffic count survey",
+                zoom_in: "Zoom in",
+                zoom_out: "Zoom out",
+                zoom_reset: "Reset zoom",
+                zoom_hint: "Scroll or pinch to zoom · drag to pan · tap a line",
+            },
+
+            stats: {
+                stations_value: "355",
+                stations_label: "Count Stations",
+                lines_value: "28",
+                lines_label: "Cordon & Screenline Lines",
+                km_value: "2,112",
+                km_label: "Kilometers of Lines",
+                models_value: "5",
+                models_label: "Strategic Models",
+            },
+
+            cta_heading: "Need methodology orchestration across multiple agencies?",
+            cta_button: "Get in Touch",
+        },
+        related_work: {
+            heading: "More Case Studies",
+            cordon_title: "National Cordon & Screenline Survey",
+            cordon_desc: "Coordinating 355 count stations across three transport authorities.",
+            jerusalem_title: "Jerusalem Congestion Pricing Study",
+            jerusalem_desc: "Simulation-based policy evaluation using MATSim.",
+            google_title: "Digital Road Network Basemap",
+            google_desc: "AI-native system for national travel-time measurement.",
+            beersheva_title: "Beer Sheva Model Validation",
+            beersheva_desc: "AI-native reconstruction and validation system.",
+            counts_title: "Traffic Count Sampling Design",
+            counts_desc: "Centrality-based sampling methodology, presented at ISTRC 2026.",
+            brt_title: "BRT Corridor Analysis",
+            brt_desc: "Agent-based Pink Line corridor simulation, powered by Replan.",
+        },
+        work_index: {
+            title: "Case Studies & Projects",
+            subtitle: "Research and consulting work in urban mobility simulation",
+            description: "Explore detailed case studies from my work with Israel's leading transport agencies. Each project demonstrates how agent-based simulation and data analytics inform better policy decisions.",
+            back_home: "Back to Home",
+            featured: "FEATURED",
+            view_project: "View Project",
+            categories: {
+                simulation: "Simulation",
+                analytics: "Analytics",
+                policy: "Policy",
+                ai: "AI"
+            },
+            projects: {
+                jerusalem: {
+                    title: "Jerusalem Transportation Master Plan",
+                    desc: "Agent-based evaluation of congestion pricing and shared autonomous vehicles impact on urban mobility using MATSim simulation.",
+                    tags: ["MATSim", "Policy Evaluation", "Congestion Pricing"],
+                    status: "Published 2024"
+                },
+                google: {
+                    title: "Google Maps Traffic Analytics",
+                    desc: "Strategic planning platform for the Ministry of Transport, harnessing massive API datasets for real-time congestion visualization.",
+                    tags: ["Big Data", "Real-time Analytics", "Strategic Planning"],
+                    status: "Live Project"
+                },
+                beersheva: {
+                    title: "Beer Sheva Model Validation",
+                    desc: "Rigorous blind reconstruction of metropolitan traffic model to validate simulation integrity for government approval.",
+                    tags: ["Model Validation", "Quality Assurance", "Government"],
+                    status: "Completed"
+                },
+                counts: {
+                    title: "Traffic Count Sampling Design",
+                    desc: "Centrality-based methodology that selects where to place traffic counts for validating Israel's four metropolitan strategic models. Presented at ISTRC 2026.",
+                    tags: ["Network Science", "Sampling Design", "Model Validation"],
+                    status: "ISTRC 2026"
+                },
+                brt: {
+                    title: "BRT Corridor Analysis — Pink Line",
+                    desc: "Agent-based simulation of the Pink Line BRT corridor with Replan and Netivei Ayalon. Corridor-level demand and modal shift analysis, run in-house — before any infrastructure decision is made.",
+                    tags: ["BRT", "Agent-Based Simulation", "Replan"],
+                    status: "In Progress"
+                },
+                cordon: {
+                    title: "National Cordon & Screenline Survey 2026",
+                    desc: "First full-national traffic count survey for the joint validation of Israel's five strategic transport models — 28 lines, 355 stations, one unified GIS methodology across three transport authorities.",
+                    tags: ["GIS", "Methodology", "Multi-Agency Coordination"],
+                    status: "In Progress · 2026"
+                },
+                ai_workflows: {
+                    title: "AI-Enhanced Simulation Workflows",
+                    desc: "Pioneering AI-Native development using Claude, Gemini and Codex to accelerate simulation pipelines and automate spatial SQL.",
+                    tags: ["AI", "Automation", "Workflow Optimization"],
+                    status: "Ongoing"
+                }
+            }
+        }
+    },
+    he: {
+        nav: {
+            brand_name: "גולן בן-דור",
+            about: "אודות",
+            skills: "כישורים",
+            work: "פרויקטים",
+            knowledge: "מרכז ידע",
+            publications: "פרסומים",
+            contact: "צור קשר",
+        },
+        hero: {
+            name: "ד\"ר גולן בן-דור",
+            title: "חוקר תחבורה, נתונים ו-AI",
+            headline_prefix: "מדע שמניע",
+            headline_suffix: "ערים קדימה",
+            description: "אני עובד עם רשויות תחבורה להערכת פרויקטים גדולים בתנאי אי-ודאות, באמצעות נתוני אמת, מודלים מבוססי סוכנים (MATSim) ובינה מלאכותית. בנוסף, אני מרצה לחברות על מינוף כלי AI להפיכת אתגרים מורכבים לתהליכי עבודה יעילים.",
+            description_collaboration: "שיתופי פעולה נוכחיים כוללים את משרד התחבורה, נתיבי איילון, נתיבי ישראל, צוות תכנית אב לתחבורה ירושלים והלמ\"ס.",
+            cta: "פרויקטים נבחרים"
+        },
+        trusted_by: "בשיתוף עם מובילי התעשייה",
+        trusted_companies: {
+            mot: "משרד התחבורה",
+            netivei_israel: "נתיבי ישראל",
+            netivei_ayalon: "נתיבי איילון",
+            jerusalem_team: "צוות תכנית אב לתחבורה",
+            cbs: "למ\"ס"
+        },
+        recognition: {
+            label: "// הוקרה והישגים",
+            subtitle: "למעלה מ-13 פרסים ומלגות הצטיינות אקדמיים ומקצועיים",
+            awards: [
+                {
+                    year: "2022",
+                    title: "Global Young Scientists Summit (GYSS)",
+                    desc: "נבחר מתוך 1,700 מועמדים מכל העולם"
+                },
+                {
+                    year: "2019",
+                    title: "פורום פריצקר לערים גלובליות, שיקגו",
+                    desc: "נבחר לייצג את אוניברסיטת תל אביב במשלחת סטודנטים גלובלית"
+                },
+                {
+                    year: "2023",
+                    title: "קרן מרדכי עופר",
+                    desc: "מלגת הצטיינות לדוקטורט בתחום התחבורה, הקרקע והנוף"
+                },
+                {
+                    year: "2019-2023",
+                    title: "מכון \"שלמה שמלצר\" לתחבורה חכמה",
+                    desc: "מלגת הצטיינות לחדשנות בתחום התחבורה החכמה, אוניברסיטת תל אביב"
+                },
+                {
+                    year: "2020-2023",
+                    title: "המרכז לחקר התחבורה החכמה בישראל (ISTRC)",
+                    desc: "מלגת הצטיינות לעבודת הדוקטורט, טכניון"
+                },
+                {
+                    year: "2021",
+                    title: "סדנת עיר חכמה בווארית-ישראלית, מינכן",
+                    desc: "נבחר להשתתף מטעם משרד הכלכלה של מדינת בוואריה"
+                }
+            ]
+        },
+        globe: {
+            label: "// נוכחות גלובלית",
+            title: "הרצאות וכנסים ביותר מ-15 ערים ברחבי העולם",
+            cities: "שיקגו · סינגפור · מינכן · לונדון · שטוקהולם · ורשה · ליון · פורטו · לוון · וילנה · לימסול · מנצ'סטר · אורלנדו · ברלין · תל אביב",
+            aria: "גלובוס אינטראקטיבי המציג ערים בהן הציג ד\"ר גולן בן-דור את מחקריו"
+        },
+        about: {
+            title: "אודותיי",
+            role_title: "אדריכל הזרימה",
+            role_desc: "עם דוקטורט מאוניברסיטת תל אביב, אני מגשר על הפער בין אלגוריתמים תיאורטיים למציאות עירונית. עבודתי מתמקדת בהערכת מדיניות חסינה—הבטחה שהחלטות של מיליארדים יעמדו במבחן אי-הוודאות. בנוסף, אני מרצה לחברות על תהליכי עבודה מבוססי AI, ומלמד צוותים כיצד למנף כלי בינה מלאכותית מתקדמים להפוך אתגרים מורכבים לפתרונות אלגנטיים.",
+            current_label: "כיום",
+            current_role: "יועץ מורשה",
+            current_org: "נתיבי איילון ומשרד התחבורה (באמצעות אשד)",
+            current_label2: "כיום",
+            current_role2: "יועץ ומרצה לתהליכי AI",
+            current_org2: "הדרכות והכשרות ארגוניות",
+            past_label: "2016 - 2023",
+            past_role: "חוקר סימולציה תחבורתית",
+            past_org: "המעבדה לגיאו-סימולציה, אונ' ת\"א",
+            past_label2: "2023",
+            past_role2: "מרצה אקדמי (GIS)",
+            past_org2: "אוניברסיטת תל אביב",
+            skills_title: "ארסנל טכני",
+            skills_desc: "טכנולוגיות ליבה לסימולציה וניתוח:",
+            phd_title: "מחקר דוקטורט",
+            phd_desc: "\"נלחמים בגודש: הערכת מדיניות תחבורתית רובסטית במודל סימולציה רב-אמצעי מבוסס סוכנים\"",
+            msc_title: "עבודת מוסמך",
+            msc_desc: "\"הערכת ההשפעה של נתיבי תחבורה ציבורית על מצב התנועה העירוני באמצעות מודל מבוסס סוכנים\""
+        },
+        work: {
+            title: "פרויקטים נבחרים",
+            status_live: "בשידור חי",
+            status_completed: "הושלם",
+            status_validation: "ולידציה",
+            status_ongoing: "תהליך רץ",
+            google_title: "ניתוח Google Maps",
+            google_desc: "תכנון אסטרטגי עבור משרד התחבורה. שימוש במאגרי מידע עצומים לניתוח גודש בזמן אמת ואופטימיזציה של מערכי ספירת תנועה.",
+            google_role: "תפקיד: מוביל מתודולוגי, יועץ טכני",
+            google_link: "צפה בניתוח ←",
+            jerusalem_title: "תוכנית אב ירושלים",
+            jerusalem_desc: "הערכת אסטרטגיות \"המקל והגזר\" לירושלים. הממצאים הראו כיצד אגרות גודש מייצבות את ההשפעה של רכבים אוטונומיים שיתופיים על השימוש בתחבורה ציבורית.",
+            jerusalem_link: "צפה בסימולציה ←",
+            blind_title: "שחזור 'עיוור' - באר שבע",
+            blind_desc: "שחזור ריגורוזי בתנאי \"עיוורון\" של תוצאות מודל התנועה בבאר שבע, לאימות שלמות ודיוק הסימולציה לאישור ממשלתי.",
+            blind_link: "צפה במתודולוגיה ←",
+            status_simulation: "סימולציה",
+            status_research: "ISTRC 2026",
+            counts_title: "תכנון מדגם ספירות תנועה",
+            counts_desc: "איפה כדאי לעיר לספור את התנועה שלה? מתודולוגיה מבוססת מדע רשתות שפותחה במשרד התחבורה ובוחרת בדיוק אילו מקטעים לספור לאימות המודלים המטרופוליניים של ישראל.",
+            counts_link: "צפה במחקר ←",
+            brt_title: "ניתוח פרוזדור BRT",
+            brt_desc: "סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד, מבוססת Replan ובשיתוף נתיבי איילון. ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור — בתוך הארגון, לפני כל החלטת תשתית.",
+            brt_link: "צפה במקרה הבוחן ←",
+            status_survey: "ארצי · 2026",
+            cordon_title: "סקר חיץ וחגורה ארצי",
+            cordon_desc: "סקר ספירות התנועה הארצי הראשון בכיסוי מלא לתיקוף חמשת המודלים האסטרטגיים של ישראל. הובלתי את המתודולוגיה ותיאמתי 355 תחנות ספירה בין נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה.",
+            cordon_link: "לצפייה במפה ←",
+            ai_title: "תהליכים מועצמי AI",
+            ai_desc: "פיתוח מבוסס בינה מלאכותית (AI-Native) באמצעות Claude, Gemini ו-Codex להאצת תהליכי סימולציה ואוטומציה של שאילתות מרחביות מורכבות.",
+            ai_link: "למד עוד ←",
+            all_work_title: "כל מקרי הבוחן",
+            all_work_desc: "עיינו באינדקס המלא של הפרויקטים ומקרי הבוחן — מתודולוגיה, רשויות, סטטוס ותגיות לכל אחד.",
+            all_work_link: "לכל הפרויקטים ←"
+        },
+        knowledge: {
+            title: "מרכז ידע",
+            tv_tag: "ראיון טלוויזיוני",
+            tv_title: "תחבורה ציבורית בעתיד",
+            tv_desc: "ראיון בחדשות ערוץ 13 על עתיד התחבורה הציבורית והניידות העירונית.",
+            tv_link: "https://13tv.co.il/item/news/domestic/internal/public-transportation-1255544/",
+            podcast_tag: "פודקאסט וידאו",
+            podcast_title: "תהליכי עבודה מבוססי AI",
+            podcast_ep: "מינוף כלי בינה מלאכותית לפתרון בעיות מורכבות",
+            podcast_link: "צפה בפרק",
+            news: [
+                {
+                    tag: "עיתונות",
+                    title: "\"מחקר: אגרת הגודש בירושלים חתכה את הפקקים ברבע.\"",
+                    source: "כתבה בכלכליסט",
+                    image: "/article news.jpg",
+                    link: "https://www.calcalist.co.il/local_news/article/ry11iv5cz0",
+                    isLong: true,
+                    scrollDepth: '-20%',
+                    duration: 15000,
+                    disableMobileScroll: true,
+                    mobileTitle: "מחקר: אגרת הגודש חתכה את הפקקים ברבע.",
+                    mobileImageClassName: "h-full object-cover object-right-top md:h-auto md:object-center",
+                },
+                {
+                    tag: "עיתונות",
+                    title: "כמו אוטובוס, רק ריק ולא זז: המחקר שחושף את חוסר היעילות של התחבורה החכמה",
+                    source: "כתבה ב-TheMarker",
+                    image: "/article news 2.png",
+                    link: "https://www.themarker.com/dynamo/cars/2020-02-19/ty-article/.premium/0000017f-e0f6-d38f-a57f-e6f6deb60000",
+                    isLong: true,
+                    scrollDepth: '-55%',
+                    duration: 10000,
+                    scrollDuration: 8000, // Scroll in 8s, pause 2s before next slide
+                    disableMobileScroll: true,
+                    overlayGradient: 'linear-gradient(to top, rgba(0,0,0,0.6), transparent)', // Lighter gradient
+                    mobileTitle: "חוסר יעילות בתחבורה חכמה",
+                },
+                {
+                    tag: "עיתונות",
+                    title: "ממש מעבר לפינה: האוטובוס יגיע בדיוק מתי שאתם צריכים",
+                    source: "כתבה ב-Mako",
+                    image: "/article news 3.png",
+                    link: "https://www.mako.co.il/nexter-internet/developments/Article-e34ae227f71af51006.htm",
+                    isLong: true,
+                    scrollDepth: '-80%',
+                    duration: 60000,
+                    mobileTitle: "האוטובוס יגיע בדיוק בזמן",
+                }
+            ],
+            publications_tag: "פרסומים מדעיים",
+            view_all_publications: "לכל הפרסומים ←",
+            papers: {
+                robust_title: "הערכת מדיניות חסינה",
+                robust_desc: "הערכה מבוססת-סוכנים של אגרות גודש ומחירי חניה במרכז ירושלים. תרחישי MATSim מראים כיצד אגרות מפחיתות גודש ופליטות ומעודדות מעבר מתחבורה פרטית.",
+                robust_meta: "Transportation Research Part A • 2024",
+                scale_title: "מודלים מבוססי סוכנים בקנה מידה רחב",
+                scale_desc: "מסגרת מקבילית לסימולציית תנועה עירונית בקנה מידה רחב ב-MATSim. חלוקה אוטומטית של הרשת לאיזון עומסים וצמצום סנכרון.",
+                scale_meta: "Simulation Modelling Practice and Theory • 2023",
+                downscaling_title: "צמצום אוכלוסייה ב-MATSim",
+                downscaling_desc: "בחינת צמצום (Downscaling) ב-MATSim באמצעות השוואת אוכלוסיות מלאות ודגומות. מראה אילו אחוזי דגימה משמרים סטטיסטיקות תנועה מרכזיות.",
+                downscaling_meta: "Simulation Modelling Practice and Theory • 2021"
+            }
+        },
+        contact: {
+            title: "בואו נדבר",
+            desc: "פתוח לייעוץ בנושאי מודלים לאומיים ומטרופוליניים, תשתיות נתונים לאנליטיקת ניידות, הרצאות בנושא AI ושיתופי פעולה מחקריים.",
+            phone: "052-293-7463",
+            phone_label: "קו ישיר //",
+            resume: "קורות חיים",
+            footer: "© 2026 גולן בן-דור."
+        },
+        footer_links: {
+            accessibility: "הצהרת נגישות",
+            privacy: "מדיניות פרטיות",
+        },
+        accessibility: {
+            back_home: "חזרה לפורטפוליו",
+            last_updated: "עודכן לאחרונה: מאי 2026",
+            title: "הצהרת נגישות",
+            subtitle: "המחויבות שלנו לגישה דיגיטלית שוויונית",
+            commitment_label: "המחויבות שלנו",
+            commitment_title: "גישה שווה לכולם",
+            commitment_text: "ד״ר גולן בן-דור מחויב להנגשת אתר זה לכלל המשתמשים, לרבות אנשים עם מוגבלות, בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות (תשנ״ח-1998) ותקנות הנגישות מכוחו, ובהתאם לתקן הישראלי ת״י 5568 (WCAG 2.0 רמה AA).",
+            done_label: "מאפייני נגישות",
+            done_title: "מה ביצענו",
+            done_items: [
+                "כל התמונות כוללות טקסט חלופי תיאורי",
+                "פקדי ניווט ואלמנטים אינטראקטיביים כוללים תוויות ARIA",
+                "ניגודיות צבעים עומדת בדרישות WCAG 2.0 רמה AA",
+                "ניווט מלא במקלדת",
+                "תמיכה מלאה בעברית (RTL) ובאנגלית (LTR)",
+                "אנימציות רקע דקורטיביות מושבתות כאשר המשתמש הפעיל את הגדרת \"הפחת תנועה\" במערכת ההפעלה",
+                "תאימות עם קוראי מסך מובילים (NVDA, VoiceOver)",
+            ],
+            exceptions_label: "מגבלות ידועות",
+            exceptions_title: "תאימות חלקית — חריגים מתועדים",
+            exceptions_text: "לאלמנטים הבאים מגבלות נגישות חלקיות. הם מפורטים כאן לשם שקיפות מלאה:",
+            exceptions_items: [
+                "סרטוני רקע דקורטיביים (צילומי כנסים, קטעי סימולציה) אינם כוללים כתוביות",
+                "חלק מאנימציות הטקסט בסעיף הגיבור אינן כוללות מקבילה לקוראי מסך — הטקסט הסטטי קיים תמיד ב-DOM",
+                "פוסטר הכנס ISTRC 2026 מוצג כתמונה; תוכנו המלא אינו זמין בנפרד כתמליל טקסט נגיש",
+            ],
+            coordinator_label: "רכז נגישות",
+            coordinator_title: "יצירת קשר בנושאי נגישות",
+            coordinator_text: "לדיווח על בעיית נגישות, לבקשת תוכן בפורמט נגיש, או לסיוע בניווט באתר, אנא פנו אל:",
+            coordinator_name: "ד״ר גולן בן-דור",
+            coordinator_phone: "+972-52-293-7463",
+            coordinator_email: "golanbendor@gmail.com",
+            coordinator_response: "אנו שואפים להשיב לכל פנייה בנושאי נגישות תוך 5 ימי עסקים.",
+        },
+        privacy: {
+            back_home: "חזרה לפורטפוליו",
+            last_updated: "עודכן לאחרונה: מאי 2026",
+            title: "מדיניות פרטיות",
+            subtitle: "פשוט וכנה",
+            overview_label: "סקירה כללית",
+            overview_title: "אנחנו לא אוספים כלום",
+            overview_text: "אתר זה (drbendor.com) אינו אוסף, מאחסן או מעבד מידע אישי כלשהו של מבקריו. אין טפסי יצירת קשר, אין הרשמה לחשבון, אין ניוזלטר, ואין עוגיות מעקב המוטמעות על ידי אתר זה.",
+            data_label: "איסוף מידע",
+            data_title: "מידע אישי",
+            data_text: "אין. זהו אתר פורטפוליו סטטי. ביקור באתר זה אינו מביא לאיסוף או אחסון של מידע אישי כלשהו על ידינו.",
+            cookies_label: "עוגיות",
+            cookies_title: "מדיניות עוגיות",
+            cookies_text: "אתר זה אינו מציב עוגיות משלו — לא עוגיות מעקב, לא אנליטיקה, ולא שיווק. שימו לב שסרטוני YouTube המוטמעים באתר עשויים להציב עוגיות משלהם (ראו שירותי צד שלישי בהמשך).",
+            hosting_label: "אחסון",
+            hosting_title: "יומני תשתית",
+            hosting_text: "אתר זה מתארח בשרותי Vercel. כחלק מהפעלה תקינה של התשתית, Vercel עשויה לאסוף יומני גישה סטנדרטיים (כתובת IP, סוג דפדפן, כתובת URL שנבקשה) לצרכי תשתית ואבטחה. מידע זה נאסף על ידי Vercel ולא על ידינו, ומוסדר במדיניות הפרטיות של Vercel.",
+            hosting_link_text: "מדיניות הפרטיות של Vercel ←",
+            hosting_link_url: "https://vercel.com/legal/privacy-policy",
+            links_label: "קישורים חיצוניים",
+            links_title: "שירותי צד שלישי",
+            links_text: "אתר זה מכיל קישורים לשירותים חיצוניים כגון WhatsApp, LinkedIn, GitHub, Google Scholar ומפרסמים אקדמיים. האתר גם מטמיע סרטוני YouTube; בעת הפעלתם, YouTube עשויה להציב עוגיות בדפדפן שלך, הכפופות למדיניות הפרטיות של Google. לשירותים אלה מדיניות פרטיות משלהם. איננו אחראים לנהלי הנתונים שלהם.",
+            contact_label: "שאלות",
+            contact_title: "יצירת קשר",
+            contact_text: "לכל שאלה הנוגעת לפרטיות:",
+            contact_email: "golanbendor@gmail.com",
+            contact_phone: "+972-52-293-7463",
+        },
+        carousel: [
+            {
+                tag: "פגישה אסטרטגית",
+                title: "שותפות גוגל-משרד התחבורה",
+                desc: 'הצגת פלטפורמת ניטור תנועה ארצית',
+                image: "/key note 5.jpg"
+            },
+            {
+                tag: "נאום מרכזי",
+                title: "פסגת ערים חכמות 2024",
+                desc: 'דובר מרכזי: "עירוניות מונעת נתונים"',
+                image: "/key note 1.jpg",
+                bgPosition: '25% top'
+            },
+            {
+                tag: "וידאו קורס",
+                title: "קורס מידול MATSim מתקדם",
+                desc: 'מפגש לימודי: יסודות סימולציית תחבורה',
+                videoFile: "/Golan%20Course%201.mp4"
+            },
+            {
+                tag: "וידאו",
+                title: "ISTRC 2021",
+                desc: 'הרצאה: "הערכת מדיניות חסינה"',
+                image: "/key note 4.jpg",
+                youtubeId: "3inUnuxH_W0",
+                startTime: 23
+            },
+            {
+                tag: "כנס",
+                title: "מפגש משתמשי MATSim",
+                desc: 'הצגת מחקר: "הערכת מדיניות חסינה בירושלים"',
+                image: "/key note 4.jpg"
+            },
+            {
+                tag: "פאנל",
+                title: "מרכז חדשנות בתחבורה",
+                desc: 'פאנל מומחים: "עתיד הסימולציה"',
+                image: "/key note 2.jpg",
+                bgPosition: '25% top'
+            },
+            {
+                tag: "סדנה",
+                title: "כנס עתיד עירוני",
+                desc: 'הובלת סדנה: "סוכנים של שינוי"',
+                image: "/key note 3.jpg",
+                bgPosition: 'center',
+                mobileBgPosition: 'top right'
+            },
+            {
+                tag: "וידאו קורס",
+                title: "קורס GIS באוניברסיטת תל אביב",
+                desc: 'הרצאה אקדמית: מערכות מידע גאוגרפיות',
+                videoFile: "/Golan%20Course%202.mp4",
+                videoPosition: "center 85%"
+            },
+            {
+                tag: "הצגה",
+                title: "אסטרטגיה תחבורתית לאומית",
+                desc: 'הצגת מסגרות מידול מתקדמות',
+                image: "/key note 6.jpg"
+            },
+            {
+                tag: "פוסטר",
+                title: "כנס ISTRC 2026",
+                desc: 'דגימה מבוססת מרכזיות לאימות ספירות תנועה',
+                image: "/key note 7.jpeg"
+            },
+            {
+                tag: "הרצאה",
+                title: "כנס ISTRC 2026",
+                desc: 'מ-Google Routes לקטעי כביש: ניטור זמני נסיעה רציף',
+                image: "/key note 8.jpeg"
+            }
+        ],
+        jerusalem_article: {
+            title: "הערכת מדיניות מבוססת סימולציה של תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים",
+            subtitle: "פורסם ב-Transportation Research Part A",
+            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
+            study_highlight: "במחקרנו הקמנו ותיקפנו סימולציה מבוססת סוכנים רב-אמצעית של ירושלים באמצעות MATSim, ובחנו כיצד אגרות גודש ותמחור חניה יכולים להשפיע משמעותית על זרימת התנועה במרכז העיר.",
+            study_finding: "הממצאים שלנו הראו שאגרה יומית של כ-10 אירו יכולה להפחית את כניסת הרכבים ב-25%, מה שמציע אסטרטגיה מוחשית להקלת הגודש העירוני. בנוסף, בשילוב עם תמחור חניה, צעדים אלו יכולים להרתיע נסיעות פנים-עירוניות ולהפחית עוד יותר את הגודש והפליטות.",
+
+            // Page UI
+            back_to_portfolio: "חזרה לפורטפוליו",
+            research_team: "צוות המחקר",
+            research_team_desc: "מאמץ שיתופי בין האקדמיה, מובילי התעשייה וצוות תכנית אב לתחבורה ירושלים.",
+            research_quote: "יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
+            fresh_insights: "תובנות חדשות",
+            cta_heading: "מוכנים לצלול לעומק?",
+
+            blog_section: {
+                title: "תובנות חדשות: שימוש בשיטת \"המקל והגזר\" לשיפור התחבורה בירושלים",
+                intro: "אני שמח לשתף כמה נקודות עיקריות מהמחקר האחרון שלי, שמטרתו לשפר את הניידות העירונית העתידית בירושלים.",
+
+                contribution_title: "התרומה שלנו",
+                contribution_p1: "השתמשנו ב-MATSim כדי ליצור מודל וירטואלי של מערכת התחבורה בירושלים. חשבו על זה כמו משחק וידאו סופר-חכם שבו מכוניות, אוטובוסים ואפילו רכבים אוטונומיים נעים כמו בחיים האמיתיים. האנשים הווירטואליים מסתגלים לשינויים ועוברים לכל אמצעי תחבורה שמשתלם להם. זה עוזר לנו לבדוק רעיונות לשיפור הנסיעה בעולם האמיתי.",
+                contribution_p2: "מודל MATSim ירושלים שימש כשדה ניסוי לאסטרטגיות עתידיות שונות של \"המקל והגזר\".",
+                contribution_p3: "המודל שלנו הראה שהכנסת רכבים אוטונומיים שיתופיים לבד (\"הגזר\") עלולה להסיט אנשים מתחבורה ציבורית. עם זאת, הוספת \"מקל\" כמו אגרת גודש/תמחור חניה יוצרת איזון בשימוש בשניהם.",
+                contribution_p4: "באופן מעניין, הקלת התנועה באזורים שבהם יש אגרת גודש יכולה באופן פרדוקסלי למשוך יותר רכבים פרטיים.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "העבודה מספקת תובנות חשובות למתכנני ערים, ועוזרת להם להבין כיצד להשתמש ביעילות בתגמולים (\"גזרים\") ועונשים (\"מקלות\") כדי לשפר את הניידות העירונית.",
+
+                video_title: "לראות את זה בעיניים",
+                video_desc: "יצרתי סימולציית וידאו כדי לייצג ויזואלית את המודל (Via by Simunto).",
+            },
+
+            cta_button: "לקריאת המאמר המלא",
+            cta_link: "https://linkinghub.elsevier.com/retrieve/pii/S0965856424001095"
+        },
+        google_article: {
+            title: "בניית מפת בסיס דיגיטלית של רשת הכבישים בישראל",
+            subtitle: "משרד התחבורה · פרויקט זמני נסיעה ארצי",
+            hero_text: "כך בניתי מערכת ברמת production שיוצרת מפות בסיס דיגיטליות ומדויקות של רשתות כבישים עירוניות — התשתית למדידת זמני נסיעה אמיתיים בערים הגדולות בישראל.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "פותח עבור אגף תכנון תחבורתי במשרד התחבורה, בשיתוף עם צוות תכנית אב לתחבורה ירושלים (JTMT) ובשיתוף פעולה עם אינג׳ מרכוס סניוק וד\"ר עדו קליין.",
+            project_quote: "כל מדידת זמן נסיעה טובה בדיוק כמו המפה שמתחתיה. המערכת הזו מוודאת שהמפה נכונה.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מרשת כבישים גולמית למפת בסיס מוכנה לייצור",
+                intro: "כדי למדוד איך תנועה באמת זורמת בעיר, צריך קודם כל מפה דיגיטלית מדויקת של כל מקטע כביש — בכל כיוון נסיעה. מפות מדף לא מדויקות מספיק לזה. אז בניתי מערכת שיוצרת את 'מפות הבסיס' האלה מאפס, עבור תל אביב, ירושלים, חיפה ובאר שבע.",
+
+                how_title: "איך זה עובד",
+                how_p1: "בתחילת התהליך, רשת הכבישים של העיר נטענת ומפורקת למקטעים מכווּנים — רחוב דו-סטרי הופך לשני קטעים חד-סטריים נפרדים, כל אחד עם מזהה ייחודי משלו.",
+                how_p2: "כל מקטע מושווה מול מסלולי נסיעה מהעולם האמיתי. המערכת מודדת אוטומטית עד כמה שתי הגאומטריות תואמות, ומסמנת כל אי-התאמה.",
+                how_p3: "ממשק בקרה ויזואלי ייעודי מאפשר לאנליסט לבחון כל מקטע מסומן על מפה אינטראקטיבית, לתקן אותו בכמה לחיצות — להזיז נקודות קצה, להוסיף נקודות מעבר, לבדוק מחדש — ולאשר. קיצורי מקלדת הופכים בקרה של מאות מקטעים למהירה.",
+                how_p4: "התוצאה: מפת בסיס מאומתת ומוכנה לייצוא, שמזינה את מערכת מדידת זמני הנסיעה הארצית.",
+
+                ai_title: "פיתוח AI-Native מקצה לקצה",
+                ai_text: "את כל המערכת הזו — עיבוד הנתונים, ממשק הבקרה האינטראקטיבי, חבילת הבדיקות האוטומטיות וההטמעה בסביבת הייצור — בניתי בשיטות עבודה AI-Native עם כלים כמו Claude ו-Codex. ה-AI לא רק כתב קטעי קוד; הוא הניע את כל המחזור: ארכיטקטורה, מימוש, בדיקות אוטומטיות והקשחה לייצור. זו בדיוק שיטת העבודה שאני מלמד בהרצאות ובייעוץ ה-AI שלי.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "סוכנויות תחבורה מקבלות החלטות של עשרות מיליוני שקלים על בסיס נתוני זמני נסיעה. מפת בסיס לא מדויקת משבשת בשקט כל מדידה שנבנית מעליה. המערכת הזו הופכת תהליך מיפוי ידני של חודשים לתהליך מהיר, חוזר ומבוקר איכות — שכבר פועל בייצור בארבעה מטרופולינים.",
+
+                video_title: "המערכת בפעולה",
+                video_desc: "הדגמה של תהליך יצירת מפת הבסיס והבקרה עליה.",
+            },
+
+            stats: {
+                cities_value: "4",
+                cities_label: "מטרופולינים",
+                production_value: "LIVE",
+                production_label: "בסביבת ייצור",
+            },
+
+            cta_heading: "רוצים תהליכי עבודה AI-Native כאלה בארגון שלכם?",
+            cta_button: "צרו קשר",
+        },
+        beersheva_article: {
+            title: "מערכת אימות מודל באר שבע",
+            subtitle: "נתיבי איילון · בקרת איכות מודל תחבורה",
+            hero_text: "כך בניתי מערכת AI-Native לשחזור, אימות ואריזת פלטי מודל תחבורה מלאים — ומסרתי אותה כלי מוכן לשימוש ללקוח.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "פותח עבור נתיבי איילון כחלק מתהליך הסמכת מודל התחבורה המטרופוליני של באר שבע, לאפשר בקרת איכות קפדנית של פלטי המודל לפני הגשה לממשלה.",
+            project_quote: "אי אפשר לאשר מודל שלא ניתן לאמת. המערכת הזו הופכת את האימות למהיר, חוזר ושקוף.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מפלט גולמי של המודל לתוצר מאומת ומאורז",
+                intro: "פלטי מודל תחבורה הם מורכבים — עשרות טבלאות, אלפי שורות, מספר תקופות זמן. בדיקה ידנית שלהן מול יעדים לוקחת שבועות ורגישה לשגיאות. בניתי מערכת שעושה את זה אוטומטית, ונמסרת כלי מוכן לשימוש.",
+
+                how_title: "איך זה עובד",
+                how_p1: "המערכת קוראת פלטי מודל גולמיים — שיוכי רשת כבישים, נסיעות תחבורה ציבורית, נתוני קווים — ומשחזרת כל טבלת דוח נדרשת בשימוש בנוסחאות המדויקות מתיעוד המפרט של המודל.",
+                how_p2: "כל טבלה משוחזרת מושווית אוטומטית מול היעד הרשמי. המערכת מסמנת כל אי-התאמה — שורות חסרות, שורות עודפות, הפרשי ערכים מעל סבילות — ומפיקה דוח diff מפורט.",
+                how_p3: "לוח בקרה מקצועי ב-Streamlit מאפשר לאנליסט לסקור כל טבלה, לעבור בין תקופות זמן (בוקר, שעות עסק, אחר הצהריים), לסנן לפי מצב התאמה, ולבחון הבדלים ברמת תא בודד עם צביעה חכמה.",
+                how_p4: "כל המערכת אורזה כתוצר עצמאי ונמסרה ללקוח — כולל כל הקלטים, הסקריפטים, הממשק והתיעוד — כדי שיוכלו להפעיל אותה באופן עצמאי בכל עת.",
+
+                ai_title: "פיתוח AI-Native",
+                ai_text: "מנוע השחזור, חבילת הבדיקות, הממשק ותהליך האריזה כולם נבנו בפיתוח AI-Native עם Claude ו-Codex. לא רק יצירת קוד — פיתוח מחזור מלא: תכנון ארכיטקטורה, מימוש איטרטיבי, בדיקות אוטומטיות והקשחה לייצור. זו שיטת העבודה שאני מלמד.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "אימות מודל תחבורה הוא דרישה חוקית וחוזית לפני החלטות תשתית מרכזיות. מערכת שעושה זאת אוטומטית — ומפיקה תיעוד מסלול ביקורת — מחליפה שבועות של עבודה ידנית של אנליסט ומבטלת את הסיכון של שגיאות לא מזוהות בפלטים שמקבלי ההחלטות מסתמכים עליהם.",
+
+                video_title: "המערכת בפעולה",
+                video_desc: "הדגמה של לוח הבקרה לשחזור וממשק האימות.",
+            },
+
+            stats: {
+                tables_value: "10+",
+                tables_label: "טבלאות שוחזרו",
+                periods_value: "3",
+                periods_label: "תקופות זמן אומתו",
+            },
+
+            cta_heading: "רוצים כלים AI-Native כאלה לפרויקט התחבורה שלכם?",
+            cta_button: "צרו קשר",
+        },
+        counts_article: {
+            title: "איפה כדאי לעיר לספור את התנועה שלה?",
+            subtitle: "משרד התחבורה · ISTRC 2026",
+            hero_text: "מודלים תחבורתיים אסטרטגיים מאומתים מול ספירות תנועה אמיתיות — אבל ספירות עולות כסף, ואפשר למדוד רק חלק קטן מהרשת. הובלתי פיתוח מתודולוגיה שעונה על השאלות איפה וכמה באמצעות מדע רשתות, ויושמה על ארבעת המודלים המטרופוליניים של ישראל.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "המחקר",
+            project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם אינג׳ מרכוס סניוק וד\"ר עדו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
+            project_quote: "הספרות המדעית ציינה לספור 5–20% מהמקטעים כדי לייצג נאמנה את המרחב. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
+            fresh_insights: "זרקור מחקרי",
+
+            blog_section: {
+                title: "מהנחיות מעורפלות לאלגוריתם שקוף",
+                intro: "כל מודל תחבורה אסטרטגי — המודלים שמאחורי החלטות תשתית של מיליארדים — חייב להוכיח שהוא משחזר תנועה אמיתית. ההוכחה מגיעה מספירות תנועה במקטעי כביש נבחרים. אבל כל תחנת ספירה עולה כסף, וכל רשות מתמודדת עם אותה שאלה: איפה בדיוק למקם את הספירות? המדריכים הבינלאומיים נותנים רק טווחים כלליים. הפכנו את הניחוש הזה לאלגוריתם שמשלב תורת הדגימה הסטטיסטית עם מדע רשתות.",
+
+                how_title: "איך האלגוריתם עובד",
+                how_p1: "סינון הרשת: רק מקטעים שנושאים תנועת רכב פרטי נכללים, ורמפות ומקטעים קצרים מאוד (מתחת ל-200 מטר) לא נבחרים כנקודות ספירה. הכול נשאר בגרף — כדי שחישוב המרכזיות יישאר נאמן למציאות.",
+                how_p2: "חישוב מרכזיות ביניים (Betweenness Centrality) לכל הרשת: המסלולים הקצרים ביותר בין כל המוצאים והיעדים מחושבים באלגוריתם דייקסטרה, וכל מקטע מקבל ציון לפי כמה מהמסלולים האלה עוברים דרכו. מרכזיות גבוהה פירושה שהמקטע הוא קורת תמך של הרשת.",
+                how_p3: "כיוונון למטרופולין: המסלולים משוקללים לפי מרחק — אחרת הכול מתנקז לכבישים הבין-עירוניים, שבישראל כבר מנוטרים בספירות קבועות. שקלול לפי מרחק מבליט את המחברים העירוניים, כך שהדגימה מתמקדת בסוגי הכבישים המטרופוליניים (4–5).",
+                how_p4: "דגימה אזור-אזור: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים בעלי המרכזיות הגבוהה ביותר — נתח שתואם את המומלץ בספרות המדעית.",
+                how_p5: "התוצאה היא 'שלד מדידה' מאוזן מרחבית: כל אזור במטרופולין מכוסה, ובתוך כל אזור התקציב מגיע לכבישים המקושרים והחשובים ביותר.",
+
+                maps_title: "ארבעה מטרופולינים, אלגוריתם אחד",
+                maps_intro: "המתודולוגיה יושמה על ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. בסך הכל נבחרו 755 נקודות ספירה מתוך 3,448 מקטעים מטרופוליניים כשירים — כ-22%, בערך החמישית המובילה בכל אזור תנועה. כל מפה מציגה את המקטעים שנבחרו זוהרים מעל אזורי התנועה של המודל, צבועים לפי ציון מרכזיות הביניים.",
+                legend_low: "מרכזיות נמוכה",
+                legend_high: "מרכזיות מרבית",
+                metro_telaviv: "תל אביב",
+                metro_jerusalem: "ירושלים",
+                metro_haifa: "חיפה",
+                metro_beersheva: "באר שבע",
+                map_links_label: "מקטעים",
+                map_eligible_label: "מקטעים מטרופוליניים כשירים",
+                map_selected_label: "נבחרו",
+                map_road_label: "כביש",
+                map_centrality_label: "מרכזיות",
+                map_length_label: "אורך",
+                map_unnamed: "מקטע ללא שם",
+                map_select_prompt: "רחפו מעל מקטע זוהר כדי לראות איזה כביש זה ועד כמה הוא מרכזי ברשת.",
+                map_hint: "רחפו או הקישו על מקטע לפרטים · החליפו מטרופולין בכפתורים",
+                map_aria: "מפה אינטראקטיבית של נקודות ספירת התנועה שנבחרו, צבועות לפי מרכזיות ביניים",
+                map_zoom_in: "התקרבות",
+                map_zoom_out: "התרחקות",
+                map_zoom_reset: "איפוס זום",
+                map_zoom_hint: "גלגלו או צבטו לזום · גררו להזזה · הקישו על מקטע",
+
+                science_title: "המדע, בפשטות",
+                science_p1: "דמיינו חישוב של המסלול הקצר ביותר בין כל זוג אזורים במטרופולין — מאות אלפי מסלולים, כל אחד מחושב באלגוריתם דייקסטרה. חלק ממקטעי הכביש מופיעים בנתח עצום מהמסלולים האלה: גשרים, מחלפים, מחברים מרכזיים. הנתח הזה הוא מרכזיות הביניים של המקטע — מוצג במפות כציון פשוט של 0–100%. עבור המדגם המטרופוליני המסלולים משוקללים לפי מרחק ולא לפי מהירות: שקלול לפי מהירות מנקז כל מסלול לכבישים הבין-עירוניים, שכבר מנוטרים בישראל בספירות קבועות, בעוד שקלול לפי מרחק חושף את הכבישים העירוניים שמחזיקים את המטרופולין.",
+                science_p2: "הבחירה נעשית לפי אזורים: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים (סוגים 4–5) בעלי המרכזיות הגבוהה ביותר — נתח דגימה שתואם את הספרות המדעית. כך מובטח כיסוי מרחבי אמיתי: אף אזור לא נשאר בלי מדידה, ובכל אזור תקציב הספירות מגיע לכבישים המקושרים והחשובים ביותר.",
+                science_formula: "לכל אזור:  בחר את 20% המקטעים המובילים מסוגים 4–5, מדורגים לפי Cᵦ(e)",
+                science_formula_explainer: "כאן, Cᵦ(e) מציינת את מרכזיות הביניים של מקטע e — הנתח מתוך המסלולים הקצרים ביותר בין זוגות אזורים שעוברים דרכו, כפי שתואר לעיל. בגרסה המיושמת החישוב הזה חסום מרחק: לכל סוג כביש יש מרחק מקסימלי משלו (ניתן להגדרה) שמעבר לו מסלול קצר ביותר כבר לא נספר במרכזיות של המקטע, מחושב באמצעות אלגוריתם דייקסטרה עם משקלי קשתות המבוססים על מהירות הנסיעה הטיפוסית של אותו סוג כביש (גם היא ניתנת להגדרה).",
+                demo_caption: "צפו בזה חי: בכל רגע נדלק המסלול הקצר ביותר בין שני אזורים אקראיים. מקטע אחד נחצה שוב ושוב — הגשר בין שני חצאי הרשת. זו מרכזיות ביניים גבוהה.",
+                demo_share_suffix: "מכלל המסלולים הקצרים עוברים במקטע הזה",
+                demo_hint: "רחפו מעל מקטע כדי לראות את הנתח שלו",
+                demo_route_word: "מסלול",
+
+                poster_title: "הוצג בכנס ISTRC 2026",
+                poster_desc: "המתודולוגיה הוצגה כפוסטר בכנס האגודה הישראלית לחקר התחבורה 2026. הפוסטר מציג את מסגרת הדגימה הכללית; הגרסה שיושמה בארבעת המטרופולינים מרחיבה אותה עם מרכזיות מבוססת מרחק ובחירה לפי אזורי תנועה, מכווננת לכבישים מטרופוליניים.",
+                poster_authors: "ד\"ר גולן בן דור, אינג׳ מרכוס סניוק, ד\"ר עדו קליין — משרד התחבורה · פרופ׳ שלמה בכור — הטכניון",
+                poster_button: "צפייה בפוסטר בגודל מלא",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "כל תחנת ספירה משמעה ציוד שטח, צוותים ותקציבי עיבוד. המתודולוגיה מבטיחה שכל אחת קונה כוח אימות מרבי: המדגם קריטי מבנית, מכסה כל אזור תנועה, ומתמקד בכבישים המטרופוליניים שאין להם ניטור קבוע — הכבישים הבין-עירוניים כבר נספרים. היא מחליפה את 'סופרים איפה שתמיד ספרנו' בהליך שקוף, ניתן להגנה וחוזר — שיושם על המודלים האסטרטגיים של כל ארבעת המטרופולינים בישראל.",
+            },
+
+            stats: {
+                metros_value: "4",
+                metros_label: "מודלים מטרופוליניים",
+                links_value: "3,448",
+                links_label: "מקטעים אסטרטגיים כשירים",
+                sample_value: "755",
+                sample_label: "נקודות ספירה נבחרו",
+                rate_value: "כ-22%",
+                rate_label: "שיעור דגימה",
+            },
+
+            cta_heading: "רוצים מתודולוגיה כזו מאחורי החלטות התחבורה שלכם?",
+            cta_button: "צרו קשר",
+        },
+        brt_article: {
+            title: "ניתוח פרוזדור BRT — מבוסס Replan",
+            subtitle: "ישראל · נתיבי איילון · BRT",
+            hero_text: "ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור, בתוך הארגון — לפני כל החלטת תשתית. סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד, בשיתוף Replan ונתיבי איילון.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "השותפות",
+            project_team_desc: "פרויקט משותף עם Replan (replan.city) ונתיבי איילון: הכנסת יכולת סימולציה מבוססת סוכנים ברמת הפרוזדור אל תוך הארגון, כך שמתכננים יכולים לבחון תרחישי BRT על פרוזדור הקו הוורוד לפני התחייבות לתשתית.",
+            project_quote: "החלטת BRT מעצבת פרוזדור לעשרות שנים. לסמלץ אותה קודם — בתוך הארגון, בתוך ימים — זה הביטוח הזול ביותר שגוף תכנון יכול לקנות.",
+            fresh_insights: "מקרה בוחן",
+
+            highlights: {
+                h1_title: "ברמת הפרוזדור",
+                h1_desc: "לא תחזית אזורית של קופסה שחורה — מבט ממוקד וברזולוציה גבוהה על פרוזדור אחד: ביקושים, עליות נוסעים, זמני נסיעה, תחנה אחר תחנה.",
+                h2_title: "מעבר בין אמצעים",
+                h2_desc: "כל נוסע מסומלץ בוחר בין רכב פרטי, אוטובוס ו-BRT. הפלט הוא המספר שחשוב באמת: כמה נהגים באמת עוברים.",
+                h3_title: "בתוך הארגון",
+                h3_desc: "הניתוח רץ בתוך הארגון — תרחישים נבחנים בתוך ימים, לא נרכשים בחודשים, לפני כל החלטת תשתית.",
+            },
+
+            blog_section: {
+                title: "בוחנים את הקו הוורוד לפני שהוא נבנה",
+                intro: "מערכת BRT מבטיחה ביצועים של רכבת קלה בשבריר מהעלות — אבל רק אם תכנון הפרוזדור באמת מוציא נהגים מהרכב הפרטי. יחד עם Replan ונתיבי איילון, אנחנו מריצים סימולציות מבוססות סוכנים של פרוזדור ה-BRT של הקו הוורוד כדי לענות על השאלה הזו לפני שנצבע ולו נתיב אחד.",
+
+                how_title: "איך זה עובד",
+                how_p1: "פרוזדור הקו הוורוד ממודל בפלטפורמת הסימולציה של Replan — רשת, תחנות, נתיבים ייעודיים והעדפה ברמזורים — לצד תרחיש בסיס מכויל של התנועה כיום.",
+                how_p2: "אוכלוסייה סינתטית של סוכנים, לכל אחד סדר יום פעילויות משלו, נעה בפרוזדור. כל סוכן בוחר אמצעי ומסלול — רכב פרטי, אוטובוס או BRT — בתגובה לזמני נסיעה, תדירות שירות וגודש.",
+                how_p3: "התרחישים מושווים ראש בראש מול תרחיש הבסיס: ביקושים ברמת הפרוזדור, פרופילי עליית נוסעים, חיסכון בזמני נסיעה, והמעבר מרכב פרטי לשירות ה-BRT החדש.",
+                how_p4: "התוצאות מתקבלות בתוך ימים, לא חודשים — בהרצה בתוך הארגון, כך שאפשר לשפר ולדייק את תכנון הפרוזדור לפני שכל החלטת תשתית ננעלת.",
+
+                partner_title: "מבוסס Replan",
+                partner_text: "הניתוח רץ על פלטפורמת הסימולציה בענן של Replan — שנבנתה במיוחד לבחינת תרחישי תחבורה ציבורית במידול מבוסס סוכנים. השותפות מכניסה יכולת שבעבר דרשה מחקרי ייעוץ של חודשים ישירות אל תוך גוף התכנון.",
+                partner_link_label: "בקרו ב-replan.city",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "פרוזדור BRT הוא התחייבות של עשרות שנים של שטח דרך, תקציב והון פוליטי. לקבל את תמונת הביקושים והמעבר בין האמצעים לפני שהתכנון ננעל, פירושו שהתשתית שנבנית היא התשתית שהפרוזדור באמת צריך.",
+
+                video_title: "סימולציית הפרוזדור — תצוגה מקדימה",
+                video_desc: "המחשה זמנית — ניתוח הפרוזדור המלא זמין לפי בקשה.",
+            },
+
+            cta_heading: "רוצים את ניתוח פרוזדור הקו הוורוד המלא?",
+            cta_button: "בקשו מקרה בוחן",
+        },
+        cordon_article: {
+            title: "סקר ספירות חיץ וחגורה הארצי 2026",
+            subtitle: "שולחן עגול מודלים · תיקוף מודלים משותף",
+            hero_text: "כך הובלתי את מתודולוגיית הסקר ותיאמתי את מיקומן של מאות תחנות ספירה בין רשויות התחבורה בישראל — נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה ירושלים — ביצירת סקר ספירות התנועה הראשון בכיסוי ארצי מלא.",
+
+            back_to_portfolio: "חזרה לתיק העבודות",
+            project_team: "הפרויקט",
+            project_team_desc: "מובל במסגרת \"שולחן עגול מודלים\" של משרד התחבורה — הפורום המנחה את חמשת המודלים האסטרטגיים של ישראל. כל קו ספירה וכל תחנה סוכמו במשותף עם נתיבי ישראל, נתיבי איילון וצוות תכנית אב לתחבורה, בתוך מסגרת GIS אחידה אחת. הובלתי את המתודולוגיה בשיתוף פעולה עם ד\"ר עדו קליין, אינג׳ מרכוס סניוק ופרופ׳ שלמה בכור.",
+            project_quote: "חמישה מודלים, שלוש רשויות, מפה אחת. כל הסקר חי בקובץ GeoPackage משותף אחד שכל שותף בודק, מדייק ומבצע ממנו.",
+            fresh_insights: "מקרה בוחן",
+
+            blog_section: {
+                title: "מפה אחידה אחת לתיקוף כל המודלים האסטרטגיים של ישראל",
+                intro: "ספירות חיץ וחגורה הן הסטנדרט המוביל לתיקוף מודלים תחבורתיים: קווי מדידה אסטרטגיים משורטטים על רשת הדרכים, וכל כביש שחוצה אותם נספר. סקרים קודמים בישראל כיסו מטרופולין בודד. סקר 2026 הוא הראשון בכיסוי ארצי מלא — כל חמשת המודלים האסטרטגיים, מתודולוגיה אחת, מפה משותפת אחת. התפקיד שלי: להוביל את המתודולוגיה ולתאם עם כל השותפים היכן בדיוק תמוקם כל תחנת ספירה.",
+
+                map_title: "מפת הסקר",
+                map_desc: "28 קווי חיץ וחגורה, 355 תחנות ספירה, חמישה אזורי מודל. רחפו או הקישו על קו לפרטים, והשתמשו במקרא לסינון לפי אזור.",
+
+                how_title: "איך המתודולוגיה עובדת",
+                how_p1: "28 קווי חיץ וחגורה הוגדרו ביחס לגבולות המודלים המטרופוליניים והארצי — טבעות סגורות (\"חגורות\") סביב ערים ומטרופולינים, וקווים חוצים (\"חיצים\") לאורך מחסומים טבעיים או מלאכותיים.",
+                how_p2: "כל כביש שחוצה קו הופך לתחנת ספירה. כל חצייה מועמדת נבחנה פרטנית — חציות מסופקות (דרכים מקומיות שוליות או חקלאיות) הוכרעו במפורש מול הרשות האחראית, עד להתכנסות ל-355 תחנות סופיות.",
+                how_p3: "המפה המלאה — קווים, תחנות וגבולות מודלים — חיה בקובץ GeoPackage משותף אחד. כל רשות בדקה את אזורה, הזיזה או אישרה תחנות, והגרסה המוסכמת הפכה לתוכנית הביצוע המחייבת.",
+                how_p4: "כללי תזמון קפדניים שומרים על עקביות הנתונים: כל קווי האזור נספרים בתוך חלון אחד של חודשיים, וכל קו בודד בתוך יום או יומיים — כך שאפשר באמת לבדוק איזון כניסות ויציאות.",
+
+                coordination_title: "תיאום בין שלוש רשויות",
+                coordination_text: "כל רשות — נתיבי ישראל (המודל הארצי), נתיבי איילון (מודלי תל אביב, חיפה ובאר שבע) וצוות תכנית אב לתחבורה (ירושלים) — מבצעת את הספירות בשטחה, עם הקבלנים והתקציב שלה. העבודה שלי הייתה לוודא שהביצוע המבוזר הזה מייצר מסד נתונים ארצי אחיד: מתודולוגיית מיקום תחנות סטנדרטית, מבנה נתוני GIS אחיד, סיווג רכבים משותף, כללי תזמון מסונכרנים, ומסלול הכרעה ברור לשולחן העגול עבור חפיפות ומחלוקות.",
+
+                impact_title: "למה זה חשוב",
+                impact_text: "מודלים תחבורתיים אסטרטגיים מניעים החלטות תשתית של מיליארדי שקלים — והם אמינים רק אם מתקפים אותם תקופתית מול המציאות. הסקר הזה יוצר את מסד הייחוס לתיקוף כל המודלים האסטרטגיים של ישראל במחזור מתואם אחד, שתוכנן לחזור אחת לשנתיים.",
+            },
+
+            map: {
+                regions: {
+                    national: "ארצי",
+                    telaviv: "תל אביב",
+                    haifa: "חיפה",
+                    jerusalem: "ירושלים",
+                    beersheva: "באר שבע",
+                },
+                type_cordon: "חגורה",
+                type_screenline: "חיץ",
+                stations: "תחנות",
+                km: "ק\"מ",
+                lines: "קווים",
+                hint: "רחפו או הקישו על קו · לחצו על אזור לסינון",
+                select_prompt: "בחרו קו במפה",
+                total_label: "סך הכל בסקר",
+                points_note: "414 נקודות ספירה ממופות כולל חלופות",
+                aria: "מפה אינטראקטיבית של סקר ספירות החיץ והחגורה הארצי 2026",
+                zoom_in: "התקרבות",
+                zoom_out: "התרחקות",
+                zoom_reset: "איפוס זום",
+                zoom_hint: "גלגלו או צבטו לזום · גררו להזזה · הקישו על קו",
+            },
+
+            stats: {
+                stations_value: "355",
+                stations_label: "תחנות ספירה",
+                lines_value: "28",
+                lines_label: "קווי חיץ וחגורה",
+                km_value: "2,112",
+                km_label: "ק\"מ של קווים",
+                models_value: "5",
+                models_label: "מודלים אסטרטגיים",
+            },
+
+            cta_heading: "צריכים הובלת מתודולוגיה בין מספר גופים?",
+            cta_button: "צרו קשר",
+        },
+        related_work: {
+            heading: "עוד מקרי בוחן",
+            cordon_title: "סקר חיץ וחגורה ארצי",
+            cordon_desc: "תיאום 355 תחנות ספירה בין שלוש רשויות תחבורה.",
+            jerusalem_title: "מחקר אגרת גודש בירושלים",
+            jerusalem_desc: "הערכת מדיניות מבוססת סימולציה באמצעות MATSim.",
+            google_title: "מפת בסיס דיגיטלית לרשת הכבישים",
+            google_desc: "מערכת AI-Native למדידת זמני נסיעה ארצית.",
+            beersheva_title: "אימות מודל באר שבע",
+            beersheva_desc: "מערכת שחזור ואימות AI-Native.",
+            counts_title: "תכנון מדגם ספירות תנועה",
+            counts_desc: "מתודולוגיית דגימה מבוססת מרכזיות, הוצגה בכנס ISTRC 2026.",
+            brt_title: "ניתוח פרוזדור BRT",
+            brt_desc: "סימולציית פרוזדור הקו הוורוד מבוססת סוכנים, מבוססת Replan.",
+        },
+        work_index: {
+            title: "מקרי בוחן ופרויקטים",
+            subtitle: "מחקר וייעוץ בסימולציית ניידות עירונית",
+            description: "גלו מקרי בוחן מפורטים מעבודתי עם סוכנויות התחבורה המובילות בישראל. כל פרויקט מדגים כיצד סימולציה מבוססת סוכנים ואנליטיקת נתונים מסייעות בקבלת החלטות מדיניות טובות יותר.",
+            back_home: "חזרה לדף הבית",
+            featured: "מומלץ",
+            view_project: "לצפייה בפרויקט",
+            categories: {
+                simulation: "סימולציה",
+                analytics: "אנליטיקה",
+                policy: "מדיניות",
+                ai: "בינה מלאכותית"
+            },
+            projects: {
+                jerusalem: {
+                    title: "תוכנית אב לתחבורה ירושלים",
+                    desc: "הערכה מבוססת סוכנים של אגרות גודש ורכבים אוטונומיים שיתופיים והשפעתם על ניידות עירונית באמצעות סימולציית MATSim.",
+                    tags: ["MATSim", "הערכת מדיניות", "אגרת גודש"],
+                    status: "פורסם 2024"
+                },
+                google: {
+                    title: "אנליטיקת תנועה Google Maps",
+                    desc: "פלטפורמת תכנון אסטרטגי למשרד התחבורה, מינוף מאגרי API עצומים להמחשת גודש בזמן אמת.",
+                    tags: ["Big Data", "אנליטיקה בזמן אמת", "תכנון אסטרטגי"],
+                    status: "פרויקט פעיל"
+                },
+                beersheva: {
+                    title: "אימות מודל באר שבע",
+                    desc: "שחזור עיוור ריגורוזי של מודל תנועה מטרופוליני לאימות שלמות הסימולציה לאישור ממשלתי.",
+                    tags: ["אימות מודל", "בקרת איכות", "ממשלה"],
+                    status: "הושלם"
+                },
+                counts: {
+                    title: "תכנון מדגם ספירות תנועה",
+                    desc: "מתודולוגיה מבוססת מרכזיות שבוחרת היכן למקם ספירות תנועה לאימות ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. הוצגה בכנס ISTRC 2026.",
+                    tags: ["מדע רשתות", "תכנון מדגם", "אימות מודל"],
+                    status: "ISTRC 2026"
+                },
+                brt: {
+                    title: "ניתוח פרוזדור BRT — הקו הוורוד",
+                    desc: "סימולציה מבוססת סוכנים של פרוזדור ה-BRT של הקו הוורוד עם Replan ונתיבי איילון. ניתוח ביקושים ומעבר בין אמצעי תחבורה ברמת הפרוזדור, בתוך הארגון — לפני כל החלטת תשתית.",
+                    tags: ["BRT", "סימולציה מבוססת סוכנים", "Replan"],
+                    status: "בתהליך"
+                },
+                cordon: {
+                    title: "סקר ספירות חיץ וחגורה ארצי 2026",
+                    desc: "סקר ספירות התנועה הארצי הראשון בכיסוי מלא לתיקוף המשותף של חמשת המודלים האסטרטגיים של ישראל — 28 קווים, 355 תחנות, מתודולוגיית GIS אחידה אחת בין שלוש רשויות תחבורה.",
+                    tags: ["GIS", "מתודולוגיה", "תיאום בין-ארגוני"],
+                    status: "בביצוע · 2026"
+                },
+                ai_workflows: {
+                    title: "תהליכי סימולציה מועצמי AI",
+                    desc: "פיתוח מבוסס בינה מלאכותית באמצעות Claude, Gemini ו-Codex להאצת תהליכי סימולציה ואוטומציה של SQL מרחבי.",
+                    tags: ["AI", "אוטומציה", "אופטימיזציית תהליכים"],
+                    status: "פעיל"
+                }
+            }
+        }
+    },
+};

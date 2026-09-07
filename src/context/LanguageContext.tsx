@@ -3,10 +3,12 @@
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { translations, Language, Direction } from '../data/translations';
+import { useTheme, Theme } from './ThemeContext';
 
 interface LanguageContextType {
     language: Language;
     direction: Direction;
+    theme: Theme; // mirrored from ThemeContext so map components can restyle per theme
     t: (key: string) => string; // Simple key based lookup
     toggleLanguage: () => void;
     setLanguage: (lang: Language) => void;
@@ -22,6 +24,7 @@ interface LanguageProviderProps {
 
 export const LanguageProvider = ({ children, initialLang }: LanguageProviderProps) => {
     const pathname = usePathname();
+    const { theme } = useTheme();
 
     // Determine language from URL path or prop
     const getLangFromPath = (): Language => {
@@ -96,6 +99,7 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
         <LanguageContext.Provider value={{
             language,
             direction,
+            theme,
             t,
             toggleLanguage,
             setLanguage,

@@ -1,6 +1,8 @@
 'use client';
 
 import { LanguageProvider } from '@/context/LanguageContext';
+import { ThemeProvider } from '@/context/ThemeContext';
+import { MotionProvider } from '@/context/MotionContext';
 import { Language } from '@/data/translations';
 
 interface ClientProvidersProps {
@@ -10,8 +12,12 @@ interface ClientProvidersProps {
 
 export default function ClientProviders({ children, initialLang }: ClientProvidersProps) {
     return (
-        <LanguageProvider initialLang={initialLang}>
-            {children}
-        </LanguageProvider>
+        <ThemeProvider>
+            <MotionProvider>
+                <LanguageProvider initialLang={initialLang}>
+                    {children}
+                </LanguageProvider>
+            </MotionProvider>
+        </ThemeProvider>
     );
 }

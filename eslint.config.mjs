@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Archived classic site and the retired Vite prototype are not linted.
+    "archive/**",
+    "homepage-preview/**",
   ]),
 ]);
 

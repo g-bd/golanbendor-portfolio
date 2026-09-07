@@ -1,4 +1,8 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# drbendor.com — portfolio of Dr. Golan Ben-Dor
+
+Static Next.js site (App Router, `output: 'export'`) with an editorial single-page story, light and dark themes, Hebrew (RTL) and English routes, six case studies and two legal pages. Design and architecture notes live in `CLAUDE.md`.
+
+The previous cyberpunk-style site (September 2026 and earlier) is preserved under `archive/classic-site/` and at the git tag `classic-site-2026-09`. It is not built or linted; its component prompts are kept below for reuse.
 
 ## Getting Started
 

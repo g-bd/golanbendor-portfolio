@@ -4,8 +4,8 @@
   "description": "Urban mobility simulation scientist specializing in MATSim, agent-based modeling, and transport policy evaluation.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a12",
-  "theme_color": "#0a0a12",
+  "background_color": "#f1f8fa",
+  "theme_color": "#176c91",
   "icons": [
     {
       "src": "/favicon-16x16.png",
