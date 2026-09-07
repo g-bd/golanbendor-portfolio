@@ -8,15 +8,14 @@ import Label from './Label';
 import Globe from './Globe';
 import Events from './Events';
 import CountUp from './CountUp';
-import VideoDialog, { DialogMedia } from './VideoDialog';
 
-// Section 04: globe of conference cities, selected recognition, event gallery.
+// Section 04: globe of conference cities, selected recognition, event gallery
+// (the ISTRC talk plays inline inside the gallery frame).
 export default function GlobalStory() {
     const { language, theme } = useLanguage();
     const { motion } = useMotion();
     const t = archive[language];
     const [moreOpen, setMoreOpen] = useState(false);
-    const [talk, setTalk] = useState<DialogMedia | null>(null);
     return (
         <section id="global" className="global-story shell section-pad">
             <div className="global-grid reveal">
@@ -37,8 +36,7 @@ export default function GlobalStory() {
                     <div className="awards">{moreOpen && t.awards.slice(3).map(([year, title, desc]) => <article key={title}><p className="eyebrow">{year}</p><h3>{title}</h3><p>{desc}</p></article>)}</div>
                 </details>
             </div>
-            <Events t={t} rtl={language === 'he'} motion={motion} onWatchConference={() => setTalk({ kind: 'youtube', video: t.conference })} />
-            <VideoDialog media={talk} t={t} onClose={() => setTalk(null)} />
+            <Events t={t} rtl={language === 'he'} motion={motion} />
         </section>
     );
 }

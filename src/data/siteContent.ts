@@ -171,7 +171,7 @@ export interface ArchiveContent {
   globalLabel: string; globalTitle: [string, string]; globalDesc: string; globalStat: string; globeLabel: string; globeHint: string; rotateLeft: string; rotateRight: string; cities: string;
   recognitionLabel: string; recognitionMore: string; awards: [string, string, string][];
   eventsLabel: string; eventsTitle: string; eventsDesc: string; previous: string; next: string; events: EventItem[];
-  watchConference: string; conference: ConferenceVideo; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
+  watchConference: string; backToPhotos: string; nowPlaying: string; conference: ConferenceVideo; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
   mediaLabel: string; mediaTitle: [string, string]; mediaDesc: string; play: string; close: string; videoLanguage: string; captionsNote: string; media: MediaItem[];
   newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; news: NewsItem[];
 }
@@ -217,7 +217,7 @@ const seed: Record<Language, ArchiveSeed> = {
       ['Research meeting', 'MATSim User Meeting', 'Robust policy evaluation in Jerusalem.'],
       ['Presentation', 'National Transport Strategy', 'Advanced modeling frameworks.'],
     ],
-    watchConference: 'Watch the ISTRC 2021 talk',
+    watchConference: 'Watch the ISTRC 2021 talk', backToPhotos: 'Back to the photos', nowPlaying: 'Now playing',
     conference: { youtubeId: '3inUnuxH_W0', start: 23, title: 'ISTRC 2021 · Robust Policy Evaluation', desc: 'Conference talk on robust transportation policy evaluation, ISTRC 2021.' },
     pausePhotos: 'Pause photo rotation', resumePhotos: 'Resume photo rotation', chooseVideo: 'Interviews & lectures', selectedVideo: 'Now selected', galleryRunning: 'Photos advance automatically', galleryPaused: 'Photo rotation paused', pressNote: 'Selected national coverage',
     mediaLabel: '05 — WATCH & DISCOVER', mediaTitle: ['Transport, data & AI.', 'In everyday language.'],
@@ -272,7 +272,7 @@ const seed: Record<Language, ArchiveSeed> = {
       ['מפגש מחקר', 'מפגש משתמשי MATSim', 'הערכה חסינה של מדיניות בירושלים.'],
       ['מצגת', 'אסטרטגיית התחבורה הלאומית', 'מסגרות מתקדמות למידול תחבורה.'],
     ],
-    watchConference: 'לצפייה בהרצאה מכנס ISTRC 2021',
+    watchConference: 'לצפייה בהרצאה מכנס ISTRC 2021', backToPhotos: 'חזרה לתמונות', nowPlaying: 'מתנגן עכשיו',
     conference: { youtubeId: '3inUnuxH_W0', start: 23, title: 'ISTRC 2021 · הערכת מדיניות חסינה', desc: 'הרצאה בכנס ISTRC 2021 על הערכה חסינה של מדיניות תחבורה.' },
     pausePhotos: 'השהיית מעבר התמונות', resumePhotos: 'המשך מעבר התמונות', chooseVideo: 'ראיונות והרצאות', selectedVideo: 'נבחר לצפייה', galleryRunning: 'התמונות מתחלפות אוטומטית', galleryPaused: 'מעבר התמונות מושהה', pressNote: 'סיקור נבחר בעיתונות הארצית',
     mediaLabel: '05 — לצפות ולהכיר', mediaTitle: ['על תחבורה, נתונים ו־AI.', 'בשפה של אנשים.'],

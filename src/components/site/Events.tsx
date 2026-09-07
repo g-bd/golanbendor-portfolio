@@ -1,20 +1,22 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play, X } from 'lucide-react';
 import { ArchiveContent } from '@/data/siteContent';
 import { asset } from '@/lib/site';
 import Label from './Label';
 
 // Event photo gallery: auto-advances every 5.5s while in view; pauses on hover,
-// focus, hidden tab, reduced motion or the explicit pause control.
-export default function Events({ t, rtl, motion, onWatchConference }: { t: ArchiveContent; rtl: boolean; motion: boolean; onWatchConference: () => void }) {
+// focus, hidden tab, reduced motion or the explicit pause control. The ISTRC talk
+// plays inline inside the photo frame (privacy-enhanced YouTube domain, loaded on click).
+export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boolean; motion: boolean }) {
     const [index, setIndex] = useState(0);
     const [paused, setPaused] = useState(false);
     const [interacting, setInteracting] = useState(false);
     const [focused, setFocused] = useState(false);
+    const [talk, setTalk] = useState(false);
     const gallery = useRef<HTMLDivElement>(null);
-    const running = motion && !paused && !interacting && !focused;
+    const running = motion && !paused && !interacting && !focused && !talk;
     useEffect(() => {
         const node = gallery.current;
         if (!running || !node) return;
@@ -30,7 +32,7 @@ export default function Events({ t, rtl, motion, onWatchConference }: { t: Archi
         return () => { clearInterval(timer); observer.disconnect(); document.removeEventListener('visibilitychange', sync); };
     }, [running, t]);
     const selected = t.events[index];
-    const change = (delta: number) => setIndex(value => (value + delta + t.events.length) % t.events.length);
+    const change = (delta: number) => { setTalk(false); setIndex(value => (value + delta + t.events.length) % t.events.length); };
     return (
         <div id="events" className="events-section" ref={gallery}
             onFocus={event => { const target = event.target as HTMLElement; if (target.matches(':focus-visible') && !target.closest('.gallery-toggle')) setFocused(true); }}
@@ -38,12 +40,19 @@ export default function Events({ t, rtl, motion, onWatchConference }: { t: Archi
             <div className="row-heading"><div><Label>{t.eventsLabel}</Label><h2>{t.eventsTitle}</h2></div><p>{t.eventsDesc}</p></div>
             <div className={`event-feature ${running ? 'gallery-running' : ''}`}>
                 <div className="event-image" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
-                    <img key={selected.image} src={asset(selected.image)} alt={`${selected.title} — ${selected.desc}`} loading="lazy" />
+                    {talk ? (
+                        <>
+                            <iframe src={`https://www.youtube-nocookie.com/embed/${t.conference.youtubeId}?start=${t.conference.start}&autoplay=1&rel=0`} title={t.conference.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                            <button className="talk-close" onClick={() => setTalk(false)}><X size={13} />{t.backToPhotos}</button>
+                        </>
+                    ) : (
+                        <img key={selected.image} src={asset(selected.image)} alt={`${selected.title} — ${selected.desc}`} loading="lazy" />
+                    )}
                 </div>
                 <div className="event-caption">
-                    <p className="eyebrow">{selected.tag}</p>
-                    <h3>{selected.title}</h3>
-                    <p>{selected.desc}</p>
+                    <p className="eyebrow">{talk ? 'ISTRC 2021' : selected.tag}</p>
+                    <h3>{talk ? t.conference.title : selected.title}</h3>
+                    <p>{talk ? t.conference.desc : selected.desc}</p>
                     <div className="event-controls" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
                         <button className="round-control" onClick={() => change(-1)} aria-label={t.previous}>{rtl ? <ArrowRight size={18} /> : <ArrowLeft size={18} />}</button>
                         <span className="eyebrow" dir="ltr">{String(index + 1).padStart(2, '0')} / {String(t.events.length).padStart(2, '0')}</span>
@@ -52,13 +61,13 @@ export default function Events({ t, rtl, motion, onWatchConference }: { t: Archi
                             {paused || !motion ? <Play size={16} /> : <Pause size={16} />}
                         </button>
                     </div>
-                    <button className="text-link conference-link" onClick={onWatchConference}>{t.watchConference}<ArrowUpRight size={17} /></button>
+                    <button className="text-link conference-link" onClick={() => setTalk(value => !value)} aria-pressed={talk}>{talk ? t.backToPhotos : t.watchConference}{talk ? <X size={15} /> : <ArrowUpRight size={17} />}</button>
                 </div>
             </div>
             <p className="gallery-status"><span className={running ? 'status-dot' : ''} />{running ? t.galleryRunning : t.galleryPaused}</p>
             <div className="event-filmstrip">
                 {t.events.map((event, i) => (
-                    <button className={index === i ? 'selected' : ''} aria-label={`${i + 1}. ${event.title}`} aria-pressed={index === i} key={event.image} onClick={() => setIndex(i)}>
+                    <button className={index === i && !talk ? 'selected' : ''} aria-label={`${i + 1}. ${event.title}`} aria-pressed={index === i && !talk} key={event.image} onClick={() => { setTalk(false); setIndex(i); }}>
                         <img src={asset(event.image)} alt="" loading="lazy" /><span>{String(i + 1).padStart(2, '0')}</span>
                     </button>
                 ))}
