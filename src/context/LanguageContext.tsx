@@ -78,6 +78,19 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
         // always loads the correct pre-rendered page with the right
         // lang/dir/metadata.
         if (typeof window !== 'undefined') {
+            // Remember where the reader is (nearest section + offset inside it) so the
+            // other-language page restores the same place instead of jumping to the top.
+            try {
+                let anchor: HTMLElement | null = null;
+                document.querySelectorAll<HTMLElement>('main [id]').forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.height > 80 && rect.top <= window.innerHeight * 0.4) anchor = el;
+                });
+                const payload = anchor
+                    ? { id: (anchor as HTMLElement).id, frac: (window.innerHeight * 0.4 - (anchor as HTMLElement).getBoundingClientRect().top) / (anchor as HTMLElement).offsetHeight }
+                    : { y: window.scrollY };
+                sessionStorage.setItem('lang-switch-anchor', JSON.stringify(payload));
+            } catch { /* private mode */ }
             window.location.assign(newPath);
         }
     };

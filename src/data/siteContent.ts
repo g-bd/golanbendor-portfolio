@@ -173,7 +173,7 @@ export interface ArchiveContent {
   eventsLabel: string; eventsTitle: string; eventsDesc: string; previous: string; next: string; events: EventItem[];
   watchConference: string; backToPhotos: string; nowPlaying: string; conference: ConferenceVideo; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
   mediaLabel: string; mediaTitle: [string, string]; mediaDesc: string; play: string; close: string; videoLanguage: string; captionsNote: string; media: MediaItem[];
-  newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; news: NewsItem[];
+  newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; previousClipping: string; nextClipping: string; news: NewsItem[];
 }
 
 type ArchiveSeed = Omit<ArchiveContent, 'events' | 'media' | 'news'> & { events: [string, string, string][]; media: [string, string, string, string][]; news: [string, string, string][] };
@@ -229,7 +229,7 @@ const seed: Record<Language, ArchiveSeed> = {
       ['TEACHING', 'Transport modeling with MATSim', 'From an advanced MATSim modeling course.', 'MATSim course'],
       ['TEACHING', 'Geographic information systems', 'From the GIS course at Tel Aviv University.', 'Tel Aviv University'],
     ],
-    newsLabel: 'IN THE NEWS', newsTitle: 'Research in the public conversation.', readArticle: 'Read the article', enlarge: 'Enlarge clipping', featureArticle: 'Feature this story', closeClipping: 'Close clipping', clippingNote: 'Press clipping · opens the original article in a new tab',
+    newsLabel: 'IN THE NEWS', newsTitle: 'Research in the public conversation.', readArticle: 'Read the article', enlarge: 'Enlarge clipping', featureArticle: 'Feature this story', closeClipping: 'Close clipping', clippingNote: 'Scroll to read · arrow keys switch clippings', previousClipping: 'Previous clipping', nextClipping: 'Next clipping',
     news: [
       ['Calcalist', 'Study: a congestion charge could cut Jerusalem traffic by a quarter.', 'Coverage of the Tel Aviv University MATSim study that modeled congestion pricing and parking policy for central Jerusalem.'],
       ['TheMarker', 'How much does smart transportation really improve the journey?', 'A simulation of shared autonomous vehicles shows why on-demand fleets cannot replace high-capacity public transport.'],
@@ -284,7 +284,7 @@ const seed: Record<Language, ArchiveSeed> = {
       ['הרצאה', 'מידול תחבורה עם MATSim', 'מתוך קורס מתקדם בסימולציה תחבורתית.', 'קורס MATSim'],
       ['הרצאה', 'מערכות מידע גאוגרפיות', 'מתוך קורס GIS באוניברסיטת תל אביב.', 'אוניברסיטת תל אביב'],
     ],
-    newsLabel: 'סיקור תקשורתי', newsTitle: 'המחקר בשיח הציבורי.', readArticle: 'לכתבה המלאה', enlarge: 'הגדלת הכתבה', featureArticle: 'להצגת הכתבה', closeClipping: 'סגירת הכתבה', clippingNote: 'גזיר עיתונות · הכתבה המקורית נפתחת בלשונית חדשה',
+    newsLabel: 'סיקור תקשורתי', newsTitle: 'המחקר בשיח הציבורי.', readArticle: 'לכתבה המלאה', enlarge: 'הגדלת הכתבה', featureArticle: 'להצגת הכתבה', closeClipping: 'סגירת הכתבה', clippingNote: 'גללו לקריאה · מקשי החצים מחליפים גזיר', previousClipping: 'לגזיר הקודם', nextClipping: 'לגזיר הבא',
     news: [
       ['כלכליסט', 'אגרת גודש בירושלים: המודל מצביע על אפשרות להפחתת התנועה ברבע.', 'סיקור מחקר MATSim מאוניברסיטת תל אביב שבחן תמחור גודש ומדיניות חניה במרכז ירושלים.'],
       ['TheMarker', 'עד כמה תחבורה חכמה באמת משפרת את הנסיעה?', 'סימולציה של רכבים אוטונומיים משותפים מראה מדוע ציי רכב לפי דרישה אינם יכולים להחליף תחבורה ציבורית עתירת קיבולת.'],

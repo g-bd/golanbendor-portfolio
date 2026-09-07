@@ -14,6 +14,24 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
     const { language, direction } = useLanguage();
     const { motion } = useMotion();
     const t = content[language];
+    // After a language switch, return to the same section/offset the reader was at.
+    useEffect(() => {
+        let raw: string | null = null;
+        try { raw = sessionStorage.getItem('lang-switch-anchor'); if (raw) sessionStorage.removeItem('lang-switch-anchor'); } catch { /* ignore */ }
+        if (!raw) return;
+        const restore = () => {
+            try {
+                const p = JSON.parse(raw as string) as { id?: string; frac?: number; y?: number };
+                const el = p.id ? document.getElementById(p.id) : null;
+                const y = el ? el.getBoundingClientRect().top + window.scrollY - window.innerHeight * 0.4 + (p.frac ?? 0) * el.offsetHeight : (p.y ?? 0);
+                const html = document.documentElement; const prev = html.style.scrollBehavior; html.style.scrollBehavior = 'auto';
+                window.scrollTo(0, Math.max(0, y)); html.style.scrollBehavior = prev;
+            } catch { /* ignore */ }
+        };
+        restore();
+        const t1 = setTimeout(restore, 120), t2 = setTimeout(restore, 600);
+        return () => { clearTimeout(t1); clearTimeout(t2); };
+    }, []);
     useEffect(() => {
         let frame = 0;
         const update = () => {

@@ -95,7 +95,7 @@ export default function MediaStory() {
                     ))}
                 </div>
             </div>
-            <PressDossier t={t} />
+            <PressDossier t={t} lang={language} />
         </section>
     );
 }
