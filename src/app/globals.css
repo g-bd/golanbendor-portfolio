@@ -1499,3 +1499,15 @@ button.paper-card { width: 100%; text-align: start; }
   .hero .portrait-caption { bottom: -22px; }
   .hero-bottom { margin-top: 26px; padding-bottom: 24px; }
 }
+
+/* Phone: the car drives along the header progress line (desktop keeps the road rail). */
+.header-car { display: none; position: absolute; top: 100%; inset-inline-start: clamp(14px, calc(var(--scroll-progress) * 100%), calc(100% - 14px)); width: 40px; height: 22px; margin-inline-start: -20px; margin-top: -11px; pointer-events: none; z-index: 3; opacity: 0; transition: opacity .3s, inset-inline-start .12s linear; filter: drop-shadow(0 0 4px var(--car-accent)) drop-shadow(0 0 9px color-mix(in srgb, var(--car-accent) 40%, transparent)); }
+[data-theme=light] .header-car { filter: drop-shadow(0 2px 4px color-mix(in srgb, var(--car-accent) 45%, transparent)); }
+.site-header.scrolled .header-car { opacity: 1; }
+.header-car svg { position: absolute; left: 50%; top: 50%; width: 20px; height: 38px; margin: -19px 0 0 -10px; transform: rotate(-90deg); overflow: visible; }
+[dir=rtl] .header-car svg { transform: rotate(90deg); }
+html[data-drive=driving] .header-car .car-headlight { fill: var(--car-light); opacity: 1; filter: drop-shadow(0 4px 5px var(--car-accent)); }
+html[data-drive=driving] .header-car .car-beam { opacity: .55; }
+html[data-drive=braking] .header-car .car-brake { fill: var(--car-brake-color); opacity: 1; filter: drop-shadow(0 -3px 4px var(--car-brake-color)); }
+html[data-drive=braking] .header-car .car-headlight { opacity: .6; fill: var(--car-light); }
+@media (max-width: 900px) { .header-car { display: block; } }

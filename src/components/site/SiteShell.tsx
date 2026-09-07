@@ -39,10 +39,17 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             const max = document.documentElement.scrollHeight - window.innerHeight;
             document.documentElement.style.setProperty('--scroll-progress', String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
         };
-        const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
+        let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;
+        const html = document.documentElement;
+        const onScroll = () => {
+            if (!frame) frame = requestAnimationFrame(update);
+            html.dataset.drive = 'driving';
+            clearTimeout(stop); clearTimeout(idle);
+            stop = setTimeout(() => { html.dataset.drive = 'braking'; idle = setTimeout(() => { html.dataset.drive = 'idle'; }, 700); }, 160);
+        };
         update();
         window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
-        return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
+        return () => { cancelAnimationFrame(frame); clearTimeout(stop); clearTimeout(idle); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
     }, []);
     return (
         <div className="portfolio" dir={direction}>

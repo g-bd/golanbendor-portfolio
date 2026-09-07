@@ -5,9 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useMotion } from '@/context/MotionContext';
 import { useTheme } from '@/context/ThemeContext';
 import { content } from '@/data/siteContent';
 import { HOME_SECTIONS } from '@/lib/site';
+import CarIcon from './CarIcon';
 
 export const isHomePath = (pathname: string | null) => /^\/(en|he)\/?$/.test(pathname || '');
 
@@ -16,6 +18,7 @@ export const isHomePath = (pathname: string | null) => /^\/(en|he)\/?$/.test(pat
 export default function SiteHeader() {
     const { language, direction, toggleLanguage } = useLanguage();
     const { theme, toggleTheme } = useTheme();
+    const { motion } = useMotion();
     const pathname = usePathname();
     const isHome = isHomePath(pathname);
     const t = content[language];
@@ -82,6 +85,7 @@ export default function SiteHeader() {
                     </button>
                 </div>
             </div>
+            {motion && <span className="header-car" aria-hidden="true"><CarIcon gradientId="header-car-beam" /></span>}
         </header>
     );
 }
