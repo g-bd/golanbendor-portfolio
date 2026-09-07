@@ -1041,8 +1041,8 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--cyan); outline-
 /* ==========================================================================
    Production additions (Sept 2026): road car, interactive press, motion extras
    ========================================================================== */
-:root { --car-accent: var(--cyan); --car-body: #141a2b; --car-glass: #0b1020; --car-wheel: #05070c; --car-light: #dffcff; --car-brake-color: var(--pink); --scroll-progress: 0; --hero-parallax: 0px; }
-[data-theme=light] { --car-accent: var(--pink); --car-body: #c71d50; --car-glass: #fbe9ef; --car-wheel: #2b1b22; --car-light: #ffd166; --car-brake-color: #ff2d6f; }
+:root { --car-accent: var(--cyan); --car-body: var(--cyan); --car-glass: #06121a; --car-wheel: #04070c; --car-edge: #d8fbff; --car-light: #ffffff; --car-brake-color: #ff2d6f; --car-idle-light: #06121a; --scroll-progress: 0; --hero-parallax: 0px; }
+[data-theme=light] { --car-accent: var(--pink); --car-body: #e0205c; --car-glass: #fff0f4; --car-wheel: #2b1b22; --car-edge: #8f1238; --car-light: #ffd166; --car-brake-color: #ffe08a; --car-idle-light: #7a0f30; }
 
 /* Road rail: one road, seven stations, one car. */
 .road-nav { position: fixed; inset-inline-end: 22px; top: 28vh; height: min(380px, 62vh); display: flex; flex-direction: column; justify-content: space-between; z-index: 45; width: 46px; }
@@ -1052,13 +1052,13 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--cyan); outline-
 .road-line { position: absolute; inset-block: 13px; inset-inline-end: 0; width: 26px; touch-action: none; cursor: ns-resize; }
 .road-line::before { content: ''; position: absolute; inset: 0 10px; border-inline: 1px solid var(--line); background: repeating-linear-gradient(to bottom, var(--line) 0 5px, transparent 5px 11px) center / 1px 100% no-repeat; }
 .road-line::after { content: ''; position: absolute; inset: 0 10px; height: var(--road-progress, 0%); border-inline: 1px solid color-mix(in srgb, var(--car-accent) 55%, transparent); pointer-events: none; transition: height .12s linear; }
-.road-car { position: absolute; top: var(--road-progress, 0%); inset-inline: 0; width: 26px; height: 50px; transform: translateY(-50%); pointer-events: none; filter: drop-shadow(0 0 5px color-mix(in srgb, var(--car-accent) 55%, transparent)); transition: filter .3s; }
+.road-car { position: absolute; top: var(--road-progress, 0%); inset-inline: 0; width: 26px; height: 50px; transform: translateY(-50%); pointer-events: none; filter: drop-shadow(0 0 4px var(--car-accent)) drop-shadow(0 0 10px color-mix(in srgb, var(--car-accent) 45%, transparent)); transition: filter .3s; }
 [data-theme=light] .road-car { filter: drop-shadow(0 3px 5px color-mix(in srgb, var(--car-accent) 40%, transparent)); }
 .road-car svg { width: 100%; height: 100%; overflow: visible; }
-.car-body { fill: var(--car-body); stroke: var(--car-accent); stroke-width: 1.1; }
-.car-glass { fill: var(--car-glass); stroke: color-mix(in srgb, var(--car-accent) 60%, transparent); stroke-width: .6; }
+.car-body { fill: var(--car-body); stroke: var(--car-edge); stroke-width: .9; }
+.car-glass { fill: var(--car-glass); stroke: color-mix(in srgb, var(--car-edge) 55%, transparent); stroke-width: .6; }
 .car-wheel { fill: var(--car-wheel); }
-.car-headlight, .car-brake { fill: var(--car-accent); opacity: .22; transition: opacity .25s, filter .25s; }
+.car-headlight, .car-brake { fill: var(--car-idle-light); opacity: .6; transition: opacity .25s, filter .25s, fill .25s; }
 .car-beam { fill: url(#car-beam-gradient); opacity: 0; transition: opacity .3s; }
 .road-car[data-state=driving] .car-headlight { fill: var(--car-light); opacity: 1; filter: drop-shadow(0 4px 5px var(--car-accent)); }
 .road-car[data-state=driving] .car-beam { opacity: .55; }
