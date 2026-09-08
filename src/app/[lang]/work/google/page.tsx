@@ -25,7 +25,7 @@ export default function GooglePage() {
         'dateModified': '2026-06-10',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
         'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/google/` },
-        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/google-thumbnail.jpg', 'width': 1920, 'height': 1080 },
+        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/google-thumbnail.jpg', 'width': 1920, 'height': 1136 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
         'keywords': language === 'en'
             ? 'road network basemap, travel time measurement, Ministry of Transport, AI-native, GIS pipeline'
@@ -49,7 +49,8 @@ export default function GooglePage() {
         'description': language === 'en' ? a.blog_section.video_desc : a.blog_section.video_desc,
         'thumbnailUrl': 'https://drbendor.com/google-thumbnail.jpg',
         'uploadDate': '2026-06-10T00:00:00+03:00',
-        'contentUrl': 'https://drbendor.com/google-web.mp4',
+        'contentUrl': 'https://drbendor.com/google-light-web.mp4',
+        'duration': 'PT33S',
         'embedUrl': `https://drbendor.com/${language}/work/google/`,
         'author': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor' },
     };
