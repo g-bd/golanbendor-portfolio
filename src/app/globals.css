@@ -1550,6 +1550,9 @@ html[data-drive=braking] .header-car .car-headlight { opacity: .6; fill: var(--c
 .car-roof { fill: var(--car-body); stroke: var(--car-edge); stroke-width: .4; }
 .car-detail { fill: none; stroke: var(--car-glass); stroke-width: .55; opacity: .6; }
 .car-mirror { fill: var(--car-body); stroke: var(--car-edge); stroke-width: .4; }
+.car-reflection { fill: none; stroke: #fff; stroke-width: .65; stroke-linecap: round; opacity: .65; }
+:root { --car-shade: #087b91; --car-highlight: #b7f8ff; }
+[data-theme=light] { --car-shade: #991339; --car-highlight: #ffb0c6; }
 .road-nav > a { transition: color .25s, border-color .25s, box-shadow .25s, background .25s; }
 .road-nav > a.active { background: color-mix(in srgb, var(--car-accent) 8%, var(--bg)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--car-accent) 8%, transparent); }
 .road-nav > a.active::after { content: ''; position: absolute; inset-inline-start: 30px; width: 8px; height: 1px; background: var(--car-accent); opacity: .65; }
@@ -1594,8 +1597,11 @@ html[data-drive-direction=reverse] [dir=rtl] .header-car svg { transform: rotate
 /* Legible publisher switches and paper-like clippings. */
 .coverage-copy .pull-quote::before, [dir=rtl] .coverage-copy .pull-quote::before { content: none; }
 .coverage-lead { border-radius: 12px; }
-.coverage-lead .paper-card img { object-fit: cover; object-position: top; }
-.coverage-lead .paper-card { aspect-ratio: 1; padding: 12px; }
+.coverage-lead .paper-card img, .coverage-brief .paper-card img { object-fit: contain; object-position: center; }
+.coverage-lead .paper-card { aspect-ratio: 1.12; padding: 12px; }
+.paper-card[data-long] img { object-fit: cover; object-position: top; }
+.paper-preview-note { position: absolute; z-index: 2; inset-inline: 0; bottom: 0; padding: 35px 12px 12px; padding-inline-end: 45px; background: linear-gradient(transparent, #fff 42%); color: #294553; font-size: 11px; line-height: 1.5; text-align: start; }
+.coverage-brief .paper-preview-note { font-size: 9px; padding-inline-start: 8px; padding-inline-end: 38px; padding-bottom: 8px; }
 .coverage-dots.publisher-tabs { flex-wrap: wrap; gap: 8px; }
 .publisher-tabs button, .publisher-tabs button.active { width: auto; height: auto; min-height: 40px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 5px; background: transparent; color: var(--muted); font: 500 12px/1.4 var(--body); transition: color .2s, border-color .2s, background .2s; }
 .publisher-tabs button.active, .publisher-tabs button:hover { color: var(--text); border-color: color-mix(in srgb, var(--publisher) 65%, var(--line)); background: color-mix(in srgb, var(--publisher) 7%, transparent); }
@@ -1655,4 +1661,66 @@ html[data-drive-direction=reverse] [dir=rtl] .header-car svg { transform: rotate
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+
+/* A clipping lifts like a sheet of paper; the shine crosses once per hover. */
+.paper-card { isolation: isolate; }
+.paper-card::before, .paper-card::after { content: ''; position: absolute; pointer-events: none; }
+.paper-card::before { z-index: 2; inset-block-end: 0; inset-inline-start: 0; width: 32px; height: 32px; background: linear-gradient(45deg, #b5c0c8, #f5f7f8 48%, #ffffff); clip-path: polygon(0 0, 100% 100%, 0 100%); transform: scale(0); transform-origin: bottom left; transition: transform .45s var(--ease-out); }
+[dir=rtl] .paper-card::before { clip-path: polygon(100% 0, 100% 100%, 0 100%); transform-origin: bottom right; background: linear-gradient(-45deg, #b5c0c8, #f5f7f8 48%, #ffffff); }
+.paper-card::after { z-index: 1; inset: -35%; background: linear-gradient(110deg, transparent 34%, #ffffff00 40%, #ffffff75 49%, #ffffff08 58%, transparent 64%); transform: translateX(-100%); opacity: 0; }
+.paper-card > span { z-index: 3; transition: transform .3s var(--ease-out), background .3s; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .coverage-lead .paper-card, [dir=rtl] .coverage-lead .paper-card { animation-fill-mode: backwards; }
+  .coverage-lead .paper-card, .coverage-brief .paper-card { transition: transform .55s var(--ease-out), box-shadow .55s var(--ease-out); }
+  .coverage-lead .paper-card:is(:hover, :focus-visible), .coverage-brief .paper-card:is(:hover, :focus-visible) { transform: perspective(900px) translateY(-9px) rotateX(4deg) rotateY(-5deg) rotate(-.5deg); box-shadow: 0 28px 42px #071f3140, 0 6px 10px #071f311a; }
+  [dir=rtl] .coverage-lead .paper-card:is(:hover, :focus-visible), [dir=rtl] .coverage-brief .paper-card:is(:hover, :focus-visible) { transform: perspective(900px) translateY(-9px) rotateX(4deg) rotateY(5deg) rotate(.5deg); }
+  .paper-card:is(:hover, :focus-visible)::before { transform: scale(1); }
+  .paper-card:is(:hover, :focus-visible)::after { animation: paper-shine .9s var(--ease-out) both; }
+  .paper-card:is(:hover, :focus-visible) > span { transform: scale(1.1); background: #edf9fc; }
+}
+@keyframes paper-shine { 0% { transform: translateX(-75%); opacity: 0; } 20% { opacity: .7; } 100% { transform: translateX(75%); opacity: 0; } }
+/* Keep click feedback when animation is paused, without moving the paper. */
+.reduce-motion .paper-card:is(:hover, :focus-visible) { transform: none !important; }
+.reduce-motion .paper-card::before, .reduce-motion .paper-card::after { display: none; }
+@media (prefers-reduced-motion: reduce) { .paper-card:is(:hover, :focus-visible) { transform: none !important; } }
+@media (max-width: 760px) {
+  .news-section > .row-heading { display: block; }
+  .news-section > .row-heading > p { margin-top: 16px; max-width: 46ch; }
+}
+@media (max-width: 480px) {
+  .coverage-brief { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .coverage-brief .paper-card { width: min(100%, 220px); justify-self: center; aspect-ratio: 4 / 3; }
+}
+
+/* Case studies: keep scientific visuals complete and make the reading position clear. */
+.case-hero-media video, .case-hero-media img { object-fit: contain; }
+.case-hero-media { border-radius: 12px; box-shadow: 0 20px 55px #071f3114; }
+[data-theme=light] .case-hero-media, [data-theme=light] .method-visual { background: #e9f2f6; }
+.case-hero-grid { align-items: start; }
+.case-hero-grid h1 { text-wrap: balance; }
+.case-hero-media .case-image-label { inset-block-start: auto; inset-block-end: 12px; background: #07131ee6; color: #f4f7fa; border: 1px solid #ffffff30; }
+.chapter-navigation a { position: relative; min-height: 48px; align-items: center; transition: color .2s; }
+.chapter-navigation a::after { content: ''; position: absolute; inset-inline: 0; bottom: -1px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform .25s var(--ease-out); }
+.chapter-navigation a[aria-current=location] { color: var(--text); }
+.chapter-navigation a[aria-current=location] span { color: var(--accent); }
+.chapter-navigation a[aria-current=location]::after { transform: scaleX(1); }
+.case-overview > div > p, .case-extra > div > p, .method-step > p:last-child { text-wrap: pretty; }
+.method-step.active > p:last-child { color: var(--text); }
+.next-case > a { display: block; overflow: hidden; border-radius: 8px; }
+.next-case img { transition: transform .5s var(--ease-out); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) {
+  .next-case > a:hover img { transform: scale(1.025); }
+}
+.reduce-motion .next-case > a:hover img { transform: none; }
+.directory-intro { padding-bottom: 28px; }
+.directory-intro > p:last-child { max-width: 66ch; }
+.directory-results { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; min-height: 52px; margin-bottom: 18px; color: var(--muted); font-size: 13px; }
+.directory-results button { min-height: 44px; font-size: 13px; }
+.directory-card h2 { text-wrap: balance; }
+.directory-image { border-radius: 10px; }
+@media (max-width: 760px) {
+  .case-hero-grid h1 { font-size: clamp(32px, 8vw, 40px); }
+  .chapter-navigation a { padding-block: 13px; }
+  .directory-results { font-size: 12px; margin-bottom: 10px; }
 }

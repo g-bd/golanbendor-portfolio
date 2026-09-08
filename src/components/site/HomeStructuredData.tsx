@@ -185,6 +185,8 @@ export default function HomeStructuredData() {
               "Artificial Intelligence",
               "Machine Learning",
               "Google Maps Analytics",
+              "Digital Road Network Basemaps",
+              "מפות בסיס דיגיטליות של רשתות כבישים",
               "Traffic Monitoring Systems",
               "Spatial Analytics",
               "GIS",

@@ -347,30 +347,30 @@ export const translations = {
         jerusalem_article: {
             title: "Simulation-based policy evaluation of monetary car driving disincentives in Jerusalem",
             subtitle: "Published in Transportation Research Part A",
-            hero_text: "I am thrilled to announce the publication of our latest article in the esteemed journal, Transportation Research Part A. Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions to traffic congestion in one of the world's most historically and culturally rich cities.",
+            hero_text: "How could congestion charges and parking policy change travel in Jerusalem? We built and validated a MATSim model to test the trade-offs before implementation. One study scenario reduced car arrivals by 25% with an approximately €10 daily charge.",
             study_highlight: "In our study, we established and validated a multimodal agent-based simulation of Jerusalem using MATSim, investigating how congestion charges and parking pricing can significantly impact traffic flow within the city center.",
-            study_finding: "Our findings revealed that a daily charge of approximately €10 could reduce car arrivals by 25%, offering a tangible strategy to alleviate urban congestion. Additionally, when combined with parking pricing, these measures could deter intra-city trips, further reducing congestion and emissions.",
+            study_finding: "In the modeled scenario, a daily charge of approximately €10 reduced car arrivals by 25%. This is a simulation result, not an observed change following implementation. Combined congestion and parking pricing also discouraged trips within the city.",
 
             // Page UI
             back_to_portfolio: "Back to Portfolio",
             research_team: "Research Team",
-            research_team_desc: "Collaborative effort between academia, industry leaders, and the JTMT (Jerusalem Transportation Master Plan Team).",
+            research_team_desc: "Golan Ben-Dor, Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson, in collaboration with the Jerusalem Transportation Master Plan Team (JTMT).",
             research_quote: "Together with my co-authors Dr. Ido Klein, Dr. Aleksey Ogulenko, Prof. Eran Ben-Elia and Prof. Itzhak Benenson we've embarked on a journey to explore innovative solutions...",
             fresh_insights: "Fresh Insights",
             cta_heading: "Ready to dive deeper?",
 
             blog_section: {
-                title: "Fresh Insights: Using Carrot-and-Stick Measures to Improve Transport in Jerusalem",
-                intro: "I'm pleased to share some highlights from my latest research, aimed at enhancing future urban mobility in Jerusalem.",
+                title: "Can pricing reduce congestion without weakening public transport?",
+                intro: "New mobility services can attract passengers away from buses as well as private cars. The study tested how shared automated vehicles, congestion charges and parking prices interact across Jerusalem's transport network.",
 
                 contribution_title: "Our Contribution",
-                contribution_p1: "We used MATSim to create a virtual model of Jerusalem's transport system. Think of it as a super-smart video game where cars, buses, and even self-driving vehicles move like in real life. The virtual people adapt to changes, switching to whatever transport benefits them. This helps us test ideas to improve real-world travel.",
-                contribution_p2: "The MATSim Jerusalem model served as a testing ground for different future \"carrot-and-stick\" strategies.",
+                contribution_p1: "We represented travelers and their daily journeys in MATSim. Each simulated traveler can adapt their route and transport mode as costs and network conditions change, allowing policies to be compared within the same transport system.",
+                contribution_p2: "We compared shared automated vehicle services, congestion charging and parking pricing, both separately and in combination. The model makes it possible to examine the trade-offs before a policy is introduced.",
                 contribution_p3: "Our model showed that introducing Shared Automated Cars alone (the \"carrot\") could divert people from Public Transport. Adding a \"stick\" like congestion/parking pricing, however, creates a balanced use of both.",
                 contribution_p4: "Interestingly, easing traffic in congestion-charged areas can paradoxically attract more private cars.",
 
                 impact_title: "Why It Matters",
-                impact_text: "The work provides valuable insights for city planners, helping them understand how to effectively use rewards (\"carrots\") and penalties (\"sticks\") to improve urban mobility.",
+                impact_text: "The policy package matters more than any single measure. Planners can use the model to compare effects on car use and public transport, including unintended responses, before choosing a pricing strategy.",
 
                 video_title: "See It in Action",
                 video_desc: "I have created a video simulation to visually represent the model (Via by Simunto).",
@@ -670,7 +670,7 @@ export const translations = {
         work_index: {
             title: "Case Studies & Projects",
             subtitle: "Research and consulting work in urban mobility simulation",
-            description: "Explore detailed case studies from my work with Israel's leading transport agencies. Each project demonstrates how agent-based simulation and data analytics inform better policy decisions.",
+            description: "From national traffic surveys to working software: see the question, method and evidence behind my transport research and AI development projects.",
             back_home: "Back to Home",
             featured: "FEATURED",
             view_project: "View Project",
@@ -682,15 +682,15 @@ export const translations = {
             },
             projects: {
                 jerusalem: {
-                    title: "Jerusalem Transportation Master Plan",
+                    title: "Jerusalem Congestion Pricing Study",
                     desc: "Agent-based evaluation of congestion pricing and shared autonomous vehicles impact on urban mobility using MATSim simulation.",
                     tags: ["MATSim", "Policy Evaluation", "Congestion Pricing"],
                     status: "Published 2024"
                 },
                 google: {
-                    title: "Google Maps Traffic Analytics",
-                    desc: "Strategic planning platform for the Ministry of Transport, harnessing massive API datasets for real-time congestion visualization.",
-                    tags: ["Big Data", "Real-time Analytics", "Strategic Planning"],
+                    title: "Digital Road Network Basemap",
+                    desc: "A system for creating and validating road-network basemaps across four metropolitan areas, supporting the Ministry of Transport's travel-time measurements.",
+                    tags: ["GIS", "Network Validation", "AI Development"],
                     status: "Live Project"
                 },
                 beersheva: {
@@ -1071,30 +1071,30 @@ export const translations = {
         jerusalem_article: {
             title: "הערכת מדיניות מבוססת סימולציה של תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים",
             subtitle: "פורסם ב-Transportation Research Part A",
-            hero_text: "אני נרגש להכריז על פרסום המאמר האחרון שלנו בכתב העת המוערך Transportation Research Part A. יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים לגודש בכבישים באחת הערים ההיסטוריות והחשובות בעולם.",
+            hero_text: "כיצד אגרת גודש ומדיניות חניה עשויות לשנות את הנסיעה בירושלים? בנינו ותיקפנו מודל MATSim כדי לבחון את ההשפעות לפני היישום. באחד מתרחישי המחקר, אגרה יומית של כ־10 אירו הפחיתה את כניסת הרכבים ב־25%.",
             study_highlight: "במחקרנו הקמנו ותיקפנו סימולציה מבוססת סוכנים רב-אמצעית של ירושלים באמצעות MATSim, ובחנו כיצד אגרות גודש ותמחור חניה יכולים להשפיע משמעותית על זרימת התנועה במרכז העיר.",
-            study_finding: "הממצאים שלנו הראו שאגרה יומית של כ-10 אירו יכולה להפחית את כניסת הרכבים ב-25%, מה שמציע אסטרטגיה מוחשית להקלת הגודש העירוני. בנוסף, בשילוב עם תמחור חניה, צעדים אלו יכולים להרתיע נסיעות פנים-עירוניות ולהפחית עוד יותר את הגודש והפליטות.",
+            study_finding: "בתרחיש שנבחן במודל, אגרה יומית של כ־10 אירו הפחיתה את כניסת הרכבים ב־25%. זו תוצאת סימולציה, ולא שינוי שנמדד לאחר יישום מדיניות. שילוב אגרת גודש ותמחור חניה הפחית גם את הכדאיות של נסיעות בתוך העיר.",
 
             // Page UI
             back_to_portfolio: "חזרה לפורטפוליו",
             research_team: "צוות המחקר",
-            research_team_desc: "מאמץ שיתופי בין האקדמיה, מובילי התעשייה וצוות תכנית אב לתחבורה ירושלים.",
+            research_team_desc: "גולן בן־דור, ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן־אליה ופרופ' יצחק בננסון, בשיתוף צוות תכנית אב לתחבורה ירושלים.",
             research_quote: "יחד עם עמיתיי ד\"ר עדו קליין, ד\"ר אלכסיי אוגולנקו, פרופ' ערן בן-אליה ופרופ' יצחק בננסון, יצאנו למסע לחקור פתרונות חדשניים...",
             fresh_insights: "תובנות חדשות",
             cta_heading: "מוכנים לצלול לעומק?",
 
             blog_section: {
-                title: "תובנות חדשות: שימוש בשיטת \"המקל והגזר\" לשיפור התחבורה בירושלים",
-                intro: "אני שמח לשתף כמה נקודות עיקריות מהמחקר האחרון שלי, שמטרתו לשפר את הניידות העירונית העתידית בירושלים.",
+                title: "האם תמחור יכול להפחית גודש בלי להחליש את התחבורה הציבורית?",
+                intro: "שירותי ניידות חדשים עשויים למשוך נוסעים מהאוטובוס, ולא רק מהרכב הפרטי. המחקר בחן כיצד רכבים אוטונומיים שיתופיים, אגרת גודש ותמחור חניה משפיעים זה על זה ברשת התחבורה של ירושלים.",
 
                 contribution_title: "התרומה שלנו",
-                contribution_p1: "השתמשנו ב-MATSim כדי ליצור מודל וירטואלי של מערכת התחבורה בירושלים. חשבו על זה כמו משחק וידאו סופר-חכם שבו מכוניות, אוטובוסים ואפילו רכבים אוטונומיים נעים כמו בחיים האמיתיים. האנשים הווירטואליים מסתגלים לשינויים ועוברים לכל אמצעי תחבורה שמשתלם להם. זה עוזר לנו לבדוק רעיונות לשיפור הנסיעה בעולם האמיתי.",
-                contribution_p2: "מודל MATSim ירושלים שימש כשדה ניסוי לאסטרטגיות עתידיות שונות של \"המקל והגזר\".",
+                contribution_p1: "ייצגנו ב־MATSim את הנוסעים ואת הנסיעות היומיות שלהם. כל נוסע במודל יכול להתאים את המסלול ואת אמצעי התחבורה לשינויים בעלויות ובתנאי הרשת, וכך אפשר להשוות חלופות מדיניות באותה מערכת תחבורה.",
+                contribution_p2: "השווינו שירותי רכב אוטונומי שיתופי, אגרת גודש ותמחור חניה, בנפרד ובשילוב. המודל מאפשר לבחון את היתרונות והמחירים של כל חלופה לפני שמיישמים אותה.",
                 contribution_p3: "המודל שלנו הראה שהכנסת רכבים אוטונומיים שיתופיים לבד (\"הגזר\") עלולה להסיט אנשים מתחבורה ציבורית. עם זאת, הוספת \"מקל\" כמו אגרת גודש/תמחור חניה יוצרת איזון בשימוש בשניהם.",
                 contribution_p4: "באופן מעניין, הקלת התנועה באזורים שבהם יש אגרת גודש יכולה באופן פרדוקסלי למשוך יותר רכבים פרטיים.",
 
                 impact_title: "למה זה חשוב",
-                impact_text: "העבודה מספקת תובנות חשובות למתכנני ערים, ועוזרת להם להבין כיצד להשתמש ביעילות בתגמולים (\"גזרים\") ועונשים (\"מקלות\") כדי לשפר את הניידות העירונית.",
+                impact_text: "השילוב בין אמצעי המדיניות חשוב יותר מכל אמצעי בנפרד. המודל מסייע למתכננים להשוות השפעות על השימוש ברכב ובתחבורה הציבורית, כולל תגובות לא צפויות, לפני בחירת מדיניות תמחור.",
 
                 video_title: "לראות את זה בעיניים",
                 video_desc: "יצרתי סימולציית וידאו כדי לייצג ויזואלית את המודל (Via by Simunto).",
@@ -1394,7 +1394,7 @@ export const translations = {
         work_index: {
             title: "מקרי בוחן ופרויקטים",
             subtitle: "מחקר וייעוץ בסימולציית ניידות עירונית",
-            description: "גלו מקרי בוחן מפורטים מעבודתי עם סוכנויות התחבורה המובילות בישראל. כל פרויקט מדגים כיצד סימולציה מבוססת סוכנים ואנליטיקת נתונים מסייעות בקבלת החלטות מדיניות טובות יותר.",
+            description: "מסקרי תנועה ארציים ועד תוכנה בשימוש מעשי: השאלה, השיטה והעדויות שמאחורי פרויקטי מחקר התחבורה ופיתוח ה־AI שלי.",
             back_home: "חזרה לדף הבית",
             featured: "מומלץ",
             view_project: "לצפייה בפרויקט",
@@ -1406,15 +1406,15 @@ export const translations = {
             },
             projects: {
                 jerusalem: {
-                    title: "תוכנית אב לתחבורה ירושלים",
+                    title: "מחקר אגרת גודש בירושלים",
                     desc: "הערכה מבוססת סוכנים של אגרות גודש ורכבים אוטונומיים שיתופיים והשפעתם על ניידות עירונית באמצעות סימולציית MATSim.",
                     tags: ["MATSim", "הערכת מדיניות", "אגרת גודש"],
                     status: "פורסם 2024"
                 },
                 google: {
-                    title: "אנליטיקת תנועה Google Maps",
-                    desc: "פלטפורמת תכנון אסטרטגי למשרד התחבורה, מינוף מאגרי API עצומים להמחשת גודש בזמן אמת.",
-                    tags: ["Big Data", "אנליטיקה בזמן אמת", "תכנון אסטרטגי"],
+                    title: "מפת בסיס דיגיטלית לרשת הכבישים",
+                    desc: "מערכת ליצירה ולאימות של מפות בסיס לרשתות כבישים בארבעה מטרופולינים, התומכת במדידות זמני הנסיעה של משרד התחבורה.",
+                    tags: ["GIS", "אימות רשתות", "פיתוח עם AI"],
                     status: "פרויקט פעיל"
                 },
                 beersheva: {

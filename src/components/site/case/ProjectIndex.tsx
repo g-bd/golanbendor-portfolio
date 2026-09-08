@@ -20,7 +20,7 @@ export default function ProjectIndex() {
     const [query, setQuery] = useState('');
     const [filter, setFilter] = useState<Filter>('all');
     const index = t.work_index;
-    const q = query.toLocaleLowerCase();
+    const q = query.trim().toLocaleLowerCase();
 
     const visible = projectOrder.filter(key => {
         const item = index.projects[key];
@@ -38,7 +38,7 @@ export default function ProjectIndex() {
             '@type': 'ItemList',
             'itemListElement': [
                 ...projectOrder.map((key, i) => ({ '@type': 'ListItem', 'position': i + 1, 'name': index?.projects?.[key]?.title, 'url': `https://drbendor.com/${language}/work/${key}/` })),
-                { '@type': 'ListItem', 'position': projectOrder.length + 1, 'name': index?.projects?.ai_workflows?.title, 'url': `https://drbendor.com/${language}#work` },
+                { '@type': 'ListItem', 'position': projectOrder.length + 1, 'name': index?.projects?.ai_workflows?.title, 'url': `https://drbendor.com/${language}/#expertise` },
             ],
         },
     };
@@ -63,7 +63,7 @@ export default function ProjectIndex() {
                 <p>{index.description}</p>
             </div>
             <div className="directory-controls">
-                <div className="filter-buttons" aria-label={w.all}>
+                <div className="filter-buttons" role="group" aria-label={w.all}>
                     {FILTERS.map(key => (
                         <button key={key} className={filter === key ? 'active' : ''} aria-pressed={filter === key} onClick={() => setFilter(key)}>
                             {key === 'all' ? w.all : index.categories[key]}
@@ -74,6 +74,10 @@ export default function ProjectIndex() {
                     <Search size={17} />
                     <input type="search" value={query} onChange={event => setQuery(event.target.value)} placeholder={w.search} aria-label={w.search} />
                 </label>
+            </div>
+            <div className="directory-results">
+                <p role="status" aria-live="polite" aria-atomic="true">{visible.length} / {projectOrder.length} {w.results}</p>
+                {visible.length > 0 && (query || filter !== 'all') && <button className="text-link" onClick={() => { setQuery(''); setFilter('all'); }}>{w.reset}</button>}
             </div>
             <div className="directory-grid">
                 {visible.map(key => {

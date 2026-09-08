@@ -58,7 +58,7 @@ export const content: Record<Language, HomeContent> = {
     ],
     moreWork: 'MORE WAYS TO SEE THE NETWORK', more: 'Explore all projects',
     other: [
-      { title: 'Google Maps Analytics', category: 'DATA & MONITORING', image: 'google-thumbnail.jpg', path: 'google' },
+      { title: 'Digital Road Network Basemap', category: 'DATA & MONITORING', image: 'google-thumbnail.jpg', path: 'google' },
       { title: 'Traffic Count Sampling', category: 'NETWORK SCIENCE', image: 'counts-thumbnail.jpg', path: 'counts' },
       { title: 'Blind Control Reconstruction', category: 'MODEL VALIDATION', image: 'beer-sheva-thumbnail.jpg', path: 'beersheva' },
     ],
@@ -117,7 +117,7 @@ export const content: Record<Language, HomeContent> = {
     ],
     moreWork: 'עוד דרכים להבין את הרשת', more: 'לכל הפרויקטים',
     other: [
-      { title: 'ניתוח נתוני Google Maps', category: 'נתונים וניטור', image: 'google-thumbnail.jpg', path: 'google' },
+      { title: 'מפת בסיס דיגיטלית לרשת הכבישים', category: 'נתונים וניטור', image: 'google-thumbnail.jpg', path: 'google' },
       { title: 'תכנון דגימת ספירות תנועה', category: 'מדע הרשתות', image: 'counts-thumbnail.jpg', path: 'counts' },
       { title: 'שחזור בקרה עיוורת', category: 'תיקוף מודלים', image: 'beer-sheva-thumbnail.jpg', path: 'beersheva' },
     ],
@@ -162,7 +162,7 @@ const mediaRatios = [852 / 478, 9 / 16, 928 / 480, 720 / 480];
 
 export interface EventItem { tag: string; title: string; desc: string; image: string; }
 export interface MediaItem { tag: string; title: string; desc: string; source: string; video: string; poster: string; duration: string; ratio: number; frames: string[]; }
-export interface NewsItem { source: string; title: string; summary: string; date?: string; image: string; link: string; color: string; }
+export interface NewsItem { source: string; title: string; summary: string; date?: string; image: string; link: string; color: string; long?: boolean; }
 export interface ConferenceVideo { youtubeId: string; start: number; title: string; desc: string; }
 
 export interface ArchiveContent {
@@ -173,7 +173,7 @@ export interface ArchiveContent {
   eventsLabel: string; eventsTitle: string; eventsDesc: string; previous: string; next: string; events: EventItem[];
   watchConference: string; backToPhotos: string; nowPlaying: string; conference: ConferenceVideo; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
   mediaLabel: string; mediaTitle: [string, string]; mediaDesc: string; play: string; close: string; videoLanguage: string; captionsNote: string; media: MediaItem[];
-  newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; previousClipping: string; nextClipping: string; news: NewsItem[];
+  newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; longClipping: string; previousClipping: string; nextClipping: string; news: NewsItem[];
 }
 
 type ArchiveSeed = Omit<ArchiveContent, 'events' | 'media' | 'news'> & { events: [string, string, string][]; media: [string, string, string, string][]; news: [string, string, string][] };
@@ -222,7 +222,7 @@ const seed: Record<Language, ArchiveSeed> = {
     conference: { youtubeId: '3inUnuxH_W0', start: 23, title: 'ISTRC 2021 · Robust Policy Evaluation', desc: 'Conference talk on robust transportation policy evaluation, ISTRC 2021.' },
     pausePhotos: 'Pause photo rotation', resumePhotos: 'Resume photo rotation', chooseVideo: 'Interviews & lectures', selectedVideo: 'Now selected', galleryRunning: 'Photos advance automatically', galleryPaused: 'Photo rotation paused', pressNote: 'Selected national coverage',
     mediaLabel: '05 — WATCH & DISCOVER', mediaTitle: ['Transport, data & AI.', 'In everyday language.'],
-    mediaDesc: 'Media interviews, conversations about AI and a look inside the classroom: sharing the knowledge behind the work.', play: 'Watch video', close: 'Close player', videoLanguage: 'Original audio · Hebrew', captionsNote: 'Original audio in Hebrew. This video has no caption track.',
+    mediaDesc: 'Media interviews, conversations about AI and a look inside the classroom: sharing the knowledge behind the work.', play: 'Watch video', close: 'Close player', videoLanguage: 'Original audio · Hebrew', captionsNote: 'Hebrew audio · subtitles unavailable',
     media: [
       ['TV INTERVIEW', 'Public transportation in the future', 'A conversation about public transport and urban mobility.', 'Channel 13 News'],
       ['VIDEO PODCAST', 'Working smarter with AI', 'Using AI tools to improve everyday workflows.', 'Podcast'],
@@ -230,6 +230,7 @@ const seed: Record<Language, ArchiveSeed> = {
       ['TEACHING', 'Geographic information systems', 'From the GIS course at Tel Aviv University.', 'Tel Aviv University'],
     ],
     newsLabel: 'IN THE NEWS', newsTitle: 'Research in the public conversation.', readArticle: 'Read the article', enlarge: 'Enlarge clipping', featureArticle: 'Feature this story', closeClipping: 'Close clipping', clippingNote: 'Scroll to read · arrow keys switch clippings', previousClipping: 'Previous clipping', nextClipping: 'Next clipping',
+    longClipping: 'Article preview · open to read',
     news: [
       ['Calcalist', 'Study: a congestion charge could cut Jerusalem traffic by a quarter.', 'Coverage of the Tel Aviv University MATSim study that modeled congestion pricing and parking policy for central Jerusalem.'],
       ['TheMarker', 'How much does smart transportation really improve the journey?', 'A simulation of shared autonomous vehicles shows why on-demand fleets cannot replace high-capacity public transport.'],
@@ -277,14 +278,14 @@ const seed: Record<Language, ArchiveSeed> = {
     conference: { youtubeId: '3inUnuxH_W0', start: 23, title: 'ISTRC 2021 · הערכת מדיניות חסינה', desc: 'הרצאה בכנס ISTRC 2021 על הערכה חסינה של מדיניות תחבורה.' },
     pausePhotos: 'השהיית מעבר התמונות', resumePhotos: 'המשך מעבר התמונות', chooseVideo: 'ראיונות והרצאות', selectedVideo: 'נבחר לצפייה', galleryRunning: 'התמונות מתחלפות אוטומטית', galleryPaused: 'מעבר התמונות מושהה', pressNote: 'סיקור נבחר בעיתונות הארצית',
     mediaLabel: '05 — לצפות ולהכיר', mediaTitle: ['על תחבורה, נתונים ו־AI.', 'בשפה של אנשים.'],
-    mediaDesc: 'ראיונות בתקשורת, שיחות על AI והצצה להרצאות — הידע שמאחורי העבודה, גם מחוץ למחקר.', play: 'לצפייה בסרטון', close: 'סגירת הנגן', videoLanguage: 'שמע מקורי · עברית', captionsNote: 'השמע המקורי בעברית. לסרטון זה אין רצועת כתוביות.',
+    mediaDesc: 'ראיונות בתקשורת, שיחות על AI והצצה להרצאות — הידע שמאחורי העבודה, גם מחוץ למחקר.', play: 'לצפייה בסרטון', close: 'סגירת הנגן', videoLanguage: 'שמע מקורי · עברית', captionsNote: 'שמע בעברית · ללא כתוביות',
     media: [
       ['ראיון טלוויזיה', 'עתיד התחבורה הציבורית', 'שיחה על תחבורה ציבורית וניידות עירונית.', 'חדשות 13'],
       ['פודקאסט וידאו', 'לעבוד חכם יותר עם AI', 'כלי בינה מלאכותית לשיפור תהליכי העבודה ביום־יום.', 'פודקאסט'],
       ['הרצאה', 'מידול תחבורה עם MATSim', 'מתוך קורס מתקדם בסימולציה תחבורתית.', 'קורס MATSim'],
       ['הרצאה', 'מערכות מידע גאוגרפיות', 'מתוך קורס GIS באוניברסיטת תל אביב.', 'אוניברסיטת תל אביב'],
     ],
-    newsLabel: 'סיקור תקשורתי', newsTitle: 'המחקר בשיח הציבורי.', readArticle: 'לכתבה המלאה', enlarge: 'הגדלת הכתבה', featureArticle: 'להצגת הכתבה', closeClipping: 'סגירת הכתבה', clippingNote: 'גללו לקריאה · מקשי החצים מחליפים גזיר', previousClipping: 'לגזיר הקודם', nextClipping: 'לגזיר הבא',
+    newsLabel: 'סיקור תקשורתי', newsTitle: 'המחקר בשיח הציבורי.', readArticle: 'לכתבה המלאה', enlarge: 'הגדלת הכתבה', featureArticle: 'להצגת הכתבה', closeClipping: 'סגירת הכתבה', clippingNote: 'גללו לקריאה · מקשי החצים מחליפים גזיר', longClipping: 'תצוגה מקדימה · לפתיחת הכתבה', previousClipping: 'לגזיר הקודם', nextClipping: 'לגזיר הבא',
     news: [
       ['כלכליסט', 'אגרת גודש בירושלים: המודל מצביע על אפשרות להפחתת התנועה ברבע.', 'סיקור מחקר MATSim מאוניברסיטת תל אביב שבחן תמחור גודש ומדיניות חניה במרכז ירושלים.'],
       ['TheMarker', 'עד כמה תחבורה חכמה באמת משפרת את הנסיעה?', 'סימולציה של רכבים אוטונומיים משותפים מראה מדוע ציי רכב לפי דרישה אינם יכולים להחליף תחבורה ציבורית עתירת קיבולת.'],
@@ -297,16 +298,16 @@ const build = (s: ArchiveSeed): ArchiveContent => ({
   ...s,
   events: s.events.map(([tag, title, desc], i) => ({ tag, title, desc, image: eventImages[i] })),
   media: s.media.map(([tag, title, desc, source], i) => ({ tag, title, desc, source, video: mediaFiles[i], poster: mediaPosters[i], duration: mediaDurations[i], ratio: mediaRatios[i], frames: [1, 2, 3, 4].map(k => `media-frames/m${i}-${k}.jpg`) })),
-  news: s.news.map(([source, title, summary], i) => ({ source, title, summary, date: newsDates[i] || undefined, image: newsImages[i], link: newsLinks[i], color: newsColors[i] })),
+  news: s.news.map(([source, title, summary], i) => ({ source, title, summary, date: newsDates[i] || undefined, image: newsImages[i], link: newsLinks[i], color: newsColors[i], long: i === 2 })),
 });
 
 export const archive: Record<Language, ArchiveContent> = { en: build(seed.en), he: build(seed.he) };
 
 // Case-study template vocabulary (work index, case studies, legal pages).
 export interface PageWords {
-  home: string; projects: string; overview: string; method: string; evidence: string; impact: string; next: string; all: string; search: string; empty: string; reset: string; read: string; scroll: string; team: string; steps: string[]; loading: string; jump: string; diagram: string; previewVideo: string; chapter: string; result: string; contact: string; unknown: string; back: string;
+  home: string; projects: string; results: string; overview: string; method: string; evidence: string; impact: string; next: string; all: string; search: string; empty: string; reset: string; read: string; scroll: string; team: string; steps: string[]; loading: string; jump: string; diagram: string; previewVideo: string; chapter: string; result: string; contact: string; unknown: string; back: string;
 }
 export const pageWords: Record<Language, PageWords> = {
-  en: { home: 'Home', projects: 'All projects', overview: 'The question', method: 'The approach', evidence: 'The evidence', impact: 'Why it matters', next: 'The next perspective', all: 'All work', search: 'Search projects', empty: 'No projects match. Try another keyword.', reset: 'Clear filters', read: 'Explore case study', scroll: 'Follow the story', team: 'THE PEOPLE BEHIND THE WORK', steps: ['Understand', 'Connect', 'Evaluate', 'Deliver', 'Validate'], loading: 'Loading the interactive visualization…', jump: 'In this story', diagram: 'Illustrative network demonstration — not observed traffic data.', previewVideo: 'Illustrative corridor preview — full analysis available on request.', chapter: 'CASE STUDY', result: 'From evidence to a decision.', contact: 'Discuss a similar challenge', unknown: 'This page does not exist.', back: 'Back to the homepage' },
-  he: { home: 'בית', projects: 'כל הפרויקטים', overview: 'השאלה', method: 'הגישה', evidence: 'העדויות', impact: 'המשמעות', next: 'נקודת המבט הבאה', all: 'כל הפרויקטים', search: 'חיפוש פרויקטים', empty: 'לא נמצאו פרויקטים. נסו מילת חיפוש אחרת.', reset: 'ניקוי הסינון', read: 'לסיפור הפרויקט', scroll: 'עקבו אחר הסיפור', team: 'האנשים שמאחורי העבודה', steps: ['להבין', 'לחבר', 'לבחון', 'ליישם', 'לתקף'], loading: 'טוען את ההמחשה האינטראקטיבית…', jump: 'בסיפור הזה', diagram: 'הדגמת רשת להמחשה — לא נתוני תנועה שנמדדו.', previewVideo: 'הדמיית מסדרון להמחשה — הניתוח המלא זמין לפי בקשה.', chapter: 'סיפור פרויקט', result: 'מעדויות להחלטה.', contact: 'נדבר על אתגר דומה', unknown: 'העמוד הזה אינו קיים.', back: 'חזרה לדף הבית' },
+  en: { home: 'Home', projects: 'All projects', results: 'case studies', overview: 'The question', method: 'The approach', evidence: 'The evidence', impact: 'Why it matters', next: 'The next perspective', all: 'All work', search: 'Search projects', empty: 'No projects match. Try another keyword.', reset: 'Clear filters', read: 'Explore case study', scroll: 'Follow the story', team: 'THE PEOPLE BEHIND THE WORK', steps: ['Understand', 'Connect', 'Evaluate', 'Deliver', 'Validate'], loading: 'Loading the interactive visualization…', jump: 'In this story', diagram: 'Illustrative network demonstration — not observed traffic data.', previewVideo: 'Illustrative corridor preview — full analysis available on request.', chapter: 'CASE STUDY', result: 'From evidence to a decision.', contact: 'Discuss a similar challenge', unknown: 'This page does not exist.', back: 'Back to the homepage' },
+  he: { home: 'בית', projects: 'כל הפרויקטים', results: 'סיפורי פרויקט', overview: 'השאלה', method: 'הגישה', evidence: 'העדויות', impact: 'המשמעות', next: 'נקודת המבט הבאה', all: 'כל הפרויקטים', search: 'חיפוש פרויקטים', empty: 'לא נמצאו פרויקטים. נסו מילת חיפוש אחרת.', reset: 'ניקוי הסינון', read: 'לסיפור הפרויקט', scroll: 'עקבו אחר הסיפור', team: 'האנשים שמאחורי העבודה', steps: ['להבין', 'לחבר', 'לבחון', 'ליישם', 'לתקף'], loading: 'טוען את ההמחשה האינטראקטיבית…', jump: 'בסיפור הזה', diagram: 'הדגמת רשת להמחשה — לא נתוני תנועה שנמדדו.', previewVideo: 'הדמיית מסדרון להמחשה — הניתוח המלא זמין לפי בקשה.', chapter: 'סיפור פרויקט', result: 'מעדויות להחלטה.', contact: 'נדבר על אתגר דומה', unknown: 'העמוד הזה אינו קיים.', back: 'חזרה לדף הבית' },
 };

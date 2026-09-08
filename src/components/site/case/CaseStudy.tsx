@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { ArrowUpRight, ArrowDown, Check } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -11,6 +12,7 @@ import Label from '@/components/site/Label';
 import Breadcrumb from './Breadcrumb';
 import Visual from './Visual';
 import MethodStory from './MethodStory';
+import ChapterNavigation from './ChapterNavigation';
 
 const ScientificMaps = dynamic(() => import('./ScientificMaps'), { ssr: false, loading: () => <LoadingNote /> });
 
@@ -38,7 +40,7 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
 
     const paragraphs: string[] = Object.entries(b as Record<string, string>).filter(([key]) => /^(how|contribution)_p\d$/.test(key)).map(([, value]) => value);
     const next = projectOrder[(projectOrder.indexOf(slug) + 1) % projectOrder.length];
-    const sectionIds = ['overview', 'method', 'evidence', 'impact'] as const;
+    const chapters = useMemo(() => (['overview', 'method', 'evidence', 'impact'] as const).map(id => ({ id, label: w[id] })), [w]);
     const isMap = slug === 'cordon' || slug === 'counts';
     const extras = (['ai', 'coordination', 'partner'] as const).filter(key => b[`${key}_text`]);
     const pad = (n: number) => String(n).padStart(2, '0');
@@ -64,9 +66,7 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                 </div>
             </header>
 
-            <nav className="chapter-navigation" aria-label={w.jump}>
-                <div className="shell">{sectionIds.map((id, i) => <a href={`#${id}`} key={id}><span>0{i + 1}</span>{w[id]}</a>)}</div>
-            </nav>
+            <ChapterNavigation chapters={chapters} label={w.jump} />
 
             <div className="shell case-body">
                 <section id="overview" className="case-overview">

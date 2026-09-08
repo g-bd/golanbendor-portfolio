@@ -58,6 +58,7 @@ public/api-keys-*.csv
 tmpclaude-*
 .playwright-mcp/
 .playwright-cli/
+.audit/
 
 # large media (not tracked in git)
 public/hi res photos/

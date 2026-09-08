@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { translations } from '@/data/translations';
 
 type Props = {
   children: React.ReactNode;
@@ -19,13 +20,12 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     ? "מקרי בוחן ופרויקטים"
     : "Case Studies & Projects";
 
-  const description = isHebrew
-    ? "גלו מקרי בוחן מפורטים מעבודתי עם סוכנויות התחבורה המובילות בישראל - סימולציה מבוססת סוכנים, MATSim, ואנליטיקת תנועה."
-    : "Explore detailed case studies from urban mobility simulation work with Israel's leading transport agencies - agent-based modeling, MATSim, and traffic analytics.";
+  const description = translations[isHebrew ? 'he' : 'en'].work_index.description;
 
   return {
     title,
     description,
+    twitter: { card: 'summary_large_image', title, description, images: ['https://drbendor.com/og-image.jpg?v=2'] },
     alternates: {
       canonical: `https://drbendor.com/${lang}/work/`,
       languages: {

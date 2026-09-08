@@ -38,7 +38,7 @@ export default function CountsPage() {
         '@type': 'BreadcrumbList',
         'itemListElement': [
             { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}/` },
-            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}#work` },
+            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}/work/` },
             { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Traffic Count Sampling Design' : 'תכנון מדגם ספירות תנועה', 'item': `https://drbendor.com/${language}/work/counts/` },
         ],
     };

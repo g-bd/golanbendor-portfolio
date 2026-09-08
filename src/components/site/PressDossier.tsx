@@ -104,8 +104,9 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
                             {t.news.map((item, i) => <button key={item.link} aria-pressed={i === featured} className={i === featured ? 'active' : ''} style={publisher(item.color)} onClick={() => setFeatured(i)}>{item.source}</button>)}
                         </div>
                     </div>
-                    <button className="paper-card" onClick={event => openClipping(featured, event)} aria-label={`${t.enlarge}: ${lead.source}`}>
+                    <button className="paper-card" data-long={lead.long || undefined} onClick={event => openClipping(featured, event)} aria-label={`${t.enlarge}: ${lead.source}`}>
                         <img src={asset(lead.image)} alt="" loading="lazy" /><span><Maximize2 size={15} /></span>
+                        {lead.long && <small className="paper-preview-note">{t.longClipping}</small>}
                     </button>
                 </article>
                 {briefs.map(({ item, i }) => (
@@ -119,8 +120,9 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
                                 <button className="promote" onClick={() => setFeatured(i)}><ChevronUp size={13} />{t.featureArticle}</button>
                             </div>
                         </div>
-                        <button className="paper-card" onClick={event => openClipping(i, event)} aria-label={`${t.enlarge}: ${item.source}`}>
+                        <button className="paper-card" data-long={item.long || undefined} onClick={event => openClipping(i, event)} aria-label={`${t.enlarge}: ${item.source}`}>
                             <img src={asset(item.image)} alt="" loading="lazy" /><span><Maximize2 size={14} /></span>
+                            {item.long && <small className="paper-preview-note">{t.longClipping}</small>}
                         </button>
                     </article>
                 ))}

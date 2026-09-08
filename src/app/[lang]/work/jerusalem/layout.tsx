@@ -20,8 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
     : "Jerusalem Congestion Pricing Study | Transport Policy Evaluation";
 
   const description = isHebrew
-    ? "מחקר מבוסס סימולציה על תמריצים כספיים להפחתת השימוש ברכב פרטי בירושלים. ממצא מרכזי: אגרה יומית של כ-10 אירו יכולה להפחית כניסת רכבים ב-25%. פורסם ב-Transportation Research Part A."
-    : "Simulation-based research evaluating financial incentives to reduce private car usage in Jerusalem. Key finding: A €10 daily charge could reduce car arrivals by 25%. Published in Transportation Research Part A.";
+    ? "מחקר MATSim על אגרת גודש ותמחור חניה בירושלים. בתרחיש שנבחן, אגרה יומית של כ־10 אירו הפחיתה כניסת רכבים ב־25%. פורסם ב־Transportation Research Part A."
+    : "MATSim research on Jerusalem congestion and parking pricing. A modeled €10 daily charge reduced car arrivals by 25%. Published in Transportation Research Part A.";
 
   const keywords = isHebrew
     ? ["אגרת גודש", "ירושלים", "סימולציה תחבורתית", "MATSim", "מדיניות תחבורה", "גולן בן-דור", "רכב אוטונומי משותף", "תחבורה ציבורית"]
@@ -59,15 +59,15 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       images: [
         {
           url: 'https://drbendor.com/sim%20video%20high%20res%20thumbnail.jpg',
-          width: 1200,
-          height: 630,
+          width: 2274,
+          height: 2160,
           alt: isHebrew
             ? 'סימולציית תחבורה בירושלים - מודל MATSim'
             : 'Jerusalem Transport Simulation - MATSim Model',
         },
       ],
       publishedTime: '2024-05-01T00:00:00.000Z',
-      modifiedTime: '2024-12-01T00:00:00.000Z',
+      modifiedTime: '2026-09-08T00:00:00.000Z',
       authors: ['Dr. Golan Ben-Dor'],
       tags: isHebrew
         ? ['אגרת גודש', 'ירושלים', 'סימולציה', 'MATSim', 'תחבורה']
@@ -78,9 +78,7 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       title: isHebrew
         ? 'מחקר אגרת גודש בירושלים'
         : 'Jerusalem Congestion Pricing Study',
-      description: isHebrew
-        ? 'אגרה יומית של כ-10 אירו יכולה להפחית כניסת רכבים ב-25%'
-        : 'A €10 daily charge could reduce car arrivals by 25%',
+      description,
     },
   };
 }

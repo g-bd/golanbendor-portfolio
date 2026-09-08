@@ -33,7 +33,7 @@ export default function BeershevaPage() {
         '@type': 'BreadcrumbList',
         'itemListElement': [
             { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}/` },
-            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}#work` },
+            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}/work/` },
             { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Beer Sheva Model Validation' : 'אימות מודל באר שבע', 'item': `https://drbendor.com/${language}/work/beersheva/` },
         ],
     };

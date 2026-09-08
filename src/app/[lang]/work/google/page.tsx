@@ -37,7 +37,7 @@ export default function GooglePage() {
         '@type': 'BreadcrumbList',
         'itemListElement': [
             { '@type': 'ListItem', 'position': 1, 'name': language === 'en' ? 'Home' : 'דף הבית', 'item': `https://drbendor.com/${language}/` },
-            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}#work` },
+            { '@type': 'ListItem', 'position': 2, 'name': language === 'en' ? 'Work' : 'פרויקטים', 'item': `https://drbendor.com/${language}/work/` },
             { '@type': 'ListItem', 'position': 3, 'name': language === 'en' ? 'Digital Road Network Basemap' : 'מפת בסיס דיגיטלית', 'item': `https://drbendor.com/${language}/work/google/` },
         ],
     };

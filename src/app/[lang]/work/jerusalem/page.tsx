@@ -65,7 +65,7 @@ export default function JerusalemPage() {
                 '@type': 'ListItem',
                 'position': 2,
                 'name': language === 'en' ? 'Work' : 'פרויקטים',
-                'item': `https://drbendor.com/${language}#work`
+                'item': `https://drbendor.com/${language}/work/`
             },
             {
                 '@type': 'ListItem',
@@ -80,15 +80,8 @@ export default function JerusalemPage() {
     const articleSchema = {
         '@context': 'https://schema.org',
         '@type': 'Article',
-        'headline': language === 'en'
-            ? 'Jerusalem Transportation Master Plan: Carrot and Stick Policy Evaluation'
-            : 'תכנית אב לתחבורה ירושלים: הערכת מדיניות גזר ומקל',
-        'alternativeHeadline': language === 'en'
-            ? 'How €10 Daily Congestion Charge Could Reduce Jerusalem Traffic by 25%'
-            : 'כיצד אגרת גודש יומית של 10 אירו יכולה להפחית את התנועה בירושלים ב-25%',
-        'description': language === 'en'
-            ? 'A deep dive into agent-based simulation research evaluating congestion pricing and shared autonomous vehicles for Jerusalem urban mobility.'
-            : 'צלילה עמוקה למחקר סימולציה מבוססת סוכנים המעריך אגרת גודש ורכבים אוטונומיים משותפים לניידות עירונית בירושלים.',
+        'headline': t.related_work.jerusalem_title,
+        'description': t.jerusalem_article.hero_text,
         'author': {
             '@type': 'Person',
             'name': 'Dr. Golan Ben-Dor',
@@ -96,7 +89,7 @@ export default function JerusalemPage() {
             'jobTitle': 'Urban Mobility Scientist'
         },
         'datePublished': '2024-05-01',
-        'dateModified': '2024-12-01',
+        'dateModified': '2026-09-08',
         'publisher': {
             '@type': 'Person',
             'name': 'Dr. Golan Ben-Dor',
@@ -109,11 +102,10 @@ export default function JerusalemPage() {
         'image': {
             '@type': 'ImageObject',
             'url': 'https://drbendor.com/sim video high res thumbnail.jpg',
-            'width': 1920,
-            'height': 1080
+            'width': 2274,
+            'height': 2160
         },
         'articleSection': language === 'en' ? 'Research' : 'מחקר',
-        'wordCount': 1500,
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
         'keywords': language === 'en'
             ? 'congestion pricing, Jerusalem, MATSim, transport simulation, urban mobility, shared autonomous vehicles'
@@ -136,7 +128,7 @@ export default function JerusalemPage() {
             : 'הדמיה ברזולוציה גבוהה של סימולציית תנועה מבוססת סוכנים המציגה דפוסי עומס והשפעות מדיניות באזור המטרופוליני של ירושלים.',
         'thumbnailUrl': 'https://drbendor.com/sim video high res thumbnail.jpg',
         'uploadDate': '2024-05-01T00:00:00+03:00',
-        'duration': 'PT2M30S',
+        'duration': 'PT15.317S',
         'contentUrl': 'https://drbendor.com/sim video high res.mp4',
         'embedUrl': `https://drbendor.com/${language}/work/jerusalem/`,
         'author': {
