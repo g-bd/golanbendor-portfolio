@@ -34,10 +34,13 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
     }, []);
     useEffect(() => {
         let frame = 0;
+        let previousY = window.scrollY;
         const update = () => {
             frame = 0;
             const max = document.documentElement.scrollHeight - window.innerHeight;
             document.documentElement.style.setProperty('--scroll-progress', String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
+            if (Math.abs(window.scrollY - previousY) > 2) document.documentElement.dataset.driveDirection = window.scrollY < previousY ? 'reverse' : 'forward';
+            previousY = window.scrollY;
         };
         let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;
         const html = document.documentElement;

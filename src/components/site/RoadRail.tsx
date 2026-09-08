@@ -10,15 +10,18 @@ export default function RoadRail({ sections, labels, active, motion, rtl }: { se
     const road = useRef<HTMLDivElement>(null), car = useRef<HTMLSpanElement>(null), dragging = useRef(false);
     useEffect(() => {
         let frame = 0;
+        let previousY = window.scrollY;
         let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;
         const update = () => {
-            const points = sections.map(id => Math.max(0, (document.getElementById(id)?.offsetTop || 0) - 105));
+            const points = sections.map(id => Math.max(0, (document.getElementById(id)?.getBoundingClientRect().top ?? 0) + window.scrollY - 105));
             const y = window.scrollY;
             let position = 0;
             for (let i = 0; i < points.length - 1; i++) {
                 if (y >= points[i]) position = i + Math.min(1, (y - points[i]) / Math.max(1, points[i + 1] - points[i]));
             }
-            road.current?.style.setProperty('--road-progress', `${(position / (sections.length - 1)) * 100}%`);
+            road.current?.style.setProperty('--road-progress', `${(position / Math.max(1, sections.length - 1)) * 100}%`);
+            if (car.current && Math.abs(y - previousY) > 2) car.current.dataset.direction = y < previousY ? 'reverse' : 'forward';
+            previousY = y;
         };
         const onScroll = () => {
             cancelAnimationFrame(frame); frame = requestAnimationFrame(update);
@@ -40,8 +43,8 @@ export default function RoadRail({ sections, labels, active, motion, rtl }: { se
         const box = road.current.getBoundingClientRect();
         const position = Math.max(0, Math.min(1, (event.clientY - box.top) / box.height)) * (sections.length - 1);
         const i = Math.min(sections.length - 2, Math.floor(position));
-        const from = document.getElementById(sections[i])?.offsetTop ?? 0;
-        const to = document.getElementById(sections[i + 1])?.offsetTop ?? from;
+        const from = (document.getElementById(sections[i])?.getBoundingClientRect().top ?? 0) + window.scrollY;
+        const to = (document.getElementById(sections[i + 1])?.getBoundingClientRect().top ?? 0) + window.scrollY;
         window.scrollTo({ top: Math.max(0, from + (to - from) * (position - i) - 105), behavior: 'instant' });
     };
     const activeIndex = sections.indexOf(active);

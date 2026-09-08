@@ -62,7 +62,7 @@ export default function HomePage() {
     // Reveal-on-scroll for `.reveal` blocks.
     useEffect(() => {
         const observer = new IntersectionObserver(entries => entries.forEach(entry => {
-            if (entry.isIntersecting) { entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
+            if (entry.isIntersecting) { entry.target.setAttribute('data-revealed', 'true'); entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
         }), { threshold: 0.12 });
         document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
         return () => observer.disconnect();
@@ -138,7 +138,7 @@ export default function HomePage() {
                 <div className="story-grid">
                     <div className="story-stage-wrap">
                         <div className={`story-stage accent-${project.color}`}>
-                            <div className="stage-top"><span className="eyebrow">{t.imageLabel}</span><span className="eyebrow">0{activeProject + 1} / 03</span></div>
+                            <div className="stage-top"><span className="eyebrow">{t.imageLabel}</span><span className="eyebrow">0{activeProject + 1} / 03</span><span key={project.id} className="stage-signal" aria-hidden="true" /></div>
                             <div className="stage-images">
                                 {t.projects.map((p, i) => (
                                     <div key={p.id} className={`stage-image ${i === activeProject ? 'active' : ''}`} aria-hidden={i !== activeProject}>

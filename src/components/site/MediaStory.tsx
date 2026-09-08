@@ -18,8 +18,10 @@ export default function MediaStory() {
     const t = archive[language];
     const [featured, setFeatured] = useState(0);
     const [playing, setPlaying] = useState(false);
+    const [playbackActive, setPlaybackActive] = useState(false);
     const [frame, setFrame] = useState(0); // 0 = poster, 1..4 = scrub frames
     const rows = useRef<(HTMLButtonElement | null)[]>([]);
+    const stage = useRef<HTMLDivElement>(null);
     const player = useRef<HTMLVideoElement>(null);
     const scrub = useRef<ReturnType<typeof setInterval> | null>(null);
     const current = t.media[featured];
@@ -28,7 +30,13 @@ export default function MediaStory() {
     useEffect(() => {
         if (playing) player.current?.play().catch(() => {});
     }, [playing, featured]);
-    useEffect(() => () => { if (scrub.current) clearInterval(scrub.current); }, []);
+    useEffect(() => {
+        const stop = () => { if (scrub.current) clearInterval(scrub.current); scrub.current = null; };
+        const visibility = () => { if (document.hidden) stop(); };
+        if (!motion) stop();
+        document.addEventListener('visibilitychange', visibility);
+        return () => { stop(); document.removeEventListener('visibilitychange', visibility); };
+    }, [motion]);
 
     const stopScrub = () => { if (scrub.current) clearInterval(scrub.current); scrub.current = null; setFrame(0); };
     const startScrub = () => {
@@ -36,8 +44,13 @@ export default function MediaStory() {
         let k = 0;
         scrub.current = setInterval(() => { k = (k % 4) + 1; setFrame(k); }, 750);
     };
-    const play = (i: number) => { stopScrub(); setFeatured(i); setPlaying(true); };
-    const preview = (i: number) => { if (i !== featured) { stopScrub(); setPlaying(false); setFeatured(i); } };
+    const play = (i: number) => {
+        stopScrub();
+        if (window.matchMedia('(max-width: 1000px)').matches) stage.current?.scrollIntoView({ block: 'start', behavior: motion ? 'smooth' : 'instant' });
+        if (playing && i === featured) { player.current?.play().catch(() => {}); return; }
+        setPlaybackActive(false); setFeatured(i); setPlaying(true);
+    };
+    const preview = (i: number) => { if (i !== featured) { stopScrub(); setPlaybackActive(false); setPlaying(false); setFeatured(i); } };
     function keySelect(event: React.KeyboardEvent, i: number) {
         const moves: Record<string, number> = { ArrowDown: 1, ArrowUp: -1, ArrowRight: language === 'he' ? -1 : 1, ArrowLeft: language === 'he' ? 1 : -1 };
         if (!(event.key in moves)) return;
@@ -45,22 +58,22 @@ export default function MediaStory() {
         const next = (i + moves[event.key] + t.media.length) % t.media.length;
         preview(next); rows.current[next]?.focus();
     }
-    const ratioStyle = { ['--source-ratio' as string]: current.ratio } as React.CSSProperties;
 
     return (
         <section id="media" className="media-story shell">
             <div className="section-heading reveal"><div><Label>{t.mediaLabel}</Label><h2>{t.mediaTitle[0]}<br /><span className="cyan-text">{t.mediaTitle[1]}</span></h2></div><p>{t.mediaDesc}</p></div>
-            <div className="media-studio refined-studio reveal">
-                <div className={portrait ? 'studio-feature portrait-feature' : 'studio-feature landscape-feature'}>
+            <div className={`media-studio refined-studio cinema-studio reveal ${playbackActive ? 'playback-active' : ''}`}>
+                <div ref={stage} className={`studio-feature ${portrait ? 'portrait-source' : 'landscape-source'}`}>
                     {playing ? (
-                        <div className="studio-screen is-playing" style={ratioStyle}>
-                            <video ref={player} key={current.video} src={asset(current.video)} poster={asset(current.poster)} controls playsInline preload="metadata" aria-label={current.title} onEnded={() => setPlaying(false)} />
+                        <div className="studio-screen is-playing">
+                            <video ref={player} key={current.video} src={asset(current.video)} poster={asset(current.poster)} controls playsInline preload="metadata" aria-label={current.title} onPlay={() => setPlaybackActive(true)} onPause={() => setPlaybackActive(false)} onEnded={() => { setPlaying(false); setPlaybackActive(false); }} />
                         </div>
                     ) : (
-                        <button className="studio-screen" style={ratioStyle} onClick={() => play(featured)} onPointerEnter={startScrub} onPointerLeave={stopScrub} onFocus={startScrub} onBlur={stopScrub} aria-label={`${t.play}: ${current.title}`}>
-                            <img src={asset(current.poster)} alt="" loading="lazy" />
+                        <button className="studio-screen" onClick={() => play(featured)} onPointerEnter={event => { if (event.pointerType === 'mouse') startScrub(); }} onPointerLeave={stopScrub} onFocus={startScrub} onBlur={stopScrub} aria-label={`${t.play}: ${current.title}`}>
+                            {portrait && <span className="studio-atmosphere" aria-hidden="true"><img src={asset(current.poster)} alt="" loading="lazy" /></span>}
+                            <img key={current.poster} className="studio-poster" src={asset(current.poster)} alt="" loading="lazy" />
                             <span className="studio-frames" aria-hidden="true">
-                                {current.frames.map((f, k) => <img key={f} src={asset(f)} alt="" className={frame === k + 1 ? 'active' : ''} loading="lazy" />)}
+                                {current.frames.map((f, k) => <img key={f} src={asset(f)} alt="" className={motion && frame === k + 1 ? 'active' : ''} loading="lazy" />)}
                             </span>
                             <span className="studio-tag-chip">{current.tag}</span>
                             <span className="studio-poster-bar">
@@ -70,10 +83,9 @@ export default function MediaStory() {
                         </button>
                     )}
                     <div className="studio-caption">
-                        {portrait && <><p className="eyebrow">{current.tag}</p><p className="portrait-duration" dir="ltr">{current.duration}</p></>}
+                        <h3>{current.title}</h3>
                         <p>{current.desc}</p>
-                        {portrait && !playing && <button className="text-link" onClick={() => play(featured)}>{t.play}<ArrowUpRight size={18} /></button>}
-                        {playing && <small className="video-language"><Captions size={13} />{t.captionsNote}</small>}
+                        <small className="video-language"><Captions size={13} />{t.captionsNote}</small>
                     </div>
                 </div>
                 <div className="studio-playlist" aria-label={t.chooseVideo}>
@@ -88,7 +100,7 @@ export default function MediaStory() {
                                 <span className="playlist-desc">{item.desc}</span>
                                 <span className="playlist-meta">
                                     <span>{item.source}</span><i /><span dir="ltr">{item.duration}</span>
-                                    {featured === i && <><i /><span className="selected-label"><span className="equalizer" aria-hidden="true"><i /><i /><i /></span>{playing ? t.nowPlaying : t.selectedVideo}</span></>}
+                                    {featured === i && <><i /><span className="selected-label"><span className="equalizer" aria-hidden="true"><i /><i /><i /></span>{playing && playbackActive ? t.nowPlaying : t.selectedVideo}</span></>}
                                 </span>
                             </span>
                         </button>

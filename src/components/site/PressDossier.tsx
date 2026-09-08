@@ -21,6 +21,7 @@ const EASE = 'cubic-bezier(.2,.7,.2,1)';
 // clicked (FLIP animation from the card's rectangle) and shrinks back on close.
 function ClippingDialog({ items, index, origin, t, rtl, onIndex, onClose }: { items: NewsItem[]; index: number | null; origin: DOMRect | null; t: ArchiveContent; rtl: boolean; onIndex: (i: number) => void; onClose: () => void }) {
     const ref = useRef<HTMLDialogElement>(null);
+    const clipping = useRef<HTMLDivElement>(null);
     const { motion } = useMotion();
     const item = index === null ? null : items[index];
     const closing = useRef(false);
@@ -43,6 +44,8 @@ function ClippingDialog({ items, index, origin, t, rtl, onIndex, onClose }: { it
         if (!item && element.open) element.close();
     }, [item, flip]);
 
+    useEffect(() => { if (clipping.current) clipping.current.scrollTop = 0; }, [index]);
+
     const requestClose = () => {
         const element = ref.current;
         if (!element || closing.current) return;
@@ -56,7 +59,7 @@ function ClippingDialog({ items, index, origin, t, rtl, onIndex, onClose }: { it
     return (
         <dialog ref={ref} className="clipping-dialog" onCancel={event => { event.preventDefault(); requestClose(); }} onClose={onClose}
             onClick={event => { if (event.target === ref.current) requestClose(); }}
-            onKeyDown={event => { if (event.key === 'ArrowRight') step(rtl ? -1 : 1); if (event.key === 'ArrowLeft') step(rtl ? 1 : -1); }}
+            onKeyDown={event => { if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') { event.preventDefault(); step((event.key === 'ArrowRight') !== rtl ? 1 : -1); } }}
             aria-labelledby="clipping-title">
             {item && (
                 <div className="clipping-inner" style={publisher(item.color)}>
@@ -69,7 +72,7 @@ function ClippingDialog({ items, index, origin, t, rtl, onIndex, onClose }: { it
                             <button className="icon-button" onClick={requestClose} aria-label={t.closeClipping}><X /></button>
                         </div>
                     </div>
-                    <div className="clipping-scroll"><img key={item.image} src={asset(item.image)} alt={`${item.source}: ${item.title}`} /></div>
+                    <div ref={clipping} className="clipping-scroll"><img key={item.image} src={asset(item.image)} alt={`${item.source}: ${item.title}`} /></div>
                     <div className="clipping-dialog-foot"><span>{t.clippingNote}</span><a className="text-link" href={item.link} {...external}>{t.readArticle}<ArrowUpRight size={15} /></a></div>
                 </div>
             )}
@@ -97,8 +100,8 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
                         <h3 className="pull-quote">{lead.title}</h3>
                         <p className="coverage-summary">{lead.summary}</p>
                         <a className="text-link" href={lead.link} {...external}>{t.readArticle}<ArrowUpRight size={17} /></a>
-                        <div className="coverage-dots" role="tablist" aria-label={t.newsLabel}>
-                            {t.news.map((item, i) => <button key={item.link} role="tab" aria-selected={i === featured} aria-label={item.source} className={i === featured ? 'active' : ''} style={publisher(item.color)} onClick={() => setFeatured(i)} />)}
+                        <div className="coverage-dots publisher-tabs" role="group" aria-label={t.newsLabel}>
+                            {t.news.map((item, i) => <button key={item.link} aria-pressed={i === featured} className={i === featured ? 'active' : ''} style={publisher(item.color)} onClick={() => setFeatured(i)}>{item.source}</button>)}
                         </div>
                     </div>
                     <button className="paper-card" onClick={event => openClipping(featured, event)} aria-label={`${t.enlarge}: ${lead.source}`}>
