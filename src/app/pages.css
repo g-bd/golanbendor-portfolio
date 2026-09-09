@@ -1,0 +1,186 @@
+/* ---- Standalone pages: /speaking and /research ----
+   Imported from globals.css (`@import './pages.css';`). Only `.speaking-*` and `.research-*`
+   classes live here; primitives (.shell, .eyebrow, .row-heading, .text-link, .button,
+   .breadcrumbs) and tokens (--text --muted --accent --line --surface --mono --heading)
+   come from globals.css. Logical properties throughout so RTL needs no extra rules. */
+
+/* Article pages share the same editorial rhythm as the research index. */
+.editorial-page { padding-block: 145px 110px; }
+.editorial-header { max-width: 920px; padding-block: 50px 60px; border-bottom: 1px solid var(--line); }
+.editorial-header h1 { font-size: clamp(38px, 5vw, 68px); line-height: 1.1; margin-block: 20px 28px; text-wrap: balance; }
+.editorial-header > p:last-child { max-width: 680px; font-size: clamp(18px, 2vw, 22px); color: var(--muted); }
+.editorial-grid { padding-top: 60px; }
+.editorial-grid.with-cover { display: grid; grid-template-columns: minmax(180px, 280px) minmax(0, 680px); gap: clamp(35px, 7vw, 100px); align-items: start; }
+.editorial-publication { position: sticky; top: 120px; display: grid; gap: 16px; }
+.editorial-publication img { width: 160px; height: auto; box-shadow: 0 16px 36px #0002; }
+.editorial-publication p { font-size: 13px; color: var(--muted); }
+.editorial-prose { max-width: 680px; }
+.editorial-prose section { margin-bottom: 60px; }
+.editorial-prose h2 { font-size: clamp(25px, 3vw, 36px); margin-block: 14px 20px; }
+.editorial-prose p:not(.eyebrow) { font-size: 19px; line-height: 1.85; color: var(--muted); }
+.editorial-sources { border-top: 1px solid var(--line); padding-top: 20px; }
+.editorial-sources a { display: flex; align-items: baseline; gap: 12px; margin-block: 18px; color: var(--accent); }
+.editorial-sources svg { flex-shrink: 0; }
+.notes-list > a { display: grid; grid-template-columns: 40px minmax(0,1fr) 24px; align-items: start; gap: 26px; padding-block: 40px; border-bottom: 1px solid var(--line); transition: color .25s; }
+.notes-list > a:hover { color: var(--accent); }
+.notes-list h2 { font-size: clamp(25px, 3vw, 36px); margin-bottom: 12px; }
+.notes-list p { color: var(--muted); }
+.research-overview { display: inline-flex; margin-inline-end: 24px; }
+@media(max-width: 700px) {
+  .editorial-page { padding-block: 110px 65px; }
+  .editorial-header { padding-block: 28px 38px; }
+  .editorial-grid.with-cover { display: flex; flex-direction: column; gap: 40px; }
+  .editorial-publication { position: static; padding-bottom: 30px; border-bottom: 1px solid var(--line); }
+  .editorial-publication img { width: 120px; }
+  .editorial-prose p:not(.eyebrow) { font-size: 17px; }
+  .notes-list > a { grid-template-columns: 22px minmax(0,1fr) 20px; gap: 14px; padding-block: 28px; }
+}
+
+/* Page frame */
+.speaking-page, .research-page { padding-block: 145px 110px; }
+.speaking-header, .research-header { padding-block: 45px 25px; margin-bottom: 60px; border-bottom: 1px solid var(--line); }
+.speaking-header h1, .research-header h1 { font-size: clamp(42px, 5.5vw, 70px); margin-bottom: 22px; }
+.speaking-header > p:not(.eyebrow), .research-header > p:not(.eyebrow) { font-size: 20px; color: var(--muted); max-width: 640px; }
+.speaking-section, .research-section { padding-block: 72px; border-bottom: 1px solid var(--line); }
+.speaking-section .row-heading, .research-section .row-heading { align-items: end; margin-bottom: 42px; }
+.speaking-section .row-heading > p, .research-section .row-heading > p { max-width: 300px; font-size: 15px; color: var(--muted); }
+.speaking-section .row-heading .chapter-label, .research-section .row-heading .chapter-label { margin-bottom: 14px; }
+.speaking-section h2, .research-section h2 { font-size: clamp(30px, 2.8vw, 42px); }
+.speaking-section h3, .research-section h3 { font-size: 21px; line-height: 1.3; letter-spacing: -.03em; }
+.speaking-play { display: inline-grid; place-items: center; width: 54px; height: 54px; border-radius: 50%; color: var(--bg); background: var(--accent); transition: transform .25s; }
+
+/* Speaking: ISTRC talk (iframe mounts only on click) */
+.speaking-talk { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 40px; align-items: center; margin-bottom: 56px; padding: 24px; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; }
+.speaking-talk-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #05060c; }
+.speaking-talk-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.speaking-talk-poster { position: absolute; inset: 0; width: 100%; display: grid; place-items: center; align-content: center; gap: 18px; color: var(--muted); background: radial-gradient(ellipse at 50% 60%, #1a1d2c, #05060c 70%); }
+.speaking-talk-poster:hover .speaking-play, .speaking-media-poster:hover .speaking-play { transform: scale(1.08); }
+.speaking-talk-copy > .eyebrow { color: var(--accent); margin-bottom: 14px; }
+.speaking-talk-copy > p:not(.eyebrow) { color: var(--muted); font-size: 15px; margin-top: 12px; }
+.speaking-talk-copy > small { display: block; color: var(--muted); font-size: 12px; margin-top: 14px; opacity: .8; }
+.speaking-talk-copy > .text-link { margin-top: 18px; font-size: 13px; }
+
+/* Speaking: event photo grid */
+.speaking-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px 24px; }
+.speaking-figure { margin: 0; }
+.speaking-figure img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; border: 1px solid var(--line); background: var(--surface); }
+.speaking-figure figcaption { display: grid; gap: 5px; margin-top: 14px; }
+.speaking-figure figcaption .eyebrow { color: var(--accent); }
+.speaking-figure figcaption strong { font-family: var(--heading); font-weight: 500; font-size: 17px; line-height: 1.3; letter-spacing: -.02em; }
+.speaking-figure figcaption span:not(.eyebrow) { color: var(--muted); font-size: 13px; }
+
+/* Speaking: interviews & lectures (video plays inline in place of its poster) */
+.speaking-media { list-style: none; margin: 0; padding: 0; display: grid; gap: 0; counter-reset: media; }
+.speaking-media-item { display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: 36px; align-items: start; padding: 28px 0; border-top: 1px solid var(--line); }
+.speaking-media-item:last-child { border-bottom: 1px solid var(--line); }
+.speaking-media-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-radius: 6px; background: #05060c; border: 1px solid var(--line); }
+.speaking-media-frame video, .speaking-media-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.speaking-media-item.is-portrait .speaking-media-frame img, .speaking-media-item.is-portrait .speaking-media-frame video { object-fit: contain; }
+.speaking-media-poster { position: absolute; inset: 0; width: 100%; display: grid; place-items: center; }
+.speaking-media-poster .speaking-play { position: relative; z-index: 1; width: 48px; height: 48px; box-shadow: 0 10px 30px #00000066; }
+.speaking-media-poster img { transition: transform .4s, opacity .3s; }
+.speaking-media-poster:hover img { transform: scale(1.03); opacity: .9; }
+.speaking-media-copy > .eyebrow { color: var(--accent); margin-bottom: 12px; }
+.speaking-media-copy > p:not(.eyebrow) { color: var(--muted); font-size: 15px; margin-top: 10px; }
+.speaking-media-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; }
+.speaking-media-meta i { width: 1px; height: 12px; background: var(--line); }
+.speaking-media-meta .speaking-live { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); }
+.speaking-media-copy > .text-link { margin-top: 14px; font-size: 13px; }
+.speaking-note { display: block; margin-top: 18px; color: var(--muted); font-size: 12px; }
+
+/* Speaking: recognition + cities */
+.speaking-awards { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 36px; }
+.speaking-awards li { border-inline-start: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); padding-inline-start: 20px; }
+.speaking-awards .eyebrow { color: var(--accent); margin-bottom: 9px; }
+.speaking-awards h3 { font-size: 19px; margin-bottom: 9px; }
+.speaking-awards li > p:last-child { color: var(--muted); font-size: 13px; }
+.speaking-cities { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; align-items: start; }
+.speaking-cities-stat { display: grid; gap: 4px; }
+.speaking-cities-stat strong { font-family: var(--heading); font-weight: 500; font-size: 72px; line-height: 1; letter-spacing: -.05em; color: var(--accent); }
+.speaking-cities-stat span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.speaking-cities ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.speaking-cities li { padding: 8px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 14px; background: var(--surface); }
+
+/* CTA blocks */
+.speaking-cta, .research-cta { padding-block: 72px 20px; max-width: 620px; }
+.speaking-cta h2, .research-cta h2 { font-size: clamp(30px, 3vw, 44px); margin-bottom: 18px; }
+.speaking-cta > p:not(.eyebrow), .research-cta > p:not(.eyebrow) { color: var(--muted); font-size: 16px; margin-bottom: 28px; }
+.speaking-cta .button { gap: 18px; }
+
+/* Research: header proof strip */
+.research-proof { list-style: none; margin: 28px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 10px 28px; font-family: var(--mono); font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.research-proof li::before { content: '—'; margin-inline-end: 10px; color: var(--accent); }
+
+/* Research: papers */
+.research-papers { display: grid; gap: 0; }
+.research-paper { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 44px; align-items: start; padding: 40px 0; border-top: 1px solid var(--line); }
+.research-paper:last-child { border-bottom: 1px solid var(--line); }
+.research-cover { display: block; overflow: hidden; border-radius: 4px; border: 1px solid var(--line); background: #fff; box-shadow: 0 16px 45px #071f3110; transition: transform .3s; }
+.research-cover img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: top; }
+.research-cover:hover { transform: translateY(-4px); }
+.research-year { color: var(--lime); margin-bottom: 14px; }
+.research-paper-copy h3 { font-size: 26px; letter-spacing: -.035em; line-height: 1.2; }
+.research-subtitle { color: var(--muted); font-size: 16px; margin-top: 8px; }
+.research-desc { font-size: 16px; margin-top: 16px; max-width: 640px; }
+.research-meta { display: grid; gap: 10px; margin: 22px 0 0; max-width: 640px; }
+.research-meta div { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 16px; align-items: baseline; }
+.research-meta dt { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.research-meta dd { margin: 0; font-size: 14px; }
+.research-abstract { margin-top: 22px; max-width: 640px; }
+.research-abstract > .eyebrow { color: var(--muted); margin-bottom: 8px; }
+.research-abstract p { font-size: 15px; color: var(--muted); line-height: 1.7; }
+.research-paper-copy > .text-link { margin-top: 20px; font-size: 14px; }
+.research-doi { display: block; margin-top: 8px; font-family: var(--mono); font-size: 11px; color: var(--muted); }
+[dir=rtl] .research-paper-copy h3, [dir=rtl] .research-meta dd, [dir=rtl] .research-doi { text-align: start; }
+
+/* Research: theses + Scholar */
+.research-theses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }
+.research-thesis { display: flex; align-items: start; gap: 20px; padding: 28px; border: 1px solid var(--line); border-radius: 9px; background: var(--surface); }
+.research-thesis > svg { color: var(--lime); margin-top: 4px; }
+.research-thesis .eyebrow { color: var(--lime); margin-bottom: 12px; }
+.research-thesis h3 { font-size: 20px; line-height: 1.35; }
+.research-thesis .text-link { margin-top: 16px; font-size: 13px; color: var(--muted); }
+.research-scholar { display: flex; justify-content: space-between; align-items: center; gap: 40px; padding-block: 56px; border-bottom: 1px solid var(--line); }
+.research-scholar h2 { font-size: clamp(26px, 2.4vw, 36px); margin-bottom: 10px; }
+.research-scholar p:not(.eyebrow) { color: var(--muted); font-size: 15px; }
+.research-scholar .button { gap: 18px; flex-shrink: 0; }
+
+/* Light theme */
+[data-theme=light] .speaking-talk-frame, [data-theme=light] .speaking-media-frame { background: #dfeaf0; }
+[data-theme=light] .speaking-talk-poster { background: radial-gradient(ellipse at 50% 60%, #ffffff, #dfeaf0 70%); color: #315d74; }
+[data-theme=light] .speaking-play { color: #fff; }
+[data-theme=light] .speaking-media-poster .speaking-play { box-shadow: 0 10px 30px #071f3133; }
+[data-theme=light] .speaking-cities li, [data-theme=light] .research-thesis, [data-theme=light] .speaking-talk { box-shadow: 0 16px 45px #071f310c; }
+[data-theme=light] .research-thesis .text-link { color: #315d74; }
+
+/* Breakpoints */
+@media (max-width: 1000px) {
+  .speaking-page, .research-page { padding-block: 105px 65px; }
+  .speaking-header, .research-header { margin-bottom: 40px; }
+  .speaking-section, .research-section { padding-block: 56px; }
+  .speaking-talk { grid-template-columns: 1fr; gap: 24px; padding: 18px; }
+  .speaking-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .speaking-media-item { grid-template-columns: 220px minmax(0, 1fr); gap: 24px; }
+  .speaking-awards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 28px; }
+  .speaking-cities { grid-template-columns: 1fr; gap: 24px; }
+  .research-paper { grid-template-columns: 150px minmax(0, 1fr); gap: 28px; }
+  .research-theses { grid-template-columns: 1fr; }
+  .research-scholar { flex-direction: column; align-items: start; gap: 24px; }
+}
+@media (max-width: 760px) {
+  .speaking-header h1, .research-header h1 { font-size: 43px; }
+  .speaking-header > p:not(.eyebrow), .research-header > p:not(.eyebrow) { font-size: 17px; }
+  .speaking-section .row-heading, .research-section .row-heading { display: block; margin-bottom: 28px; }
+  .speaking-section .row-heading > p, .research-section .row-heading > p { max-width: 100%; margin-top: 12px; }
+  .speaking-section h2, .research-section h2 { font-size: 30px; }
+  .speaking-grid { grid-template-columns: 1fr; gap: 28px; }
+  .speaking-media-item { grid-template-columns: 1fr; gap: 16px; padding-block: 22px; }
+  .speaking-awards { grid-template-columns: 1fr; gap: 24px; }
+  .speaking-cities-stat strong { font-size: 56px; }
+  .research-paper { grid-template-columns: 1fr; gap: 20px; padding-block: 30px; }
+  .research-cover { width: 120px; }
+  .research-paper-copy h3 { font-size: 22px; }
+  .research-meta div { grid-template-columns: 1fr; gap: 4px; }
+  .research-thesis { padding: 20px; gap: 14px; }
+  .speaking-cta, .research-cta { padding-block: 56px 10px; }
+}

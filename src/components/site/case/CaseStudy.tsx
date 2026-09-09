@@ -1,11 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { ArrowUpRight, ArrowDown, Check } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { asset, external } from '@/lib/site';
+import { markViewTransition } from '@/lib/viewTransition';
 import { pageWords } from '@/data/siteContent';
 import { projectOrder, projectAssets, ProjectSlug } from '@/data/siteLinks';
 import Label from '@/components/site/Label';
@@ -13,8 +13,10 @@ import Breadcrumb from './Breadcrumb';
 import Visual from './Visual';
 import MethodStory from './MethodStory';
 import ChapterNavigation from './ChapterNavigation';
+import StageMap from '@/components/site/StageMap';
 
 const ScientificMaps = dynamic(() => import('./ScientificMaps'), { ssr: false, loading: () => <LoadingNote /> });
+const CountsMethodMap = dynamic(() => import('./CountsMethodMap'), { loading: () => <LoadingNote /> });
 
 function LoadingNote() {
     const { language } = useLanguage();
@@ -85,7 +87,12 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                     </div>
                 )}
 
-                <MethodStory title={b.how_title || b.contribution_title} paragraphs={paragraphs} source={source} alt={a.title} />
+                <MethodStory title={b.how_title || b.contribution_title} paragraphs={paragraphs} source={source} alt={a.title}
+                    renderVisual={slug === 'cordon' ? (active, total) => (
+                        <div className="method-map" style={{ '--draw': ((active + 1) / total).toFixed(3) } as React.CSSProperties}>
+                            <StageMap labels={a.map.regions} total={355} stationsLabel={a.map.stations} count={Math.round(((active + 1) / total) * 355)} />
+                        </div>
+                    ) : slug === 'counts' ? active => <CountsMethodMap active={active} /> : undefined} />
 
                 <section id="evidence" className="case-evidence">
                     <Label>{w.evidence}</Label>
@@ -104,7 +111,7 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                             <div className="science-formula"><code dir="ltr">{b.science_formula}</code><p>{b.science_formula_explainer}</p></div>
                         </section>
                         <section className="poster-section">
-                            <a href={asset('counts-poster.jpg')} {...external}><img src={asset('counts-poster.jpg')} alt={b.poster_title} loading="lazy" /></a>
+                            <a href={asset('counts-poster.jpg')} {...external}><img src={asset('counts-poster-web.jpg')} alt={b.poster_title} loading="lazy" /></a>
                             <div>
                                 <Label>ISTRC / 2026</Label>
                                 <h2>{b.poster_title}</h2>
@@ -140,10 +147,10 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                         <Label>{w.next}</Label>
                         <h2>{t.related_work[`${next}_title`]}</h2>
                         <p>{t.related_work[`${next}_desc`]}</p>
-                        <Link className="text-link" href={`/${language}/work/${next}/`}>{w.read}<ArrowUpRight size={19} /></Link>
-                        <Link className="text-link secondary" href={`/${language}/work/`}>{w.projects}<ArrowUpRight size={17} /></Link>
+                        <a className="text-link" href={`/${language}/work/${next}/`}>{w.read}<ArrowUpRight size={19} /></a>
+                        <a className="text-link secondary" href={`/${language}/work/`}>{w.projects}<ArrowUpRight size={17} /></a>
                     </div>
-                    <Link href={`/${language}/work/${next}/`} aria-label={t.related_work[`${next}_title`]}><img src={asset(projectAssets[next].image)} alt="" loading="lazy" /></Link>
+                    <a href={`/${language}/work/${next}/`} aria-label={t.related_work[`${next}_title`]} onClick={markViewTransition}><img src={asset(projectAssets[next].image)} alt="" loading="lazy" /></a>
                 </section>
             </div>
         </article>

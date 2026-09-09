@@ -70,16 +70,23 @@ Dr. Golan Ben-Dor is an urban mobility simulation scientist specializing in agen
 7. **AI-Enhanced Workflows**
    - Focus: Pioneering AI-Native Development to accelerate simulation pipelines and automate complex spatial SQL queries.
 
-# Key Publications
-1. "Robust Policy Evaluation" - Transportation Research Part A (2024)
+# Site Pages
+- Research & publications: https://drbendor.com/en/research/ (Hebrew: https://drbendor.com/he/research/) — the three journal articles with authors, journals and DOIs, plus the PhD and master's theses (PDF).
+- Speaking & media: https://drbendor.com/en/speaking/ (Hebrew: https://drbendor.com/he/speaking/) — conference talks and posters, TV/podcast/lecture recordings, scholarships and recognition, and the 16 cities where the work was presented.
+
+# Key Publications (titles and authors per Crossref)
+1. "Simulation-based policy evaluation of monetary car driving disincentives in Jerusalem" - Transportation Research Part A: Policy and Practice, vol. 183 (2024)
+   Authors: Golan Ben-Dor, Aleksey Ogulenko, Ido Klein, Eran Ben-Elia, Itzhak Benenson
    DOI: https://doi.org/10.1016/j.tra.2024.104061
-   Topic: Agent-based evaluation of congestion charges in Jerusalem
+   Topic: Agent-based evaluation of congestion charges and parking policy in Jerusalem
 
-2. "Agent-Based Modeling at Scale" - Simulation Modelling Practice and Theory (2023)
+2. "PATRIC: A high performance parallel urban transport simulation framework based on traffic clustering" - Simulation Modelling Practice and Theory, vol. 126 (2023)
+   Authors: Lin Wan, Ganmin Yin, Jiahao Wang, Golan Ben-Dor, Aleksey Ogulenko, Zhou Huang
    DOI: https://doi.org/10.1016/j.simpat.2023.102775
-   Topic: Parallel framework for large-scale MATSim simulations
+   Topic: Parallel framework for large-scale agent-based transport simulation
 
-3. "Population Downscaling in MATSim" - Simulation Modelling Practice and Theory (2021)
+3. "Population downscaling in multi-agent transportation simulations: A review and case study" - Simulation Modelling Practice and Theory, vol. 108 (2021)
+   Authors: Golan Ben-Dor, Eran Ben-Elia, Itzhak Benenson
    DOI: https://doi.org/10.1016/j.simpat.2020.102233
    Topic: Comparing full and sampled populations in transport simulation
 
@@ -117,3 +124,16 @@ Google Scholar: https://scholar.google.com/citations?user=jsVfMncAAAAJ
 
 # Languages
 This website supports both English and Hebrew (עברית).
+## Research overviews and field notes / סקירות מחקר ומבט מהשטח
+
+Bilingual plain-language research overviews (publisher DOI remains the primary paper):
+- /en/research/jerusalem-congestion-pricing/ and /he/research/jerusalem-congestion-pricing/
+- /en/research/patric-parallel-simulation/ and /he/research/patric-parallel-simulation/
+- /en/research/population-downscaling/ and /he/research/population-downscaling/
+
+Field notes / מבט מהשטח: https://drbendor.com/en/notes/ and https://drbendor.com/he/notes/
+- what-matsim-models: daily plans, replanning and policy comparisons / תכניות יומיות והשוואת מדיניות
+- where-to-count-traffic: centrality and spatial coverage / מרכזיות וכיסוי מרחבי
+- validation-before-automation: repeatable model-report checks / בקרת דוחות מודל הניתנת לשחזור
+
+The Jerusalem finding is a modeled scenario result under study assumptions, not an observed reduction following policy implementation.

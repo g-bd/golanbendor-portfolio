@@ -9,7 +9,7 @@ export const projectOrder: ProjectSlug[] = ['cordon', 'counts', 'jerusalem', 'go
 export const projectAssets: Record<ProjectSlug, { image: string; imageDark?: string; video?: string; videoDark?: string; color: Accent; category: ProjectCategory }> = {
   cordon: { image: 'cordon-thumbnail.jpg', color: 'cyan', category: 'analytics' },
   counts: { image: 'counts-thumbnail.jpg', color: 'pink', category: 'analytics' },
-  jerusalem: { image: 'sim video high res thumbnail.jpg', video: 'sim video high res.mp4', color: 'pink', category: 'policy' },
+  jerusalem: { image: 'sim video high res thumbnail.jpg', video: 'jerusalem-web.mp4', color: 'pink', category: 'policy' },
   google: { image: 'google-thumbnail.jpg', imageDark: 'google-thumbnail-dark.jpg', video: 'google-light-web.mp4', videoDark: 'google-dark-web.mp4', color: 'cyan', category: 'ai' },
   beersheva: { image: 'beer-sheva-thumbnail.jpg', video: 'beer-sheva-web.mp4', color: 'lime', category: 'ai' },
   brt: { image: 'brt-thumbnail.jpg', video: 'brt-web.mp4', color: 'pink', category: 'simulation' },

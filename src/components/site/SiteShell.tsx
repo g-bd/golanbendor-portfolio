@@ -32,28 +32,37 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
         const t1 = setTimeout(restore, 120), t2 = setTimeout(restore, 600);
         return () => { clearTimeout(t1); clearTimeout(t2); };
     }, []);
+    // --scroll-progress eases toward the real position (the phone header car has the
+    // same gentle lag as the desktop rail car); with motion off it snaps.
     useEffect(() => {
-        let frame = 0;
+        let frame = 0, target = 0, current = 0;
         let previousY = window.scrollY;
-        const update = () => {
-            frame = 0;
-            const max = document.documentElement.scrollHeight - window.innerHeight;
-            document.documentElement.style.setProperty('--scroll-progress', String(max > 0 ? Math.min(1, window.scrollY / max) : 0));
-            if (Math.abs(window.scrollY - previousY) > 2) document.documentElement.dataset.driveDirection = window.scrollY < previousY ? 'reverse' : 'forward';
+        const html = document.documentElement;
+        const measure = () => {
+            const max = html.scrollHeight - window.innerHeight;
+            target = max > 0 ? Math.min(1, window.scrollY / max) : 0;
+            if (Math.abs(window.scrollY - previousY) > 2) html.dataset.driveDirection = window.scrollY < previousY ? 'reverse' : 'forward';
             previousY = window.scrollY;
         };
+        const update = () => {
+            frame = 0;
+            const delta = target - current;
+            current = !motion || Math.abs(delta) < 0.0005 ? target : current + delta * 0.16;
+            html.style.setProperty('--scroll-progress', current.toFixed(4));
+            if (current !== target) frame = requestAnimationFrame(update);
+        };
         let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;
-        const html = document.documentElement;
         const onScroll = () => {
+            measure();
             if (!frame) frame = requestAnimationFrame(update);
             html.dataset.drive = 'driving';
             clearTimeout(stop); clearTimeout(idle);
             stop = setTimeout(() => { html.dataset.drive = 'braking'; idle = setTimeout(() => { html.dataset.drive = 'idle'; }, 700); }, 160);
         };
-        update();
+        measure(); current = target; update();
         window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
         return () => { cancelAnimationFrame(frame); clearTimeout(stop); clearTimeout(idle); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
-    }, []);
+    }, [motion]);
     return (
         <div className="portfolio" dir={direction}>
             <a className="skip-link" href="#main">{t.skip}</a>

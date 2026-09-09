@@ -258,7 +258,7 @@ export default function HomeStructuredData() {
               ],
               "datePublished": "2024-05-01",
               "dateModified": "2024-05-01",
-              "image": "https://drbendor.com/paper%201.png",
+              "image": "https://drbendor.com/paper%201.webp",
               "publisher": {
                 "@type": "Organization",
                 "name": "Transportation Research Part A: Policy and Practice",
@@ -286,7 +286,7 @@ export default function HomeStructuredData() {
               ],
               "datePublished": "2023-06-01",
               "dateModified": "2023-06-01",
-              "image": "https://drbendor.com/paper%202.png",
+              "image": "https://drbendor.com/paper%202.webp",
               "publisher": {
                 "@type": "Organization",
                 "name": "Simulation Modelling Practice and Theory",
@@ -309,7 +309,7 @@ export default function HomeStructuredData() {
               ],
               "datePublished": "2021-01-01",
               "dateModified": "2021-01-01",
-              "image": "https://drbendor.com/paper%203.png",
+              "image": "https://drbendor.com/paper%203.webp",
               "publisher": {
                 "@type": "Organization",
                 "name": "Simulation Modelling Practice and Theory",

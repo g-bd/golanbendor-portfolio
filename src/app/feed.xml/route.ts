@@ -1,5 +1,6 @@
 // RSS Feed for AI content discovery and feed readers
 // Accessible at /feed.xml
+import { fieldNotes } from '@/data/editorialContent';
 
 export const dynamic = 'force-static'
 
@@ -8,6 +9,7 @@ export async function GET() {
   const lastBuildDate = new Date().toUTCString()
 
   const items = [
+    ...fieldNotes.map(note => ({ title: note.copy.en.title, titleHe: note.copy.he.title, link: `${baseUrl}/en/notes/${note.slug}/`, linkHe: `${baseUrl}/he/notes/${note.slug}/`, description: note.copy.en.intro, descriptionHe: note.copy.he.intro, pubDate: new Date('2026-09-08').toUTCString(), category: 'Field Notes' })),
     {
       title: "Israel's 2026 National Cordon & Screenline Survey — Methodology & Coordination",
       titleHe: 'סקר ספירות חיץ וחגורה הארצי 2026 — מתודולוגיה ותיאום',

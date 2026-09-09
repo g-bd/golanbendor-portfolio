@@ -7,7 +7,11 @@ import { ArchiveContent, NewsItem } from '@/data/siteContent';
 import { Language } from '@/data/translations';
 import { asset, external } from '@/lib/site';
 import Label from './Label';
+import Headline from './Headline';
 
+// Card preview of a clipping ("article news 2.jpg" -> "article news 2-sm.jpg", ≤480px wide; the long
+// clipping's preview is top-cropped since the cards show it with object-fit: cover / top). The dialog uses the full file.
+const preview = (image: string) => image.replace(/\.jpe?g$/i, '-sm.jpg');
 const publisher = (color: string) => ({ ['--publisher' as string]: color } as React.CSSProperties);
 const formatDate = (iso: string | undefined, lang: Language) => {
     if (!iso) return null;
@@ -34,7 +38,7 @@ function ClippingDialog({ items, index, origin, t, rtl, onIndex, onClose }: { it
         const dy = origin.top + origin.height / 2 - (to.top + to.height / 2);
         const from = { transform: `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) scale(${scale.toFixed(3)}) rotate(${rtl ? -2 : 2}deg)`, opacity: 0.4, boxShadow: '0 4px 12px #0000' };
         const rest = { transform: 'none', opacity: 1, boxShadow: '0 40px 90px #00000066' };
-        return element.animate(reverse ? [rest, from] : [from, rest], { duration: reverse ? 320 : 480, easing: EASE, fill: 'both' });
+        return element.animate(reverse ? [rest, from] : [from, rest], { duration: reverse ? 150 : 300, easing: EASE, fill: 'both' });
     }, [motion, origin, rtl]);
 
     useEffect(() => {
@@ -92,7 +96,7 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
     const openClipping = (i: number, event: React.MouseEvent<HTMLButtonElement>) => { setOrigin(event.currentTarget.getBoundingClientRect()); setOpen(i); };
     return (
         <div id="press" className="news-section reveal">
-            <div className="row-heading"><div><Label>{t.newsLabel}</Label><h2>{t.newsTitle}</h2></div><p>{t.pressNote}</p></div>
+            <div className="row-heading"><div><Label>{t.newsLabel}</Label><Headline lines={[t.newsTitle]} /></div><p>{t.pressNote}</p></div>
             <div className="press-dossier">
                 <article className="coverage-lead" key={lead.link} style={publisher(lead.color)}>
                     <div className="coverage-copy">
@@ -105,7 +109,7 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
                         </div>
                     </div>
                     <button className="paper-card" data-long={lead.long || undefined} onClick={event => openClipping(featured, event)} aria-label={`${t.enlarge}: ${lead.source}`}>
-                        <img src={asset(lead.image)} alt="" loading="lazy" /><span><Maximize2 size={15} /></span>
+                        <img src={asset(preview(lead.image))} alt="" loading="lazy" /><span><Maximize2 size={15} /></span>
                         {lead.long && <small className="paper-preview-note">{t.longClipping}</small>}
                     </button>
                 </article>
@@ -121,7 +125,7 @@ export default function PressDossier({ t, lang = 'en' }: { t: ArchiveContent; la
                             </div>
                         </div>
                         <button className="paper-card" data-long={item.long || undefined} onClick={event => openClipping(i, event)} aria-label={`${t.enlarge}: ${item.source}`}>
-                            <img src={asset(item.image)} alt="" loading="lazy" /><span><Maximize2 size={14} /></span>
+                            <img src={asset(preview(item.image))} alt="" loading="lazy" /><span><Maximize2 size={14} /></span>
                             {item.long && <small className="paper-preview-note">{t.longClipping}</small>}
                         </button>
                     </article>

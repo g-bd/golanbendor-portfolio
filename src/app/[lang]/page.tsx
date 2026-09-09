@@ -6,6 +6,7 @@ import HomePage from '@/components/site/HomePage';
 export default function Home() {
   return (
     <>
+      <link rel="preload" as="image" href="/hero-network-poster.jpg" fetchPriority="high" />
       <HomeStructuredData />
       <HomePage />
     </>

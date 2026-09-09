@@ -5,6 +5,10 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, Pause, Play, X } from 'lucide-reac
 import { ArchiveContent } from '@/data/siteContent';
 import { asset } from '@/lib/site';
 import Label from './Label';
+import Headline from './Headline';
+
+// 320px filmstrip variant of a photo ("key note 7.jpeg" -> "key note 7-sm.jpg"); the feature frame uses the full file.
+const small = (image: string) => image.replace(/\.jpe?g$/i, '-sm.jpg');
 
 // Event photo gallery: auto-advances every 5.5s while in view; pauses on hover,
 // focus, hidden tab, reduced motion or the explicit pause control. The ISTRC talk
@@ -37,7 +41,7 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
         <div id="events" className="events-section" ref={gallery}
             onFocus={event => { const target = event.target as HTMLElement; if (target.matches(':focus-visible') && !target.closest('.gallery-toggle')) setFocused(true); }}
             onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false); }}>
-            <div className="row-heading"><div><Label>{t.eventsLabel}</Label><h2>{t.eventsTitle}</h2></div><p>{t.eventsDesc}</p></div>
+            <div className="row-heading"><div><Label>{t.eventsLabel}</Label><Headline lines={[t.eventsTitle]} /></div><p>{t.eventsDesc}</p></div>
             <div className={`event-feature ${running ? 'gallery-running' : ''}`}>
                 <div className="event-image" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
                     {talk ? (
@@ -64,11 +68,11 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
                     <button className="text-link conference-link" onClick={() => setTalk(value => !value)} aria-pressed={talk}>{talk ? t.backToPhotos : t.watchConference}{talk ? <X size={15} /> : <ArrowUpRight size={17} />}</button>
                 </div>
             </div>
-            <p className="gallery-status"><span className={running ? 'status-dot' : ''} />{running ? t.galleryRunning : t.galleryPaused}</p>
+            <p className="sr-only">{running ? t.galleryRunning : t.galleryPaused}</p>
             <div className="event-filmstrip">
                 {t.events.map((event, i) => (
                     <button className={index === i && !talk ? 'selected' : ''} aria-label={`${i + 1}. ${event.title}`} aria-pressed={index === i && !talk} key={event.image} onClick={() => { setTalk(false); setIndex(i); }}>
-                        <img src={asset(event.image)} alt="" loading="lazy" /><span>{String(i + 1).padStart(2, '0')}</span>
+                        <img src={asset(small(event.image))} alt="" loading="lazy" />
                     </button>
                 ))}
             </div>

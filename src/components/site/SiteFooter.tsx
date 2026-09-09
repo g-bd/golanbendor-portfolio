@@ -1,10 +1,11 @@
 'use client';
 
-import Link from 'next/link';
 import { ArrowUp, ArrowUpRight, Pause, Play } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMotion } from '@/context/MotionContext';
 import { content } from '@/data/siteContent';
+import { researchCopy, speakingCopy } from '@/data/pagesContent';
+import { editorialWords } from '@/data/editorialContent';
 import { external, GITHUB, LINKEDIN } from '@/lib/site';
 
 export default function SiteFooter() {
@@ -13,15 +14,18 @@ export default function SiteFooter() {
     const t = content[language];
     return (
         <footer className="footer shell">
-            <Link className="brand" href={`/${language}/`}>
+            <a className="brand" href={`/${language}/`}>
                 <img className="theme-only-dark" src="/logo_recolored.png" alt="" width={31} height={31} />
                 <img className="theme-only-light" src="/logo-light.png" alt="" width={31} height={31} />
                 <span>{t.name}</span>
-            </Link>
+            </a>
             <div className="footer-links">
-                <Link href={`/${language}/work/`}>{t.allProjects}</Link>
-                <Link href={`/${language}/privacy/`}>{t.privacy}</Link>
-                <Link href={`/${language}/accessibility/`}>{t.accessibility}</Link>
+                <a href={`/${language}/work/`}>{t.allProjects}</a>
+                <a href={`/${language}/speaking/`}>{speakingCopy[language].title}</a>
+                <a href={`/${language}/research/`}>{researchCopy[language].title}</a>
+                <a href={`/${language}/notes/`}>{editorialWords[language].notes}</a>
+                <a href={`/${language}/privacy/`}>{t.privacy}</a>
+                <a href={`/${language}/accessibility/`}>{t.accessibility}</a>
                 <a href={LINKEDIN} {...external}>LinkedIn<ArrowUpRight size={13} /></a>
                 <a href={GITHUB} {...external}>GitHub<ArrowUpRight size={13} /></a>
                 <button className="motion-control" aria-label={motion ? t.motionOn : t.motionOff} aria-pressed={!motion} onClick={() => setMotion(!motion)}>

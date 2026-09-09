@@ -24,7 +24,7 @@ export default function CordonPage() {
         'dateModified': '2026-07-03',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
         'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/cordon/` },
-        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/cordon-thumbnail.jpg', 'width': 1600, 'height': 900 },
+        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/cordon-thumbnail.jpg', 'width': 1400, 'height': 788 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
     };
 

@@ -72,3 +72,6 @@ homepage-preview/
 
 # local-only archive of the classic site and the retired prototype (never uploaded)
 archive/
+
+# untouched originals of re-encoded web images (local only)
+public/_originals/

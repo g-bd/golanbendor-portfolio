@@ -1,11 +1,11 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
 import { ArrowDown, ArrowUpRight, Check, Copy, GraduationCap, MapPin, Network, Workflow } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMotion } from '@/context/MotionContext';
 import { content } from '@/data/siteContent';
+import { editorialWords } from '@/data/editorialContent';
 import { asset, EMAIL, external, HOME_SECTIONS, logo, SCHOLAR, WHATSAPP } from '@/lib/site';
 import Label from './Label';
 import AmbientVideo from './AmbientVideo';
@@ -16,12 +16,15 @@ import CountUp from './CountUp';
 import { Academic, Career } from './AboutBlocks';
 import GlobalStory from './GlobalStory';
 import MediaStory from './MediaStory';
+import Headline from './Headline';
+import StageMap from './StageMap';
+import { markViewTransition } from '@/lib/viewTransition';
 
 const LOGOS = ['mot.png', 'ayalon.svg', 'netivei_israel.jpg', 'jtmt.jpg', 'cbs.jpg'];
 const CHAPTER_IDS = ['read', 'test', 'build'];
 
 export default function HomePage() {
-    const { language, direction } = useLanguage();
+    const { language, direction, langData } = useLanguage();
     const { motion } = useMotion();
     const t = content[language];
     const rtl = direction === 'rtl';
@@ -30,6 +33,8 @@ export default function HomePage() {
     const [selectedProject, setSelectedProject] = useState<number | null>(null);
     const [copied, setCopied] = useState('');
     const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+    const stage = useRef<HTMLDivElement>(null);
+    const mapLabels = langData.cordon_article.map;
 
     // Scroll bookkeeping: active section (road rail), active chapter (sticky stage), hero parallax.
     useEffect(() => {
@@ -52,20 +57,36 @@ export default function HomePage() {
                 if (d < distance) { distance = d; nearest = index; }
             });
             setActiveProject(nearest);
+            // Chapter 1 drives the survey map: 0 as the work section enters the viewport,
+            // 1 when the bottom of chapter 1 passes the middle of the screen.
+            const read = document.getElementById('read')?.getBoundingClientRect();
+            const work = document.getElementById('work')?.getBoundingClientRect();
+            if (read && work && stage.current) {
+                const line = window.innerHeight * 0.6;
+                const draw = motion ? Math.min(1, Math.max(0, (line - work.top) / Math.max(1, read.bottom - work.top))) : 1;
+                stage.current.style.setProperty('--draw', draw.toFixed(3));
+                const counter = stage.current.querySelector('.stage-map-counter');
+                if (counter) counter.textContent = Math.round(draw * Number(stage.current.dataset.total || 0)).toLocaleString('en-US');
+            }
         };
         const onScroll = () => { if (!frame) frame = requestAnimationFrame(update); };
         update();
         window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
         return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
-    }, []);
+    }, [motion]);
 
     // Reveal-on-scroll for `.reveal` blocks.
     useEffect(() => {
         const observer = new IntersectionObserver(entries => entries.forEach(entry => {
             if (entry.isIntersecting) { entry.target.setAttribute('data-revealed', 'true'); entry.target.classList.add('in-view'); observer.unobserve(entry.target); }
         }), { threshold: 0.12 });
-        document.querySelectorAll('.reveal').forEach(element => observer.observe(element));
-        return () => observer.disconnect();
+        document.querySelectorAll('.headline').forEach(element => element.classList.add('will-reveal'));
+        document.querySelectorAll('.reveal, .headline').forEach(element => observer.observe(element));
+        const stageObserver = new IntersectionObserver(([entry]) => {
+            if (stage.current) stage.current.dataset.visible = String(entry.isIntersecting);
+        });
+        if (stage.current) stageObserver.observe(stage.current);
+        return () => { observer.disconnect(); stageObserver.disconnect(); };
     }, []);
 
     useEffect(() => () => { if (copyTimer.current) clearTimeout(copyTimer.current); }, []);
@@ -84,7 +105,7 @@ export default function HomePage() {
 
             {/* 00 — Hero */}
             <section id="intro" className="hero">
-                <AmbientVideo name="hero-network-web.mp4" poster="hero-network-poster.jpg" enabled={motion} className="hero-network" />
+                <AmbientVideo name="hero-network-web.mp4" mobileName="hero-network-mobile-web.mp4" poster="hero-network-poster.jpg" enabled={motion} className="hero-network" priority />
                 <div className="hero-shade" />
                 <div className="shell hero-grid">
                     <div className="hero-copy">
@@ -127,23 +148,25 @@ export default function HomePage() {
             <section id="question" className="question shell reveal">
                 <div className="connector-stem" aria-hidden="true" />
                 <Label>{t.bridgeLabel}</Label>
-                <h2>{t.bridge[0]}<br /><span>{t.bridge[1]}</span></h2>
+                <Headline lines={t.bridge} accent={[1]} />
                 <p>{t.bridgeDesc}</p>
                 <div className="connector-stem end" aria-hidden="true" />
             </section>
 
             {/* 01 — Work story */}
             <section id="work" className="work shell">
-                <div className="section-heading reveal"><div><Label>{t.workLabel}</Label><h2>{t.workTitle}</h2></div><p>{t.workDesc}</p></div>
+                <div className="section-heading reveal"><div><Label>{t.workLabel}</Label><Headline lines={t.workTitle.split('\n')} /></div><p>{t.workDesc}</p></div>
                 <div className="story-grid">
                     <div className="story-stage-wrap">
-                        <div className={`story-stage accent-${project.color}`}>
-                            <div className="stage-top"><span className="eyebrow">{t.imageLabel}</span><span className="eyebrow">0{activeProject + 1} / 03</span><span key={project.id} className="stage-signal" aria-hidden="true" /></div>
+                        <div ref={stage} className={`story-stage accent-${project.color}`} data-chapter={project.id} data-total={t.projects[0].metric}>
+                            <div className="stage-top"><span className="eyebrow">{t.imageLabel}</span><span className="eyebrow stage-counter" dir="ltr"><span className="stage-digit" key={activeProject}>0{activeProject + 1}</span> / 03</span><span key={project.id} className="stage-signal" aria-hidden="true" /></div>
                             <div className="stage-images">
                                 {t.projects.map((p, i) => (
-                                    <div key={p.id} className={`stage-image ${i === activeProject ? 'active' : ''}`} aria-hidden={i !== activeProject}>
-                                        <img src={asset(p.image)} alt={i === activeProject ? p.alt : ''} loading="lazy" />
-                                        {p.video && <AmbientVideo name={p.video} poster={p.image} enabled={motion && activeProject === i} />}
+                                    <div key={p.id} className={`stage-image ${i === activeProject ? 'active' : ''} ${i < activeProject ? 'passed' : ''}`} aria-hidden={i !== activeProject}>
+                                        {p.id === 'read'
+                                            ? <StageMap labels={mapLabels.regions} total={Number(p.metric)} stationsLabel={p.metricLabel} />
+                                            : !p.video && <img src={asset(p.image)} alt={i === activeProject ? p.alt : ''} loading="lazy" />}
+                                        {p.video && <AmbientVideo name={p.video} poster={p.id === 'test' ? 'jerusalem-web-poster.jpg' : p.image} enabled={motion && activeProject === i} />}
                                     </div>
                                 ))}
                             </div>
@@ -158,9 +181,15 @@ export default function HomePage() {
                             <article key={p.id} id={p.id} className={`story-chapter accent-${p.color} ${activeProject === i ? 'current' : ''}`}>
                                 <span className="chapter-number" aria-hidden="true">0{i + 1}</span>
                                 <p className="eyebrow">{p.tag}</p>
-                                <h3>{p.title}</h3>
+                                <Headline as="h3" lines={p.title.split('\n')} />
                                 <p className="chapter-description">{p.text}</p>
-                                <div className="mobile-project-image"><img src={asset(p.image)} alt={p.alt} loading="lazy" /></div>
+                                <div className="mobile-project-image">
+                                    {p.id === 'read'
+                                        ? <div className="mobile-survey"><StageMap labels={mapLabels.regions} total={Number(p.metric)} count={Number(p.metric)} stationsLabel={p.metricLabel} /></div>
+                                        : p.video
+                                            ? <AmbientVideo name={p.video} poster={p.id === 'test' ? 'jerusalem-web-poster.jpg' : p.image} enabled={motion && activeProject === i} />
+                                            : <img src={asset(p.image)} alt={p.alt} loading="lazy" />}
+                                </div>
                                 <div className="project-facts">
                                     <div><strong dir="ltr"><CountUp value={p.metric} /></strong><span>{p.metricLabel}</span></div>
                                     <div><strong dir="ltr"><CountUp value={p.second} /></strong><span>{p.secondLabel}</span></div>
@@ -171,13 +200,13 @@ export default function HomePage() {
                     </div>
                 </div>
                 <div className="more-work reveal">
-                    <div className="row-heading"><p className="eyebrow">{t.moreWork}</p><Link className="text-link" href={`/${language}/work/`}>{t.more}<ArrowUpRight size={17} /></Link></div>
+                    <div className="row-heading"><p className="eyebrow">{t.moreWork}</p><a className="text-link" href={`/${language}/work/`}>{t.more}<ArrowUpRight size={17} /></a></div>
                     <div className="work-thumbnails">
                         {t.other.map(p => (
-                            <Link className="work-thumbnail" key={p.path} href={`/${language}/work/${p.path}/`}>
-                                <div><img src={asset(p.image)} alt="" loading="lazy" /><span className="thumbnail-arrow"><ArrowUpRight size={20} /></span></div>
+                            <a className="work-thumbnail" key={p.path} href={`/${language}/work/${p.path}/`} onClick={markViewTransition}>
+                                <div><img src={asset(p.image.replace('.jpg', '-sm.jpg'))} srcSet={`${asset(p.image.replace('.jpg', '-sm.jpg'))} 800w, ${asset(p.image)} 1400w`} sizes="(max-width: 760px) 100vw, 380px" alt="" loading="lazy" /><span className="thumbnail-arrow"><ArrowUpRight size={20} /></span></div>
                                 <p className="eyebrow">{p.category}</p><h3>{p.title}</h3>
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </div>
@@ -186,7 +215,7 @@ export default function HomePage() {
             {/* 02 — Expertise */}
             <section id="expertise" className="expertise section-pad">
                 <div className="shell">
-                    <div className="section-heading reveal"><div><Label>{t.expertiseLabel}</Label><h2>{t.expertiseTitle[0]}<br /><span className="cyan-text">{t.expertiseTitle[1]}</span></h2></div><p>{t.expertiseDesc}</p></div>
+                    <div className="section-heading reveal"><div><Label>{t.expertiseLabel}</Label><Headline lines={t.expertiseTitle} accent={[1]} /></div><p>{t.expertiseDesc}</p></div>
                     <div className="services reveal">
                         {t.services.map((service, i) => (
                             <article className={`service accent-${i === 0 ? 'cyan' : 'pink'}`} key={service.title}>
@@ -207,7 +236,7 @@ export default function HomePage() {
                 <div className="about-grid reveal">
                     <div className="about-photo"><img src={asset('key note 7.jpeg')} alt={t.aboutPhoto} loading="lazy" /><span className="photo-caption eyebrow">{t.aboutCaption}</span></div>
                     <div className="about-copy">
-                        <h2>{t.aboutTitle[0]}<br /><span>{t.aboutTitle[1]}</span></h2>
+                        <Headline lines={t.aboutTitle} accent={[1]} />
                         <p>{t.aboutText}</p><p>{t.aboutText2}</p>
                         <div className="about-links">
                             <a className="text-link" href={asset(rtl ? 'Golan_Resume_HE.pdf' : 'Golan_Resume.pdf')} {...external}>{t.resume}<ArrowUpRight size={18} /></a>
@@ -221,11 +250,11 @@ export default function HomePage() {
 
             {/* Research */}
             <section id="research" className="research shell">
-                <div className="row-heading reveal"><div><p className="eyebrow">{t.researchLabel}</p><h2>{t.researchTitle}</h2></div><a className="text-link" href={SCHOLAR} {...external}>{t.scholar}<ArrowUpRight size={18} /></a></div>
+                <div className="row-heading reveal"><div><p className="eyebrow">{t.researchLabel}</p><Headline lines={[t.researchTitle]} /></div><a className="text-link" href={`/${language}/research/`}>{editorialWords[language].research}<ArrowUpRight size={18} /></a></div>
                 <div className="papers">
                     {t.papers.map((paper, i) => (
                         <a className="paper reveal" key={paper.doi} href={`https://doi.org/${paper.doi}`} {...external}>
-                            <img className="paper-cover" src={asset(`paper ${i + 1}.png`)} alt="" loading="lazy" />
+                            <img className="paper-cover" src={asset(`paper ${i + 1}.webp`)} alt="" loading="lazy" />
                             <span className="paper-year eyebrow">{paper.year}</span>
                             <div><h3>{paper.title}</h3><p>{paper.desc}</p><span className="journal" dir="ltr">{paper.journal}</span></div>
                             <ArrowUpRight size={24} />
@@ -247,7 +276,7 @@ export default function HomePage() {
                 <div className="contact-shade" />
                 <div className="shell contact-copy reveal">
                     <Label>{t.contactLabel}</Label>
-                    <h2>{t.contactTitle[0]}<br /><span>{t.contactTitle[1]}</span></h2>
+                    <Headline lines={t.contactTitle} accent={[1]} />
                     <p>{t.contactDesc}</p>
                     <div className="contact-actions">
                         <a className="button" href={`mailto:${EMAIL}`}>{t.email}<ArrowUpRight size={19} /></a>

@@ -24,7 +24,7 @@ export default function BeershevaPage() {
         'dateModified': '2026-06-10',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
         'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/beersheva/` },
-        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/beer-sheva-thumbnail.jpg', 'width': 1920, 'height': 1080 },
+        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/beer-sheva-thumbnail.jpg', 'width': 1400, 'height': 515 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
     };
 

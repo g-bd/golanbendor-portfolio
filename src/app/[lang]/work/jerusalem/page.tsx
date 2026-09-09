@@ -102,8 +102,8 @@ export default function JerusalemPage() {
         'image': {
             '@type': 'ImageObject',
             'url': 'https://drbendor.com/sim video high res thumbnail.jpg',
-            'width': 2274,
-            'height': 2160
+            'width': 1400,
+            'height': 1330
         },
         'articleSection': language === 'en' ? 'Research' : 'מחקר',
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
@@ -128,8 +128,8 @@ export default function JerusalemPage() {
             : 'הדמיה ברזולוציה גבוהה של סימולציית תנועה מבוססת סוכנים המציגה דפוסי עומס והשפעות מדיניות באזור המטרופוליני של ירושלים.',
         'thumbnailUrl': 'https://drbendor.com/sim video high res thumbnail.jpg',
         'uploadDate': '2024-05-01T00:00:00+03:00',
-        'duration': 'PT15.317S',
-        'contentUrl': 'https://drbendor.com/sim video high res.mp4',
+        'duration': 'PT15.333S',
+        'contentUrl': 'https://drbendor.com/jerusalem-web.mp4',
         'embedUrl': `https://drbendor.com/${language}/work/jerusalem/`,
         'author': {
             '@type': 'Person',

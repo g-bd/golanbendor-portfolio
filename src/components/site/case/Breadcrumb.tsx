@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { useLanguage } from '@/context/LanguageContext';
 import { pageWords } from '@/data/siteContent';
 
@@ -9,9 +8,9 @@ export default function Breadcrumb({ title }: { title?: string }) {
     const w = pageWords[language];
     return (
         <nav className="breadcrumbs" aria-label={language === 'he' ? 'מיקום באתר' : 'Breadcrumb'}>
-            <Link href={`/${language}/`}>{w.home}</Link>
+            <a href={`/${language}/`}>{w.home}</a>
             <span>/</span>
-            <Link href={`/${language}/work/`}>{w.projects}</Link>
+            <a href={`/${language}/work/`}>{w.projects}</a>
             {title && <><span>/</span><span aria-current="page">{title}</span></>}
         </nav>
     );

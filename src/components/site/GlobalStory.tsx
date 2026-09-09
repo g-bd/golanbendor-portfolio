@@ -1,10 +1,13 @@
 'use client';
 
 import { useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { useMotion } from '@/context/MotionContext';
 import { archive } from '@/data/siteContent';
+import { speakingCopy } from '@/data/pagesContent';
 import Label from './Label';
+import Headline from './Headline';
 import Globe from './Globe';
 import Events from './Events';
 import CountUp from './CountUp';
@@ -21,7 +24,7 @@ export default function GlobalStory() {
             <div className="global-grid reveal">
                 <div className="global-copy">
                     <Label>{t.globalLabel}</Label>
-                    <h2>{t.globalTitle[0]}<br /><span className="cyan-text">{t.globalTitle[1]}</span></h2>
+                    <Headline lines={t.globalTitle} accent={[1]} />
                     <p>{t.globalDesc}</p>
                     <div className="global-stat"><strong dir="ltr"><CountUp value="15" /><span>+</span></strong><span>{t.globalStat}</span></div>
                     <p className="city-list">{t.cities}</p>
@@ -37,6 +40,7 @@ export default function GlobalStory() {
                 </details>
             </div>
             <Events t={t} rtl={language === 'he'} motion={motion} />
+            <a className="text-link archive-link" href={`/${language}/speaking/`}>{speakingCopy[language].title}<ArrowUpRight size={17} /></a>
         </section>
     );
 }

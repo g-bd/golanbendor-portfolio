@@ -23,7 +23,7 @@ export default function ScrambleText({ text, enabled, rtl }: { text: string; ena
         return () => { clearTimeout(delay); if (timer.current) clearInterval(timer.current); };
     }, [run]);
     return (
-        <span className="scramble" onPointerEnter={run} aria-label={text}>
+        <span className="scramble" aria-label={text}>
             <span className="scramble-sizer" aria-hidden="true">{text}</span>
             <span className="scramble-live" aria-hidden="true">{display}</span>
         </span>

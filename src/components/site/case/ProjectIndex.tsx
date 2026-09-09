@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { ArrowUpRight, Search } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
 import { asset } from '@/lib/site';
+import { markViewTransition } from '@/lib/viewTransition';
 import { pageWords } from '@/data/siteContent';
 import { projectOrder, projectAssets, ProjectCategory } from '@/data/siteLinks';
 import Label from '@/components/site/Label';
@@ -12,6 +12,8 @@ import Breadcrumb from './Breadcrumb';
 
 type Filter = 'all' | ProjectCategory;
 const FILTERS: Filter[] = ['all', 'analytics', 'policy', 'simulation', 'ai'];
+// `x-thumbnail.jpg` has an 800px `x-thumbnail-sm.jpg` sibling; other images have none.
+const smallThumb = (image: string) => (image.endsWith('-thumbnail.jpg') ? image.replace('-thumbnail.jpg', '-thumbnail-sm.jpg') : image);
 
 // Searchable, filterable index of every case study. Copy comes from translations.work_index.
 export default function ProjectIndex() {
@@ -83,9 +85,9 @@ export default function ProjectIndex() {
                 {visible.map(key => {
                     const item = index.projects[key];
                     return (
-                        <Link key={key} className={`directory-card accent-${projectAssets[key].color}`} href={`/${language}/work/${key}/`}>
+                        <a key={key} className={`directory-card accent-${projectAssets[key].color}`} href={`/${language}/work/${key}/`} onClick={markViewTransition}>
                             <div className="directory-image">
-                                <img src={asset(projectAssets[key].image)} alt="" loading="lazy" />
+                                <img src={asset(smallThumb(projectAssets[key].image))} srcSet={`${asset(smallThumb(projectAssets[key].image))} 800w, ${asset(projectAssets[key].image)} 1400w`} sizes="(max-width: 760px) 100vw, 580px" alt="" loading="lazy" />
                                 <span className="directory-status eyebrow">{item.status}</span>
                                 <span className="directory-arrow"><ArrowUpRight /></span>
                             </div>
@@ -93,7 +95,7 @@ export default function ProjectIndex() {
                             <h2>{item.title}</h2>
                             <p>{item.desc}</p>
                             <span className="text-link">{w.read}<ArrowUpRight size={18} /></span>
-                        </Link>
+                        </a>
                     );
                 })}
             </div>
@@ -103,14 +105,14 @@ export default function ProjectIndex() {
                     <button className="text-link" onClick={() => { setQuery(''); setFilter('all'); }}>{w.reset}</button>
                 </div>
             )}
-            <Link className="directory-ai" href={`/${language}/#expertise`}>
+            <a className="directory-ai" href={`/${language}/#expertise`}>
                 <div>
                     <Label>AI / {index.projects.ai_workflows.status}</Label>
                     <h2>{index.projects.ai_workflows.title}</h2>
                     <p>{index.projects.ai_workflows.desc}</p>
                 </div>
                 <ArrowUpRight size={35} />
-            </Link>
+            </a>
         </div>
     );
 }

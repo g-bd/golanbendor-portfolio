@@ -5,37 +5,47 @@ import CarIcon from './CarIcon';
 
 // Vertical road beside the home page: seven stations, one car. The car follows
 // native scroll (never captures wheel events); dragging the road scrubs the page.
+// The car eases toward the scroll position each frame (a little lag, like a real
+// vehicle), so driving, braking and idling come from its actual speed.
 // Colors come from --car-accent: cyan neon in dark, pink in light (globals.css).
 export default function RoadRail({ sections, labels, active, motion, rtl }: { sections: readonly string[]; labels: string[]; active: string; motion: boolean; rtl: boolean }) {
     const road = useRef<HTMLDivElement>(null), car = useRef<HTMLSpanElement>(null), dragging = useRef(false);
     useEffect(() => {
-        let frame = 0;
-        let previousY = window.scrollY;
-        let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;
-        const update = () => {
+        let frame = 0, target = 0, current = 0, velocity = 0;
+        let idle: ReturnType<typeof setTimeout> | undefined;
+        const measure = () => {
             const points = sections.map(id => Math.max(0, (document.getElementById(id)?.getBoundingClientRect().top ?? 0) + window.scrollY - 105));
             const y = window.scrollY;
             let position = 0;
             for (let i = 0; i < points.length - 1; i++) {
                 if (y >= points[i]) position = i + Math.min(1, (y - points[i]) / Math.max(1, points[i + 1] - points[i]));
             }
-            road.current?.style.setProperty('--road-progress', `${(position / Math.max(1, sections.length - 1)) * 100}%`);
-            if (car.current && Math.abs(y - previousY) > 2) car.current.dataset.direction = y < previousY ? 'reverse' : 'forward';
-            previousY = y;
+            target = (position / Math.max(1, sections.length - 1)) * 100;
         };
-        const onScroll = () => {
-            cancelAnimationFrame(frame); frame = requestAnimationFrame(update);
-            if (!motion || !car.current) return;
-            car.current.dataset.state = 'driving';
-            clearTimeout(stop); clearTimeout(idle);
-            stop = setTimeout(() => {
-                if (car.current) car.current.dataset.state = 'braking';
-                idle = setTimeout(() => { if (car.current) car.current.dataset.state = 'idle'; }, 700);
-            }, 160);
+        const paint = (value: number) => road.current?.style.setProperty('--road-progress', `${value.toFixed(3)}%`);
+        const tick = () => {
+            frame = 0;
+            const delta = target - current;
+            if (!motion) { current = target; paint(current); return; }
+            const step = delta * 0.14;
+            const speed = Math.abs(step);
+            const slowing = speed < Math.abs(velocity) * 0.9;
+            velocity = step;
+            current += step;
+            paint(current);
+            if (car.current) {
+                if (Math.abs(delta) > 0.4) car.current.dataset.direction = delta < 0 ? 'reverse' : 'forward';
+                car.current.dataset.state = speed > 0.05 && !slowing ? 'driving' : speed > 0.004 ? 'braking' : car.current.dataset.state === 'idle' ? 'idle' : 'braking';
+            }
+            if (Math.abs(delta) > 0.01) { frame = requestAnimationFrame(tick); return; }
+            current = target; paint(current);
+            clearTimeout(idle);
+            idle = setTimeout(() => { if (car.current) car.current.dataset.state = 'idle'; }, 450);
         };
-        update();
-        window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', update);
-        return () => { cancelAnimationFrame(frame); clearTimeout(stop); clearTimeout(idle); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', update); };
+        const onScroll = () => { clearTimeout(idle); measure(); if (!frame) frame = requestAnimationFrame(tick); };
+        measure(); current = target; paint(current);
+        window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
+        return () => { cancelAnimationFrame(frame); clearTimeout(idle); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
     }, [sections, motion]);
 
     const scrub = (event: React.PointerEvent<HTMLDivElement>) => {
@@ -55,7 +65,7 @@ export default function RoadRail({ sections, labels, active, motion, rtl }: { se
                 onPointerDown={event => { dragging.current = true; event.currentTarget.setPointerCapture(event.pointerId); scrub(event); }}
                 onPointerMove={event => { if (dragging.current) scrub(event); }}
                 onPointerUp={() => { dragging.current = false; }}
-                onPointerCancel={() => { dragging.current = false; }}>
+                onPointerCancel={() => { dragging.current = false; }} onLostPointerCapture={() => { dragging.current = false; }}>
                 {motion && (
                     <span ref={car} className="road-car" data-state="idle">
                         <CarIcon gradientId="car-beam-gradient" />

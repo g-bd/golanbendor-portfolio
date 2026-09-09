@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { researchStories, fieldNotes } from '@/data/editorialContent'
 
 export const dynamic = 'force-static'
 
@@ -6,6 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://drbendor.com'
 
   return [
+    ...['notes', ...fieldNotes.map(note => `notes/${note.slug}`), ...researchStories.map(story => `research/${story.slug}`)].flatMap(path => ['en', 'he'].map(lang => ({
+      url: `${baseUrl}/${lang}/${path}/`, lastModified: new Date('2026-09-08'), changeFrequency: 'yearly' as const, priority: 0.6,
+      alternates: { languages: { en: `${baseUrl}/en/${path}/`, he: `${baseUrl}/he/${path}/`, 'x-default': `${baseUrl}/he/${path}/` } },
+    }))),
     {
       url: `${baseUrl}/en/`,
       lastModified: new Date('2026-09-08'),
@@ -117,6 +122,34 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.8,
       alternates: { languages: { en: `${baseUrl}/en/work/cordon/`, he: `${baseUrl}/he/work/cordon/`, 'x-default': `${baseUrl}/he/work/cordon/` } },
+    },
+    {
+      url: `${baseUrl}/en/speaking/`,
+      lastModified: new Date('2026-09-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { en: `${baseUrl}/en/speaking/`, he: `${baseUrl}/he/speaking/`, 'x-default': `${baseUrl}/he/speaking/` } },
+    },
+    {
+      url: `${baseUrl}/he/speaking/`,
+      lastModified: new Date('2026-09-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { en: `${baseUrl}/en/speaking/`, he: `${baseUrl}/he/speaking/`, 'x-default': `${baseUrl}/he/speaking/` } },
+    },
+    {
+      url: `${baseUrl}/en/research/`,
+      lastModified: new Date('2026-09-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { en: `${baseUrl}/en/research/`, he: `${baseUrl}/he/research/`, 'x-default': `${baseUrl}/he/research/` } },
+    },
+    {
+      url: `${baseUrl}/he/research/`,
+      lastModified: new Date('2026-09-08'),
+      changeFrequency: 'monthly',
+      priority: 0.7,
+      alternates: { languages: { en: `${baseUrl}/en/research/`, he: `${baseUrl}/he/research/`, 'x-default': `${baseUrl}/he/research/` } },
     },
     {
       url: `${baseUrl}/en/accessibility/`,

@@ -7,6 +7,7 @@ import { useMotion } from '@/context/MotionContext';
 import { archive } from '@/data/siteContent';
 import { asset } from '@/lib/site';
 import Label from './Label';
+import Headline from './Headline';
 import PressDossier from './PressDossier';
 
 // Broadcast stage + channel list. Hovering the stage scrubs through four frames of
@@ -61,7 +62,7 @@ export default function MediaStory() {
 
     return (
         <section id="media" className="media-story shell">
-            <div className="section-heading reveal"><div><Label>{t.mediaLabel}</Label><h2>{t.mediaTitle[0]}<br /><span className="cyan-text">{t.mediaTitle[1]}</span></h2></div><p>{t.mediaDesc}</p></div>
+            <div className="section-heading reveal"><div><Label>{t.mediaLabel}</Label><Headline lines={t.mediaTitle} accent={[1]} /></div><p>{t.mediaDesc}</p></div>
             <div className={`media-studio refined-studio cinema-studio reveal ${playbackActive ? 'playback-active' : ''}`}>
                 <div ref={stage} className={`studio-feature ${portrait ? 'portrait-source' : 'landscape-source'}`}>
                     {playing ? (

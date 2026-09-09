@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, Moon, Sun, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
@@ -58,15 +57,15 @@ export default function SiteHeader() {
     return (
         <header className={scrolled ? 'site-header scrolled' : 'site-header'}>
             <div className="nav-wrap">
-                <Link href={`/${language}/`} className="brand" onClick={close} aria-label={t.fullName}>
+                <a href={`/${language}/`} className="brand" onClick={close} aria-label={t.fullName}>
                     <img className="theme-only-dark" src="/logo_recolored.png" alt="" width={47} height={47} />
                     <img className="theme-only-light" src="/logo-light.png" alt="" width={47} height={47} />
                     <span>{t.name}</span>
-                </Link>
+                </a>
                 <nav id="main-nav" className={menuOpen ? 'main-nav open' : 'main-nav'} aria-label={t.mainNav}>
                     {HOME_SECTIONS.slice(1).map((id, i) =>
                         id === 'work' && !isHome
-                            ? <Link href={`/${language}/work/`} key={id} onClick={close}>{t.nav[i]}</Link>
+                            ? <a href={`/${language}/work/`} key={id} onClick={close}>{t.nav[i]}</a>
                             : <a href={home(id)} key={id} className={isHome && active === id ? 'active' : ''} onClick={close}>{t.nav[i]}</a>
                     )}
                 </nav>

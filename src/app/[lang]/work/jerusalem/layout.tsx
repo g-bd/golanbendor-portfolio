@@ -59,8 +59,8 @@ export async function generateMetadata({ params }: { params: Promise<{ lang: str
       images: [
         {
           url: 'https://drbendor.com/sim%20video%20high%20res%20thumbnail.jpg',
-          width: 2274,
-          height: 2160,
+          width: 1400,
+          height: 1330,
           alt: isHebrew
             ? 'סימולציית תחבורה בירושלים - מודל MATSim'
             : 'Jerusalem Transport Simulation - MATSim Model',

@@ -186,34 +186,40 @@ PROJECT 7: AI-Enhanced Simulation Workflows
 SECTION 7: PUBLICATIONS (DETAILED)
 ================================================================================
 
+Research page (all publications, theses and DOIs): https://drbendor.com/en/research (Hebrew: https://drbendor.com/he/research)
+
 PUBLICATION 1: Robust Policy Evaluation (2024)
-- Full Title: "Agent-based evaluation of congestion charges and parking prices in central Jerusalem"
+- Full Title: "Simulation-based policy evaluation of monetary car driving disincentives in Jerusalem"
 - Journal: Transportation Research Part A: Policy and Practice
-- Volume: 183
+- Volume: 183, Article 104061
 - DOI: https://doi.org/10.1016/j.tra.2024.104061
-- Authors: Golan Ben-Dor, Ido Klein, Aleksey Ogulenko, Eran Ben-Elia, Itzhak Benenson
+- Authors: Golan Ben-Dor, Aleksey Ogulenko, Ido Klein, Eran Ben-Elia, Itzhak Benenson
 - Abstract: This study uses MATSim agent-based simulation to evaluate financial incentives for reducing private car use in Jerusalem. We test congestion pricing at various levels and assess the impact of Shared Autonomous Cars (SACs). Results show that a EUR 10 daily charge could reduce car arrivals by 25%, while SACs without pricing may cannibalize public transit ridership. The methodology demonstrates robust policy evaluation under uncertainty.
 - Keywords: congestion pricing, MATSim, Jerusalem, agent-based modeling, shared autonomous vehicles, transport policy
 
 PUBLICATION 2: Agent-Based Modeling at Scale (2023)
-- Full Title: "Parallel framework for large-scale urban traffic simulation in MATSim"
+- Full Title: "PATRIC: A high performance parallel urban transport simulation framework based on traffic clustering"
 - Journal: Simulation Modelling Practice and Theory
+- Volume: 126, Article 102775
 - DOI: https://doi.org/10.1016/j.simpat.2023.102775
-- Authors: Golan Ben-Dor, Itzhak Benenson
+- Authors: Lin Wan, Ganmin Yin, Jiahao Wang, Golan Ben-Dor, Aleksey Ogulenko, Zhou Huang
 - Abstract: This paper presents a parallel computing framework for running large-scale MATSim simulations. We demonstrate how to efficiently simulate metropolitan areas with millions of agents using distributed computing resources. The framework enables policy testing at unprecedented scale while maintaining computational tractability.
 - Keywords: MATSim, parallel computing, traffic simulation, agent-based modeling, scalability, high-performance computing
 
 PUBLICATION 3: Population Downscaling in MATSim (2021)
-- Full Title: "Studies MATSim downscaling by comparing full and sampled populations"
+- Full Title: "Population downscaling in multi-agent transportation simulations: A review and case study"
 - Journal: Simulation Modelling Practice and Theory
+- Volume: 108, Article 102233
 - DOI: https://doi.org/10.1016/j.simpat.2020.102233
-- Authors: Golan Ben-Dor, Itzhak Benenson
+- Authors: Golan Ben-Dor, Eran Ben-Elia, Itzhak Benenson
 - Abstract: This research investigates how population sampling affects MATSim simulation accuracy. By comparing full-scale and downscaled population models using the Sioux Falls network, we establish guidelines for choosing appropriate sample sizes that balance accuracy with computational efficiency.
 - Keywords: MATSim, population scaling, simulation accuracy, Sioux Falls, sample size, transport modeling
 
 ================================================================================
 SECTION 8: CONFERENCE PRESENTATIONS & KEYNOTES
 ================================================================================
+
+Speaking & media page (talks, posters, interviews, lectures, recognition, cities): https://drbendor.com/en/speaking (Hebrew: https://drbendor.com/he/speaking)
 
 ISTRC 2021: Simulating Shared Autonomous Demand-Responsive Transport
 - Event: Israeli Society for Transportation Research Conference
@@ -345,3 +351,8 @@ Version: 2.0
 Format: llms.txt specification (https://llmstxt.org/)
 Language: English (with Hebrew section)
 License: Public information for AI systems
+
+## Bilingual explanatory pages
+The research index links to three plain-language paper overviews under /en/research/ and /he/research/: jerusalem-congestion-pricing, patric-parallel-simulation, population-downscaling. These are explanatory summaries, not verbatim abstracts.
+Field notes / מבט מהשטח: https://drbendor.com/en/notes/ and https://drbendor.com/he/notes/ — what-matsim-models, where-to-count-traffic, validation-before-automation.
+The Jerusalem 25% finding describes a simulation scenario under study assumptions; it is not an observed post-implementation outcome.

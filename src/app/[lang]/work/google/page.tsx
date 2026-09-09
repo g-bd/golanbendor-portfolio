@@ -25,7 +25,7 @@ export default function GooglePage() {
         'dateModified': '2026-06-10',
         'publisher': { '@type': 'Person', 'name': 'Dr. Golan Ben-Dor', 'url': 'https://drbendor.com' },
         'mainEntityOfPage': { '@type': 'WebPage', '@id': `https://drbendor.com/${language}/work/google/` },
-        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/google-thumbnail.jpg', 'width': 1920, 'height': 1136 },
+        'image': { '@type': 'ImageObject', 'url': 'https://drbendor.com/google-thumbnail.jpg', 'width': 1400, 'height': 828 },
         'inLanguage': language === 'en' ? 'en-US' : 'he-IL',
         'keywords': language === 'en'
             ? 'road network basemap, travel time measurement, Ministry of Transport, AI-native, GIS pipeline'

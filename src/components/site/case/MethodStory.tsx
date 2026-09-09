@@ -11,10 +11,12 @@ interface MethodStoryProps {
     paragraphs: string[];
     source: VisualSource;
     alt: string;
+    // Optional live visual that follows the active step (e.g. the survey map drawing itself in).
+    renderVisual?: (active: number, total: number) => React.ReactNode;
 }
 
 // Sticky visual + native-scroll steps. The active step follows the viewport.
-export default function MethodStory({ title, paragraphs, source, alt }: MethodStoryProps) {
+export default function MethodStory({ title, paragraphs, source, alt, renderVisual }: MethodStoryProps) {
     const { language } = useLanguage();
     const w = pageWords[language];
     const [active, setActive] = useState(0);
@@ -23,11 +25,20 @@ export default function MethodStory({ title, paragraphs, source, alt }: MethodSt
         const root = steps.current;
         if (!root) return;
         const items = Array.from(root.querySelectorAll<HTMLElement>('.method-step'));
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => { if (entry.isIntersecting) setActive(Number((entry.target as HTMLElement).dataset.index)); });
-        }, { rootMargin: '-25% 0px -40% 0px', threshold: 0 });
-        items.forEach(item => observer.observe(item));
-        return () => observer.disconnect();
+        let frame = 0;
+        const update = () => {
+            frame = 0;
+            const navBottom = document.querySelector('.chapter-navigation')?.getBoundingClientRect().bottom ?? 120;
+            const readingLine = Math.max(navBottom + 32, window.innerHeight * .45);
+            let current = 0;
+            items.forEach((item, i) => { if (item.getBoundingClientRect().top <= readingLine) current = i; });
+            setActive(current);
+        };
+        const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+        schedule();
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule);
+        return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', schedule); window.removeEventListener('resize', schedule); };
     }, [paragraphs]);
     const pad = (n: number) => String(n).padStart(2, '0');
     return (
@@ -36,7 +47,7 @@ export default function MethodStory({ title, paragraphs, source, alt }: MethodSt
                 <div className="method-stage">
                     <Label>{title}</Label>
                     <h2>{w.steps[Math.min(active, w.steps.length - 1)]}</h2>
-                    <div className="method-visual"><Visual source={source} alt={alt} /></div>
+                    <div className="method-visual" data-step={active}>{renderVisual ? renderVisual(active, paragraphs.length) : <Visual source={source} alt={alt} />}</div>
                     <div className="method-progress">
                         <span className="eyebrow" dir="ltr">{pad(active + 1)} / {pad(paragraphs.length)}</span>
                         <div>{paragraphs.map((_, i) => <a key={i} href={`#method-${i}`} className={active === i ? 'active' : ''} aria-label={`${w.method} ${i + 1}`} aria-current={active === i ? 'step' : undefined} />)}</div>
