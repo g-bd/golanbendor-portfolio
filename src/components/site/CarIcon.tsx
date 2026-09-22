@@ -31,6 +31,7 @@ export default function CarIcon({ gradientId }: { gradientId: string }) {
             <path className="car-roof" style={{ fill: `url(#${gradientId}-paint)` }} d="M8 19 Q13 17 18 19 L18 26 Q13 28 8 26Z" />
             <path className="car-reflection" d="M9 11L8 15 M9 30L10 34 M8 5Q13 3 17 5 M7 38Q6 42 9 44" />
             <path className="car-detail" d="M6 20V27 M20 20V27 M9 39Q13 41 17 39" />
+            <path className="car-detail" d="M7 37L8 41 M19 37L18 41 M10 45H16" opacity=".55" />
             <path className="car-mirror" d="M4 29H2V32H5 M22 29H24V32H21" />
             <rect className="car-brake" x="7" y="3.6" width="4" height="2" rx="1" />
             <rect className="car-brake" x="15" y="3.6" width="4" height="2" rx="1" />

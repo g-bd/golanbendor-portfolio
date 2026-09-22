@@ -46,7 +46,7 @@ export default function ResearchPage() {
                                 </a>
                                 <div className="research-paper-copy">
                                     <p className="eyebrow research-year" dir="ltr">{paper.year} · {paper.journal}</p>
-                                    {pub ? (
+                                    {overview ? <h3>{overview.copy[language].title}</h3> : pub ? (
                                         <>
                                             <h3 lang="en" dir="ltr">{pub.title}</h3>
                                             {pub.title !== paper.title && <p className="research-subtitle">{paper.title}</p>}
@@ -54,7 +54,8 @@ export default function ResearchPage() {
                                     ) : (
                                         <h3>{paper.title}</h3>
                                     )}
-                                    <p className="research-desc">{paper.desc}</p>
+                                    <p className="research-desc">{overview?.copy[language].intro || paper.desc}</p>
+                                    {overview && <p className="research-takeaway">{overview.copy[language].sections.at(-1)?.text}</p>}
                                     {pub && (
                                         <dl className="research-meta">
                                             <div><dt>{c.authors}</dt><dd lang="en" dir="ltr">{pub.authors.join(', ')}</dd></div>
@@ -62,10 +63,11 @@ export default function ResearchPage() {
                                         </dl>
                                     )}
                                     {pub?.abstract && (
-                                        <div className="research-abstract">
-                                            <p className="eyebrow">{c.abstractLabel}{rtl && c.abstractNote ? ` · ${c.abstractNote}` : ''}</p>
+                                        <details className="research-abstract">
+                                            <summary>{c.abstractLabel}{rtl && c.abstractNote ? ` · ${c.abstractNote}` : ''}</summary>
+                                            <p lang="en" dir="ltr">{pub.title}</p>
                                             <div dir="ltr" lang="en"><p>{pub.abstract}</p></div>
-                                        </div>
+                                        </details>
                                     )}
                                     {overview && <a className="text-link research-overview" href={`/${language}/research/${overview.slug}/`}>{editorialWords[language].read}<ArrowUpRight size={17} /></a>}
                                     <a className="text-link" href={url} {...external}>{c.readOn}<ArrowUpRight size={17} /></a>

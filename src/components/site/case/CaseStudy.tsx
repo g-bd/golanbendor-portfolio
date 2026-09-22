@@ -14,13 +14,29 @@ import Visual from './Visual';
 import MethodStory from './MethodStory';
 import ChapterNavigation from './ChapterNavigation';
 import StageMap from '@/components/site/StageMap';
+import { caseEvidence, evidenceLabels } from '@/data/caseEvidence';
 
 const ScientificMaps = dynamic(() => import('./ScientificMaps'), { ssr: false, loading: () => <LoadingNote /> });
-const CountsMethodMap = dynamic(() => import('./CountsMethodMap'), { loading: () => <LoadingNote /> });
+const CountsMethodMap = dynamic(() => import('./SurveyMethod'), { loading: () => <LoadingNote /> });
+const GoogleReview = dynamic(() => import('./GoogleReview'));
+const SurveyReading = dynamic(() => import('./SurveyReading'));
+const ValidationExample = dynamic(() => import('./ValidationExample'));
+const JerusalemReplay = dynamic(() => import('./JerusalemReplay'));
 
 function LoadingNote() {
     const { language } = useLanguage();
     return <p className="map-loading">{pageWords[language].loading}</p>;
+}
+
+interface CaseArticle {
+    [key: string]: unknown;
+    title: string; subtitle: string; hero_text: string;
+    blog_section: Record<string, string>;
+    stats?: Record<string, string>; highlights?: Record<string, string>;
+    project_team?: string; project_team_desc?: string;
+    research_team?: string; research_team_desc?: string;
+    study_highlight?: string; study_finding?: string; project_quote?: string;
+    cta_link?: string; cta_button: string;
 }
 
 // Case-study article template. All copy lives in translations.ts under `<slug>_article`,
@@ -28,14 +44,16 @@ function LoadingNote() {
 export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
     const { langData: t, language } = useLanguage();
     const w = pageWords[language];
-    const a = t[`${slug}_article`];
+    const a: CaseArticle = t[`${slug}_article`];
     const b = a.blog_section;
     const source = projectAssets[slug];
     const he = language === 'he';
+    const proof = caseEvidence[slug][language];
+    const proofLabels = evidenceLabels[language];
     const title: string = t.related_work[`${slug}_title`];
 
     const stats: [string, string][] = a.stats
-        ? Object.entries(a.stats as Record<string, string>).filter(([key]) => key.endsWith('_value')).map(([key, value]) => [value, a.stats[key.replace('_value', '_label')] as string])
+        ? Object.entries(a.stats).filter(([key]) => key.endsWith('_value')).map(([key, value]) => [value, a.stats?.[key.replace('_value', '_label')] || ''])
         : slug === 'jerusalem'
             ? [['25%', he ? 'פחות הגעות ברכב בתרחיש המחקר' : 'fewer car arrivals in the study scenario'], ['€10', he ? 'אגרה יומית בקירוב' : 'approximate daily charge']]
             : [['BRT', 'Pink Line'], ['Replan', he ? 'סימולציה מבוססת סוכנים' : 'Agent-based simulation']];
@@ -76,6 +94,13 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                     <div><p>{b.intro}</p>{a.study_highlight && <p>{a.study_highlight}</p>}</div>
                 </section>
 
+                <dl className="case-outcomes">
+                    {(['role', 'delivered', 'use'] as const).map((key, i) => <div key={key}>
+                        <dt><span aria-hidden="true">0{i + 1}</span>{proofLabels[key]}</dt>
+                        <dd>{proof[key]}</dd>
+                    </div>)}
+                </dl>
+
                 <aside className="project-team">
                     <Label>{a.project_team || a.research_team}</Label>
                     <p>{a.project_team_desc || a.research_team_desc}</p>
@@ -83,14 +108,14 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
 
                 {a.highlights && (
                     <div className="case-highlights">
-                        {[1, 2, 3].map(i => <div key={i}><Check size={22} /><h3>{a.highlights[`h${i}_title`]}</h3><p>{a.highlights[`h${i}_desc`]}</p></div>)}
+                        {[1, 2, 3].map(i => <div key={i}><Check size={22} /><h3>{a.highlights?.[`h${i}_title`]}</h3><p>{a.highlights?.[`h${i}_desc`]}</p></div>)}
                     </div>
                 )}
 
                 <MethodStory title={b.how_title || b.contribution_title} paragraphs={paragraphs} source={source} alt={a.title}
                     renderVisual={slug === 'cordon' ? (active, total) => (
                         <div className="method-map" style={{ '--draw': ((active + 1) / total).toFixed(3) } as React.CSSProperties}>
-                            <StageMap labels={a.map.regions} total={355} stationsLabel={a.map.stations} count={Math.round(((active + 1) / total) * 355)} />
+                            <StageMap labels={t.cordon_article.map.regions} total={355} stationsLabel={t.cordon_article.map.stations} count={Math.round(((active + 1) / total) * 355)} />
                         </div>
                     ) : slug === 'counts' ? active => <CountsMethodMap active={active} /> : undefined} />
 
@@ -101,6 +126,11 @@ export default function CaseStudy({ slug }: { slug: ProjectSlug }) {
                     {isMap
                         ? <ScientificMaps kind={slug} article={a} />
                         : <div className="evidence-video"><Visual source={source} alt={b.video_title} controls /></div>}
+                    <p className="evidence-caption"><span>{proofLabels.figure}</span>{proof.caption}</p>
+                    {slug === 'google' && <GoogleReview />}
+                    {slug === 'cordon' && <SurveyReading />}
+                    {slug === 'beersheva' && <ValidationExample />}
+                    {slug === 'jerusalem' && <JerusalemReplay />}
                 </section>
 
                 {slug === 'counts' && (

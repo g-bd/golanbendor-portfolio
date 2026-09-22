@@ -1,0 +1,24 @@
+{
+  "date": "2026-03-15",
+  "table": "6.1",
+  "zone": 21,
+  "roadType": 2,
+  "period": "AM",
+  "rows": [
+    {
+      "metric": "Tot_VHT",
+      "reported": 1707.171565,
+      "reconstructed": 1707.170857171
+    },
+    {
+      "metric": "AvgSpeed",
+      "reported": 78.501296,
+      "reconstructed": 78.5013282303098
+    },
+    {
+      "metric": "Tot_VKmT",
+      "reported": 134015.180026,
+      "reconstructed": 134015.17980399998
+    }
+  ]
+}

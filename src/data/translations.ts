@@ -404,7 +404,7 @@ export const translations = {
                 ai_text: "I built this entire system — the data processing, the interactive review interface, the automated test suite, and the production deployment — using AI-native development workflows with tools like Claude and Codex. AI didn't just write code snippets; it powered the full cycle: architecture, implementation, automated testing, and production hardening. This is exactly the workflow I teach in my AI lectures and consulting.",
 
                 impact_title: "Why It Matters",
-                impact_text: "Transport agencies make multi-million shekel decisions based on travel-time data. An inaccurate basemap silently corrupts every measurement built on top of it. This system turns a months-long manual mapping effort into a fast, repeatable, quality-controlled process — already in production use across four metropolitan areas.",
+                impact_text: "A consistent road network is the foundation for interpreting travel-time measurements. The workflow makes route mismatches visible, supports review and correction, and produces an exportable basemap through a repeatable process.",
 
                 video_title: "The System in Action",
                 video_desc: "A walkthrough of the basemap creation and review workflow.",
@@ -445,7 +445,7 @@ export const translations = {
                 ai_text: "The reconstruction engine, test suite, GUI, and packaging workflow were all built using AI-native development with Claude and Codex. Not just code generation — full-cycle development: architecture design, iterative implementation, automated testing, and production hardening. This is the workflow I teach.",
 
                 impact_title: "Why It Matters",
-                impact_text: "Transport model validation is a legal and contractual requirement before major infrastructure decisions. A system that does it automatically — and produces a paper trail — replaces weeks of manual analyst work and eliminates the risk of undetected errors in the outputs that decision-makers rely on.",
+                impact_text: "Independent reconstruction makes model outputs easier to question and verify. The system exposes missing rows and numerical differences, with calculation methods and source inputs available for review. Flagged differences remain visible until their cause is understood.",
 
                 video_title: "The System in Action",
                 video_desc: "A walkthrough of the reconstruction dashboard and validation interface.",
@@ -508,27 +508,27 @@ export const translations = {
         counts_article: {
             title: "Where Should a City Count Its Traffic?",
             subtitle: "Ministry of Transport · ISTRC 2026",
-            hero_text: "Strategic transport models are validated against real-world traffic counts — but counting is expensive, and you can only measure a fraction of the network. I led the development of a methodology that answers the where and how many with network science, applied to all four of Israel's metropolitan models.",
+            hero_text: "Where should a metropolitan traffic survey count when it cannot count every road? I led the development of a centrality-based method that prioritizes eligible locations within traffic zones, supporting practical surveys for strategic transport-model validation.",
 
             back_to_portfolio: "Back to Portfolio",
             project_team: "The Research",
             project_team_desc: "Developed at the Ministry of Transport's System-wide Planning Department (\"Eshed\" directorate) together with Eng. Marcus Szeinuk and Dr. Ido Klein, in collaboration with Prof. Shlomo Bekhor of the Technion. Presented as a poster paper at the ISTRC 2026 conference.",
-            project_quote: "The scientific literature says to count 5–20% of your links to faithfully represent the network. Which links? They don't say. We built an algorithm that does — transparently, reproducibly, for any network.",
+            project_quote: "When we cannot measure every road, the choice of where to count should be explicit, explainable and repeatable.",
             fresh_insights: "Research Spotlight",
 
             blog_section: {
                 title: "From Vague Guidelines to a Transparent Algorithm",
-                intro: "Every strategic transport model — the models behind billions in infrastructure decisions — must prove it reproduces real traffic. That proof comes from traffic counts at selected road links. But every counting station costs money, so agencies face the same question everywhere: where exactly should the counters go? International manuals offer only rough ranges. We turned that guesswork into an algorithm that combines statistical sampling theory with network science.",
+                intro: "Survey budgets, equipment and field conditions limit how many roads can be measured. The task is to choose useful locations across a metropolitan network. Our workflow combines network centrality, eligibility rules and selection within traffic zones to make that choice transparent and repeatable.",
 
                 how_title: "How the Algorithm Works",
-                how_p1: "Filter the network: only links that carry private vehicle traffic are eligible, and ramps and very short links (under 200 m) are excluded as count locations. Everything stays in the graph, though — so the centrality math stays honest.",
-                how_p2: "Compute betweenness centrality for the entire network: the shortest routes between all origins and destinations are found with Dijkstra's algorithm, and every link is scored by how many of those routes pass through it. High centrality means the link is a load-bearing beam of the network.",
-                how_p3: "Tune it for the metropolis: the routes are weighted by distance — otherwise everything funnels onto the national highways, which Israel already monitors with permanent counters. Distance weighting lets the urban connectors surface, so sampling can focus on the metropolitan road classes (4–5).",
-                how_p4: "Sample zone by zone: within every traffic analysis zone, the top 20% (configurable) of metropolitan links by centrality are selected — a share in line with what the scientific literature recommends.",
-                how_p5: "The result is a spatially balanced 'measurement skeleton': every zone in the metropolis is covered, and within each zone the budget goes to the most connected, most important roads.",
+                how_p1: "Define suitable count locations: road class, access and minimum segment length restrict which links can be selected. The network used for path calculations and the eligible survey locations serve different purposes.",
+                how_p2: "Compute betweenness centrality: calculate shortest paths using travel-time weights and accumulate how often they pass through each link. This describes the structure of the network, not observed traffic volume.",
+                how_p3: "Apply trip-distance constraints by road class. These determine which journeys contribute to a link’s centrality, helping the measure reflect metropolitan connections. This is different from weighting routes by distance.",
+                how_p4: "Select within traffic zones: rank eligible links by centrality and apply the configured sampling target. The current export uses 20% per zone, with rounding and minimum-selection rules; the total can therefore exceed 20%.",
+                how_p5: "Review the proposed sample in its geographic and operational context. Zones without eligible links and selected links outside zone boundaries remain explicit, rather than being hidden by a claim of complete coverage.",
 
                 maps_title: "Four Metropolitan Areas, One Algorithm",
-                maps_intro: "The methodology was applied to Israel's four metropolitan strategic models. Across the four, 755 count locations were selected out of 3,448 eligible metropolitan links — about 22%, roughly the top fifth of every traffic zone. Each map shows the selected links glowing over the model's traffic analysis zones, colored by betweenness centrality score.",
+                maps_intro: "The methodology was applied to Israel's four metropolitan strategic models. Across the four, 774 count locations were selected out of 3,551 eligible metropolitan links — about 22%, using a 20% per-zone target with rounding and minimum-selection rules. Each map shows the selected links glowing over the model's traffic analysis zones, colored by betweenness centrality score.",
                 legend_low: "Lower centrality",
                 legend_high: "Highest centrality",
                 metro_telaviv: "Tel Aviv",
@@ -551,10 +551,10 @@ export const translations = {
                 map_zoom_hint: "Scroll or pinch to zoom · drag to pan · tap a link",
 
                 science_title: "The Science, Simply",
-                science_p1: "Imagine computing the shortest route between every pair of zones in a metropolitan area — hundreds of thousands of routes, each found with Dijkstra's algorithm. Some road links appear in a huge share of those routes: bridges, interchanges, key connectors. That share is the link's betweenness centrality — shown on the maps as a simple 0–100% score. For the metropolitan sample the routes are weighted by distance rather than speed: speed-weighting funnels every route onto the national highways, which Israel already monitors with permanent counters, while distance-weighting reveals the urban roads that hold the metropolis together.",
-                science_p2: "Selection is then zone-based: within each traffic analysis zone, the top 20% (configurable) of metropolitan links (classes 4–5) by centrality are picked — a sampling share consistent with the scientific literature. This guarantees true spatial coverage: no zone is left unmeasured, and within every zone the counting budget goes to the most connected, most important roads.",
+                science_p1: "Betweenness centrality asks how often a road link lies on shortest paths through the network. Here, shortest means lowest modeled travel time. The distance-constrained calculation credits paths according to their trip distance and the link’s road class. The map’s color scale is a display choice; it does not change the underlying selection.",
+                science_p2: "Within each traffic zone, eligible links are ranked by centrality. A configurable target determines how many are selected. This balances network importance with geographic distribution, while leaving field feasibility and available survey resources part of the planning process.",
                 science_formula: "for each zone:  select top 20% of class 4–5 links, ranked by Cᵦ(e)",
-                science_formula_explainer: "Here, Cᵦ(e) is the betweenness centrality of link e — the share of shortest routes between zone pairs that cross it, as described above. In the deployed version this calculation is distance-bounded: each road class has its own maximum distance (configurable) beyond which a shortest route no longer counts toward a link's centrality, computed via Dijkstra's algorithm with edge weights based on that class's typical travel speed (also configurable).",
+                science_formula_explainer: "Cᵦ(e) is the link’s centrality from travel-time-weighted paths with road-class trip-distance constraints. Selection uses eligible links within each zone, with rounding and minimum-selection rules. Centrality is not a forecast of traffic volume.",
                 demo_caption: "Watch it live: every moment, the shortest route between two random zones lights up. One link keeps getting crossed — the bridge between the two halves of the network. That's high betweenness centrality.",
                 demo_share_suffix: "of all shortest routes cross this link",
                 demo_hint: "Hover any link to see its share",
@@ -566,15 +566,15 @@ export const translations = {
                 poster_button: "View Full-Size Poster",
 
                 impact_title: "Why It Matters",
-                impact_text: "Every counting station means field equipment, crews and processing budgets. This methodology makes sure each one buys maximum validation power: the sample is structurally critical, covers every traffic zone, and focuses on the metropolitan roads that have no permanent monitoring — the national highways are already counted. It replaces 'we count where we've always counted' with a transparent, defensible, repeatable procedure — applied to the strategic models of all four of Israel's metropolitan areas.",
+                impact_text: "The deliverable is a traceable survey proposal: why locations were selected, how the sample is distributed and which constraints were applied. Agencies can review it against field conditions and available resources before collecting counts for model validation.",
             },
 
             stats: {
                 metros_value: "4",
                 metros_label: "Metropolitan Models",
-                links_value: "3,448",
+                links_value: "3,551",
                 links_label: "Eligible Strategic Links",
-                sample_value: "755",
+                sample_value: "774",
                 sample_label: "Count Locations Selected",
                 rate_value: "~22%",
                 rate_label: "Sampling Rate",
@@ -1128,7 +1128,7 @@ export const translations = {
                 ai_text: "את כל המערכת הזו — עיבוד הנתונים, ממשק הבקרה האינטראקטיבי, חבילת הבדיקות האוטומטיות וההטמעה בסביבת הייצור — בניתי בשיטות עבודה AI-Native עם כלים כמו Claude ו-Codex. ה-AI לא רק כתב קטעי קוד; הוא הניע את כל המחזור: ארכיטקטורה, מימוש, בדיקות אוטומטיות והקשחה לייצור. זו בדיוק שיטת העבודה שאני מלמד בהרצאות ובייעוץ ה-AI שלי.",
 
                 impact_title: "למה זה חשוב",
-                impact_text: "סוכנויות תחבורה מקבלות החלטות של עשרות מיליוני שקלים על בסיס נתוני זמני נסיעה. מפת בסיס לא מדויקת משבשת בשקט כל מדידה שנבנית מעליה. המערכת הזו הופכת תהליך מיפוי ידני של חודשים לתהליך מהיר, חוזר ומבוקר איכות — שכבר פועל בייצור בארבעה מטרופולינים.",
+                impact_text: "רשת דרכים עקבית היא הבסיס לפרשנות של מדידות זמני נסיעה. התהליך מציג אי־התאמות במסלולים, תומך בבדיקה ובתיקון, ומפיק מפת בסיס לייצוא בתהליך שניתן לחזור עליו.",
 
                 video_title: "המערכת בפעולה",
                 video_desc: "הדגמה של תהליך יצירת מפת הבסיס והבקרה עליה.",
@@ -1169,7 +1169,7 @@ export const translations = {
                 ai_text: "מנוע השחזור, חבילת הבדיקות, הממשק ותהליך האריזה כולם נבנו בפיתוח AI-Native עם Claude ו-Codex. לא רק יצירת קוד — פיתוח מחזור מלא: תכנון ארכיטקטורה, מימוש איטרטיבי, בדיקות אוטומטיות והקשחה לייצור. זו שיטת העבודה שאני מלמד.",
 
                 impact_title: "למה זה חשוב",
-                impact_text: "אימות מודל תחבורה הוא דרישה חוקית וחוזית לפני החלטות תשתית מרכזיות. מערכת שעושה זאת אוטומטית — ומפיקה תיעוד מסלול ביקורת — מחליפה שבועות של עבודה ידנית של אנליסט ומבטלת את הסיכון של שגיאות לא מזוהות בפלטים שמקבלי ההחלטות מסתמכים עליהם.",
+                impact_text: "שחזור עצמאי מאפשר לבחון ולאמת את פלטי המודל. המערכת מציגה שורות חסרות ופערים מספריים, לצד שיטות החישוב וקובצי המקור לצורך בדיקה. הפערים שסומנו נשארים גלויים עד שמקורם מובן.",
 
                 video_title: "המערכת בפעולה",
                 video_desc: "הדגמה של לוח הבקרה לשחזור וממשק האימות.",
@@ -1188,27 +1188,27 @@ export const translations = {
         counts_article: {
             title: "איפה כדאי לעיר לספור את התנועה שלה?",
             subtitle: "משרד התחבורה · ISTRC 2026",
-            hero_text: "מודלים תחבורתיים אסטרטגיים מאומתים מול ספירות תנועה אמיתיות — אבל ספירות עולות כסף, ואפשר למדוד רק חלק קטן מהרשת. הובלתי פיתוח מתודולוגיה שעונה על השאלות איפה וכמה באמצעות מדע רשתות, ויושמה על ארבעת המודלים המטרופוליניים של ישראל.",
+            hero_text: "איפה נכון לספור תנועה במטרופולין כשאי אפשר לספור בכל כביש? הובלתי פיתוח שיטה מבוססת מרכזיות לתעדוף מקטעים מתאימים בתוך אזורי תנועה, כתמיכה בסקר מעשי לתיקוף מודל תחבורה אסטרטגי.",
 
             back_to_portfolio: "חזרה לתיק העבודות",
             project_team: "המחקר",
             project_team_desc: "פותח באגף לתכנון מערכתי (מנהלת \"אשד\") במשרד התחבורה יחד עם אינג׳ מרכוס סניוק וד\"ר עדו קליין, בשיתוף פרופ' שלמה בכור מהטכניון. הוצג כפוסטר בכנס ISTRC 2026.",
-            project_quote: "הספרות המדעית ציינה לספור 5–20% מהמקטעים כדי לייצג נאמנה את המרחב. אילו מקטעים? הם לא אומרים. בנינו אלגוריתם שכן — שקוף, ניתן לשחזור, לכל רשת.",
+            project_quote: "כשאי אפשר למדוד בכל כביש, ההחלטה איפה לספור צריכה להיות ברורה, מוסברת וניתנת לשחזור.",
             fresh_insights: "זרקור מחקרי",
 
             blog_section: {
                 title: "מהנחיות מעורפלות לאלגוריתם שקוף",
-                intro: "כל מודל תחבורה אסטרטגי — המודלים שמאחורי החלטות תשתית של מיליארדים — חייב להוכיח שהוא משחזר תנועה אמיתית. ההוכחה מגיעה מספירות תנועה במקטעי כביש נבחרים. אבל כל תחנת ספירה עולה כסף, וכל רשות מתמודדת עם אותה שאלה: איפה בדיוק למקם את הספירות? המדריכים הבינלאומיים נותנים רק טווחים כלליים. הפכנו את הניחוש הזה לאלגוריתם שמשלב תורת הדגימה הסטטיסטית עם מדע רשתות.",
+                intro: "תקציב הסקר, הציוד ותנאי השטח מגבילים את מספר הכבישים שאפשר למדוד. המשימה היא לבחור מיקומים מועילים ברחבי הרשת המטרופולינית. התהליך משלב מרכזיות ברשת, כללי כשירות ובחירה בתוך אזורי תנועה, כדי להפוך את ההחלטה לשקופה וניתנת לשחזור.",
 
                 how_title: "איך האלגוריתם עובד",
-                how_p1: "סינון הרשת: רק מקטעים שנושאים תנועת רכב פרטי נכללים, ורמפות ומקטעים קצרים מאוד (מתחת ל-200 מטר) לא נבחרים כנקודות ספירה. הכול נשאר בגרף — כדי שחישוב המרכזיות יישאר נאמן למציאות.",
-                how_p2: "חישוב מרכזיות ביניים (Betweenness Centrality) לכל הרשת: המסלולים הקצרים ביותר בין כל המוצאים והיעדים מחושבים באלגוריתם דייקסטרה, וכל מקטע מקבל ציון לפי כמה מהמסלולים האלה עוברים דרכו. מרכזיות גבוהה פירושה שהמקטע הוא קורת תמך של הרשת.",
-                how_p3: "כיוונון למטרופולין: המסלולים משוקללים לפי מרחק — אחרת הכול מתנקז לכבישים הבין-עירוניים, שבישראל כבר מנוטרים בספירות קבועות. שקלול לפי מרחק מבליט את המחברים העירוניים, כך שהדגימה מתמקדת בסוגי הכבישים המטרופוליניים (4–5).",
-                how_p4: "דגימה אזור-אזור: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים בעלי המרכזיות הגבוהה ביותר — נתח שתואם את המומלץ בספרות המדעית.",
-                how_p5: "התוצאה היא 'שלד מדידה' מאוזן מרחבית: כל אזור במטרופולין מכוסה, ובתוך כל אזור התקציב מגיע לכבישים המקושרים והחשובים ביותר.",
+                how_p1: "מגדירים מקטעים המתאימים לספירה: סיווג הדרך, הנגישות ואורך המקטע מגבילים את המיקומים שניתן לבחור. הרשת המשמשת לחישוב מסלולים והמקטעים הכשירים לסקר ממלאים תפקידים שונים.",
+                how_p2: "מחשבים מרכזיות ביניים: מאתרים מסלולים קצרים לפי זמני נסיעה וצוברים את תרומתם למקטעים שדרכם הם עוברים. המדד מתאר את מבנה הרשת, ולא נפח תנועה שנמדד בשטח.",
+                how_p3: "מיישמים מגבלות על מרחק הנסיעה לפי סיווג הדרך. הן קובעות אילו נסיעות תורמות למרכזיות של מקטע ומסייעות לייצג חיבורים מטרופוליניים. אין מדובר במשקול המסלולים לפי מרחק.",
+                how_p4: "בוחרים בתוך אזורי תנועה: מדרגים את המקטעים הכשירים לפי מרכזיות ומיישמים את יעד הדגימה. הייצוא הנוכחי משתמש ביעד של 20% בכל אזור, עם עיגול וכללי מינימום; לכן השיעור הכולל עשוי להיות גבוה מ־20%.",
+                how_p5: "בוחנים את המדגם המוצע בהקשר המרחבי והתפעולי. אזורים ללא מקטעים כשירים ומקטעים שנבחרו מחוץ לגבולות האזורים מוצגים במפורש, בלי להסתירם מאחורי טענה לכיסוי מלא.",
 
                 maps_title: "ארבעה מטרופולינים, אלגוריתם אחד",
-                maps_intro: "המתודולוגיה יושמה על ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. בסך הכל נבחרו 755 נקודות ספירה מתוך 3,448 מקטעים מטרופוליניים כשירים — כ-22%, בערך החמישית המובילה בכל אזור תנועה. כל מפה מציגה את המקטעים שנבחרו זוהרים מעל אזורי התנועה של המודל, צבועים לפי ציון מרכזיות הביניים.",
+                maps_intro: "המתודולוגיה יושמה על ארבעת המודלים האסטרטגיים המטרופוליניים של ישראל. בסך הכל נבחרו 755 נקודות ספירה מתוך 3,551 מקטעים מטרופוליניים כשירים — כ-22%, בערך החמישית המובילה בכל אזור תנועה. כל מפה מציגה את המקטעים שנבחרו זוהרים מעל אזורי התנועה של המודל, צבועים לפי ציון מרכזיות הביניים.",
                 legend_low: "מרכזיות נמוכה",
                 legend_high: "מרכזיות מרבית",
                 metro_telaviv: "תל אביב",
@@ -1231,10 +1231,10 @@ export const translations = {
                 map_zoom_hint: "גלגלו או צבטו לזום · גררו להזזה · הקישו על מקטע",
 
                 science_title: "המדע, בפשטות",
-                science_p1: "דמיינו חישוב של המסלול הקצר ביותר בין כל זוג אזורים במטרופולין — מאות אלפי מסלולים, כל אחד מחושב באלגוריתם דייקסטרה. חלק ממקטעי הכביש מופיעים בנתח עצום מהמסלולים האלה: גשרים, מחלפים, מחברים מרכזיים. הנתח הזה הוא מרכזיות הביניים של המקטע — מוצג במפות כציון פשוט של 0–100%. עבור המדגם המטרופוליני המסלולים משוקללים לפי מרחק ולא לפי מהירות: שקלול לפי מהירות מנקז כל מסלול לכבישים הבין-עירוניים, שכבר מנוטרים בישראל בספירות קבועות, בעוד שקלול לפי מרחק חושף את הכבישים העירוניים שמחזיקים את המטרופולין.",
-                science_p2: "הבחירה נעשית לפי אזורים: בכל אזור תנועה נבחרים 20% (ניתן להגדרה) מהמקטעים המטרופוליניים (סוגים 4–5) בעלי המרכזיות הגבוהה ביותר — נתח דגימה שתואם את הספרות המדעית. כך מובטח כיסוי מרחבי אמיתי: אף אזור לא נשאר בלי מדידה, ובכל אזור תקציב הספירות מגיע לכבישים המקושרים והחשובים ביותר.",
+                science_p1: "מרכזיות ביניים בוחנת באיזו תדירות מקטע דרך נמצא במסלולים הקצרים ברשת. כאן, מסלול קצר הוא מסלול בעל זמן נסיעה מחושב נמוך. החישוב מוגבל־המרחק מזכה מקטעים בהתאם למרחק הנסיעה ולסיווג הדרך. סולם הצבע במפה הוא בחירת תצוגה ואינו משנה את בחירת המדגם.",
+                science_p2: "בכל אזור תנועה מדורגים המקטעים הכשירים לפי מרכזיות, ויעד דגימה הניתן להגדרה קובע כמה מהם ייבחרו. כך משולבת חשיבות המקטעים ברשת עם פיזור מרחבי, בעוד ישימות הספירה בשטח ומשאבי הסקר נשארים חלק מתהליך התכנון.",
                 science_formula: "לכל אזור:  בחר את 20% המקטעים המובילים מסוגים 4–5, מדורגים לפי Cᵦ(e)",
-                science_formula_explainer: "כאן, Cᵦ(e) מציינת את מרכזיות הביניים של מקטע e — הנתח מתוך המסלולים הקצרים ביותר בין זוגות אזורים שעוברים דרכו, כפי שתואר לעיל. בגרסה המיושמת החישוב הזה חסום מרחק: לכל סוג כביש יש מרחק מקסימלי משלו (ניתן להגדרה) שמעבר לו מסלול קצר ביותר כבר לא נספר במרכזיות של המקטע, מחושב באמצעות אלגוריתם דייקסטרה עם משקלי קשתות המבוססים על מהירות הנסיעה הטיפוסית של אותו סוג כביש (גם היא ניתנת להגדרה).",
+                science_formula_explainer: "Cᵦ(e) היא מרכזיות המקטע, המחושבת ממסלולים המשוקללים לפי זמן נסיעה ומוגבלים לפי מרחק הנסיעה וסיווג הדרך. הבחירה נעשית מתוך המקטעים הכשירים בכל אזור, עם עיגול וכללי מינימום. המרכזיות אינה תחזית לנפח התנועה.",
                 demo_caption: "צפו בזה חי: בכל רגע נדלק המסלול הקצר ביותר בין שני אזורים אקראיים. מקטע אחד נחצה שוב ושוב — הגשר בין שני חצאי הרשת. זו מרכזיות ביניים גבוהה.",
                 demo_share_suffix: "מכלל המסלולים הקצרים עוברים במקטע הזה",
                 demo_hint: "רחפו מעל מקטע כדי לראות את הנתח שלו",
@@ -1246,15 +1246,15 @@ export const translations = {
                 poster_button: "צפייה בפוסטר בגודל מלא",
 
                 impact_title: "למה זה חשוב",
-                impact_text: "כל תחנת ספירה משמעה ציוד שטח, צוותים ותקציבי עיבוד. המתודולוגיה מבטיחה שכל אחת קונה כוח אימות מרבי: המדגם קריטי מבנית, מכסה כל אזור תנועה, ומתמקד בכבישים המטרופוליניים שאין להם ניטור קבוע — הכבישים הבין-עירוניים כבר נספרים. היא מחליפה את 'סופרים איפה שתמיד ספרנו' בהליך שקוף, ניתן להגנה וחוזר — שיושם על המודלים האסטרטגיים של כל ארבעת המטרופולינים בישראל.",
+                impact_text: "התוצר הוא הצעה לסקר שניתן לבדוק: מדוע נבחרו המיקומים, כיצד המדגם מפוזר ואילו אילוצים יושמו. הגופים המקצועיים יכולים לבחון אותה מול תנאי השטח והמשאבים הזמינים לפני איסוף הספירות לתיקוף המודל.",
             },
 
             stats: {
                 metros_value: "4",
                 metros_label: "מודלים מטרופוליניים",
-                links_value: "3,448",
+                links_value: "3,551",
                 links_label: "מקטעים אסטרטגיים כשירים",
-                sample_value: "755",
+                sample_value: "774",
                 sample_label: "נקודות ספירה נבחרו",
                 rate_value: "כ-22%",
                 rate_label: "שיעור דגימה",

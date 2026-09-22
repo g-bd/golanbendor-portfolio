@@ -62,12 +62,12 @@ export const fieldNotes: { slug: string; project: string; source?: string; copy:
   { slug: 'where-to-count-traffic', project: 'counts', copy: {
     en: { title: 'Where should we count traffic?', intro: 'A limited survey budget makes the choice of locations part of the analysis.', sections: [
       { title: 'Start with the decision', text: 'Traffic counts help check and calibrate a transport model. Choosing locations only because they are convenient can leave parts of the network poorly represented. The count-location project starts with the structure of the network and the areas the survey needs to cover.' },
-      { title: 'Find useful connections', text: 'The workflow scores links using betweenness centrality: how frequently shortest paths pass through a link. Distance weighting helps identify metropolitan connectors, while eligibility rules exclude unsuitable count locations such as ramps and very short links.' },
+      { title: 'Find useful connections', text: 'The workflow scores links using betweenness centrality: how frequently shortest paths pass through a link. Paths use travel-time weights, with trip-distance constraints by road class. Eligibility rules identify suitable count locations; centrality describes network structure rather than observed traffic.' },
       { title: 'Keep the spatial balance', text: 'Selection happens within traffic analysis zones, so the result is spread across the metropolis. In this project, the configurable target is the top 20% of eligible metropolitan links by centrality in each zone. The interactive project maps show the selected links and their context.' },
     ] },
     he: { title: 'איפה כדאי לספור תנועה?', intro: 'כשתקציב הסקר מוגבל, בחירת המיקומים היא חלק מהניתוח.', sections: [
       { title: 'מתחילים בהחלטה', text: 'ספירות תנועה מסייעות לבדוק ולכייל מודל תחבורה. בחירת מיקומים רק משום שהם נוחים עלולה להשאיר חלקים מהרשת ללא ייצוג מספק. פרויקט בחירת נקודות הספירה מתחיל במבנה הרשת ובאזורים שהסקר צריך לכסות.' },
-      { title: 'מזהים חיבורים חשובים', text: 'התהליך מדרג מקטעים באמצעות מרכזיות ביניים: באיזו תדירות מסלולים קצרים עוברים במקטע. שקלול לפי מרחק מסייע לזהות חיבורים מטרופוליניים, וכללי התאמה מוציאים מיקומים שאינם מתאימים לספירה, כמו רמפות ומקטעים קצרים מאוד.' },
+      { title: 'מזהים חיבורים חשובים', text: 'התהליך מדרג מקטעים באמצעות מרכזיות ביניים: באיזו תדירות מסלולים קצרים עוברים במקטע. המסלולים משוקללים לפי זמן נסיעה, עם מגבלות על מרחק הנסיעה לפי סיווג הדרך. כללי כשירות מזהים מיקומים המתאימים לספירה; המרכזיות מתארת את מבנה הרשת ולא נפח תנועה שנמדד.' },
       { title: 'שומרים על איזון מרחבי', text: 'הבחירה נעשית בתוך אזורי ניתוח תנועה, כך שהתוצאה פרוסה ברחבי המטרופולין. בפרויקט הזה, יעד הבחירה הניתן להגדרה הוא 20% מהמקטעים המטרופוליניים המתאימים בכל אזור, לפי מרכזיותם. מפות הפרויקט האינטראקטיביות מציגות את המקטעים שנבחרו ואת סביבתם.' },
     ] },
   } },

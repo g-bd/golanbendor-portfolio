@@ -30,10 +30,10 @@ export interface CountsMapLabels {
 
 const METRO_ORDER: MetroKey[] = ['telaviv', 'jerusalem', 'haifa', 'beersheva'];
 
-// Eligible strategic links per metro (source: four-metro application summary table)
+// Eligible strategic links per metro (source: validation-viewer export, 2026-09-07)
 const METRO_ELIGIBLE: Record<MetroKey, number> = {
     telaviv: 1526,
-    jerusalem: 674,
+    jerusalem: 777,
     haifa: 838,
     beersheva: 410,
 };

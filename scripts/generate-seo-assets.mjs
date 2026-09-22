@@ -1,8 +1,8 @@
-const sharp = require('sharp');
-const path = require('path');
-const fs = require('fs');
+import sharp from 'sharp';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-const publicDir = path.join(__dirname, '..', 'public');
+const publicDir = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'public');
 
 async function generateFavicons() {
   const logoPath = path.join(publicDir, 'chrome tab logo.png');

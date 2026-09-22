@@ -48,6 +48,7 @@ export default function SpeakingPage() {
                             <iframe src={`https://www.youtube-nocookie.com/embed/${t.conference.youtubeId}?start=${t.conference.start}&autoplay=1&rel=0`} title={t.conference.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                         ) : (
                             <button className="speaking-talk-poster" onClick={openTalk} aria-label={t.watchConference}>
+                                <img src="/istrc-talk-poster.webp" alt="" width="1200" height="676" loading="lazy" />
                                 <span className="speaking-play" aria-hidden="true"><Play size={22} /></span>
                                 <span className="eyebrow" dir="ltr">ISTRC 2021 · YouTube</span>
                             </button>

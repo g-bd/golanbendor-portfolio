@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
 import { translations, Language, Direction } from '../data/translations';
 import { useTheme, Theme } from './ThemeContext';
@@ -12,7 +12,7 @@ interface LanguageContextType {
     t: (key: string) => string; // Simple key based lookup
     toggleLanguage: () => void;
     setLanguage: (lang: Language) => void;
-    langData: any; // The whole object for easy destructuring
+    langData: typeof translations.en;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
@@ -26,28 +26,12 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
     const pathname = usePathname();
     const { theme } = useTheme();
 
-    // Determine language from URL path or prop
-    const getLangFromPath = (): Language => {
-        if (initialLang) return initialLang;
-        if (pathname?.startsWith('/he')) return 'he';
-        return 'en';
-    };
-
-    const [language, setLanguageState] = useState<Language>(getLangFromPath());
-    const [direction, setDirection] = useState<Direction>(language === 'he' ? 'rtl' : 'ltr');
-
-    // Sync language with URL on mount and path changes
-    useEffect(() => {
-        const langFromPath = getLangFromPath();
-        if (langFromPath !== language) {
-            setLanguageState(langFromPath);
-        }
-    }, [pathname, initialLang]);
+    const language: Language = pathname?.startsWith('/he') ? 'he' : pathname?.startsWith('/en') ? 'en' : initialLang ?? 'en';
+    const direction: Direction = language === 'he' ? 'rtl' : 'ltr';
 
     useEffect(() => {
         // Update direction when language changes
         const newDir = language === 'he' ? 'rtl' : 'ltr';
-        setDirection(newDir);
         document.documentElement.dir = newDir;
         document.documentElement.lang = language;
 
@@ -100,8 +84,9 @@ export const LanguageProvider = ({ children, initialLang }: LanguageProviderProp
         setLanguage(newLang);
     };
 
-    const getNestedValue = (obj: any, path: string) => {
-        return path.split('.').reduce((prev, curr) => prev ? prev[curr] : null, obj) || path;
+    const getNestedValue = (obj: unknown, path: string): string => {
+        const value = path.split('.').reduce<unknown>((prev, curr) => prev && typeof prev === 'object' ? (prev as Record<string, unknown>)[curr] : undefined, obj);
+        return typeof value === 'string' ? value : path;
     };
 
     const t = (key: string) => {

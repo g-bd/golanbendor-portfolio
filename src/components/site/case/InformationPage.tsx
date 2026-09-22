@@ -17,7 +17,7 @@ const SECTIONS = {
 export default function InformationPage({ page }: { page: keyof typeof SECTIONS }) {
     const { langData, language } = useLanguage();
     const w = pageWords[language];
-    const t = langData[page];
+    const t: Record<string, string | string[] | undefined> = langData[page];
     const keys = SECTIONS[page];
     return (
         <article className="information-page shell">
@@ -39,7 +39,7 @@ export default function InformationPage({ page }: { page: keyof typeof SECTIONS 
                             <h2>{t[`${key}_title`]}</h2>
                             {t[`${key}_text`] && <p>{t[`${key}_text`]}</p>}
                             {t[`${key}_items`] && <ul>{(t[`${key}_items`] as string[]).map(item => <li key={item}>{item}</li>)}</ul>}
-                            {key === 'hosting' && <a className="text-link" href={t.hosting_link_url} {...external}>{t.hosting_link_text}</a>}
+                            {key === 'hosting' && <a className="text-link" href={typeof t.hosting_link_url === 'string' ? t.hosting_link_url : undefined} {...external}>{t.hosting_link_text}</a>}
                             {(key === 'coordinator' || key === 'contact') && (
                                 <div className="legal-contact">
                                     {key === 'coordinator' && t.coordinator_name && <strong>{t.coordinator_name}</strong>}
