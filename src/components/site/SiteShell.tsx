@@ -5,6 +5,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { useMotion } from '@/context/MotionContext';
 import { content } from '@/data/siteContent';
 import TrafficCanvas from './TrafficCanvas';
+import { driveCar, turnCar } from './CarIcon';
 import SiteHeader from './SiteHeader';
 import SiteFooter from './SiteFooter';
 
@@ -35,13 +36,17 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
     // --scroll-progress eases toward the real position (the phone header car has the
     // same gentle lag as the desktop rail car); with motion off it snaps.
     useEffect(() => {
-        let frame = 0, target = 0, current = 0;
+        let frame = 0, target = 0, current = 0, velocity = 0;
         let previousY = window.scrollY;
         const html = document.documentElement;
         const measure = () => {
             const max = html.scrollHeight - window.innerHeight;
             target = max > 0 ? Math.min(1, window.scrollY / max) : 0;
-            if (Math.abs(window.scrollY - previousY) > 2) html.dataset.driveDirection = window.scrollY < previousY ? 'reverse' : 'forward';
+            const direction = window.scrollY < previousY ? 'reverse' : 'forward';
+            if (Math.abs(window.scrollY - previousY) > 2 && html.dataset.driveDirection !== direction) {
+                if (html.dataset.driveDirection && motion) turnCar(document.querySelector('.header-car'), 0, 6);
+                html.dataset.driveDirection = direction;
+            }
             previousY = window.scrollY;
         };
         const update = () => {
@@ -49,6 +54,10 @@ export default function SiteShell({ children }: { children: React.ReactNode }) {
             const delta = target - current;
             current = !motion || Math.abs(delta) < 0.0005 ? target : current + delta * 0.16;
             html.style.setProperty('--scroll-progress', current.toFixed(4));
+            // The phone header car gets the same speed/pitch physics as the desktop rail car.
+            const step = current === target ? 0 : delta * 16;
+            driveCar(document.querySelector<HTMLElement>('.header-car'), step, step ? velocity : 0);
+            velocity = step;
             if (current !== target) frame = requestAnimationFrame(update);
         };
         let stop: ReturnType<typeof setTimeout> | undefined, idle: ReturnType<typeof setTimeout> | undefined;

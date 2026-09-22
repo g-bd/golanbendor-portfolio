@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
-import CarIcon from './CarIcon';
+import CarIcon, { driveCar, turnCar } from './CarIcon';
 
 // Vertical road beside the home page: seven stations, one car. The car follows
 // native scroll (never captures wheel events); dragging the road scrubs the page.
@@ -30,15 +30,21 @@ export default function RoadRail({ sections, labels, active, motion, rtl }: { se
             const step = delta * 0.14;
             const speed = Math.abs(step);
             const slowing = speed < Math.abs(velocity) * 0.9;
+            driveCar(car.current, step, velocity);
             velocity = step;
             current += step;
             paint(current);
             if (car.current) {
-                if (Math.abs(delta) > 0.4) car.current.dataset.direction = delta < 0 ? 'reverse' : 'forward';
+                const direction = delta < 0 ? 'reverse' : 'forward';
+                if (Math.abs(delta) > 0.4 && car.current.dataset.direction !== direction) {
+                    if (car.current.dataset.direction) turnCar(car.current, rtl ? 7 : -7, 0);
+                    car.current.dataset.direction = direction;
+                }
                 car.current.dataset.state = speed > 0.05 && !slowing ? 'driving' : speed > 0.004 ? 'braking' : car.current.dataset.state === 'idle' ? 'idle' : 'braking';
             }
             if (Math.abs(delta) > 0.01) { frame = requestAnimationFrame(tick); return; }
             current = target; paint(current);
+            velocity = 0; driveCar(car.current, 0, 0);
             clearTimeout(idle);
             idle = setTimeout(() => { if (car.current) car.current.dataset.state = 'idle'; }, 450);
         };
@@ -46,7 +52,7 @@ export default function RoadRail({ sections, labels, active, motion, rtl }: { se
         measure(); current = target; paint(current);
         window.addEventListener('scroll', onScroll, { passive: true }); window.addEventListener('resize', onScroll);
         return () => { cancelAnimationFrame(frame); clearTimeout(idle); window.removeEventListener('scroll', onScroll); window.removeEventListener('resize', onScroll); };
-    }, [sections, motion]);
+    }, [sections, motion, rtl]);
 
     const scrub = (event: React.PointerEvent<HTMLDivElement>) => {
         if (!road.current) return;
