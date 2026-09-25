@@ -3,18 +3,21 @@
 import { useEffect, useRef, useState } from 'react';
 import { ArrowUpRight, Play, X } from 'lucide-react';
 import { useLanguage } from '@/context/LanguageContext';
+import { useMotion } from '@/context/MotionContext';
 import { archive } from '@/data/siteContent';
 import { speakingCopy } from '@/data/pagesContent';
 import { asset } from '@/lib/site';
 import Label from '@/components/site/Label';
+import TalkPreview from '@/components/site/TalkPreview';
 import PageBreadcrumb from './PageBreadcrumb';
 
 // /[lang]/speaking — talks, interviews, recognition and cities. All facts come from
 // siteContent.archive; page framing from pagesContent.speakingCopy.
-// The conference talk iframes (youtube-nocookie) and the MP4 players mount only after a click —
-// nothing loads from YouTube on page load, and every video plays inline in its own frame.
+// Talk cards loop a silent local excerpt (TalkPreview); the youtube-nocookie iframe and the MP4
+// players mount only after a click — nothing loads from YouTube on page load, and every video plays inline in its own frame.
 export default function SpeakingPage() {
     const { language } = useLanguage();
+    const { motion } = useMotion();
     const t = archive[language];
     const c = speakingCopy[language];
     const [talk, setTalk] = useState<number | null>(null);
@@ -50,11 +53,9 @@ export default function SpeakingPage() {
                                 {active ? (
                                     <iframe src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${video.start}&autoplay=1&rel=0`} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                                 ) : (
-                                    <button className="speaking-talk-poster" onClick={() => openTalk(i)} aria-label={`${c.play}: ${video.title}`}>
-                                        <img src={asset(video.poster)} alt="" width="1200" height="676" loading="lazy" />
-                                        <span className="speaking-play" aria-hidden="true"><Play size={22} /></span>
+                                    <TalkPreview className="speaking-talk-poster" video={video} image={video.poster} label={t.playSound} motion={motion} onPlay={() => openTalk(i)}>
                                         <span className="eyebrow" dir="ltr">{video.event} · YouTube</span>
-                                    </button>
+                                    </TalkPreview>
                                 )}
                             </div>
                             <div className="speaking-talk-copy">
@@ -63,7 +64,7 @@ export default function SpeakingPage() {
                                 <p>{video.desc}</p>
                                 <small>{c.talkHint}</small>
                                 <button className="text-link" onClick={() => active ? setTalk(null) : openTalk(i)} aria-pressed={active}>
-                                    {active ? t.close : c.play}{active ? <X size={15} /> : <ArrowUpRight size={17} />}
+                                    {active ? t.close : t.playSound}{active ? <X size={15} /> : <ArrowUpRight size={17} />}
                                 </button>
                             </div>
                         </div>

@@ -164,7 +164,8 @@ const mediaRatios = [852 / 478, 9 / 16, 928 / 480, 720 / 480];
 export interface EventItem { tag: string; title: string; desc: string; image: string; }
 export interface MediaItem { tag: string; title: string; desc: string; source: string; video: string; poster: string; duration: string; ratio: number; frames: string[]; }
 export interface NewsItem { source: string; title: string; summary: string; date?: string; image: string; link: string; color: string; long?: boolean; }
-export interface ConferenceVideo { youtubeId: string; start: number; event: string; title: string; desc: string; poster: string; }
+// `slide` = the gallery photo (events index) that plays this talk; `preview` = a silent local excerpt (never YouTube) looped while in view.
+export interface ConferenceVideo { youtubeId: string; start: number; event: string; title: string; desc: string; poster: string; slide: number; preview?: { video: string; poster: string; seconds: number }; }
 
 export interface ArchiveContent {
   careerLabel: string; careerTitle: string; career: [string, string, string][]; toolkit: string;
@@ -172,7 +173,7 @@ export interface ArchiveContent {
   globalLabel: string; globalTitle: [string, string]; globalDesc: string; globalStat: string; globeLabel: string; globeHint: string; rotateLeft: string; rotateRight: string; cities: string;
   recognitionLabel: string; recognitionMore: string; awards: [string, string, string][];
   eventsLabel: string; eventsTitle: string; eventsDesc: string; previous: string; next: string; events: EventItem[];
-  watchConference: string; backToPhotos: string; nowPlaying: string; previousTalk: string; nextTalk: string; conferences: ConferenceVideo[]; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
+  watchConference: string; nowPlaying: string; playSound: string; conferences: ConferenceVideo[]; pausePhotos: string; resumePhotos: string; chooseVideo: string; selectedVideo: string; galleryRunning: string; galleryPaused: string; pressNote: string;
   mediaLabel: string; mediaTitle: [string, string]; mediaDesc: string; play: string; close: string; videoLanguage: string; captionsNote: string; media: MediaItem[];
   newsLabel: string; newsTitle: string; readArticle: string; enlarge: string; featureArticle: string; closeClipping: string; clippingNote: string; longClipping: string; previousClipping: string; nextClipping: string; news: NewsItem[];
 }
@@ -219,10 +220,10 @@ const seed: Record<Language, ArchiveSeed> = {
       ['Research meeting', 'MATSim User Meeting', 'Robust policy evaluation in Jerusalem.'],
       ['Presentation', 'National Transport Strategy', 'Advanced modeling frameworks.'],
     ],
-    watchConference: 'Watch the conference talks', backToPhotos: 'Back to the photos', nowPlaying: 'Now playing', previousTalk: 'Previous talk', nextTalk: 'Next talk',
+    watchConference: 'Watch the conference talks', nowPlaying: 'Now playing', playSound: 'Play with sound',
     conferences: [
-      { youtubeId: 'eJSSTzsxmXI', start: 0, event: 'ISTRC 2026', title: 'ISTRC 2026 · Google Routes to Road Segments', desc: 'Conference talk on travel-time monitoring: matching Google Routes data to road segments, ISTRC 2026.', poster: 'istrc-2026-talk-poster.webp' },
-      { youtubeId: '3inUnuxH_W0', start: 23, event: 'ISTRC 2021', title: 'ISTRC 2021 · Robust Policy Evaluation', desc: 'Conference talk on robust transportation policy evaluation, ISTRC 2021.', poster: 'istrc-talk-poster.webp' },
+      { youtubeId: 'eJSSTzsxmXI', start: 0, event: 'ISTRC 2026', title: 'ISTRC 2026 · Google Routes to Road Segments', desc: 'Conference talk on travel-time monitoring: matching Google Routes data to road segments, ISTRC 2026.', poster: 'istrc-2026-talk-poster.webp', slide: 3 },
+      { youtubeId: '3inUnuxH_W0', start: 23, event: 'ISTRC 2021', title: 'ISTRC 2021 · Robust Policy Evaluation', desc: 'Conference talk on robust transportation policy evaluation, ISTRC 2021.', poster: 'istrc-talk-poster.webp', slide: 6, preview: { video: 'istrc-2021-preview-web.mp4', poster: 'istrc-2021-preview-poster.jpg', seconds: 12 } },
     ],
     pausePhotos: 'Pause photo rotation', resumePhotos: 'Resume photo rotation', chooseVideo: 'Interviews & lectures', selectedVideo: 'Now selected', galleryRunning: 'Photos advance automatically', galleryPaused: 'Photo rotation paused', pressNote: 'Selected national coverage',
     mediaLabel: '05 — WATCH & DISCOVER', mediaTitle: ['Transport, data & AI.', 'In everyday language.'],
@@ -278,10 +279,10 @@ const seed: Record<Language, ArchiveSeed> = {
       ['מפגש מחקר', 'מפגש משתמשי MATSim', 'הערכה חסינה של מדיניות בירושלים.'],
       ['מצגת', 'אסטרטגיית התחבורה הלאומית', 'מסגרות מתקדמות למידול תחבורה.'],
     ],
-    watchConference: 'לצפייה בהרצאות מכנסים', backToPhotos: 'חזרה לתמונות', nowPlaying: 'מתנגן עכשיו', previousTalk: 'להרצאה הקודמת', nextTalk: 'להרצאה הבאה',
+    watchConference: 'לצפייה בהרצאות מכנסים', nowPlaying: 'מתנגן עכשיו', playSound: 'הפעלה עם קול',
     conferences: [
-      { youtubeId: 'eJSSTzsxmXI', start: 0, event: 'ISTRC 2026', title: 'ISTRC 2026 · ממסלולי Google למקטעי דרך', desc: 'הרצאה בכנס ISTRC 2026 על ניטור זמני נסיעה: התאמת נתוני Google Routes למקטעי דרך.', poster: 'istrc-2026-talk-poster.webp' },
-      { youtubeId: '3inUnuxH_W0', start: 23, event: 'ISTRC 2021', title: 'ISTRC 2021 · הערכת מדיניות חסינה', desc: 'הרצאה בכנס ISTRC 2021 על הערכה חסינה של מדיניות תחבורה.', poster: 'istrc-talk-poster.webp' },
+      { youtubeId: 'eJSSTzsxmXI', start: 0, event: 'ISTRC 2026', title: 'ISTRC 2026 · ממסלולי Google למקטעי דרך', desc: 'הרצאה בכנס ISTRC 2026 על ניטור זמני נסיעה: התאמת נתוני Google Routes למקטעי דרך.', poster: 'istrc-2026-talk-poster.webp', slide: 3 },
+      { youtubeId: '3inUnuxH_W0', start: 23, event: 'ISTRC 2021', title: 'ISTRC 2021 · הערכת מדיניות חסינה', desc: 'הרצאה בכנס ISTRC 2021 על הערכה חסינה של מדיניות תחבורה.', poster: 'istrc-talk-poster.webp', slide: 6, preview: { video: 'istrc-2021-preview-web.mp4', poster: 'istrc-2021-preview-poster.jpg', seconds: 12 } },
     ],
     pausePhotos: 'השהיית מעבר התמונות', resumePhotos: 'המשך מעבר התמונות', chooseVideo: 'ראיונות והרצאות', selectedVideo: 'נבחר לצפייה', galleryRunning: 'התמונות מתחלפות אוטומטית', galleryPaused: 'מעבר התמונות מושהה', pressNote: 'סיקור נבחר בעיתונות הארצית',
     mediaLabel: '05 — לצפות ולהכיר', mediaTitle: ['על תחבורה, נתונים ו־AI.', 'בשפה של אנשים.'],
