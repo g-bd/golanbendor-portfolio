@@ -6,6 +6,11 @@ import { ConferenceVideo } from '@/data/siteContent';
 import { asset } from '@/lib/site';
 import AmbientVideo from './AmbientVideo';
 
+// The talk's player URL. `playsinline=1` keeps iPhones inside the frame (without it iOS opens
+// its fullscreen player); iOS may still ask for a second tap before sound, since it ignores
+// `autoplay` with sound in a freshly mounted cross-origin iframe.
+export const talkEmbed = (video: ConferenceVideo) => `https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${video.start}&autoplay=1&playsinline=1&rel=0`;
+
 // A conference talk before it plays: its silent local excerpt loops while in view (via
 // AmbientVideo — never YouTube), or its still when there is no excerpt. Browsers only allow
 // sound after a click/tap (hover is not a user gesture), so the click hands over to YouTube.

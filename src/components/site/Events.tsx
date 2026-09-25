@@ -6,7 +6,7 @@ import { ArchiveContent } from '@/data/siteContent';
 import { asset } from '@/lib/site';
 import Label from './Label';
 import Headline from './Headline';
-import TalkPreview from './TalkPreview';
+import TalkPreview, { talkEmbed } from './TalkPreview';
 
 // 320px filmstrip variant of a photo ("key note 7.jpeg" -> "key note 7-sm.jpg"); the feature frame uses the full file.
 const small = (image: string) => image.replace(/\.jpe?g$/i, '-sm.jpg');
@@ -23,6 +23,7 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
     const [focused, setFocused] = useState(false);
     const [playing, setPlaying] = useState(false);
     const gallery = useRef<HTMLDivElement>(null);
+    const frame = useRef<HTMLDivElement>(null);
     const running = motion && !paused && !interacting && !focused && !playing;
     const video = t.conferences.find(talk => talk.slide === index) ?? null;
     const delay = video?.preview ? video.preview.seconds * 1000 : 5500;
@@ -41,7 +42,16 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
         return () => { clearTimeout(timer); observer.disconnect(); document.removeEventListener('visibilitychange', sync); };
     }, [running, t, index, delay]);
     const selected = t.events[index];
+    // Mouse only: a tap fires pointerenter without a matching leave, which would stop the rotation for good on phones.
+    const hover = (event: React.PointerEvent) => { if (event.pointerType === 'mouse') setInteracting(true); };
     const show = (i: number, play = false) => { setIndex(i); setPlaying(play); };
+    // On phones the filmstrip sits below the frame, so a thumbnail tap would change a photo that is off screen.
+    const pick = (i: number) => {
+        show(i);
+        const box = frame.current?.getBoundingClientRect();
+        const header = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+        if (box && box.top < header) frame.current?.scrollIntoView({ block: 'start', behavior: motion ? 'smooth' : 'instant' });
+    };
     const change = (delta: number) => show((index + delta + t.events.length) % t.events.length);
     const firstTalk = t.conferences[0];
     return (
@@ -50,10 +60,10 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
             onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setFocused(false); }}>
             <div className="row-heading"><div><Label>{t.eventsLabel}</Label><Headline lines={[t.eventsTitle]} /></div><p>{t.eventsDesc}</p></div>
             <div className={`event-feature ${running ? 'gallery-running' : ''}`}>
-                <div className="event-image" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
+                <div ref={frame} className="event-image" onPointerEnter={hover} onPointerLeave={() => setInteracting(false)}>
                     {video && playing ? (
                         <>
-                            <iframe key={video.youtubeId} src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${video.start}&autoplay=1&rel=0`} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                            <iframe key={video.youtubeId} src={talkEmbed(video)} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                             <button className="talk-close" onClick={() => setPlaying(false)}><X size={13} />{t.close}</button>
                         </>
                     ) : video ? (
@@ -66,7 +76,7 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
                     <p className="eyebrow">{video ? video.event : selected.tag}</p>
                     <h3>{video ? video.title : selected.title}</h3>
                     <p>{video ? video.desc : selected.desc}</p>
-                    <div className="event-controls" onMouseEnter={() => setInteracting(true)} onMouseLeave={() => setInteracting(false)}>
+                    <div className="event-controls" onPointerEnter={hover} onPointerLeave={() => setInteracting(false)}>
                         <button className="round-control" onClick={() => change(-1)} aria-label={t.previous}>{rtl ? <ArrowRight size={18} /> : <ArrowLeft size={18} />}</button>
                         <span className="eyebrow" dir="ltr">{String(index + 1).padStart(2, '0')} / {String(t.events.length).padStart(2, '0')}</span>
                         <button className="round-control" onClick={() => change(1)} aria-label={t.next}>{rtl ? <ArrowLeft size={18} /> : <ArrowRight size={18} />}</button>
@@ -86,7 +96,7 @@ export default function Events({ t, rtl, motion }: { t: ArchiveContent; rtl: boo
                 {t.events.map((event, i) => {
                     const talk = t.conferences.find(item => item.slide === i);
                     return (
-                        <button className={index === i ? 'selected' : ''} aria-label={`${i + 1}. ${talk ? talk.title : event.title}`} aria-pressed={index === i} key={event.image} onClick={() => show(i)}>
+                        <button className={index === i ? 'selected' : ''} aria-label={`${i + 1}. ${talk ? talk.title : event.title}`} aria-pressed={index === i} key={event.image} onClick={() => pick(i)}>
                             <img src={asset(small(event.image))} alt="" loading="lazy" />
                             {talk && <span className="filmstrip-talk" aria-hidden="true"><Play size={10} /></span>}
                         </button>

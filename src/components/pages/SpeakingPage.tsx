@@ -8,7 +8,7 @@ import { archive } from '@/data/siteContent';
 import { speakingCopy } from '@/data/pagesContent';
 import { asset } from '@/lib/site';
 import Label from '@/components/site/Label';
-import TalkPreview from '@/components/site/TalkPreview';
+import TalkPreview, { talkEmbed } from '@/components/site/TalkPreview';
 import PageBreadcrumb from './PageBreadcrumb';
 
 // /[lang]/speaking — talks, interviews, recognition and cities. All facts come from
@@ -51,7 +51,7 @@ export default function SpeakingPage() {
                         <div key={video.youtubeId} className={`speaking-talk ${active ? 'is-playing' : ''}`}>
                             <div className="speaking-talk-frame">
                                 {active ? (
-                                    <iframe src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${video.start}&autoplay=1&rel=0`} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                                    <iframe src={talkEmbed(video)} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
                                 ) : (
                                     <TalkPreview className="speaking-talk-poster" video={video} image={video.poster} label={t.playSound} motion={motion} onPlay={() => openTalk(i)}>
                                         <span className="eyebrow" dir="ltr">{video.event} · YouTube</span>
