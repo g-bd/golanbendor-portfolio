@@ -11,18 +11,18 @@ import PageBreadcrumb from './PageBreadcrumb';
 
 // /[lang]/speaking — talks, interviews, recognition and cities. All facts come from
 // siteContent.archive; page framing from pagesContent.speakingCopy.
-// The ISTRC talk iframe (youtube-nocookie) and the MP4 players mount only after a click —
+// The conference talk iframes (youtube-nocookie) and the MP4 players mount only after a click —
 // nothing loads from YouTube on page load, and every video plays inline in its own frame.
 export default function SpeakingPage() {
     const { language } = useLanguage();
     const t = archive[language];
     const c = speakingCopy[language];
-    const [talk, setTalk] = useState(false);
+    const [talk, setTalk] = useState<number | null>(null);
     const [playing, setPlaying] = useState<number | null>(null);
     const player = useRef<HTMLVideoElement>(null);
     const cities = t.cities.split(' · ');
-    const openTalk = () => { setPlaying(null); setTalk(true); };
-    const openMedia = (index: number) => { setTalk(false); setPlaying(index); };
+    const openTalk = (index: number) => { setPlaying(null); setTalk(index); };
+    const openMedia = (index: number) => { setTalk(null); setPlaying(index); };
 
     useEffect(() => {
         if (playing !== null) player.current?.play().catch(() => {});
@@ -42,28 +42,33 @@ export default function SpeakingPage() {
                     <div><Label>{c.talksLabel}</Label><h2 id="speaking-talks">{c.talksTitle}</h2></div>
                     <p>{c.talksDesc}</p>
                 </div>
-                <div className={`speaking-talk ${talk ? 'is-playing' : ''}`}>
-                    <div className="speaking-talk-frame">
-                        {talk ? (
-                            <iframe src={`https://www.youtube-nocookie.com/embed/${t.conference.youtubeId}?start=${t.conference.start}&autoplay=1&rel=0`} title={t.conference.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
-                        ) : (
-                            <button className="speaking-talk-poster" onClick={openTalk} aria-label={t.watchConference}>
-                                <img src="/istrc-talk-poster.webp" alt="" width="1200" height="676" loading="lazy" />
-                                <span className="speaking-play" aria-hidden="true"><Play size={22} /></span>
-                                <span className="eyebrow" dir="ltr">ISTRC 2021 · YouTube</span>
-                            </button>
-                        )}
-                    </div>
-                    <div className="speaking-talk-copy">
-                        <p className="eyebrow">ISTRC 2021</p>
-                        <h3>{t.conference.title}</h3>
-                        <p>{t.conference.desc}</p>
-                        <small>{c.talkHint}</small>
-                        <button className="text-link" onClick={() => talk ? setTalk(false) : openTalk()} aria-pressed={talk}>
-                            {talk ? t.close : t.watchConference}{talk ? <X size={15} /> : <ArrowUpRight size={17} />}
-                        </button>
-                    </div>
-                </div>
+                {t.conferences.map((video, i) => {
+                    const active = talk === i;
+                    return (
+                        <div key={video.youtubeId} className={`speaking-talk ${active ? 'is-playing' : ''}`}>
+                            <div className="speaking-talk-frame">
+                                {active ? (
+                                    <iframe src={`https://www.youtube-nocookie.com/embed/${video.youtubeId}?start=${video.start}&autoplay=1&rel=0`} title={video.title} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen />
+                                ) : (
+                                    <button className="speaking-talk-poster" onClick={() => openTalk(i)} aria-label={`${c.play}: ${video.title}`}>
+                                        <img src={asset(video.poster)} alt="" width="1200" height="676" loading="lazy" />
+                                        <span className="speaking-play" aria-hidden="true"><Play size={22} /></span>
+                                        <span className="eyebrow" dir="ltr">{video.event} · YouTube</span>
+                                    </button>
+                                )}
+                            </div>
+                            <div className="speaking-talk-copy">
+                                <p className="eyebrow">{video.event}</p>
+                                <h3>{video.title}</h3>
+                                <p>{video.desc}</p>
+                                <small>{c.talkHint}</small>
+                                <button className="text-link" onClick={() => active ? setTalk(null) : openTalk(i)} aria-pressed={active}>
+                                    {active ? t.close : c.play}{active ? <X size={15} /> : <ArrowUpRight size={17} />}
+                                </button>
+                            </div>
+                        </div>
+                    );
+                })}
                 <ul className="speaking-grid">
                     {t.events.map((event, i) => (
                         <li key={event.image}>

@@ -13,7 +13,7 @@ import Events from './Events';
 import CountUp from './CountUp';
 
 // Section 04: globe of conference cities, selected recognition, event gallery
-// (the ISTRC talk plays inline inside the gallery frame).
+// (the conference talks play inline inside the gallery frame).
 export default function GlobalStory() {
     const { language, theme } = useLanguage();
     const { motion } = useMotion();
